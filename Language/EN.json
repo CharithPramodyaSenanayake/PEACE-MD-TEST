@@ -5,7 +5,7 @@
   
     "STRINGS": {
         "main": {
-          "VER": "V 8.0.0",
+          "VER": "V 1.0.0",
           "NOT_OWNER": "💭 *Only bot owner can use this feature !*",
           "NOT_GC": "💭 *This feature can only be used in groups !*",
           "NOT_PC": "💭 *This feature can only be used in personal chats !*",
@@ -15,9 +15,9 @@
           "SONG_UP": "*Uploading your song* 📤",
           "VID_DOWN": "*Downloading your video* 📥",
           "VID_UP": "Uploading your video 📤",
-          "HI_REP": "*Hello* 🌝",
+          "HI_REP": "*PEACE* ✌",
            "MESS_WAIT": "💭 That's right",
-          "MK_REP": "*Mukuth na anee. Oya mk* 🙂",
+          "MK_REP": "*Mukuth na anee. Oya mk* ✌",
           "GM_REP": "*Good Morning* 🌅",
           "GN_REP": "*Good Night* 🌌",
           "HMM_REP": "*Hmm hmm* 😒",
