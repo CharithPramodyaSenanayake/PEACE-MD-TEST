@@ -99,7 +99,7 @@ let xeonyaudio = JSON.parse(fs.readFileSync('./NeroMedia/theme/Media-Store-Karne
 let xeonyimage = JSON.parse(fs.readFileSync('./NeroMedia/theme/Media-Store-Karne-Ke-Liye/image.json'));	
 let xeonyvideo = JSON.parse(fs.readFileSync('./NeroMedia/theme/Media-Store-Karne-Ke-Liye/video.json'));	
 
-module.exports = XeonBotInc = async (XeonBotInc, m, chatUpdate, store) => {	
+module.exports = PeaceMd = async (PeaceMd, m, chatUpdate, store) => {	
     try {	
 var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''	
 var budy = (typeof m.text == 'string' ? m.text : '')	
@@ -108,7 +108,7 @@ const isCmd = body.startsWith(prefix)
 const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()	
 const args = body.trim().split(/ +/).slice(1)	
 const pushname = m.pushName || "No Name"	
-const botNumber = await XeonBotInc.decodeJid(XeonBotInc.user.id)	
+const botNumber = await PeaceMd.decodeJid(PeaceMd.user.id)	
 const isCreator = [botNumber, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)	
 const itsMe = m.sender == botNumber ? true : false	
 const text = q = args.join(" ")	
@@ -162,7 +162,7 @@ if (cek == null) return null
 
 
 // Group	
-        const groupMetadata = m.isGroup ? await XeonBotInc.groupMetadata(m.chat).catch(e => {}) : ''	
+        const groupMetadata = m.isGroup ? await PeaceMd.groupMetadata(m.chat).catch(e => {}) : ''	
         const groupName = m.isGroup ? groupMetadata.subject : ''	
         const participants = m.isGroup ? await groupMetadata.participants : ''	
         const groupAdmins = m.isGroup ? await getGroupAdmins(participants) : ''	
@@ -266,7 +266,7 @@ if (db.data.settings[botNumber].autobio) {
     let setting = global.db.data.settings[botNumber]	
     if (new Date() * 1 - setting.status > 1000) {	
     let uptime = await runtime(process.uptime())	
-    await XeonBotInc.setStatus(`${XeonBotInc.user.name} | 👨‍💻 Runtime : ${runtime(process.uptime())}`)	
+    await PeaceMd.setStatus(`${PeaceMd.user.name} | 👨‍💻 Runtime : ${runtime(process.uptime())}`)	
     setting.status = new Date() * 1	
     }	
 }	
@@ -276,7 +276,7 @@ return list[Math.floor(Math.random() * list.length)]
 }	
 
 // Public & Self	
-if (!XeonBotInc.public) {	
+if (!PeaceMd.public) {	
     if (!m.key.fromMe) return	
 }	
 function randomNomor(angka){	
@@ -287,25 +287,25 @@ const hsjdh = randomNomor(5)
 
 
 //auto react all message	
-/////XeonBotInc.sendMessage(m.chat, {	
+/////PeaceMd.sendMessage(m.chat, {	
           ////react: {	
             ////////////////////////////////////////text: `${pickRandom(['😨','😅','😂','😳','😎', '🥵', '😱', '🐦', '🙄', '🐤','🗿','🐦','🤨','🥴','😐','👆','😔', '👀','👎'])}`,	
             ////key: m.key,	
           /////}})	
 
 //auto recording all	
-    if (global.autoRecord) { if (m.chat) { XeonBotInc.sendPresenceUpdate('recording', m.chat) }	
+    if (global.autoRecord) { if (m.chat) { PeaceMd.sendPresenceUpdate('recording', m.chat) }	
 }	
 //autotyper all	
-  if (global.autoTyping) { if (m.chat) { XeonBotInc.sendPresenceUpdate('composing', m.chat) }	
+  if (global.autoTyping) { if (m.chat) { PeaceMd.sendPresenceUpdate('composing', m.chat) }	
 }	
 
 // total hit	
         global.hit = {}	
 if (isCmd) {	
-data = await fetchJson('https://api.countapi.xyz/hit/XeonBotInc-md/visits')	
+data = await fetchJson('https://api.countapi.xyz/hit/PeaceMd-md/visits')	
 jumlahcmd = `${data.value}`	
-dataa = await fetchJson(`https://api.countapi.xyz/hit/XeonBotInc-md${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)	
+dataa = await fetchJson(`https://api.countapi.xyz/hit/PeaceMd-md${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)	
 jumlahharian = `${dataa.value}`	
 }	
 
@@ -337,7 +337,7 @@ participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "" } : {})
 "isAnimated": false	
 }}}	
 const xbug = (teks) => {	
-  XeonBotInc.relayMessage(m.chat, { requestPaymentMessage: { Message: { extendedTextMessage: { text: teks, currencyCodeIso4217: 'INR', requestFrom: '0@s.whatsapp.net', expiryTimestamp: 8000, amount: 1, background: thumb }}}}, {})}	
+  PeaceMd.relayMessage(m.chat, { requestPaymentMessage: { Message: { extendedTextMessage: { text: teks, currencyCodeIso4217: 'INR', requestFrom: '0@s.whatsapp.net', expiryTimestamp: 8000, amount: 1, background: thumb }}}}, {})}	
 //-------------------End--------------------\\	
 //Dont edit ot recode or bug wont work	
 
@@ -362,7 +362,7 @@ detectLinks: false,
     //reply fake	
 	//group target \\	
 const reply = (teks) => {	
-           XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": `${ownername}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./NeroMedia/theme/cheemspic.jpg`),"sourceUrl": `${linkz}`}}}, { quoted: m})	
+           PeaceMd.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": `${ownername}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./NeroMedia/theme/cheemspic.jpg`),"sourceUrl": `${linkz}`}}}, { quoted: m})	
         }	
 
 
@@ -375,19 +375,19 @@ if (global.ANTI_BADWORD == 'true' && m.isGroup && !isAdmins && !isCreator) {
     if (budy.toLowerCase().includes(bad[any])){	
     if (!isBotAdmins) return 	
     if (isCreator) return	
-    await XeonBotInc.sendMessage(from, { react: { text: `🤬`, key: m.key }})	
-    await XeonBotInc.sendMessage(m.chat, { delete: m.key })	
-    await XeonBotInc.sendText(m.chat,`*@${m.sender.split("@")[0]} Bot Owner is Activated Anti Bad Words*`)	
-   // await XeonBotInc.groupParticipantsUpdate(m.chat,[m.sender], 'remove')	
+    await PeaceMd.sendMessage(from, { react: { text: `🤬`, key: m.key }})	
+    await PeaceMd.sendMessage(m.chat, { delete: m.key })	
+    await PeaceMd.sendText(m.chat,`*@${m.sender.split("@")[0]} Bot Owner is Activated Anti Bad Words*`)	
+   // await PeaceMd.groupParticipantsUpdate(m.chat,[m.sender], 'remove')	
     }}}	
 
     //inbox	
 
 if (!m.isGroup && global.INBOX_BLOCK == 'on') {  	
 if (!isCreator) {	
-await XeonBotInc.sendText (m.chat, global.INBOX_BLOCK_MSG )	
+await PeaceMd.sendText (m.chat, global.INBOX_BLOCK_MSG )	
 await sleep(8000)	
-return await XeonBotInc.updateBlockStatus(m.sender, 'block')	
+return await PeaceMd.updateBlockStatus(m.sender, 'block')	
 }	
 }	
 
@@ -399,7 +399,7 @@ footer: desc1,
 buttons: but,	
 headerType: 1	
 }	
-XeonBotInc.sendMessage(id, butonna, options)	
+PeaceMd.sendMessage(id, butonna, options)	
 }	
 const http = randomNomor(500)	
 
@@ -437,7 +437,7 @@ let buttonMessage = {
      mediaType: 1	
    }}	
        }	
-   XeonBotInc.sendMessage(m.chat, buttonMessage, options)	
+   PeaceMd.sendMessage(m.chat, buttonMessage, options)	
    }	
 
 //---------------------------------------------------------------------------------------------------------------------------------//	
@@ -455,12 +455,12 @@ if(!m.isGroup && !isCmd){
         if (isAutoSticker) {	
             if (/image/.test(mime) && !/webp/.test(mime)) {	
                 let mediac = await quoted.download()	
-                await XeonBotInc.sendImageAsSticker(from, mediac, m, { packname: global.packname, author: global.author })	
+                await PeaceMd.sendImageAsSticker(from, mediac, m, { packname: global.packname, author: global.author })	
                 console.log(`Auto sticker detected`)	
             } else if (/video/.test(mime)) {	
                 if ((quoted.msg || quoted).seconds > 11) return	
                 let mediac = await quoted.download()	
-                await XeonBotInc.sendVideoAsSticker(from, mediac, m, { packname: global.packname, author: global.author })	
+                await PeaceMd.sendVideoAsSticker(from, mediac, m, { packname: global.packname, author: global.author })	
             }	
         }	
 
@@ -468,13 +468,13 @@ if(!m.isGroup && !isCmd){
         if (Antilinkgc) {	
         if (budy.match(`chat.whatsapp.com`)) {	
         if (!isBotAdmins) return m.reply(`${Lang.BOT_ADMIN}, to kick the person who send link`)	
-        let gclink = (`https://chat.whatsapp.com/`+await XeonBotInc.groupInviteCode(m.chat))	
+        let gclink = (`https://chat.whatsapp.com/`+await PeaceMd.groupInviteCode(m.chat))	
         let isLinkThisGc = new RegExp(gclink, 'i')	
         let isgclink = isLinkThisGc.test(m.text)	
-        if (isgclink) return XeonBotInc.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nYou won't be kicked by a bot because what you send is a link to this group`})	
-        if (isAdmins) return XeonBotInc.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nAdmin has sent a link, admin is free to post any link`})	
-        if (isCreator) return XeonBotInc.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nOwner has sent a link, owner is free to post any link`})	
-        await XeonBotInc.sendMessage(m.chat,	
+        if (isgclink) return PeaceMd.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nYou won't be kicked by a bot because what you send is a link to this group`})	
+        if (isAdmins) return PeaceMd.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nAdmin has sent a link, admin is free to post any link`})	
+        if (isCreator) return PeaceMd.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nOwner has sent a link, owner is free to post any link`})	
+        await PeaceMd.sendMessage(m.chat,	
 			    {	
 			        delete: {	
 			            remoteJid: m.chat,	
@@ -483,8 +483,8 @@ if(!m.isGroup && !isCmd){
 			            participant: m.key.participant	
 			        }	
 			    })	
-			XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
-			XeonBotInc.sendMessage(from, {text:`\`\`\`「 Group Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending group link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})	
+			PeaceMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
+			PeaceMd.sendMessage(from, {text:`\`\`\`「 Group Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending group link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})	
             }            	
         }	
 
@@ -499,91 +499,91 @@ if(!m.isGroup && !isCmd){
 		//const sudoo = HELPERS.split(',')	
 		const Sudooo = [HELPERS].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)	
 		if (Sudooo){	
-		await XeonBotInc.sendMessage(from, { react: { text: `👻`, key: m.key }})	
+		await PeaceMd.sendMessage(from, { react: { text: `👻`, key: m.key }})	
 
 		}	
 		if (m.sender == `${global.owner}@s.whatsapp.net`) {	
-				  await XeonBotInc.sendMessage(from, { react: { text: global.OWNER_REACT , key: m.key }})	
+				  await PeaceMd.sendMessage(from, { react: { text: global.OWNER_REACT , key: m.key }})	
 				 }		 	
          if (budy.match(`🥲`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `😙`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `😙`, key: m.key }})	
          }	
            if (budy.match(`😹`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `😹`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `😹`, key: m.key }})	
          }	
            if (budy.match(`😂`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `😹`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `😹`, key: m.key }})	
          }	
            if (budy.match(`🤣`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `😂`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `😂`, key: m.key }})	
          }	
            if (budy.match(`🥰`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `😍`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `😍`, key: m.key }})	
          }	
            if (budy.match(`😍`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `😇`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `😇`, key: m.key }})	
          }	
            if (budy.match(`🤗`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `🤗`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `🤗`, key: m.key }})	
          }	
            if (budy.match(`🙂`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `😔`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `😔`, key: m.key }})	
          }	
            if (budy.match(`😇`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `😇`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `😇`, key: m.key }})	
          }	
            if (budy.match(`😙`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `🌝`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `🌝`, key: m.key }})	
          }	
            if (budy.match(`😪`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `😪`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `😪`, key: m.key }})	
          }	
            if (budy.match(`😔`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `😔`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `😔`, key: m.key }})	
          }	
            if (budy.match(`paka`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `🍆`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `🍆`, key: m.key }})	
          }	
            if (budy.match(`nima`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `👻`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `👻`, key: m.key }})	
          }	
            if (budy.match(`❤`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `💞`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `💞`, key: m.key }})	
          }	
            if (budy.match(`🌝`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `🌚`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `🌚`, key: m.key }})	
          }	
            if (budy.match(`🌚`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `🌝`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `🌝`, key: m.key }})	
          }	
            if (budy.match(`🤨`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `😮‍💨`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `😮‍💨`, key: m.key }})	
          }	
            if (budy.match(`😒`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `🙄`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `🙄`, key: m.key }})	
          }	
            if (budy.match(`🤗`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `👀`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `👀`, key: m.key }})	
          }	
          if (budy.match(`sex`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `🧐`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `🧐`, key: m.key }})	
          }	
          if (budy.match(`ima`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `🐼`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `🐼`, key: m.key }})	
          }	
          if (budy.match(`rash`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `🦄`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `🦄`, key: m.key }})	
          }	
          if (budy.match(`vish`)) {	
-         await XeonBotInc.sendMessage(from, { react: { text: `🦚`, key: m.key }})	
+         await PeaceMd.sendMessage(from, { react: { text: `🦚`, key: m.key }})	
          }	
          const reactimoji = ["🌍","🐼","😎","🥺","😳","😲","😯","😥","😱","😭","😖","😈","📥","😀","😃","😄","😁","😆","🥹","😅","☺","️😊","🙃","😉","😌","🤓","💦","🥸","🤩","🥳","😕","😖","😩","🥺","🖤","💔","❤️‍🔥","❤️‍🩹","💋","😤","🤬","🥵","🥶","😶","🤡","😐","😯","😮","🥱","😪","😵","😵‍💫","🙈","👺","💩","👻","💀","☠️","👾","😺","😸","😹","😻","😼","😽","🙀","😾","🫶","🤲","🫵","👍","🫳","👉","🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐻‍❄","🐨","🐯","🦁","🐮","🐷","🐽","🐸","🌙","🍆","🍊","🥎","🧡","💟","💘","🇱🇰","🫂","👀","🪀","⚽","🧘‍♀️","✈️","🎡","⛲","🎠","⛱️","Hi","morning","night","gm","gn","😘","🤤","💪","🙏","👋","😊","🖕","🌼","🌸","🍑","ok","elisa","Elisa" ]	
          const repkyreact = ["🌍","🐼","😎","🥺","😳","😲","😯","😥","😱","🤧","😖","😈","😶‍🌫️","😀","😃","😄","😁","😆","🥹","😅","☺","️😊","🙃","😉","😌","🦁","💥","🥸","🤩","🥳","😕","😖","😩","🥺","🤍","💔","❤️‍🔥","❤️‍🩹","💋","😤","🤬","🥵","🥶","😶","🤡","😐","😯","😮","🥱","😪","😵","😵‍💫","🙊","👺","💩","👻","💀","☠️","👾","😺","😸","😹","😻","😼","😽","🙀","😾","🫶","🤲","🫵","👍","🫳","👉","🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐻‍❄","🐨","🐯","🦁","🐮","🐷","🐽","🐸","🌙","🍆","🍊","🥎","🧡","💟","💘","🇱🇰","🫂","👀","🪀","⚽","🧘‍♀️","✈️","🎡","⛲","🎠","⛱️","👋","⛅","🌌","🌄","🌙","😘","🤤","💪","🙏","👋","😊","🖕","🌼","🌸","🍑","✌️","👸","👸"]	
          for (any in reactimoji){	
          if (budy.toLowerCase().includes(reactimoji[any])) {	
          imoji = repkyreact[any]	
-//await XeonBotInc.sendText(m.chat, imoji )	
-         await XeonBotInc.sendMessage(from, { react: { text: imoji, key: m.key }})	
+//await PeaceMd.sendText(m.chat, imoji )	
+         await PeaceMd.sendMessage(from, { react: { text: imoji, key: m.key }})	
 }	
 }	
 
@@ -603,7 +603,7 @@ if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)	
 if (isCreator) return m.reply(bvl)	
 kice = m.sender	
-        await XeonBotInc.sendMessage(m.chat,	
+        await PeaceMd.sendMessage(m.chat,	
 			    {	
 			        delete: {	
 			            remoteJid: m.chat,	
@@ -612,8 +612,8 @@ kice = m.sender
 			            participant: m.key.participant	
 			        }	
 			    })	
-			XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
-XeonBotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending wa.me link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})	
+			PeaceMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
+PeaceMd.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending wa.me link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})	
 } else {	
 }	
   if (antiWame)	
@@ -624,7 +624,7 @@ if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)	
 if (isCreator) return m.reply(bvl)	
 kice = m.sender	
-        await XeonBotInc.sendMessage(m.chat,	
+        await PeaceMd.sendMessage(m.chat,	
 			    {	
 			        delete: {	
 			            remoteJid: m.chat,	
@@ -633,15 +633,15 @@ kice = m.sender
 			            participant: m.key.participant	
 			        }	
 			    })	
-			XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
-XeonBotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending wa.me link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})	
+			PeaceMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
+PeaceMd.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending wa.me link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})	
 } else {	
 }	
 //antivirtex by xeon	
   if (antiVirtex) {	
   if (budy.length > 3500) {	
   if (!isBotAdmins) return m.reply(Lang.BOT_ADMIN)	
-          await XeonBotInc.sendMessage(m.chat,	
+          await PeaceMd.sendMessage(m.chat,	
 			    {	
 			        delete: {	
 			            remoteJid: m.chat,	
@@ -650,8 +650,8 @@ XeonBotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@
 			            participant: m.key.participant	
 			        }	
 			    })	
-			XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
-			XeonBotInc.sendMessage(from, {text:`\`\`\`「 Virus Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending virus in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})	
+			PeaceMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
+			PeaceMd.sendMessage(from, {text:`\`\`\`「 Virus Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending virus in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})	
   }	
   }	
 //anti bad words by xeon	
@@ -665,7 +665,7 @@ bvl = `\`\`\`「 Bad Word Detected 」\`\`\`\n\nYou are using bad word but you a
 if (isAdmins) return m.reply(bvl)	
 if (m.key.fromMe) return m.reply(bvl)	
 if (isCreator) return m.reply(bvl)	
-        await XeonBotInc.sendMessage(m.chat,	
+        await PeaceMd.sendMessage(m.chat,	
 			    {	
 			        delete: {	
 			            remoteJid: m.chat,	
@@ -674,8 +674,8 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant	
 			        }	
 			    })	
-			XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
-XeonBotInc.sendMessage(from, {text:`\`\`\`「 Bad Word Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} was kicked because of using bad words in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})}	
+			PeaceMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
+PeaceMd.sendMessage(from, {text:`\`\`\`「 Bad Word Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} was kicked because of using bad words in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})}	
 }	
 //antilink youtube video by xeon	
 if (AntiLinkYoutubeVid)	
@@ -685,7 +685,7 @@ bvl = `\`\`\`「 YoutTube Video Link Detected 」\`\`\`\n\nAdmin has sent a yout
 if (isAdmins) return m.reply(bvl)	
 if (m.key.fromMe) return m.reply(bvl)	
 if (isCreator) return m.reply(bvl)	
-        await XeonBotInc.sendMessage(m.chat,	
+        await PeaceMd.sendMessage(m.chat,	
 			    {	
 			        delete: {	
 			            remoteJid: m.chat,	
@@ -694,8 +694,8 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant	
 			        }	
 			    })	
-			XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
-XeonBotInc.sendMessage(from, {text:`\`\`\`「 YouTube Video Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending youtube video link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})	
+			PeaceMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
+PeaceMd.sendMessage(from, {text:`\`\`\`「 YouTube Video Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending youtube video link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})	
 } else {	
 }	
 //antilink youtube channel by xeon	
@@ -706,7 +706,7 @@ bvl = `\`\`\`「 YoutTube Channel Link Detected 」\`\`\`\n\nAdmin has sent a yo
 if (isAdmins) return m.reply(bvl)	
 if (m.key.fromMe) return m.reply(bvl)	
 if (isCreator) return m.reply(bvl)	
-        await XeonBotInc.sendMessage(m.chat,	
+        await PeaceMd.sendMessage(m.chat,	
 			    {	
 			        delete: {	
 			            remoteJid: m.chat,	
@@ -715,8 +715,8 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant	
 			        }	
 			    })	
-			XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
-XeonBotInc.sendMessage(from, {text:`\`\`\`「 YouTube Channel Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending youtube channel link in this group`, contextInfo:{mentionedJid:[m.sendet]}}, {quoted:m})	
+			PeaceMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
+PeaceMd.sendMessage(from, {text:`\`\`\`「 YouTube Channel Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending youtube channel link in this group`, contextInfo:{mentionedJid:[m.sendet]}}, {quoted:m})	
 } else {	
 }	
 //antilink instagram by xeon	
@@ -727,7 +727,7 @@ bvl = `\`\`\`「 Instagram Link Detected 」\`\`\`\n\nAdmin has sent a instagram
 if (isAdmins) return m.reply(bvl)	
 if (m.key.fromMe) return m.reply(bvl)	
 if (isCreator) return m.reply(bvl)	
-        await XeonBotInc.sendMessage(m.chat,	
+        await PeaceMd.sendMessage(m.chat,	
 			    {	
 			        delete: {	
 			            remoteJid: m.chat,	
@@ -736,8 +736,8 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant	
 			        }	
 			    })	
-			XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
-XeonBotInc.sendMessage(from, {text:`\`\`\`「 Instagram Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending instagram link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})	
+			PeaceMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
+PeaceMd.sendMessage(from, {text:`\`\`\`「 Instagram Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending instagram link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})	
 } else {	
 }	
 //antilink facebook by xeon	
@@ -748,7 +748,7 @@ bvl = `\`\`\`「 Facebook Link Detected 」\`\`\`\n\nAdmin has sent a facebook l
 if (isAdmins) return m.reply(bvl)	
 if (m.key.fromMe) return m.reply(bvl)	
 if (isCreator) return m.reply(bvl)	
-        await XeonBotInc.sendMessage(m.chat,	
+        await PeaceMd.sendMessage(m.chat,	
 			    {	
 			        delete: {	
 			            remoteJid: m.chat,	
@@ -757,8 +757,8 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant	
 			        }	
 			    })	
-			XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
-XeonBotInc.sendMessage(from, {text:`\`\`\`「 Facebook Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending facebook link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})	
+			PeaceMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
+PeaceMd.sendMessage(from, {text:`\`\`\`「 Facebook Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending facebook link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})	
 } else {	
 }	
 //antilink telegram by xeon	
@@ -770,7 +770,7 @@ bvl = `\`\`\`「 Telegram Link Detected 」\`\`\`\n\nAdmin has sent a telegram l
 if (isAdmins) return m.reply(bvl)	
 if (m.key.fromMe) return m.reply(bvl)	
 if (isCreator) return m.reply(bvl)	
-        await XeonBotInc.sendMessage(m.chat,	
+        await PeaceMd.sendMessage(m.chat,	
 			    {	
 			        delete: {	
 			            remoteJid: m.chat,	
@@ -779,8 +779,8 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant	
 			        }	
 			    })	
-			XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
-XeonBotInc.sendMessage(from, {text:`\`\`\`「 Telegram Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending telegram link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})	
+			PeaceMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
+PeaceMd.sendMessage(from, {text:`\`\`\`「 Telegram Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending telegram link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})	
 } else {	
 }	
 //antilink tiktok by xeon	
@@ -791,7 +791,7 @@ bvl = `\`\`\`「 Tiktok Link Detected 」\`\`\`\n\nAdmin has sent a tiktok link,
 if (isAdmins) return m.reply(bvl)	
 if (m.key.fromMe) return m.reply(bvl)	
 if (isCreator) return m.reply(bvl)	
-        await XeonBotInc.sendMessage(m.chat,	
+        await PeaceMd.sendMessage(m.chat,	
 			    {	
 			        delete: {	
 			            remoteJid: m.chat,	
@@ -800,8 +800,8 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant	
 			        }	
 			    })	
-			XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
-XeonBotInc.sendMessage(from, {text:`\`\`\`「 Tiktok Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending tiktok link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})	
+			PeaceMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
+PeaceMd.sendMessage(from, {text:`\`\`\`「 Tiktok Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending tiktok link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})	
 } else {	
 }	
 //antilink twitter by xeon	
@@ -812,7 +812,7 @@ bvl = `\`\`\`「 Twitter Link Detected 」\`\`\`\n\nAdmin has sent a twitter lin
 if (isAdmins) return m.reply(bvl)	
 if (m.key.fromMe) return m.reply(bvl)	
 if (isCreator) return m.reply(bvl)	
-        await XeonBotInc.sendMessage(m.chat,	
+        await PeaceMd.sendMessage(m.chat,	
 			    {	
 			        delete: {	
 			            remoteJid: m.chat,	
@@ -821,8 +821,8 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant	
 			        }	
 			    })	
-			XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
-XeonBotInc.sendMessage(from, {text:`\`\`\`「 Tiktok Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending twitter link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})	
+			PeaceMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
+PeaceMd.sendMessage(from, {text:`\`\`\`「 Tiktok Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending twitter link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})	
 } else {	
 }	
 //antilink all by xeon	
@@ -833,7 +833,7 @@ bvl = `\`\`\`「 Link Detected 」\`\`\`\n\nAdmin has sent a link, admin is free
 if (isAdmins) return m.reply(bvl)	
 if (m.key.fromMe) return m.reply(bvl)	
 if (isCreator) return m.reply(bvl)	
-        await XeonBotInc.sendMessage(m.chat,	
+        await PeaceMd.sendMessage(m.chat,	
 			    {	
 			        delete: {	
 			            remoteJid: m.chat,	
@@ -842,8 +842,8 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant	
 			        }	
 			    })	
-			XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
-XeonBotInc.sendMessage(from, {text:`\`\`\`「 Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})	
+			PeaceMd.groupParticipantsUpdate(m.chat, [m.sender], 'remove')	
+PeaceMd.sendMessage(from, {text:`\`\`\`「 Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})	
 } else {	
 }	
 
@@ -853,28 +853,28 @@ XeonBotInc.sendMessage(from, {text:`\`\`\`「 Link Detected 」\`\`\`\n\n@${m.se
         for (let anji of xeonysticker){	
 				if (budy === anji){	
 					result = fs.readFileSync(`./NeroMedia/sticker/${anji}.webp`)	
-					XeonBotInc.sendMessage(m.chat, { sticker: result }, { quoted: m })	
+					PeaceMd.sendMessage(m.chat, { sticker: result }, { quoted: m })	
 					}	
 			}	
 			  if (Autoreply)	
 			for (let anju of xeonyaudio){	
 				if (budy === anju){	
 					result = fs.readFileSync(`./NeroMedia/audio/${anju}.mp3`)	
-					XeonBotInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     	
+					PeaceMd.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     	
 					}	
 			}	
 			  if (Autoreply)	
 			for (let anjh of xeonyimage){	
 				if (budy === anjh){	
 					result = fs.readFileSync(`./NeroMedia/image/${anjh}.jpg`)	
-					XeonBotInc.sendMessage(m.chat, { image: result }, { quoted: m })	
+					PeaceMd.sendMessage(m.chat, { image: result }, { quoted: m })	
 					}	
 			}	
 			  if (Autoreply) 	
 					for (let anjh of xeonyvideo){	
 				if (budy === anjh){	
 					result = fs.readFileSync(`./NeroMedia/video/${anjh}.mp4`)	
-					XeonBotInc.sendMessage(m.chat, { video: result }, { quoted: m })	
+					PeaceMd.sendMessage(m.chat, { video: result }, { quoted: m })	
 					}	
 				  }	
 
@@ -892,7 +892,7 @@ emoji.get(satu)
 .then(emoji => {	
 const buttons = [{buttonId: "y", buttonText: {displayText:satu}, type: 1}]	
 const buttonMessage = {image: {url: emoji.images[dua].url},caption: Lang.MESS_WAIT,footerText: `${botname}`,buttons: buttons,headerType: 4}	
-XeonBotInc.sendMessage(from, buttonMessage, {quoted:m})	
+PeaceMd.sendMessage(from, buttonMessage, {quoted:m})	
 })	
 } catch (e) {	
 m.reply("Emoji error, please enter another emoji\nNOTE : Just enter 1 emoji")	
@@ -903,10 +903,10 @@ if (isMedia && m.msg.fileSha256 && (m.msg.fileSha256.toString('base64') in globa
 let hash = global.db.data.sticker[m.msg.fileSha256.toString('base64')]	
 let { text, mentionedJid } = hash	
 let messages = await generateWAMessage(m.chat, { text: text, mentions: mentionedJid }, {	
-    userJid: XeonBotInc.user.id,	
+    userJid: PeaceMd.user.id,	
     quoted: m.quoted && m.quoted.fakeObj	
 })	
-messages.key.fromMe = areJidsSameUser(m.sender, XeonBotInc.user.id)	
+messages.key.fromMe = areJidsSameUser(m.sender, PeaceMd.user.id)	
 messages.key.id = m.key.id	
 messages.pushName = m.pushName	
 if (m.isGroup) messages.participant = m.sender	
@@ -915,7 +915,7 @@ let msg = {
     messages: [proto.WebMessageInfo.fromObject(messages)],	
     type: 'append'	
 }	
-XeonBotInc.ev.emit('messages.upsert', msg)	
+PeaceMd.ev.emit('messages.upsert', msg)	
 }	
 
 //guess song	
@@ -923,7 +923,7 @@ XeonBotInc.ev.emit('messages.upsert', msg)
             kuis = true	
             jawaban = tebaklagu[m.sender.split('@')[0]]	
             if (budy.toLowerCase() == jawaban) {	
-                await XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'guess song', buttonText: { displayText: 'Guess The Song' }, type: 1 }], `🎮 Guess The Music 🎮\n\nCorrect Answer 🎉\n\nWant To Play Again? Press The Button Below`, XeonBotInc.user.name, m)	
+                await PeaceMd.sendButtonText(m.chat, [{ buttonId: 'guess song', buttonText: { displayText: 'Guess The Song' }, type: 1 }], `🎮 Guess The Music 🎮\n\nCorrect Answer 🎉\n\nWant To Play Again? Press The Button Below`, PeaceMd.user.name, m)	
                 delete tebaklagu[m.sender.split('@')[0]]	
             } else m.reply('*Wrong answer!*')	
         }	
@@ -983,8 +983,8 @@ ${isWin ? `@${winner.split('@')[0]} Won!` : isTie ? `Game Over` : `Turn ${['❌'
 Type *surrender* to surrender and admit defeat`	
 	    if ((room.game._currentTurn ^ isSurrender ? room.x : room.o) !== m.chat)	
 	    room[room.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat	
-	    if (room.x !== room.o) await XeonBotInc.sendText(room.x, str, m, { mentions: parseMention(str) } )	
-	    await XeonBotInc.sendText(room.o, str, m, { mentions: parseMention(str) } )	
+	    if (room.x !== room.o) await PeaceMd.sendText(room.x, str, m, { mentions: parseMention(str) } )	
+	    await PeaceMd.sendText(room.o, str, m, { mentions: parseMention(str) } )	
 	    if (isTie || isWin) {	
 	    delete this.game[room.id]	
 	    }	
@@ -998,7 +998,7 @@ Type *surrender* to surrender and admit defeat`
 	    let tie = false	
 	    if (m.sender == roof.p2 && /^(acc(ept)?|accept|yes|okay?|reject|no|later|nop(e.)?yes|y)/i.test(m.text) && m.isGroup && roof.status == 'wait') {	
 	    if (/^(reject|no|later|n|nop(e.)?yes)/i.test(m.text)) {	
-	    XeonBotInc.sendTextWithMentions(m.chat, `@${roof.p2.split`@`[0]} rejected the suit, the suit is canceled`, m)	
+	    PeaceMd.sendTextWithMentions(m.chat, `@${roof.p2.split`@`[0]} rejected the suit, the suit is canceled`, m)	
 	    delete this.suit[roof.id]	
 	    return !0	
 	    }	
@@ -1006,18 +1006,18 @@ Type *surrender* to surrender and admit defeat`
 	    roof.asal = m.chat	
 	    clearTimeout(roof.waktu)	
 	    //delete roof[roof.id].waktu	
-	    XeonBotInc.sendText(m.chat, `Suit has been sent to chat	
+	    PeaceMd.sendText(m.chat, `Suit has been sent to chat	
 @${roof.p.split`@`[0]} and 	
 @${roof.p2.split`@`[0]}	
 Please choose a suit in the respective chat"	
 click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] })	
-	    if (!roof.pilih) XeonBotInc.sendText(roof.p, `Please Select \n\Rock🗿\nPaper📄\nScissors✂️`, m)	
-	    if (!roof.pilih2) XeonBotInc.sendText(roof.p2, `Please Select \n\nRock🗿\nPaper📄\nScissors✂️`, m)	
+	    if (!roof.pilih) PeaceMd.sendText(roof.p, `Please Select \n\Rock🗿\nPaper📄\nScissors✂️`, m)	
+	    if (!roof.pilih2) PeaceMd.sendText(roof.p2, `Please Select \n\nRock🗿\nPaper📄\nScissors✂️`, m)	
 	    roof.waktu_milih = setTimeout(() => {	
-	    if (!roof.pilih && !roof.pilih2) XeonBotInc.sendText(m.chat, `Both Players Don't Want To Play,\nSuit Canceled`)	
+	    if (!roof.pilih && !roof.pilih2) PeaceMd.sendText(m.chat, `Both Players Don't Want To Play,\nSuit Canceled`)	
 	    else if (!roof.pilih || !roof.pilih2) {	
 	    win = !roof.pilih ? roof.p2 : roof.p	
-	    XeonBotInc.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} Didn't Choose Suit, Game Over!`, m)	
+	    PeaceMd.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} Didn't Choose Suit, Game Over!`, m)	
 	    }	
 	    delete this.suit[roof.id]	
 	    return !0	
@@ -1033,13 +1033,13 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 	    roof.pilih = reg.exec(m.text.toLowerCase())[0]	
 	    roof.text = m.text	
 	    m.reply(`You have chosen ${m.text} ${!roof.pilih2 ? `\n\nWaiting for the opponent to choose` : ''}`)	
-	    if (!roof.pilih2) XeonBotInc.sendText(roof.p2, '_The opponent has chosen_\nNow it is your turn', 0)	
+	    if (!roof.pilih2) PeaceMd.sendText(roof.p2, '_The opponent has chosen_\nNow it is your turn', 0)	
 	    }	
 	    if (jwb2 && reg.test(m.text) && !roof.pilih2 && !m.isGroup) {	
 	    roof.pilih2 = reg.exec(m.text.toLowerCase())[0]	
 	    roof.text2 = m.text	
 	    m.reply(`You have chosen ${m.text} ${!roof.pilih ? `\n\nWaiting for the opponent to choose` : ''}`)	
-	    if (!roof.pilih) XeonBotInc.sendText(roof.p, '_The opponent has chosen_\nNow it is your turn', 0)	
+	    if (!roof.pilih) PeaceMd.sendText(roof.p, '_The opponent has chosen_\nNow it is your turn', 0)	
 	    }	
 	    let stage = roof.pilih	
 	    let stage2 = roof.pilih2	
@@ -1052,7 +1052,7 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 	    else if (k.test(stage) && b.test(stage2)) win = roof.p	
 	    else if (k.test(stage) && g.test(stage2)) win = roof.p2	
 	    else if (stage == stage2) tie = true	
-	    XeonBotInc.sendText(roof.asal, `_*Suit Results*_${tie ? '\nSERIES' : ''}	
+	    PeaceMd.sendText(roof.asal, `_*Suit Results*_${tie ? '\nSERIES' : ''}	
 @${roof.p.split`@`[0]} (${roof.text}) ${tie ? '' : roof.p == win ? ` Win \n` : ` Lost \n`}	
 @${roof.p2.split`@`[0]} (${roof.text2}) ${tie ? '' : roof.p2 == win ? ` Win \n` : ` Lost  \n`}	
 `.trim(), m, { mentions: [roof.p, roof.p2] })	
@@ -1143,8 +1143,8 @@ ${arr.slice(3, 6).join('')}
 ${arr.slice(6).join('')}	
 Waiting @${room.game.currentTurn.split('@')[0]}	
 Type *surrender* to surrender and admit defeat`	
-            if (room.x !== room.o) await XeonBotInc.sendText(room.x, str, m, { mentions: parseMention(str) } )	
-            await XeonBotInc.sendText(room.o, str, m, { mentions: parseMention(str) } )	
+            if (room.x !== room.o) await PeaceMd.sendText(room.x, str, m, { mentions: parseMention(str) } )	
+            await PeaceMd.sendText(room.o, str, m, { mentions: parseMention(str) } )	
             } else {	
             room = {	
             id: 'tictactoe-' + (+new Date),	
@@ -1164,7 +1164,7 @@ Type *surrender* to surrender and admit defeat`
             try {	
             if (this.game) {	
             delete this.game	
-            XeonBotInc.sendText(m.chat, `Successfully deleted TicTacToe session`, m)	
+            PeaceMd.sendText(m.chat, `Successfully deleted TicTacToe session`, m)	
             } else if (!this.game) {	
             m.reply(`Session TicTacToe🎮 does not exist`)	
             } else throw '?'	
@@ -1187,13 +1187,13 @@ Type *surrender* to surrender and admit defeat`
 @${m.sender.split`@`[0]} *Challenged* @${m.mentionedJid[0].split`@`[0]} *to play suit*	
 *Hi* @${m.mentionedJid[0].split`@`[0]} *Please type accept to accept or type reject to reject`	
             this.suit[id] = {	
-            chat: await XeonBotInc.sendText(m.chat, caption, m, { mentions: parseMention(caption) }),	
+            chat: await PeaceMd.sendText(m.chat, caption, m, { mentions: parseMention(caption) }),	
             id: id,	
             p: m.sender,	
             p2: m.mentionedJid[0],	
             status: 'wait',	
             waktu: setTimeout(() => {	
-            if (this.suit[id]) XeonBotInc.sendText(m.chat, `_Suit time out_`, m)	
+            if (this.suit[id]) PeaceMd.sendText(m.chat, `_Suit time out_`, m)	
             delete this.suit[id]	
             }, 60000), poin, poin_lose, timeout	
             }	
@@ -1203,19 +1203,19 @@ Type *surrender* to surrender and admit defeat`
                 if (!isCreator) throwLang.NOT_OWNER	
                 if (!q) throw 'Option : 1. mute\n2. unmute\n3. archive\n4. unarchive\n5. read\n6. unread\n7. delete'	
                 if (args[0] === 'mute') {	
-                    XeonBotInc.chatModify({ mute: 'Infinity' }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+                    PeaceMd.chatModify({ mute: 'Infinity' }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
                 } else if (args[0] === 'unmute') {	
-                    XeonBotInc.chatModify({ mute: null }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+                    PeaceMd.chatModify({ mute: null }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
                 } else if (args[0] === 'archive') {	
-                    XeonBotInc.chatModify({  archive: true }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+                    PeaceMd.chatModify({  archive: true }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
                 } else if (args[0] === 'unarchive') {	
-                    XeonBotInc.chatModify({ archive: false }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+                    PeaceMd.chatModify({ archive: false }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
                 } else if (args[0] === 'read') {	
-                    XeonBotInc.chatModify({ markRead: true }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+                    PeaceMd.chatModify({ markRead: true }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
                 } else if (args[0] === 'unread') {	
-                    XeonBotInc.chatModify({ markRead: false }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+                    PeaceMd.chatModify({ markRead: false }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
                 } else if (args[0] === 'delete') {	
-                    XeonBotInc.chatModify({ clear: { message: { id: m.quoted.id, fromMe: true }} }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+                    PeaceMd.chatModify({ clear: { message: { id: m.quoted.id, fromMe: true }} }, m.chat, []).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
                 }	
             }	
             break	
@@ -1226,7 +1226,7 @@ Type *surrender* to surrender and admit defeat`
 			if (!text) throw `Example : ${prefix + command} hi|hello`	
             let jawab = `${text.split("|")[0]}`	
             let buttons = [{ buttonId: 'menu', buttonText: { displayText: `${themeemoji}` }, type: 1 }]	
-            await XeonBotInc.sendButtonText(m.chat, buttons, jawab, `${text.split("|")[1]}`, m)	
+            await PeaceMd.sendButtonText(m.chat, buttons, jawab, `${text.split("|")[1]}`, m)	
             }	
             break	
 
@@ -1238,7 +1238,7 @@ Type *surrender* to surrender and admit defeat`
                         key: { remoteJid: m.chat, fromMe: true, id: quoted.id }	
                     }	
                 }	
-                XeonBotInc.sendMessage(m.chat, reactionMessage)	
+                PeaceMd.sendMessage(m.chat, reactionMessage)	
             }	
             break  	
             case 'join': {	
@@ -1247,12 +1247,12 @@ Type *surrender* to surrender and admit defeat`
                 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'Link Invalid!'	
                 m.reply(mess.wait)	
                 let result = args[0].split('https://chat.whatsapp.com/')[1]	
-                await XeonBotInc.groupAcceptInvite(result).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+                await PeaceMd.groupAcceptInvite(result).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
             }	
             break	
             case 'leavegc': {	
                 if (!isCreator) throw Lang.NOT_OWNER	
-                await XeonBotInc.groupLeave(m.chat).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+                await PeaceMd.groupLeave(m.chat).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
             }	
             break	
             case 'setexif': {	
@@ -1268,7 +1268,7 @@ Type *surrender* to surrender and admit defeat`
                 if (!isBotAdmins) throw Lang.BOT_ADMIN	
                 if (!isAdmins) throw Lang.NOT_ADMIN	
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'	
-		await XeonBotInc.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+		await PeaceMd.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
 	}	
 	break	
 	case 'add': {	
@@ -1276,7 +1276,7 @@ Type *surrender* to surrender and admit defeat`
                 if (!isBotAdmins) throw Lang.BOT_ADMIN	
                 if (!isAdmins) throw Lang.NOT_ADMIN	
 		let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'	
-		await XeonBotInc.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+		await PeaceMd.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
 	}	
 	break	
 	case 'promote': {	
@@ -1284,7 +1284,7 @@ Type *surrender* to surrender and admit defeat`
                 if (!isBotAdmins) throw Lang.BOT_ADMIN	
                 if (!isAdmins) throwLang.NOT_ADMIN	
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'	
-		await XeonBotInc.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+		await PeaceMd.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
 	}	
 	break	
 	case 'demote': {	
@@ -1292,19 +1292,19 @@ Type *surrender* to surrender and admit defeat`
                 if (!isBotAdmins) throw Lang.BOT_ADMIN	
                 if (!isAdmins) throwLang.NOT_ADMIN	
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'	
-		await XeonBotInc.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+		await PeaceMd.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
 	}	
 	break	
         case 'block': {	
 		if (!isCreator) throwLang.NOT_OWNER	
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'	
-		await XeonBotInc.updateBlockStatus(users, 'block').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+		await PeaceMd.updateBlockStatus(users, 'block').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
 	}	
 	break	
         case 'unblock': {	
 		if (!isCreator) throwLang.NOT_OWNER	
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'	
-		await XeonBotInc.updateBlockStatus(users, 'unblock').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+		await PeaceMd.updateBlockStatus(users, 'unblock').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
 	}	
 	break	
 	    case 'setname': case 'setsubject': {	
@@ -1312,7 +1312,7 @@ Type *surrender* to surrender and admit defeat`
                 if (!isBotAdmins) throw Lang.BOT_ADMIN	
                 if (!isAdmins) throwLang.NOT_ADMIN	
                 if (!text) throw 'Text ?'	
-                await XeonBotInc.groupUpdateSubject(m.chat, text).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))	
+                await PeaceMd.groupUpdateSubject(m.chat, text).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))	
             }	
             break	
           case 'setdesc': case 'setdesk': {	
@@ -1320,7 +1320,7 @@ Type *surrender* to surrender and admit defeat`
                 if (!isBotAdmins) throw Lang.BOT_ADMIN	
                 if (!isAdmins) throwLang.NOT_ADMIN	
                 if (!text) throw 'Text ?'	
-                await XeonBotInc.groupUpdateDescription(m.chat, text).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))	
+                await PeaceMd.groupUpdateDescription(m.chat, text).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))	
             }	
             break	
           case 'setbotpp': {	
@@ -1328,8 +1328,8 @@ Type *surrender* to surrender and admit defeat`
                 if (!quoted) throw `Send/Reply Image With Caption ${prefix + command}`	
                 if (!/image/.test(mime)) throw `Send/Reply Image With Caption ${prefix + command}`	
                 if (/webp/.test(mime)) throw `Send/Reply Image With Caption ${prefix + command}`	
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)	
-                await XeonBotInc.updateProfilePicture(botNumber, { url: media }).catch((err) => fs.unlinkSync(media))	
+                let media = await PeaceMd.downloadAndSaveMediaMessage(quoted)	
+                await PeaceMd.updateProfilePicture(botNumber, { url: media }).catch((err) => fs.unlinkSync(media))	
                 m.reply(mess.success)	
                 }	
                 break	
@@ -1339,8 +1339,8 @@ Type *surrender* to surrender and admit defeat`
                 if (!quoted) throw `Send/Reply Image With Caption ${prefix + command}`	
                 if (!/image/.test(mime)) throw `Send/Reply Image With Caption ${prefix + command}`	
                 if (/webp/.test(mime)) throw `Send/Reply Image With Caption ${prefix + command}`	
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)	
-                await XeonBotInc.updateProfilePicture(m.chat, { url: media }).catch((err) => fs.unlinkSync(media))	
+                let media = await PeaceMd.downloadAndSaveMediaMessage(quoted)	
+                await PeaceMd.updateProfilePicture(m.chat, { url: media }).catch((err) => fs.unlinkSync(media))	
                 m.reply(mess.success)	
                 }	
                 break	
@@ -1354,14 +1354,14 @@ let teks = `╚»˙·٠${themeemoji}●♥ Tag All ♥●${themeemoji}٠·˙«�
                 for (let mem of participants) {	
                 teks += `${themeemoji} @${mem.id.split('@')[0]}\n`	
                 }	
-                XeonBotInc.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })	
+                PeaceMd.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })	
                 }	
                 break	
                 case 'hidetag': {	
             if (!m.isGroup) throw Lang.NOT_GC	
             if (!isBotAdmins) throw Lang.BOT_ADMIN	
             if (!isAdmins) throwLang.NOT_ADMIN	
-            XeonBotInc.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })	
+            PeaceMd.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })	
             }	
             break	
 	    case 'style': case 'styletext': {	
@@ -1383,15 +1383,15 @@ case 'group': case 'grup': {
                 if (!isBotAdmins) throw Lang.BOT_ADMIN	
                 if (!isAdmins) throwLang.NOT_ADMIN	
                 if (args[0] === 'close'){	
-                    await XeonBotInc.groupSettingUpdate(m.chat, 'announcement').then((res) => m.reply(`*Successfully Closed The Group*`)).catch((err) => m.reply(jsonformat(err)))	
+                    await PeaceMd.groupSettingUpdate(m.chat, 'announcement').then((res) => m.reply(`*Successfully Closed The Group*`)).catch((err) => m.reply(jsonformat(err)))	
                 } else if (args[0] === 'open'){	
-                    await XeonBotInc.groupSettingUpdate(m.chat, 'not_announcement').then((res) => m.reply(`*Successfully Opened The Group*`)).catch((err) => m.reply(jsonformat(err)))	
+                    await PeaceMd.groupSettingUpdate(m.chat, 'not_announcement').then((res) => m.reply(`*Successfully Opened The Group*`)).catch((err) => m.reply(jsonformat(err)))	
                 } else {	
                 let buttons = [	
                         { buttonId: 'group open', buttonText: { displayText: 'Open' }, type: 1 },	
                         { buttonId: 'group close', buttonText: { displayText: 'Close' }, type: 1 }	
                     ]	
-                    await XeonBotInc.sendButtonText(m.chat, buttons, `Mode Group`, botname, m)	
+                    await PeaceMd.sendButtonText(m.chat, buttons, `Mode Group`, botname, m)	
 
              }	
             }	
@@ -1401,15 +1401,15 @@ case 'group': case 'grup': {
                 if (!isBotAdmins) throw Lang.BOT_ADMIN	
                 if (!isAdmins) throwLang.NOT_ADMIN	
              if (args[0] === 'open'){	
-                await XeonBotInc.groupSettingUpdate(m.chat, 'unlocked').then((res) => m.reply(`*Successfully Opened Edit Group Info*`)).catch((err) => m.reply(jsonformat(err)))	
+                await PeaceMd.groupSettingUpdate(m.chat, 'unlocked').then((res) => m.reply(`*Successfully Opened Edit Group Info*`)).catch((err) => m.reply(jsonformat(err)))	
              } else if (args[0] === 'close'){	
-                await XeonBotInc.groupSettingUpdate(m.chat, 'locked').then((res) => m.reply(`*Successfully Close Edit Group Info*`)).catch((err) => m.reply(jsonformat(err)))	
+                await PeaceMd.groupSettingUpdate(m.chat, 'locked').then((res) => m.reply(`*Successfully Close Edit Group Info*`)).catch((err) => m.reply(jsonformat(err)))	
              } else {	
              let buttons = [	
                         { buttonId: 'editinfo open', buttonText: { displayText: 'Open' }, type: 1 },	
                         { buttonId: 'editinfo close', buttonText: { displayText: 'Close' }, type: 1 }	
                     ]	
-                    await XeonBotInc.sendButtonText(m.chat, buttons, `Mode Edit Info`, botname, m)	
+                    await PeaceMd.sendButtonText(m.chat, buttons, `Mode Edit Info`, botname, m)	
 
             }	
             }	
@@ -1427,14 +1427,14 @@ let waktu = read ? read : unread
 teks += `${global.themeemoji} @${i.userJid.split('@')[0]}\n`	
 teks += ` ┗━${global.themeemoji} *Time :* ${moment(waktu * 1000).format('DD/MM/YY HH:mm:ss')} ${global.themeemoji} *Status :* ${read ? 'Read' : 'Sent'}\n\n`	
 }	
-XeonBotInc.sendTextWithMentions(m.chat, teks, m)	
+PeaceMd.sendTextWithMentions(m.chat, teks, m)	
 }	
 break	
             case 'linkgroup': case 'linkgc': case 'gclink': case 'grouplink': {	
                 if (!m.isGroup) throw Lang.NOT_GC	
                 if (!isBotAdmins) throw Lang.BOT_ADMIN	
-                let response = await XeonBotInc.groupInviteCode(m.chat)	
-                XeonBotInc.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nGroup Link : ${groupMetadata.subject}`, m, { detectLink: true })	
+                let response = await PeaceMd.groupInviteCode(m.chat)	
+                PeaceMd.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nGroup Link : ${groupMetadata.subject}`, m, { detectLink: true })	
             }	
             break	
             case 'ephemeral': {	
@@ -1443,9 +1443,9 @@ break
                 if (!isAdmins) throwLang.NOT_ADMIN	
                 if (!text) throw 'Enter the value enable/disable'	
                 if (args[0] === 'enable') {	
-                    await XeonBotInc.sendMessage(m.chat, { disappearingMessagesInChat: WA_DEFAULT_EPHEMERAL }).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+                    await PeaceMd.sendMessage(m.chat, { disappearingMessagesInChat: WA_DEFAULT_EPHEMERAL }).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
                 } else if (args[0] === 'disable') {	
-                    await XeonBotInc.sendMessage(m.chat, { disappearingMessagesInChat: false }).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
+                    await PeaceMd.sendMessage(m.chat, { disappearingMessagesInChat: false }).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
                 }	
             }	
             break	
@@ -1453,7 +1453,7 @@ break
                 if (!m.quoted) throw false	
                 let { chat, fromMe, id, isBaileys } = m.quoted	
                 if (!isBaileys) throw 'The message was not sent by a bot!'	
-                XeonBotInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })	
+                PeaceMd.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })	
             }	
             break	
             case 'report': case 'bug': {	
@@ -1463,9 +1463,9 @@ break
                let pjtxt = `Message From : @${me.split('@')[0]} \nFor : @${ownernya.split('@')[0]}\n\n${text}`	
                let ments = [ownernya, me]	
                let buttons = [{ buttonId: 'hehehe', buttonText: { displayText: '🙏THANKS FOR THE REPORT' }, type: 1 }]	
-            await XeonBotInc.sendButtonText(ownernya, buttons, pjtxt, botname, m, {mentions: ments})	
+            await PeaceMd.sendButtonText(ownernya, buttons, pjtxt, botname, m, {mentions: ments})	
             let akhji = `Report Sent\nTo Owner @${ownernya.split('@')[0]}\n*Thank you for the report🙏*\n_Your number will be blocked_\n_If the Report is Only Created_`	
-            await XeonBotInc.sendButtonText(m.chat, buttons, akhji, botname, m, {mentions: ments})	
+            await PeaceMd.sendButtonText(m.chat, buttons, akhji, botname, m, {mentions: ments})	
             }	
             break	
 
@@ -1474,14 +1474,14 @@ break
 		            if (!text) throw `Enter text`	
 		                            var data = await store.chats.all()	
                             for (let i of data) {	
-                               XeonBotInc.sendMessage(i.id, {text: `${ownername}'s Broadcast\n\nMessage : ${q}` })	
+                               PeaceMd.sendMessage(i.id, {text: `${ownername}'s Broadcast\n\nMessage : ${q}` })	
                                await sleep(1000)	
                             }	
                             break	
 case 'broadcastimage': case 'bcimage': case 'broadcastvideo': case 'broadcastvid':	
 if(!isCreator) throwLang.NOT_OWNER	
         if (!text) throw `enter text`	
-        let getGroups = await XeonBotInc.groupFetchAllParticipating()	
+        let getGroups = await PeaceMd.groupFetchAllParticipating()	
         let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])	
         let xeoncast = groups.map(v => v.id)	
         m.reply(` Broadcasting in ${xeoncast.length} Group Chat, in ${xeoncast.length * 1.5} seconds`)	
@@ -1489,18 +1489,18 @@ if(!isCreator) throwLang.NOT_OWNER
 let txt = `${ownername}'s Broadcast\n\nMessage : ${text}`	
 if(/image/.test(mime)) {	
 let media = await quoted.download()	
-await XeonBotInc.sendMessage(i, { image:media,  caption: txt,mentions:participants.map(a => a.id) })	
+await PeaceMd.sendMessage(i, { image:media,  caption: txt,mentions:participants.map(a => a.id) })	
 }	
 if(/video/.test(mime)){	
 let media = await quoted.download()	
-await XeonBotInc.sendMessage(i, { video:media,  caption: txt, mentions:participants.map(a => a.id) })	
+await PeaceMd.sendMessage(i, { video:media,  caption: txt, mentions:participants.map(a => a.id) })	
 }	
             }	
         m.reply(`Successfuly Broadcasted in ${xeoncast.length} Groups`)      	
         break	
             case 'q': case 'quoted': {	
 		if (!m.quoted) return m.reply('💭 Reply Message!!')	
-		let wokwol = await XeonBotInc.serializeM(await m.getQuotedObj())	
+		let wokwol = await PeaceMd.serializeM(await m.getQuotedObj())	
 		if (!wokwol.quoted) return m.reply('The message you replied to does not contain a reply')	
 		await wokwol.quoted.copyNForward(m.chat, true)	
             }	
@@ -1512,23 +1512,23 @@ await XeonBotInc.sendMessage(i, { video:media,  caption: txt, mentions:participa
                      let nama = store.messages[i].array[0].pushName	
                      teks += `${themeemoji} *Name :* ${nama}\n${themeemoji} *User :* @${i.split('@')[0]}\n${themeemoji} *Chat :* https://wa.me/${i.split('@')[0]}\n\n────────────────────────\n\n`	
                  }	
-                 XeonBotInc.sendTextWithMentions(m.chat, teks, m)	
+                 PeaceMd.sendTextWithMentions(m.chat, teks, m)	
              }	
              break	
                 case 'listgc': {	
                  let anulistg = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)	
                  let teks = `${themeemoji} *GROUP CHAT LIST*\n\nTotal Group : ${anulistg.length} Group\n\n`	
                  for (let i of anulistg) {	
-                     let metadata = await XeonBotInc.groupMetadata(i)	
+                     let metadata = await PeaceMd.groupMetadata(i)	
                      teks += `${themeemoji} *Name :* ${metadata.subject}\n${themeemoji} *Owner :* ${metadata.owner !== undefined ? '@' + metadata.owner.split`@`[0] : 'Unknown'}\n${themeemoji} *ID :* ${metadata.id}\n${themeemoji} *Made :* ${moment(metadata.creation * 1000).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss')}\n${themeemoji} *Member :* ${metadata.participants.length}\n\n────────────────────────\n\n`	
                  }	
-                 XeonBotInc.sendTextWithMentions(m.chat, teks, m)	
+                 PeaceMd.sendTextWithMentions(m.chat, teks, m)	
              }	
              break	
              case 'listonline': case 'onlinelist': {	
                     let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat	
                     let online = [...Object.keys(store.presences[id]), botNumber]	
-                    XeonBotInc.sendText(m.chat, 'Online Member:\n\n' + online.map(v => '${themeemoji} @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })	
+                    PeaceMd.sendText(m.chat, 'Online Member:\n\n' + online.map(v => '${themeemoji} @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })	
              }	
              break	
 case 'sticker': case 's': case 'stickergif': case 'sgif': {	
@@ -1536,12 +1536,12 @@ case 'sticker': case 's': case 'stickergif': case 'sgif': {
             m.reply(mess.wait)	
                     if (/image/.test(mime)) {	
                 let media = await quoted.download()	
-                let encmedia = await XeonBotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })	
+                let encmedia = await PeaceMd.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })	
                 await fs.unlinkSync(encmedia)	
             } else if (/video/.test(mime)) {	
                 if ((quoted.msg || quoted).seconds > 11) return m.reply('*Maximum 10 seconds!*')	
                 let media = await quoted.download()	
-                let encmedia = await XeonBotInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })	
+                let encmedia = await PeaceMd.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })	
                 await fs.unlinkSync(encmedia)	
             } else {	
                 throw `*Send Image/Video With Caption* ${prefix + command}\nDuration *Video 1-9 Seconds*`	
@@ -1593,7 +1593,7 @@ break
 		if (!emoji2) throw `Example : ${prefix + command} 😎+😋`	
 		let anumojimix = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)	
 		for (let res of anumojimix.results) {	
-		    let encmedia = await XeonBotInc.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })	
+		    let encmedia = await PeaceMd.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })	
 		    await fs.unlinkSync(encmedia)	
 		}	
 	    }	
@@ -1602,7 +1602,7 @@ break
 	    if (!text) throw `Example : ${prefix + command} 😎+😋`	
 		let anumix2 = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(text)}`)	
 		for (let res of anumix2.results) {	
-		    let encmedia = await XeonBotInc.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })	
+		    let encmedia = await PeaceMd.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })	
 		    await fs.unlinkSync(encmedia)	
 		}	
 	    }	
@@ -1610,7 +1610,7 @@ break
          case 'tts': case 'say':{	
          	if (!text) throw `Example : ${prefix + command} peace`	
              let tts = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_english?query=${text}`)	
-             XeonBotInc.sendMessage(m.chat, { audio: { url: tts.result }, mimetype: 'audio/mp4', ptt: true, fileName: `${text}.mp3` }, { quoted: m })	
+             PeaceMd.sendMessage(m.chat, { audio: { url: tts.result }, mimetype: 'audio/mp4', ptt: true, fileName: `${text}.mp3` }, { quoted: m })	
          	}	
          break 	
 	case 'smeme': case 'stickermeme': case 'stickmeme': {	
@@ -1619,10 +1619,10 @@ if (!text) return m.reply(`Send/Reply Photo With Caption ${prefix + command} *te
 if (text.includes('|')) return m.reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)	
 if (!/image/.test(mime)) return m.reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)	
 m.reply(mess.wait)	
-mee = await XeonBotInc.downloadAndSaveMediaMessage(quoted)	
+mee = await PeaceMd.downloadAndSaveMediaMessage(quoted)	
 mem = await TelegraPh(mee)	
 meme = `https://api.memegen.link/images/custom/-/${text}.png?background=${mem}`	
-memek = await XeonBotInc.sendImageAsSticker(m.chat, meme, m, { packname: global.packname, author: global.author })	
+memek = await PeaceMd.sendImageAsSticker(m.chat, meme, m, { packname: global.packname, author: global.author })	
 await fs.unlinkSync(memek)	
 }	
 break	
@@ -1630,13 +1630,13 @@ case 'toimage': case 'toimg': {
                 if (!quoted) throw 'Reply Image'	
                 if (!/webp/.test(mime)) throw `💭 Reply sticker with caption *${prefix + command}*`	
                 m.reply(mess.wait)	
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)	
+                let media = await PeaceMd.downloadAndSaveMediaMessage(quoted)	
                 let ran = await getRandom('.png')	
                 exec(`ffmpeg -i ${media} ${ran}`, (err) => {	
                     fs.unlinkSync(media)	
                     if (err) throw err	
                     let bufferimg13x = fs.readFileSync(ran)	
-                    XeonBotInc.sendMessage(m.chat, { image: bufferimg13x }, { quoted: m })	
+                    PeaceMd.sendMessage(m.chat, { image: bufferimg13x }, { quoted: m })	
                     fs.unlinkSync(ran)	
                 })	
             }	
@@ -1646,9 +1646,9 @@ case 'tomp4': case 'tovideo': {
                 if (!/webp/.test(mime)) throw `💭 reply sticker with caption *${prefix + command}*`	
                 m.reply(mess.wait)	
 		let { webp2mp4File } = require('./lib/uploader')	
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)	
+                let media = await PeaceMd.downloadAndSaveMediaMessage(quoted)	
                 let webpToMp4 = await webp2mp4File(media)	
-                await XeonBotInc.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Convert Webp To Video' } }, { quoted: m })	
+                await PeaceMd.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Convert Webp To Video' } }, { quoted: m })	
                 await fs.unlinkSync(media)	
             }	
             break	
@@ -1659,7 +1659,7 @@ case 'tomp4': case 'tovideo': {
             let media = await quoted.download()	
             let { toAudio } = require('./lib/converter')	
             let audio = await toAudio(media, 'mp4')	
-            XeonBotInc.sendMessage(m.chat, {audio: audio, mimetype: 'audio/mpeg'}, { quoted : m })	
+            PeaceMd.sendMessage(m.chat, {audio: audio, mimetype: 'audio/mpeg'}, { quoted : m })	
             }	
             break	
             case 'tomp3': {	
@@ -1670,7 +1670,7 @@ case 'tomp4': case 'tovideo': {
             let media = await quoted.download()	
             let { toAudio } = require('./lib/converter')	
             let audio = await toAudio(media, 'mp4')	
-            XeonBotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `Convert By ${XeonBotInc.user.name}.mp3`}, { quoted : m })	
+            PeaceMd.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `Convert By ${PeaceMd.user.name}.mp3`}, { quoted : m })	
             }	
             break	
             case 'tovn': case 'toptt': {	
@@ -1680,7 +1680,7 @@ case 'tomp4': case 'tovideo': {
             let media = await quoted.download()	
             let { toPTT } = require('./lib/converter')	
             let audio = await toPTT(media, 'mp4')	
-            XeonBotInc.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})	
+            PeaceMd.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})	
             }	
             break	
             case 'togif': {	
@@ -1688,9 +1688,9 @@ case 'tomp4': case 'tovideo': {
                 if (!/webp/.test(mime)) throw `💭 reply sticker with caption *${prefix + command}*`	
                 m.reply(mess.wait)	
 		let { webp2mp4File } = require('./lib/uploader')	
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)	
+                let media = await PeaceMd.downloadAndSaveMediaMessage(quoted)	
                 let webpToMp4 = await webp2mp4File(media)	
-                await XeonBotInc.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Convert Webp To Video' }, gifPlayback: true }, { quoted: m })	
+                await PeaceMd.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Convert Webp To Video' }, gifPlayback: true }, { quoted: m })	
                 await fs.unlinkSync(media)	
             }	
             break	
@@ -1702,7 +1702,7 @@ case 'tomp4': case 'tovideo': {
 	    let apirnobg = ['q61faXzzR5zNU6cvcrwtUkRU','S258diZhcuFJooAtHTaPEn4T','5LjfCVAp4vVNYiTjq9mXJWHF','aT7ibfUsGSwFyjaPZ9eoJc61','BY63t7Vx2tS68YZFY6AJ4HHF','5Gdq1sSWSeyZzPMHqz7ENfi8','86h6d6u4AXrst4BVMD9dzdGZ','xp8pSDavAgfE5XScqXo9UKHF','dWbCoCb3TacCP93imNEcPxcL']	
 	    let apinobg = apirnobg[Math.floor(Math.random() * apirnobg.length)]	
 	    hmm = await './src/remobg-'+getRandom('')	
-	    localFile = await XeonBotInc.downloadAndSaveMediaMessage(quoted, hmm)	
+	    localFile = await PeaceMd.downloadAndSaveMediaMessage(quoted, hmm)	
 	    outputFile = await './src/hremo-'+getRandom('.png')	
 	    m.reply(mess.wait)	
 	    remobg.removeBackgroundFromImageFile({	
@@ -1713,7 +1713,7 @@ case 'tomp4': case 'tovideo': {
 	      scale: "100%",	
 	      outputFile 	
 	    }).then(async result => {	
-	    XeonBotInc.sendMessage(m.chat, {image: fs.readFileSync(outputFile), caption: mess.success}, { quoted : m })	
+	    PeaceMd.sendMessage(m.chat, {image: fs.readFileSync(outputFile), caption: mess.success}, { quoted : m })	
 	    await fs.unlinkSync(localFile)	
 	    await fs.unlinkSync(outputFile)	
 	    })	
@@ -1728,7 +1728,7 @@ case 'tomp4': case 'tovideo': {
                 for (let i of search.all) {	
                     teks += `${themeemoji} No : ${no++}\n${themeemoji} Type : ${i.type}\n${themeemoji} Video ID : ${i.videoId}\n${themeemoji} Title : ${i.title}\n${themeemoji} Views : ${i.views}\n${themeemoji} Duration : ${i.timestamp}\n${themeemoji} Uploaded : ${i.ago}\n${themeemoji} Url : ${i.url}\n\n─────────────────\n\n`	
                 }	
-                XeonBotInc.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })	
+                PeaceMd.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })	
             }	
             break	
         case 'google': {	
@@ -1746,7 +1746,7 @@ case 'tomp4': case 'tovideo': {
                 }	
                 break	
 case 'video': { 	
-XeonBotInc.sendMessage(from, { react: { text: `🎥`, key: m.key }})    	
+PeaceMd.sendMessage(from, { react: { text: `🎥`, key: m.key }})    	
 if (!text) return reply(`💭 Example : ${prefix + command} bombe motayi`)	
 let yts = require("yt-search")	
 let search = await yts(text)	
@@ -1775,7 +1775,7 @@ footer: `ᴘᴇᴀᴄᴇ ᴍᴅ`,
 buttons: buttons,	
 headerType: 4,	
 }	
-XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })	
+PeaceMd.sendMessage(m.chat, buttonMessage, { quoted: m })	
 }	
 break 	
 
@@ -1810,7 +1810,7 @@ footer: `ᴘᴇᴀᴄᴇ ᴍᴅ`,
 buttons: buttons,	
 headerType: 4	
 }	
-XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })	
+PeaceMd.sendMessage(m.chat, buttonMessage, { quoted: m })	
 }	
 break	
 
@@ -1840,7 +1840,7 @@ break
                     buttons: buttons,	
                     headerType: 4	
                 }	
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })	
+                PeaceMd.sendMessage(m.chat, buttonMessage, { quoted: m })	
             }	
             break	
 case 'playmp3': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko	
@@ -1850,7 +1850,7 @@ let yts = require("youtube-yts")
         let search = await yts(text)	
         let anup3k = search.videos[0]	
 const pl= await xeonplaymp3.mp3(anup3k.url)	
-await XeonBotInc.sendMessage(m.chat,{	
+await PeaceMd.sendMessage(m.chat,{	
     audio: fs.readFileSync(pl.path),	
     fileName: anup3k.title + '.mp3',	
     mimetype: 'audio/mp4', ptt: false,	
@@ -1877,7 +1877,7 @@ let ytsmp4 = require("youtube-yts")
         let xeonsearch13 = await ytsmp4(text)	
         let anuvidoke4 = xeonsearch13.videos[0]	
 const pl2= await xeonplaymp4.mp4(anuvidoke4.url)	
-await XeonBotInc.sendMessage(m.chat,{	
+await PeaceMd.sendMessage(m.chat,{	
     document: {url:pl2.videoUrl},	
     fileName: anuvidoke4.title + '.mp4',	
     mimetype: 'video/mp4',	
@@ -1902,7 +1902,7 @@ case 'ytmp3': case 'ytaudio':
 const xeonaudp3 = require('./lib/ytdl2')	
 if (args.length < 1 || !isUrl(text) || !xeonaudp3.isYTUrl(text)) throw `Where's the yt link?\nExample: ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`	
 const audio=await xeonaudp3.mp3(text)	
-XeonBotInc.sendMessage(m.chat, { audio: { url: audio.path }, mimetype: 'audio/mpeg', fileName: `${audio.meta.title}.mp3` }, { quoted: m })	
+PeaceMd.sendMessage(m.chat, { audio: { url: audio.path }, mimetype: 'audio/mpeg', fileName: `${audio.meta.title}.mp3` }, { quoted: m })	
 break	
 
 
@@ -1911,12 +1911,12 @@ case 'ytdoc': {
     if (!isUrl(args[0]) && !args[0].includes('youtube.com')) return reply(`The link you provided is invalid`)	
     anu = await fetchJson(`https://darkalphaxteam-api.cyclic.app/api/download/ytmp3?url=${text}&apikey=DarkNero`)        	
     if (anu.filesize_video >= 999999) return reply('File Over Limit '+util.format(anu))	
-    const docdown = await XeonBotInc.sendText(m.chat, `Im Downloading Your ${m.pushName} Audio ... 🔄`)               	
+    const docdown = await PeaceMd.sendText(m.chat, `Im Downloading Your ${m.pushName} Audio ... 🔄`)               	
     tummb = await getBuffer(anu.thumb)	
-    await XeonBotInc.sendMessage(from, { delete: docdown.key })	
-    const docup = await XeonBotInc.sendText(m.chat, `Im uploding Your ${m.pushName} Audio ... 📤`)     	
-    const doc = await XeonBotInc.sendMessage(m.chat, {document: {url : anu.download}, mimetype: 'audio/mpeg', fileName: `${anu.title}.mp3`}, { quoted : m }).catch((err) => reply(mess.error))	
-    await XeonBotInc.sendMessage(from, { delete: docup.key })	
+    await PeaceMd.sendMessage(from, { delete: docdown.key })	
+    const docup = await PeaceMd.sendText(m.chat, `Im uploding Your ${m.pushName} Audio ... 📤`)     	
+    const doc = await PeaceMd.sendMessage(m.chat, {document: {url : anu.download}, mimetype: 'audio/mpeg', fileName: `${anu.title}.mp3`}, { quoted : m }).catch((err) => reply(mess.error))	
+    await PeaceMd.sendMessage(from, { delete: docup.key })	
                }	
               break	
 
@@ -1931,7 +1931,7 @@ const ytc=`
 *┇Date:* ${vid.date}	
 *┇Duration:* ${vid.duration}	
 *┇Quality:* ${vid.quality}`	
-await XeonBotInc.sendMessage(m.chat,{	
+await PeaceMd.sendMessage(m.chat,{	
     video: {url:vid.videoUrl},	
     caption: ytc	
 },{quoted:m})	
@@ -1942,7 +1942,7 @@ case 'pinterest': {
 		let { pinterest } = require('./lib/scraper')	
                 anupint = await pinterest(text)	
                 result = anupint[Math.floor(Math.random() * anupint.length)]	
-                XeonBotInc.sendMessage(m.chat, { image: { url: result }, caption: `${themeemoji} Media Url : `+result }, { quoted: m })	
+                PeaceMd.sendMessage(m.chat, { image: { url: result }, caption: `${themeemoji} Media Url : `+result }, { quoted: m })	
             }	
             break	
             case 'waifu': {	
@@ -1957,7 +1957,7 @@ case 'pinterest': {
                     buttons: buttons,	
                     headerType: 4	
                 }	
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })	
+                PeaceMd.sendMessage(m.chat, buttonMessage, { quoted: m })	
             }	
             break	
 
@@ -1971,11 +1971,11 @@ case 'pinterest': {
 		let resultdd = anuwallpep[Math.floor(Math.random() * anuwallpep.length)]	
 		let resultee = anuwallpep[Math.floor(Math.random() * anuwallpep.length)]	
 
-		await XeonBotInc.sendMessage(m.chat, { image: { url: resultaa.image[0] }, caption: `${command} Wallpaper` }, { quoted: m });	
-		XeonBotInc.sendMessage(m.chat, { image: { url: resultbb.image[0] }, caption: `${command} Wallpaper` }, { quoted: m });	
-		XeonBotInc.sendMessage(m.chat, { image: { url: resultcc.image[0] }, caption: `${command} Wallpaper` }, { quoted: m });	
-	        XeonBotInc.sendMessage(m.chat, { image: { url: resultdd.image[0] }, caption: `${command} Wallpaper` }, { quoted: m });	
-		XeonBotInc.sendMessage(m.chat, { image: { url: resultee.image[0] }, caption: `${command} Wallpaper` }, { quoted: m });	
+		await PeaceMd.sendMessage(m.chat, { image: { url: resultaa.image[0] }, caption: `${command} Wallpaper` }, { quoted: m });	
+		PeaceMd.sendMessage(m.chat, { image: { url: resultbb.image[0] }, caption: `${command} Wallpaper` }, { quoted: m });	
+		PeaceMd.sendMessage(m.chat, { image: { url: resultcc.image[0] }, caption: `${command} Wallpaper` }, { quoted: m });	
+	        PeaceMd.sendMessage(m.chat, { image: { url: resultdd.image[0] }, caption: `${command} Wallpaper` }, { quoted: m });	
+		PeaceMd.sendMessage(m.chat, { image: { url: resultee.image[0] }, caption: `${command} Wallpaper` }, { quoted: m });	
             }	
             break	
             case 'wikimedia': {	
@@ -1993,7 +1993,7 @@ case 'pinterest': {
                     buttons: buttons,	
                     headerType: 4	
                 }	
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })	
+                PeaceMd.sendMessage(m.chat, buttonMessage, { quoted: m })	
             }	
             break	
  case 'tinyurl':{	
@@ -2012,7 +2012,7 @@ case 'pinterest': {
     if (!text) return reply('```💭 Please give me a some words ...```\n_example .logo CHARITH_')
 
                                   
-     await XeonBotInc.sendMessage(from, { react: { text: `🧩`, key: m.key }})     
+     await PeaceMd.sendMessage(from, { react: { text: `🧩`, key: m.key }})     
       
              const desmsg = `
 ━━━━━━━━━━━━━━━━━
@@ -2353,7 +2353,7 @@ case 'pinterest': {
           }
        ]
                 
-         await XeonBotInc.sendListMsg(m.chat, `${desmsg}`, `${global.botname}`, `*  🎨LOGOS BY PEACE MD🎨 *`, `MAKE LOGO`, sections, m)
+         await PeaceMd.sendListMsg(m.chat, `${desmsg}`, `${global.botname}`, `*  🎨LOGOS BY PEACE MD🎨 *`, `MAKE LOGO`, sections, m)
                                     
       }
 
@@ -2430,7 +2430,7 @@ case 'lava': case 'rockart': case 'bloodglas': case 'halloween': case 'darkgold'
              if (/1917/.test(command)) link = 'https://textpro.me/1917-style-text-effect-online-980.html'	
                 if (/leaves/.test(command)) link = 'https://textpro.me/natural-leaves-text-effect-931.html'           	
              let anutexpro = await maker.textpro(link, q)	
-                XeonBotInc.sendMessage(m.chat, { image: { url: anutexpro }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m })	
+                PeaceMd.sendMessage(m.chat, { image: { url: anutexpro }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m })	
              }	
              break	
 case'glitch3':	
@@ -2440,7 +2440,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2449,7 +2449,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [	
     `${q}`,])	
-.then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+.then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
 .catch((err) => console.log(err));	
 break	
 
@@ -2458,7 +2458,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
  maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [	
      `${q}`,])	
-    .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+    .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
     .catch((err) => console.log(err));	
      break	
 
@@ -2467,7 +2467,7 @@ case 'lion2':
   m.reply(mess.wait)	
   maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [	
       `${q}`,])	
-     .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+     .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
      .catch((err) => console.log(err));	
      break	
 
@@ -2476,7 +2476,7 @@ case 'papercut':
       m.reply(mess.wait)	
       maker.textpro("https://textpro.me/create-art-paper-cut-text-effect-online-1022.html", [	
 `${q}`,])	
-         .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+         .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
          .catch((err) => console.log(err));	
          break	
 
@@ -2485,7 +2485,7 @@ case 'transformer':
       m.reply(mess.wait)	
       maker.textpro("https://textpro.me/create-a-transformer-text-effect-online-1035.html", [	
 `${q}`,])	
-.then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+.then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
 .catch((err) => console.log(err));	
 break	
 
@@ -2496,7 +2496,7 @@ case 'harrypot':
        teks2 = q.split("|")[1]	
        maker.textpro("https://textpro.me/create-harry-potter-text-effect-online-1025.html", [	
  `${teks1}`,`${teks2}`])	
- .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+ .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
  .catch((err) => console.log(err));	
  break	
 
@@ -2505,7 +2505,7 @@ case 'neondevil':
       m.reply(mess.wait)	
       maker.textpro("https://textpro.me/create-neon-devil-wings-text-effect-online-free-1014.html", [	
 `${q}`,])	
-         .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+         .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
          .catch((err) => console.log(err));	
          break	
 
@@ -2514,7 +2514,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/3d-stone-cracked-cool-text-effect-1029.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2523,7 +2523,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-3d-avengers-logo-online-974.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2532,7 +2532,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/online-thunder-text-effect-generator-1031.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2541,7 +2541,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2550,7 +2550,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-neon-light-blackpink-logo-text-effect-online-1081.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2562,7 +2562,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/create-a-cool-graffiti-text-on-the-wall-1010.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2573,7 +2573,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/pornhub-style-logo-online-generator-free-977.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2582,7 +2582,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-blackpink-logo-style-online-1001.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2591,7 +2591,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-impressive-glitch-text-effects-online-1027.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2602,7 +2602,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/create-a-glitch-text-effect-online-free-1026.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2613,7 +2613,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2624,7 +2624,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/create-space-3d-text-effect-online-985.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2635,7 +2635,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2644,7 +2644,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-3d-neon-light-text-effect-online-1028.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2653,7 +2653,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/neon-text-effect-online-879.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2662,7 +2662,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/green-neon-text-effect-874.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2671,7 +2671,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/bokeh-text-effect-876.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2682,7 +2682,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/holographic-3d-text-effect-975.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2696,7 +2696,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2708,7 +2708,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/create-wolf-logo-galaxy-online-936.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2717,7 +2717,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-logo-joker-online-934.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2726,7 +2726,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2735,7 +2735,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-summer-neon-light-text-effect-online-1076.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2744,7 +2744,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/neon-light-text-effect-with-galaxy-style-981.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2753,7 +2753,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/break-wall-text-effect-871.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2762,7 +2762,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/natural-leaves-text-effect-931.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break 	
 
@@ -2771,7 +2771,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/carbon-text-effect-833.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2780,7 +2780,7 @@ if(!q) throw`Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-sketch-text-effect-online-1044.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2790,11 +2790,11 @@ if (args.length < 1) throw `Example :\n${prefix + command} <name>`
 if (args[0] === 'glitch') {	
 if (args.length < 2) throw `Example :\n${prefix + command + ' ' + args[0]} ${global.ownername}`	
 let teds = await thiccysapi.textpro("https://textpro.me/create-impressive-glitch-text-effects-online-1027.html", [args[1]])	
-XeonBotInc.sendMessage(from, {image:{url:teds}, caption:"Done!"}, {quoted:m})	
+PeaceMd.sendMessage(from, {image:{url:teds}, caption:"Done!"}, {quoted:m})	
 } else if (args[0] === 'glow') {	
 if (args.length < 2) throw `Example :\n${prefix + command + ' ' + args[0]} ${global.ownername}`	
 let teds = await thiccysapi.textpro("https://textpro.me/create-light-glow-sliced-text-effect-online-1068.html", [args[1]])	
-XeonBotInc.sendMessage(from, {image:{url:teds}, caption:"Done!"}, {quoted:m})	
+PeaceMd.sendMessage(from, {image:{url:teds}, caption:"Done!"}, {quoted:m})	
 } else {	
 m.reply(`*Text Maker List :*\n•> glitch\n•> glow`)	
 }	
@@ -2806,7 +2806,7 @@ case 'hoorror':{
      let anui = await textpro(link, q)	
      m.reply(`Wait a moment while making the logo about 1 minute`) 	
      console.log(anui)	
-    XeonBotInc.sendMessage(from, {image:{url:anui}, caption:Lang.MESS_WAIT}, {quoted:m})	
+    PeaceMd.sendMessage(from, {image:{url:anui}, caption:Lang.MESS_WAIT}, {quoted:m})	
 }	
    break	
 case 'whitebear':	
@@ -2815,7 +2815,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'thunder2':	
@@ -2824,7 +2824,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-thunder-text-effect-online-881.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
    break	
@@ -2834,7 +2834,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/neon-light-text-effect-online-882.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'matrix2':	
@@ -2843,7 +2843,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/matrix-style-text-effect-online-884.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'sky':	
@@ -2852,7 +2852,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-cloud-text-effect-on-the-sky-online-1004.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'magma':	
@@ -2861,7 +2861,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-magma-hot-text-effect-online-1030.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'sand':	
@@ -2870,7 +2870,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/sand-writing-text-effect-online-990.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'pencil':	
@@ -2879,7 +2879,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-sketch-text-effect-online-1044.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'graffiti':	
@@ -2888,7 +2888,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'metallic':	
@@ -2897,7 +2897,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-metallic-text-effect-free-online-1041.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'steel':	
@@ -2906,7 +2906,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/steel-text-effect-online-921.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'harrpotter':	
@@ -2915,7 +2915,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-harry-potter-text-effect-online-1025.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'underwater':	
@@ -2924,7 +2924,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/3d-underwater-text-effect-generator-online-1013.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'luxury':	
@@ -2933,7 +2933,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/3d-luxury-gold-text-effect-online-1003.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'glue2':	
@@ -2942,7 +2942,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-3d-glue-text-effect-with-realistic-style-986.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'fabric':	
@@ -2951,7 +2951,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/fabric-text-effect-online-964.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'neonlight':	
@@ -2960,7 +2960,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/neon-light-glitch-text-generator-online-1063.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'lava':	
@@ -2969,7 +2969,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/lava-text-effect-online-914.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'toxic':	
@@ -2978,7 +2978,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/toxic-text-effect-online-901.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'ancient':	
@@ -2987,7 +2987,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/3d-golden-ancient-text-effect-online-free-1060.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'christmas2':	
@@ -2996,7 +2996,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/sparkles-merry-christmas-text-effect-1054.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'sci_fi':	
@@ -3005,7 +3005,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-3d-sci-fi-text-effect-online-1050.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'rainbow':	
@@ -3014,7 +3014,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/3d-rainbow-color-calligraphy-text-effect-1049.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'classic':	
@@ -3023,7 +3023,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/video-game-classic-8-bit-text-effect-1037.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'watercolor2':	
@@ -3032,7 +3032,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-free-online-watercolor-text-effect-1017.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'halloweem2':	
@@ -3041,7 +3041,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-spooky-halloween-text-effect-online-1046.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'halloweenfire':	
@@ -3050,7 +3050,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/halloween-fire-text-effect-940.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'writing':	
@@ -3059,7 +3059,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/sand-writing-text-effect-online-990.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'foggy':	
@@ -3068,7 +3068,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'marvel':	
@@ -3077,7 +3077,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-logo-style-marvel-studios-ver-metal-972.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'skeleton2':	
@@ -3086,7 +3086,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-halloween-skeleton-text-effect-online-1047.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'sketch':	
@@ -3095,7 +3095,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-sketch-text-effect-online-1044.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'wonderful':	
@@ -3104,7 +3104,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'batman':	
@@ -3113,7 +3113,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/make-a-batman-logo-online-free-1066.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'juice':	
@@ -3122,7 +3122,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/fruit-juice-text-effect-861.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
+  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'pornhub':{	
@@ -3135,7 +3135,7 @@ inilogo9 = args.join(" ")
 var logo9 = inilogo9.split('|')[1]	
     let anuphub = await textpro("https://textpro.me/pornhub-style-logo-online-generator-free-977.html", [`${logo4}`,`${logo9}`])	
 console.log(anuphub)	
-XeonBotInc.sendMessage(from,{image:{url:anuphub}, caption:Lang.MESS_WAIT},{quoted:m})	
+PeaceMd.sendMessage(from,{image:{url:anuphub}, caption:Lang.MESS_WAIT},{quoted:m})	
 }	
 break	
 case 'retro':{	
@@ -3147,7 +3147,7 @@ inilogo9 = args.join(" ")
 var logo9 = inilogo9.split('|')[1]	
     let anutro2 = await textpro("https://textpro.me/create-3d-retro-text-effect-online-free-1065.html", [`${logo4}`,`${logo9}`])	
 console.log(anutro2)	
-XeonBotInc.sendMessage(from,{image:{url:anutro2}, caption:Lang.MESS_WAIT},{quoted:m})	
+PeaceMd.sendMessage(from,{image:{url:anutro2}, caption:Lang.MESS_WAIT},{quoted:m})	
 }	
 break	
 case 'horror':{	
@@ -3159,7 +3159,7 @@ inilogo9 = args.join(" ")
 var logo9 = inilogo9.split('|')[1]	
     let anuror2 = await textpro("https://textpro.me/create-a-cinematic-horror-text-effect-1045.html", [`${logo4}`,`${logo9}`])	
 console.log(anuror2)	
-XeonBotInc.sendMessage(from,{image:{url:anuror2}, caption:Lang.MESS_WAIT},{quoted:m})	
+PeaceMd.sendMessage(from,{image:{url:anuror2}, caption:Lang.MESS_WAIT},{quoted:m})	
 }	
 break	
 case '8bit':{	
@@ -3171,7 +3171,7 @@ inilogo9 = args.join(" ")
 var logo9 = inilogo9.split('|')[1]	
     let anubit8 = await textpro("https://textpro.me/video-game-classic-8-bit-text-effect-1037.html", [`${logo4}`,`${logo9}`])	
 console.log(anubit8)	
-XeonBotInc.sendMessage(from,{image:{url:anubit8}, caption:Lang.MESS_WAIT},{quoted:m})	
+PeaceMd.sendMessage(from,{image:{url:anubit8}, caption:Lang.MESS_WAIT},{quoted:m})	
 }	
 break	
 case 'tiktok':{ 	
@@ -3180,7 +3180,7 @@ if (!q.includes('tiktok')) return m.reply(`Link Invalid!!`)
 m.reply(mess.wait)	
 require('./lib/tiktok').Tiktok(q).then( data => {	
     var button = [{ buttonId: `tiktokaudio ${q}`, buttonText: { displayText: `AUDIO‡` }, type: 1 }, { buttonId: `menu`, buttonText: { displayText: `Menu` }, type: 1 }]	
-XeonBotInc.sendMessage(m.chat, { caption: Lang.MESS_WAIT, video: { url: data.watermark }, buttons: button, footer: botname, mentions: [sender] })	
+PeaceMd.sendMessage(m.chat, { caption: Lang.MESS_WAIT, video: { url: data.watermark }, buttons: button, footer: botname, mentions: [sender] })	
 })	
 }	
 break	
@@ -3189,7 +3189,7 @@ if (!text) return m.reply( `Example : ${prefix + command} link`)
 if (!q.includes('tiktok')) return m.reply(`Link Invalid!!`)	
 m.reply(mess.wait)	
 require('./lib/tiktok').Tiktok(q).then( data => {	
-XeonBotInc.sendMessage(m.chat, { audio: { url: data.audio }, mimetype: 'audio/mp4' }, { quoted: m })	
+PeaceMd.sendMessage(m.chat, { audio: { url: data.audio }, mimetype: 'audio/mp4' }, { quoted: m })	
 })	
 }	
 break	
@@ -3202,14 +3202,14 @@ let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
     repo = repo.replace(/.git$/, '')	
     let url = `https://api.github.com/repos/${user}/${repo}/zipball`	
     let filename = (await fetch(url, {method: 'HEAD'})).headers.get('content-disposition').match(/attachment; filename=(.*)/)[1]	
-    XeonBotInc.sendMessage(m.chat, { document: { url: url }, fileName: filename+'.zip', mimetype: 'application/zip' }, { quoted: m }).catch((err) => reply(mess.error))	
+    PeaceMd.sendMessage(m.chat, { document: { url: url }, fileName: filename+'.zip', mimetype: 'application/zip' }, { quoted: m }).catch((err) => reply(mess.error))	
 break	
 	        case 'pinterest': {	
 m.reply(mess.wait)	
 let { pinterest } = require('./lib/scraper')	
 anutrest = await pinterest(text)	
 result = anutrest[Math.floor(Math.random() * anutrest.length)]	
-XeonBotInc.sendMessage(m.chat, { image: { url: result }, caption: '⭔ Media Url : '+result }, { quoted: m })	
+PeaceMd.sendMessage(m.chat, { image: { url: result }, caption: '⭔ Media Url : '+result }, { quoted: m })	
 }	
 break	
         case 'ringtone': {	
@@ -3217,28 +3217,28 @@ break
         let { ringtone } = require('./lib/scraper')	
 		let anutone2 = await ringtone(text)	
 		let result = anutone2[Math.floor(Math.random() * anutone2.length)]	
-		XeonBotInc.sendMessage(m.chat, { audio: { url: result.audio }, fileName: result.title+'.mp3', mimetype: 'audio/mpeg' }, { quoted: m })	
+		PeaceMd.sendMessage(m.chat, { audio: { url: result.audio }, fileName: result.title+'.mp3', mimetype: 'audio/mpeg' }, { quoted: m })	
 	    }	
 	    break	
 case 'stickman':	
 m.reply(mess.wait)	
-XeonBotInc.sendMessage(m.chat, {sticker: {url: `https://api.zeeoneofc.xyz/api/telegram-sticker/manusia-lidi?apikey=dhmDlD5x`}}, {quoted: m })	
+PeaceMd.sendMessage(m.chat, {sticker: {url: `https://api.zeeoneofc.xyz/api/telegram-sticker/manusia-lidi?apikey=dhmDlD5x`}}, {quoted: m })	
 break	
 case 'spongebob':	
 m.reply(mess.wait)	
-XeonBotInc.sendMessage(m.chat, {sticker: {url: `https://api.zeeoneofc.xyz/api/telegram-sticker/kawan-sponsbob?apikey=dhmDlD5x`}}, {quoted: m })	
+PeaceMd.sendMessage(m.chat, {sticker: {url: `https://api.zeeoneofc.xyz/api/telegram-sticker/kawan-sponsbob?apikey=dhmDlD5x`}}, {quoted: m })	
 break	
 case 'gojosatoru':	
 m.reply(mess.wait)	
-XeonBotInc.sendMessage(m.chat, {sticker: {url: `https://api.zeeoneofc.xyz/api/telegram-sticker/gojosatoru?apikey=dhmDlD5x`}}, {quoted: m })	
+PeaceMd.sendMessage(m.chat, {sticker: {url: `https://api.zeeoneofc.xyz/api/telegram-sticker/gojosatoru?apikey=dhmDlD5x`}}, {quoted: m })	
 break	
 case 'nicholas':	
 m.reply(mess.wait)	
-XeonBotInc.sendMessage(m.chat, {sticker: {url: `https://api.zeeoneofc.xyz/api/telegram-sticker/nicholas?apikey=dhmDlD5x`}}, {quoted: m })	
+PeaceMd.sendMessage(m.chat, {sticker: {url: `https://api.zeeoneofc.xyz/api/telegram-sticker/nicholas?apikey=dhmDlD5x`}}, {quoted: m })	
 break	
 case 'cartoon':	
 m.reply(mess.wait)	
-XeonBotInc.sendMessage(m.chat, {sticker: {url: `https://api.zeeoneofc.xyz/api/telegram-sticker/kr-robot?apikey=dhmDlD5x`}}, {quoted: m })	
+PeaceMd.sendMessage(m.chat, {sticker: {url: `https://api.zeeoneofc.xyz/api/telegram-sticker/kr-robot?apikey=dhmDlD5x`}}, {quoted: m })	
 break	
 		case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat': case 'nightcore': case 'reverse': case 'robot': case 'slow': case 'smooth': case 'squirrel':	
                 try {	
@@ -3257,13 +3257,13 @@ break
                 if (/tupai/.test(command)) set = '-filter:a "atempo=0.5,asetrate=65100"'	
                 if (/audio/.test(mime)) {	
                 m.reply(mess.wait)	
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)	
+                let media = await PeaceMd.downloadAndSaveMediaMessage(quoted)	
                 let ran = getRandom('.mp3')	
                 exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {	
                 fs.unlinkSync(media)	
                 if (err) return m.reply(err)	
                 let buff = fs.readFileSync(ran)	
-                XeonBotInc.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : m })	
+                PeaceMd.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : m })	
                 fs.unlinkSync(ran)	
                 })	
                 } else m.reply(`Reply to the audio you want to change with a caption *${prefix + command}*`)	
@@ -3301,7 +3301,7 @@ break
 Info: *bold* hash is Locked	
 ${Object.entries(global.db.data.sticker).map(([key, value], index) => `${index + 1}. ${value.locked ? `*${key}*` : key} : ${value.text}`).join('\n')}	
 `.trim()	
-                XeonBotInc.sendText(m.chat, teks, m, { mentions: Object.values(global.db.data.sticker).map(x => x.mentionedJid).reduce((a,b) => [...a, ...b], []) })	
+                PeaceMd.sendText(m.chat, teks, m, { mentions: Object.values(global.db.data.sticker).map(x => x.mentionedJid).reduce((a,b) => [...a, ...b], []) })	
             }	
             break	
             case 'lockcmd': {	
@@ -3330,7 +3330,7 @@ View list of Messages With ${prefix}listmsg`)
                 if (!text) throw `Example : ${prefix + command} file name\n\nView message list with ${prefix}listmsg`	
                 let msgs = global.db.data.database	
                 if (!(text.toLowerCase() in msgs)) throw `'${text}' not listed in the message list`	
-                XeonBotInc.copyNForward(m.chat, msgs[text.toLowerCase()], true)	
+                PeaceMd.copyNForward(m.chat, msgs[text.toLowerCase()], true)	
             }	
             break	
             case 'listmsg': {	
@@ -3364,11 +3364,11 @@ View list of Messages With ${prefix}listmsg`)
 				 let teksnya = `Hi friend, there is confess message for you!!\n\nFrom :  _${saking}_  \nMessage : _${pesan}_ `	
 					gambar = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMkjAJhYezm4h6k1AJ6qfreGkaRdBcR7UHMw&usqp=CAU`	
 				 var button = [{ buttonId: `menfesconfirm`, buttonText: { displayText: `CONFIRM‡` }, type: 1 }, { buttonId: `menu`, buttonText: { displayText: `Menu` }, type: 1 }]	
-					XeonBotInc.sendMessage(`${nomor}@s.whatsapp.net`, { caption: teksnya, image: {url: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMkjAJhYezm4h6k1AJ6qfreGkaRdBcR7UHMw&usqp=CAU`}, buttons: button, footer: botname })	
+					PeaceMd.sendMessage(`${nomor}@s.whatsapp.net`, { caption: teksnya, image: {url: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMkjAJhYezm4h6k1AJ6qfreGkaRdBcR7UHMw&usqp=CAU`}, buttons: button, footer: botname })	
 				m.reply(`Success Sending Menfess!!`)	
 				break	
 			case 'menfesconfirm':{	
- 				 XeonBotInc.sendMessage(q, {text: `It's been confirmed, Confess🌹`})	
+ 				 PeaceMd.sendMessage(q, {text: `It's been confirmed, Confess🌹`})	
 				  m.reply(`Thank you confess for being accepted.`)	
 				}	
 				break	
@@ -3378,7 +3378,7 @@ case 'anonymous': {
 				let buttons = [	
                     { buttonId: 'start', buttonText: { displayText: 'Start' }, type: 1 }	
                 ]	
-                XeonBotInc.sendButtonText(m.chat, buttons, `\`\`\`Hi ${await XeonBotInc.getName(m.sender)} Welcome To Anonymous Chat\n\nClick the button below to find a partner\`\`\``, botname, m)	
+                PeaceMd.sendButtonText(m.chat, buttons, `\`\`\`Hi ${await PeaceMd.getName(m.sender)} Welcome To Anonymous Chat\n\nClick the button below to find a partner\`\`\``, botname, m)	
             }	
 			break	
 case 'keluar': case 'leave': {	
@@ -3389,12 +3389,12 @@ case 'keluar': case 'leave': {
                     let buttons = [	
                         { buttonId: 'start', buttonText: { displayText: 'Start' }, type: 1 }	
                     ]	
-                    await XeonBotInc.sendButtonText(m.chat, buttons, `\`\`\`You Are Not In Anonymous Session, Press Button To Find Partner \`\`\``)	
+                    await PeaceMd.sendButtonText(m.chat, buttons, `\`\`\`You Are Not In Anonymous Session, Press Button To Find Partner \`\`\``)	
                     throw false	
                 }	
                 m.reply('Ok')	
                 let other = room.other(m.sender)	
-                if (other) await XeonBotInc.sendText(other, `\`\`\`Partner Has Left Anonymous Session\`\`\``, m)	
+                if (other) await PeaceMd.sendText(other, `\`\`\`Partner Has Left Anonymous Session\`\`\``, m)	
                 delete this.anonymous[room.id]	
                 if (command === 'leave') break	
             }	
@@ -3405,7 +3405,7 @@ case 'keluar': case 'leave': {
                     let buttons = [	
                         { buttonId: 'keluar', buttonText: { displayText: 'Stop' }, type: 1 }	
                     ]	
-                    await XeonBotInc.sendButtonText(m.chat, buttons, `\`\`\`You are still in an anonymous session, press the button below to terminate your anonymous session\`\`\``, botname, m)	
+                    await PeaceMd.sendButtonText(m.chat, buttons, `\`\`\`You are still in an anonymous session, press the button below to terminate your anonymous session\`\`\``, botname, m)	
                     throw false	
                 }	
                 let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))	
@@ -3414,10 +3414,10 @@ case 'keluar': case 'leave': {
                         { buttonId: 'next', buttonText: { displayText: 'Skip' }, type: 1 },	
                         { buttonId: 'keluar', buttonText: { displayText: 'Stop' }, type: 1 }	
                     ]	
-                    await XeonBotInc.sendButtonText(room.a, buttons, `\`\`\`Successfully Found Partner, now you can send messages\`\`\``, botname, m)	
+                    await PeaceMd.sendButtonText(room.a, buttons, `\`\`\`Successfully Found Partner, now you can send messages\`\`\``, botname, m)	
                     room.b = m.sender	
                     room.state = 'CHATTING'	
-                    await XeonBotInc.sendButtonText(room.b, buttons, `\`\`\`Successfully Found Partner, now you can send messages\`\`\``, botname, m)	
+                    await PeaceMd.sendButtonText(room.b, buttons, `\`\`\`Successfully Found Partner, now you can send messages\`\`\``, botname, m)	
                 } else {	
                     let id = + new Date	
                     this.anonymous[id] = {	
@@ -3435,7 +3435,7 @@ case 'keluar': case 'leave': {
                     let buttons = [	
                         { buttonId: 'keluar', buttonText: { displayText: 'Stop' }, type: 1 }	
                     ]	
-                    await XeonBotInc.sendButtonText(m.chat, buttons, `\`\`\`Please wait, looking for a partner\`\`\``, botname, m)	
+                    await PeaceMd.sendButtonText(m.chat, buttons, `\`\`\`Please wait, looking for a partner\`\`\``, botname, m)	
                 }	
                 break	
             }	
@@ -3447,11 +3447,11 @@ case 'keluar': case 'leave': {
                     let buttons = [	
                         { buttonId: 'start', buttonText: { displayText: 'Start' }, type: 1 }	
                     ]	
-                    await XeonBotInc.sendButtonText(m.chat, buttons, `\`\`\`You are not in an anonymous session, press the button to find a partner\`\`\``)	
+                    await PeaceMd.sendButtonText(m.chat, buttons, `\`\`\`You are not in an anonymous session, press the button to find a partner\`\`\``)	
                     throw false	
                 }	
                 let other = romeo.other(m.sender)	
-                if (other) await XeonBotInc.sendText(other, `\`\`\`Partner Has Left Anonymous Session\`\`\``, m)	
+                if (other) await PeaceMd.sendText(other, `\`\`\`Partner Has Left Anonymous Session\`\`\``, m)	
                 delete this.anonymous[romeo.id]	
                 let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))	
                 if (room) {	
@@ -3459,10 +3459,10 @@ case 'keluar': case 'leave': {
                         { buttonId: 'next', buttonText: { displayText: 'Skip' }, type: 1 },	
                         { buttonId: 'keluar', buttonText: { displayText: 'Stop' }, type: 1 }	
                     ]	
-                    await XeonBotInc.sendButtonText(room.a, buttons, `\`\`\`Successfully Found Partner, now you can send message\`\`\``, botname, m)	
+                    await PeaceMd.sendButtonText(room.a, buttons, `\`\`\`Successfully Found Partner, now you can send message\`\`\``, botname, m)	
                     room.b = m.sender	
                     room.state = 'CHATTING'	
-                    await XeonBotInc.sendButtonText(room.b, buttons, `\`\`\`Successfully Found Partner, now you can send message\`\`\``, botname, m)	
+                    await PeaceMd.sendButtonText(room.b, buttons, `\`\`\`Successfully Found Partner, now you can send message\`\`\``, botname, m)	
                 } else {	
                     let id = + new Date	
                     this.anonymous[id] = {	
@@ -3480,19 +3480,19 @@ case 'keluar': case 'leave': {
                     let buttons = [	
                         { buttonId: 'keluar', buttonText: { displayText: 'Stop' }, type: 1 }	
                     ]	
-                    await XeonBotInc.sendButtonText(m.chat, buttons, `\`\`\`Please wait, looking for a partner\`\`\``, botname, m)	
+                    await PeaceMd.sendButtonText(m.chat, buttons, `\`\`\`Please wait, looking for a partner\`\`\``, botname, m)	
                 }	
                 break	
             }	
             case 'public': {	
                 if (!isCreator) throwLang.NOT_OWNER	
-                XeonBotInc.public = true	
+                PeaceMd.public = true	
                 m.reply('*Successful in Changing To Public Usage*')	
             }	
             break	
             case 'self': {	
                 if (!isCreator) throwLang.NOT_OWNER	
-                XeonBotInc.public = false	
+                PeaceMd.public = false	
                 m.reply('*Successful in Changing To Self Usage*')	
             }	
             break	
@@ -3502,15 +3502,15 @@ case 'keluar': case 'leave': {
 
 case 'ping' : case 'ping2' : {	
     const start = new Date().getTime()	
-await XeonBotInc.sendText(m.chat, '*📡  ʀᴜɴɪɴɢ ʀᴇsᴘᴏɴᴅ...*')	
+await PeaceMd.sendText(m.chat, '*📡  ʀᴜɴɪɴɢ ʀᴇsᴘᴏɴᴅ...*')	
 const end = new Date().getTime()	
-const poonn = await XeonBotInc.sendText(m.chat, '*ᴘᴏɴɢ* ' + (end - start) + ' *_ᴍs_*' )	
-await XeonBotInc.sendMessage(from, { react: { text: `✅`, key: poonn.key }})	
+const poonn = await PeaceMd.sendText(m.chat, '*ᴘᴏɴɢ* ' + (end - start) + ' *_ᴍs_*' )	
+await PeaceMd.sendMessage(from, { react: { text: `✅`, key: poonn.key }})	
 }	
 break	
 case 'botstetus' : case 'stetus' : {	
 const start = new Date().getTime()	
-await XeonBotInc.sendMessage(from, { react: { text: `⚧️`, key: m.key }})	
+await PeaceMd.sendMessage(from, { react: { text: `⚧️`, key: m.key }})	
 const end = new Date().getTime()	
 const ping = (end - start) + 'ms' 	
 }	
@@ -3558,7 +3558,7 @@ break
                 ]	
                 },	
                 ]	
-                XeonBotInc.sendListMsg(m.chat, ` *Din* Setmenu nya!`, XeonBotInc.user.name, `*Hello DarkNeroINC* !`, `🌟`, sections, m)	
+                PeaceMd.sendListMsg(m.chat, ` *Din* Setmenu nya!`, PeaceMd.user.name, `*Hello DarkNeroINC* !`, `🌟`, sections, m)	
                 }	
             }	
             break	
@@ -3570,9 +3570,9 @@ case 'req': case 'request': {
                let pjtxt = `Message From : @${me.split('@')[0]} \nFor : @${ownernya.split('@')[0]}\n\n${command} ${text}`	
                let ments = [ownernya, me]	
                let buttons = [{ buttonId: 'hehehe', buttonText: { displayText: '🙏THANKS' }, type: 1 }]	
-            await XeonBotInc.sendButtonText(ownernya, buttons, pjtxt, botname, m, {mentions: ments, quoted: fdoc})	
+            await PeaceMd.sendButtonText(ownernya, buttons, pjtxt, botname, m, {mentions: ments, quoted: fdoc})	
             let akhji = `*Request has been sent*\n*To Owner @${ownernya.split('@')[0]}*\n_Thank you🙏_`	
-            await XeonBotInc.sendButtonText(m.chat, buttons, akhji, botname, m, {mentions: ments, quoted: fkontak})	
+            await PeaceMd.sendButtonText(m.chat, buttons, akhji, botname, m, {mentions: ments, quoted: fkontak})	
             }	
             break	
 case 'report': case 'bug': {	
@@ -3582,16 +3582,16 @@ case 'report': case 'bug': {
                let pjtxt = `Message From : @${me.split('@')[0]} \nFor : @${ownernya.split('@')[0]}\n\n${text}`	
                let ments = [ownernya, me]	
                let buttons = [{ buttonId: 'hehehe', buttonText: { displayText: '🙏THANKS FOR THE REPORT' }, type: 1 }]	
-            await XeonBotInc.sendButtonText(ownernya, buttons, pjtxt, botname, m, {mentions: ments})	
+            await PeaceMd.sendButtonText(ownernya, buttons, pjtxt, botname, m, {mentions: ments})	
             let akhji = `Report Sent\nTo Owner @${ownernya.split('@')[0]}\n*Thank you for the report🙏*\n_Your number will be blocked_\n_If the Report is Only Created_`	
-            await XeonBotInc.sendButtonText(m.chat, buttons, akhji, botname, m, {mentions: ments})	
+            await PeaceMd.sendButtonText(m.chat, buttons, akhji, botname, m, {mentions: ments})	
             }	
             break	
             
 case 'setthumb':{	
                        if (!m.key.fromMe && !isCreator) return m.reply(mess.owner)	
                        if (!isQuotedImage) return m.reply('Reply the picture!')	
-                                 let media = await XeonBotInc.downloadMediaMessage(m.message.extendedTextMessage.contextInfo.quotedMessage.imageMessage, 'image')	
+                                 let media = await PeaceMd.downloadMediaMessage(m.message.extendedTextMessage.contextInfo.quotedMessage.imageMessage, 'image')	
                 await fs.writeFileSync('./NeroMedia/theme/cheemspic.jpg', media)	
                m.reply(mess.success)	
             }	
@@ -3599,9 +3599,9 @@ case 'setthumb':{
 case 'creategroup':	
 if (!isCreator) return m.reply(mess.owner)	
 if (!q) return reply("Enter text")	
-const group = await XeonBotInc.groupCreate(q, [owner + "@s.whatsapp.net"])	
+const group = await PeaceMd.groupCreate(q, [owner + "@s.whatsapp.net"])	
 m.reply(mess.success)	
-XeonBotInc.sendMessage(group.id, { text: 'Halo!!' }) // say hello to everyone on the group	
+PeaceMd.sendMessage(group.id, { text: 'Halo!!' }) // say hello to everyone on the group	
 break	
 case 'antilinkyoutubevideo': case 'antilinkyoutubevid': case 'antilinkytvid': {	
 if (!m.isGroup) return m.reply(Lang.NOT_GC)	
@@ -3612,13 +3612,13 @@ if (AntiLinkYoutubeVid) return m.reply('Already activated')
 ntilinkytvid.push(from)	
 fs.writeFileSync('./database/antilinkytvideo.json', JSON.stringify(ntilinkytvid))	
 m.reply('Success in turning on youtube video antilink in this group')	
-var groupe = await XeonBotInc.groupMetadata(from)	
+var groupe = await PeaceMd.groupMetadata(from)	
 var members = groupe['participants']	
 var mems = []	
 members.map(async adm => {	
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))	
 })	
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the youtube video link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
+PeaceMd.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the youtube video link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
 } else if (args[0] === "off") {	
 if (!AntiLinkYoutubeVid) return m.reply('Already deactivated')	
 let off = ntilinkytvid.indexOf(from)	
@@ -3630,7 +3630,7 @@ m.reply('Success in turning off youtube video antilink in this group')
   { buttonId: `${command} on`, buttonText: { displayText: 'On' }, type: 1 },	
   { buttonId: `${command} off`, buttonText: { displayText: 'Off' }, type: 1 }	
   ]	
-  await XeonBotInc.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
+  await PeaceMd.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
   }	
   }	
   break	
@@ -3643,13 +3643,13 @@ if (AntiLinkYoutubeChannel) return m.reply('Already activated')
 ntilinkytch.push(from)	
 fs.writeFileSync('./database/antilinkytchannel.json', JSON.stringify(ntilinkytch))	
 m.reply('Success in turning on youtube channel antilink in this group')	
-var groupe = await XeonBotInc.groupMetadata(from)	
+var groupe = await PeaceMd.groupMetadata(from)	
 var members = groupe['participants']	
 var mems = []	
 members.map(async adm => {	
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))	
 })	
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the youtube channel link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
+PeaceMd.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the youtube channel link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
 } else if (args[0] === "off") {	
 if (!AntiLinkYoutubeChannel) return m.reply('Already deactivated')	
 let off = ntilinkytch.indexOf(from)	
@@ -3661,7 +3661,7 @@ m.reply('Success in turning off youtube channel antilink in this group')
   { buttonId: `${command} on`, buttonText: { displayText: 'On' }, type: 1 },	
   { buttonId: `${command} off`, buttonText: { displayText: 'Off' }, type: 1 }	
   ]	
-  await XeonBotInc.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
+  await PeaceMd.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
   }	
   }	
   break	
@@ -3674,13 +3674,13 @@ if (AntiLinkInstagram) return m.reply('Already activated')
 ntilinkig.push(from)	
 fs.writeFileSync('./database/antilinkinstagram.json', JSON.stringify(ntilinkig))	
 m.reply('Success in turning on instagram antilink in this group')	
-var groupe = await XeonBotInc.groupMetadata(from)	
+var groupe = await PeaceMd.groupMetadata(from)	
 var members = groupe['participants']	
 var mems = []	
 members.map(async adm => {	
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))	
 })	
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the instagram link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
+PeaceMd.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the instagram link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
 } else if (args[0] === "off") {	
 if (!AntiLinkInstagram) return m.reply('Already deactivated')	
 let off = ntilinkig.indexOf(from)	
@@ -3692,7 +3692,7 @@ m.reply('Success in turning off instagram antilink in this group')
   { buttonId: `${command} on`, buttonText: { displayText: 'On' }, type: 1 },	
   { buttonId: `${command} off`, buttonText: { displayText: 'Off' }, type: 1 }	
   ]	
-  await XeonBotInc.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
+  await PeaceMd.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
   }	
   }	
   break	
@@ -3705,13 +3705,13 @@ if (AntiLinkFacebook) return m.reply('Already activated')
 ntilinkfb.push(from)	
 fs.writeFileSync('./database/antilinkfacebook.json', JSON.stringify(ntilinkfb))	
 m.reply('Success in turning on facebook antilink in this group')	
-var groupe = await XeonBotInc.groupMetadata(from)	
+var groupe = await PeaceMd.groupMetadata(from)	
 var members = groupe['participants']	
 var mems = []	
 members.map(async adm => {	
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))	
 })	
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the facebook link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
+PeaceMd.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the facebook link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
 } else if (args[0] === "off") {	
 if (!AntiLinkFacebook) return m.reply('Already deactivated')	
 let off = ntilinkfb.indexOf(from)	
@@ -3723,7 +3723,7 @@ m.reply('Success in turning off facebook antilink in this group')
   { buttonId: `${command} on`, buttonText: { displayText: 'On' }, type: 1 },	
   { buttonId: `${command} off`, buttonText: { displayText: 'Off' }, type: 1 }	
   ]	
-  await XeonBotInc.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
+  await PeaceMd.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
   }	
   }	
   break	
@@ -3736,13 +3736,13 @@ if (AntiLinkTelegram) return m.reply('Already activated')
 ntilinktg.push(from)	
 fs.writeFileSync('./database/antilinktelegram.json', JSON.stringify(ntilinktg))	
 m.reply('Success in turning on telegram antilink in this group')	
-var groupe = await XeonBotInc.groupMetadata(from)	
+var groupe = await PeaceMd.groupMetadata(from)	
 var members = groupe['participants']	
 var mems = []	
 members.map(async adm => {	
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))	
 })	
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the telegram link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
+PeaceMd.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the telegram link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
 } else if (args[0] === "off") {	
 if (!AntiLinkTelegram) return m.reply('Already deactivated')	
 let off = ntilinktg.indexOf(from)	
@@ -3754,7 +3754,7 @@ m.reply('Success in turning off telegram antilink in this group')
   { buttonId: `${command} on`, buttonText: { displayText: 'On' }, type: 1 },	
   { buttonId: `${command} off`, buttonText: { displayText: 'Off' }, type: 1 }	
   ]	
-  await XeonBotInc.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
+  await PeaceMd.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
   }	
   }	
   break	
@@ -3767,13 +3767,13 @@ if (AntiLinkTiktok) return m.reply('Already activated')
 ntilinktt.push(from)	
 fs.writeFileSync('./database/antilinktiktok.json', JSON.stringify(ntilinktt))	
 m.reply('Success in turning on tiktok antilink in this group')	
-var groupe = await XeonBotInc.groupMetadata(from)	
+var groupe = await PeaceMd.groupMetadata(from)	
 var members = groupe['participants']	
 var mems = []	
 members.map(async adm => {	
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))	
 })	
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the tiktok link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
+PeaceMd.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the tiktok link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
 } else if (args[0] === "off") {	
 if (!AntiLinkTiktok) return m.reply('Already deactivated')	
 let off = ntilinktt.indexOf(from)	
@@ -3785,7 +3785,7 @@ m.reply('Success in turning off tiktok antilink in this group')
   { buttonId: `${command} on`, buttonText: { displayText: 'On' }, type: 1 },	
   { buttonId: `${command} off`, buttonText: { displayText: 'Off' }, type: 1 }	
   ]	
-  await XeonBotInc.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
+  await PeaceMd.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
   }	
   }	
   break	
@@ -3798,13 +3798,13 @@ if (AntiLinkTwitter) return m.reply('Already activated')
 ntilinktwt.push(from)	
 fs.writeFileSync('./database/antilinktwitter.json', JSON.stringify(ntilinktwt))	
 m.reply('Success in turning on twitter antilink in this group')	
-var groupe = await XeonBotInc.groupMetadata(from)	
+var groupe = await PeaceMd.groupMetadata(from)	
 var members = groupe['participants']	
 var mems = []	
 members.map(async adm => {	
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))	
 })	
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the twitter link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
+PeaceMd.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send the twitter link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
 } else if (args[0] === "off") {	
 if (!AntiLinkTwitter) return m.reply('Already deactivated')	
 let off = ntilinktwt.indexOf(from)	
@@ -3816,7 +3816,7 @@ m.reply('Success in turning off twitter antilink in this group')
   { buttonId: `${command} on`, buttonText: { displayText: 'On' }, type: 1 },	
   { buttonId: `${command} off`, buttonText: { displayText: 'Off' }, type: 1 }	
   ]	
-  await XeonBotInc.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
+  await PeaceMd.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
   }	
   }	
   break	
@@ -3829,13 +3829,13 @@ if (AntiLinkTwitter) return m.reply('Already activated')
 ntilinkall.push(from)	
 fs.writeFileSync('./database/antilinkall.json', JSON.stringify(ntilinkall))	
 m.reply('Success in turning on all antilink in this group')	
-var groupe = await XeonBotInc.groupMetadata(from)	
+var groupe = await PeaceMd.groupMetadata(from)	
 var members = groupe['participants']	
 var mems = []	
 members.map(async adm => {	
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))	
 })	
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send any link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
+PeaceMd.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send any link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
 } else if (args[0] === "off") {	
 if (!AntiLinkAll) return m.reply('Already deactivated')	
 let off = ntilinkall.indexOf(from)	
@@ -3847,7 +3847,7 @@ m.reply('Success in turning off all antilink in this group')
   { buttonId: `${command} on`, buttonText: { displayText: 'On' }, type: 1 },	
   { buttonId: `${command} off`, buttonText: { displayText: 'Off' }, type: 1 }	
   ]	
-  await XeonBotInc.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
+  await PeaceMd.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
   }	
   }	
   break	
@@ -3860,13 +3860,13 @@ if (antiToxic) return m.reply('Already activated')
 nttoxic.push(from)	
 fs.writeFileSync('./database/antitoxic.json', JSON.stringify(nttoxic))	
 m.reply('Success in turning on antitoxic in this group')	
-var groupe = await XeonBotInc.groupMetadata(from)	
+var groupe = await PeaceMd.groupMetadata(from)	
 var members = groupe['participants']	
 var mems = []	
 members.map(async adm => {	
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))	
 })	
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNobody is allowed to use bad words in this group, one who uses will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
+PeaceMd.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNobody is allowed to use bad words in this group, one who uses will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
 } else if (args[0] === "off") {	
 if (!antiToxic) return m.reply('Already deactivated')	
 let off = nttoxic.indexOf(from)	
@@ -3878,7 +3878,7 @@ m.reply('Success in turning off antitoxic in this group')
   { buttonId: `${command} on`, buttonText: { displayText: 'On' }, type: 1 },	
   { buttonId: `${command} off`, buttonText: { displayText: 'Off' }, type: 1 }	
   ]	
-  await XeonBotInc.sendButtonText(m.chat, buttonsnttoxic, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
+  await PeaceMd.sendButtonText(m.chat, buttonsnttoxic, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
   }	
   }	
   break	
@@ -3891,13 +3891,13 @@ if (Autoreply) return m.reply('Already activated')
 autorep.push(from)	
 fs.writeFileSync('./database/autoreply.json', JSON.stringify(autorep))	
 m.reply('Success in turning on auto reply in this group')	
-var groupe = await XeonBotInc.groupMetadata(from)	
+var groupe = await PeaceMd.groupMetadata(from)	
 var members = groupe['participants']	
 var mems = []	
 members.map(async adm => {	
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))	
 })	
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nAuto reply has been enabled in this group, means bot may send unnecessary voice note!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
+PeaceMd.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nAuto reply has been enabled in this group, means bot may send unnecessary voice note!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
 } else if (args[0] === "off") {	
 if (!Autoreply) return m.reply('Already deactivated')	
 let off = autorep.indexOf(from)	
@@ -3909,7 +3909,7 @@ m.reply('Success in turning off auto reply in this group')
   { buttonId: `${command} on`, buttonText: { displayText: 'On' }, type: 1 },	
   { buttonId: `${command} off`, buttonText: { displayText: 'Off' }, type: 1 }	
   ]	
-  await XeonBotInc.sendButtonText(m.chat, buttonsnttoxic, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
+  await PeaceMd.sendButtonText(m.chat, buttonsnttoxic, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
   }	
   }	
   break	
@@ -3922,13 +3922,13 @@ if (antiWame) return m.reply('Already activated')
 ntwame.push(from)	
 fs.writeFileSync('./database/antiwame.json', JSON.stringify(ntwame))	
 m.reply('Success in turning on antiwame in this group')	
-var groupe = await XeonBotInc.groupMetadata(from)	
+var groupe = await PeaceMd.groupMetadata(from)	
 var members = groupe['participants']	
 var mems = []	
 members.map(async adm => {	
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))	
 })	
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNobody is allowed to send wa.me in this group, one who sends will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
+PeaceMd.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNobody is allowed to send wa.me in this group, one who sends will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
 } else if (args[0] === "off") {	
 if (!antiWame) return m.reply('Already deactivated')	
 let off = nttoxic.indexOf(from)	
@@ -3940,7 +3940,7 @@ m.reply('Success in turning off antiwame in this group')
   { buttonId: `${command} on`, buttonText: { displayText: 'On' }, type: 1 },	
   { buttonId: `${command} off`, buttonText: { displayText: 'Off' }, type: 1 }	
   ]	
-  await XeonBotInc.sendButtonText(m.chat, buttonsntwame, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
+  await PeaceMd.sendButtonText(m.chat, buttonsntwame, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
   }	
   }	
   break	
@@ -3953,13 +3953,13 @@ if (Antilinkgc) return m.reply('Already activated')
 ntlinkgc.push(from)	
 fs.writeFileSync('./database/antilinkgc.json', JSON.stringify(ntlinkgc))	
 m.reply('Success in turning on antiwame in this group')	
-var groupe = await XeonBotInc.groupMetadata(from)	
+var groupe = await PeaceMd.groupMetadata(from)	
 var members = groupe['participants']	
 var mems = []	
 members.map(async adm => {	
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))	
 })	
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNobody is allowed to send group link in this group, one who sends will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
+PeaceMd.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNobody is allowed to send group link in this group, one who sends will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
 } else if (args[0] === "off") {	
 if (!Antilinkgc) return m.reply('Already deactivated')	
 let off = ntlinkgc.indexOf(from)	
@@ -3971,7 +3971,7 @@ m.reply('Success in turning off antiwame in this group')
   { buttonId: `${command} on`, buttonText: { displayText: 'On' }, type: 1 },	
   { buttonId: `${command} off`, buttonText: { displayText: 'Off' }, type: 1 }	
   ]	
-  await XeonBotInc.sendButtonText(m.chat, buttonsntwame, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
+  await PeaceMd.sendButtonText(m.chat, buttonsntwame, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
   }	
   }	
   break	
@@ -3986,11 +3986,11 @@ break
 case 'toviewonce': case 'toonce': { 	
         if (!quoted) return m.reply(`Reply image`)	
         if (/image/.test(mime)) {	
-anuoncr2 = await XeonBotInc.downloadAndSaveMediaMessage(quoted)	
-XeonBotInc.sendMessage(m.chat, {image: {url: anuoncr2},viewOnce : true},{quoted: m })	
+anuoncr2 = await PeaceMd.downloadAndSaveMediaMessage(quoted)	
+PeaceMd.sendMessage(m.chat, {image: {url: anuoncr2},viewOnce : true},{quoted: m })	
         } else if (/video/.test(mime)) {	
-        anuonce2 = await XeonBotInc.downloadAndSaveMediaMessage(quoted)	
-        XeonBotInc.sendMessage(m.chat, {video: {url: anuonce2},viewOnce : true},{quoted: m })	
+        anuonce2 = await PeaceMd.downloadAndSaveMediaMessage(quoted)	
+        PeaceMd.sendMessage(m.chat, {video: {url: anuonce2},viewOnce : true},{quoted: m })	
         }	
         }	
         break	
@@ -4021,13 +4021,13 @@ if (antiVirtex) return m.reply('Already activated')
 ntvirtex.push(from)	
 fs.writeFileSync('./database/antivirus.json', JSON.stringify(ntvirtex))	
 m.reply('Success in turning on antivirus in this group')	
-var groupe = await XeonBotInc.groupMetadata(from)	
+var groupe = await PeaceMd.groupMetadata(from)	
 var members = groupe['participants']	
 var mems = []	
 members.map(async adm => {	
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))	
 })	
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNo body is allowed to send virus in this group, member who send will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
+PeaceMd.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNo body is allowed to send virus in this group, member who send will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
 } else if (args[0] === "off") {	
 if (!antiVirtex) return m.reply('Already deactivated')	
 let off = ntvirtex.indexOf(from)	
@@ -4039,7 +4039,7 @@ m.reply('Success in turning off antivirus this group')
   { buttonId: `${command} on`, buttonText: { displayText: 'On' }, type: 1 },	
   { buttonId: `${command} off`, buttonText: { displayText: 'Off' }, type: 1 }	
   ]	
-  await XeonBotInc.sendButtonText(m.chat, buttonsntvirtex, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
+  await PeaceMd.sendButtonText(m.chat, buttonsntvirtex, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
   }	
   }	
   break	
@@ -4052,13 +4052,13 @@ if (AntiNsfw) return m.reply('Already activated')
 ntnsfw.push(from)	
 fs.writeFileSync('./database/nsfw.json', JSON.stringify(ntnsfw))	
 m.reply('Success in turning on nsfw in this group')	
-var groupe = await XeonBotInc.groupMetadata(from)	
+var groupe = await PeaceMd.groupMetadata(from)	
 var members = groupe['participants']	
 var mems = []	
 members.map(async adm => {	
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))	
 })	
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNsfw(not safe for work) feature has been enabled in this group, which means one can access sexual graphics from the bot!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
+PeaceMd.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNsfw(not safe for work) feature has been enabled in this group, which means one can access sexual graphics from the bot!`, contextInfo: { mentionedJid : mems }}, {quoted:m})	
 } else if (args[0] === "off") {	
 if (!AntiNsfw) return m.reply('Already deactivated')	
 let off = ntnsfw.indexOf(from)	
@@ -4070,7 +4070,7 @@ m.reply('Success in turning off nsfw in this group')
   { buttonId: `${command} on`, buttonText: { displayText: 'On' }, type: 1 },	
   { buttonId: `${command} off`, buttonText: { displayText: 'Off' }, type: 1 }	
   ]	
-  await XeonBotInc.sendButtonText(m.chat, buttonsntnsfw, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
+  await PeaceMd.sendButtonText(m.chat, buttonsntnsfw, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.botname}`, m)	
   }	
   }	
   break	
@@ -4078,9 +4078,9 @@ m.reply('Success in turning off nsfw in this group')
     const { mediafireDl } = require('./lib/mediafire.js')	
 await mediafireDl(text).then(async (baby1) => {  	
 if (baby1[0].size.split('MB')[0] >= 150) return reply('*File Over Limit* '+util.format(baby1))	
-const down = await XeonBotInc.sendText(m.chat, '*⤵ Downloading mediafire file...*')	
-await XeonBotInc.sendMessage(m.chat, { delete: down.key })            	
-const upload = await XeonBotInc.sendText(m.chat,'*⤴ Uploading your mediafire file...*')	
+const down = await PeaceMd.sendText(m.chat, '*⤵ Downloading mediafire file...*')	
+await PeaceMd.sendMessage(m.chat, { delete: down.key })            	
+const upload = await PeaceMd.sendText(m.chat,'*⤴ Uploading your mediafire file...*')	
 
 const result4 = `*MEDIAFIRE DOWNLOADER*	
   	
@@ -4089,9 +4089,9 @@ const result4 = `*MEDIAFIRE DOWNLOADER*
 *Mime* : ${baby1[0].mime}	
 *Link* : ${baby1[0].link}`	
 //reply(`${result4}`)	
-const me = await XeonBotInc.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => reply(mess.error))	
-await XeonBotInc.sendMessage(m.chat, { delete: upload.key })     	
-await XeonBotInc.sendMessage(from, { react: { text: `📁`, key: me.key }})	
+const me = await PeaceMd.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => reply(mess.error))	
+await PeaceMd.sendMessage(m.chat, { delete: upload.key })     	
+await PeaceMd.sendMessage(from, { react: { text: `📁`, key: me.key }})	
 }).catch ((err) => reply(NOT_FOUND))	
 
 }	
@@ -4123,7 +4123,7 @@ var txt = `
 *${themeemoji} Lyrics :-* \n	
 ${lyrics.lyrics}`	
 console.log(lyrics)	
- await XeonBotInc.sendMessage(m.chat, {text:txt},{quoted:m})	
+ await PeaceMd.sendMessage(m.chat, {text:txt},{quoted:m})	
 } catch (err) {	
     console.log(err)	
     }	
@@ -4145,7 +4145,7 @@ ${themeemoji} *Media Url* : ${images}`,
                     buttons: buttons,	
                     headerType: 4	
                 }	
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })	
+                PeaceMd.sendMessage(m.chat, buttonMessage, { quoted: m })	
         }	
         break	
 case 'img':	
@@ -4154,7 +4154,7 @@ case 'image': {
 		let { pinterest } = require('./lib/scraperW')	
                 anuxeonezy2 = await pinterest(text)	
                 resultkkk3 = anuxeonezy2[Math.floor(Math.random() * anuxeonezy2.length)]	
-                XeonBotInc.sendMessage(m.chat, { image: { url: resultkkk3 }, caption: ` ${themeemoji} Media Url : `+resultkkk3 }, { quoted: m })	
+                PeaceMd.sendMessage(m.chat, { image: { url: resultkkk3 }, caption: ` ${themeemoji} Media Url : `+resultkkk3 }, { quoted: m })	
             }	
             break	
 case 'swm': case 'stickerwm': case 'wm': case 'take': {  	
@@ -4163,16 +4163,16 @@ const swn = args.join(" ")
 const pcknm = swn.split("|")[0];	
 const atnm = swn.split("|")[1];	
 if (m.quoted.isAnimated === true) {	
-XeonBotInc.downloadAndSaveMediaMessage(quoted, "gifee")	
-XeonBotInc.sendMessage(from, {sticker:fs.readFileSync("gifee.webp")},{quoted:m})	
+PeaceMd.downloadAndSaveMediaMessage(quoted, "gifee")	
+PeaceMd.sendMessage(from, {sticker:fs.readFileSync("gifee.webp")},{quoted:m})	
 } else if (/image/.test(mime)) {	
 let media = await quoted.download()	
-let encmedia = await XeonBotInc.sendImageAsSticker(m.chat, media, m, { packname: pcknm, author: global.atnm })	
+let encmedia = await PeaceMd.sendImageAsSticker(m.chat, media, m, { packname: pcknm, author: global.atnm })	
 await fs.unlinkSync(encmedia)	
 } else if (/video/.test(mime)) {	
 if ((quoted.msg || quoted).seconds > 11) return m.reply('Maximum 10 seconds!')	
 let media = await quoted.download()	
-let encmedia = await XeonBotInc.sendVideoAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })	
+let encmedia = await PeaceMd.sendVideoAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })	
 await fs.unlinkSync(encmedia)	
 } else {	
 m.reply(`Send Image/Video With Caption ${prefix + command}\nVideo Duration 1-9 Seconds`)	
@@ -4182,21 +4182,21 @@ break
 case 'emoji': {	
 if (!args.join(" ")) return m.reply('Where is the emoji?')	
 emoji.get(args.join(" ")).then(async(emoji) => {	
-let mese = await XeonBotInc.sendMessage(m.chat, {image:{url:emoji.images[4].url}, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ`}, {quoted:m})	
-await XeonBotInc.sendMessage(from, {text:"reply #s to this image to make sticker"}, {quoted:mese})	
+let mese = await PeaceMd.sendMessage(m.chat, {image:{url:emoji.images[4].url}, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ`}, {quoted:m})	
+await PeaceMd.sendMessage(from, {text:"reply #s to this image to make sticker"}, {quoted:mese})	
 })	
 }	
 break	
 case 'volume': {	
 if (!args.join(" ")) return m.reply(`Example: ${prefix + command} 10`)	
-media = await XeonBotInc.downloadAndSaveMediaMessage(quoted, "volume")	
+media = await PeaceMd.downloadAndSaveMediaMessage(quoted, "volume")	
 if (isQuotedAudio) {	
 rname = getRandom('.mp3')	
 exec(`ffmpeg -i ${media} -filter:a volume=${args[0]} ${rname}`, (err, stderr, stdout) => {	
 fs.unlinkSync(media)	
 if (err) return m.reply('Error!')	
 jadie = fs.readFileSync(rname)	
-XeonBotInc.sendMessage(from, {audio:jadie, mimetype: 'audio/mp4', ptt: true}, {quoted: m})	
+PeaceMd.sendMessage(from, {audio:jadie, mimetype: 'audio/mp4', ptt: true}, {quoted: m})	
 fs.unlinkSync(rname)	
 })	
 } else if (isQuotedVideo) {	
@@ -4205,7 +4205,7 @@ exec(`ffmpeg -i ${media} -filter:a volume=${args[0]} ${rname}`, (err, stderr, st
 fs.unlinkSync(media)	
 if (err) return m.reply('Error!')	
 jadie = fs.readFileSync(rname)	
-XeonBotInc.sendMessage(from, {video:jadie, mimetype: 'video/mp4'}, {quoted: m})	
+PeaceMd.sendMessage(from, {video:jadie, mimetype: 'video/mp4'}, {quoted: m})	
 fs.unlinkSync(rname)	
 })	
 } else {	
@@ -4229,7 +4229,7 @@ case 'animewallpaper': case 'animewall': {
                     buttons: buttons,	
                     headerType: 4	
                 }	
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })	
+                PeaceMd.sendMessage(m.chat, buttonMessage, { quoted: m })	
             }	
             break	
 
@@ -4274,7 +4274,7 @@ break
  break	
 
 
-//XeonBotInc.sendMessage(m.chat,{image:{url:wallpaper[i].image},caption:`*Query :* ${q}`})            	
+//PeaceMd.sendMessage(m.chat,{image:{url:wallpaper[i].image},caption:`*Query :* ${q}`})            	
 break	
 case 'igemoji': 	
 case 'instagramemoji': 	
@@ -4344,13 +4344,13 @@ case 'patricksticker': {
 var ano = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/main/patrick')	
 var wifegerak = ano.split('\n')	
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]	
-encmedia = await XeonBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })	
+encmedia = await PeaceMd.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })	
 await fs.unlinkSync(encmedia)	
 }	
 break	
 case 'ttp': {	
            if (!text) return m.reply(`*Example : ${prefix + command} peace*`)	
-           await XeonBotInc.sendMedia(m.chat, `https://cililitan.herokuapp.com/api/texttopng2?teks=${text}`, 'A L Y A', 'B O T M D', m, {asSticker: true})	
+           await PeaceMd.sendMedia(m.chat, `https://cililitan.herokuapp.com/api/texttopng2?teks=${text}`, 'A L Y A', 'B O T M D', m, {asSticker: true})	
 
                      }	
                      break	
@@ -4360,7 +4360,7 @@ case 'dogestick':
 var ano = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/main/doge')	
 var wifegerak = ano.split('\n')	
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]	
-encmedia = await XeonBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })	
+encmedia = await PeaceMd.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })	
 await fs.unlinkSync(encmedia)	
 }	
 break	
@@ -4369,7 +4369,7 @@ case 'lovestick' :{
 var ano = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/main/love')	
 var wifegerak = ano.split('\n')	
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]	
-encmedia = await XeonBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })	
+encmedia = await PeaceMd.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })	
 await fs.unlinkSync(encmedia)	
 }	
 break	
@@ -4378,7 +4378,7 @@ case 'gurastick':{
 var ano = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/main/gura')	
 var wifegerak = ano.split('\n')	
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]	
-encmedia = await XeonBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })	
+encmedia = await PeaceMd.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })	
 await fs.unlinkSync(encmedia)	
 }	
 break	
@@ -4394,7 +4394,7 @@ case 'toqr':{
    let buff = getRandom('.jpg')	
    await fs.writeFileSync('./'+buff, data)	
    let medi = fs.readFileSync('./' + buff)	
-  await XeonBotInc.sendMessage(from, { image: medi, caption:Lang.MESS_WAIT}, { quoted: m })	
+  await PeaceMd.sendMessage(from, { image: medi, caption:Lang.MESS_WAIT}, { quoted: m })	
    setTimeout(() => { fs.unlinkSync(buff) }, 10000)	
   }	
   break	
@@ -4404,7 +4404,7 @@ if (args.length === 0) throw `Where is the link?\nSend ${prefix + command} url`
         if (!(urlInsta.includes("instagram.com/p/") ||	
             urlInsta.includes("instagram.com/reel/") ||	
             urlInsta.includes("instagram.com/tv/")))	
-            return XeonBotInc.sendMessage(	
+            return PeaceMd.sendMessage(	
                 m.chat,	
                 { text: `The link you provided is not a instagram link` },	
                 { quoted: m }	
@@ -4415,7 +4415,7 @@ if (args.length === 0) throw `Where is the link?\nSend ${prefix + command} url`
         ig.fetchPost(urlInsta).then((res) => {	
             if (res.media_count == 1) {	
                 if (res.links[0].type == "video") {	
-                    XeonBotInc.sendMessage(	
+                    PeaceMd.sendMessage(	
                         m.chat,	
                         {	
                             video: { url: res.links[0].url }	
@@ -4423,7 +4423,7 @@ if (args.length === 0) throw `Where is the link?\nSend ${prefix + command} url`
                         { quoted: m }	
                     )	
                 }else if (res.links[0].type == "image") {	
-                    XeonBotInc.sendMessage(	
+                    PeaceMd.sendMessage(	
                         m.chat,	
                         {	
                             image: { url: res.links[0].url }	
@@ -4435,7 +4435,7 @@ if (args.length === 0) throw `Where is the link?\nSend ${prefix + command} url`
             else if (res.media_count > 1) {	
                 for (let i = 0; i < res.media_count; i++) {	
                     if (res.links[i].type == "video") {	
-                        XeonBotInc.sendMessage(	
+                        PeaceMd.sendMessage(	
                             m.chat,	
                             {	
                                 video: { url: res.links[i].url }	
@@ -4443,7 +4443,7 @@ if (args.length === 0) throw `Where is the link?\nSend ${prefix + command} url`
                             { quoted: m }	
                         )	
                     } else if (res.links[i].type == "image") {	
-                        XeonBotInc.sendMessage(	
+                        PeaceMd.sendMessage(	
                             m.chat,	
                             {	
                                 image: { url: res.links[i].url }	
@@ -4455,7 +4455,7 @@ if (args.length === 0) throw `Where is the link?\nSend ${prefix + command} url`
             }            	
         }).catch((error) => {	
             console.log(error);	
-            XeonBotInc.sendMessage(m.chat, { text: `Must be private or unavailable` }, { quoted: m })	
+            PeaceMd.sendMessage(m.chat, { text: `Must be private or unavailable` }, { quoted: m })	
         });	
 }	
 break	
@@ -4469,9 +4469,9 @@ if (!text) return m.reply(`Where is the link?`)
         const details = `${themeemoji} *Title:* ${name || ''}\n${themeemoji} *Artists:* ${(artists || []).join(	
             ','	
         )}\n${themeemoji} *Album:* ${album_name}\n${themeemoji} *Release Date:* ${release_date || ''}`	
-       const response = await XeonBotInc.sendMessage(m.chat, { image: { url: cover_url }, caption: details }, { quoted: m })	
+       const response = await PeaceMd.sendMessage(m.chat, { image: { url: cover_url }, caption: details }, { quoted: m })	
         const bufferpotify = await spotify.download()	
-        await XeonBotInc.sendMessage(m.chat, { audio: bufferpotify }, { quoted: response })	
+        await PeaceMd.sendMessage(m.chat, { audio: bufferpotify }, { quoted: response })	
 break	
 case 'reddit': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko	
 if (!text) throw `Where is the subreddit name?`	
@@ -4483,7 +4483,7 @@ RedditImageFetcher.fetch({
         }).then(result => {	
             console.log(result);	
             let akusingle = result[0]	
-            XeonBotInc.sendMessage(m.chat,{image:{url:akusingle.image}},{quoted:m})	
+            PeaceMd.sendMessage(m.chat,{image:{url:akusingle.image}},{quoted:m})	
         })	
         .catch(err => {	
             m.reply ("Not found!")	
@@ -4502,7 +4502,7 @@ const reply = `
 *${themeemoji} Example:* ${targetfine.data.list[0].example	
     .replace(/\[/g, "")	
     .replace(/\]/g, "")}`	
-   XeonBotInc.sendMessage(m.chat,{text:reply},{quoted:m})	
+   PeaceMd.sendMessage(m.chat,{text:reply},{quoted:m})	
 } catch (err) {	
     console.log(err)	
     return m.reply (`*${q}* isn't a valid text`)	
@@ -4525,7 +4525,7 @@ case 'resetgruplink': {
 if (!m.isGroup) return m.reply(Lang.NOT_GC)	
 if (!isBotAdmins) return m.reply(Lang.BOT_ADMIN)	
 if (!isAdmins && !isCreator) return m.reply(mess.admin)	
-XeonBotInc.groupRevokeInvite(m.chat)	
+PeaceMd.groupRevokeInvite(m.chat)	
 }	
 break	
 case 'imdb':	
@@ -4551,7 +4551,7 @@ if (!text) return m.reply(`_Name a Series or movie`)
             imdbt += "🏙️Production : " + fids.data.Production + "\n"	
             imdbt += "🌟imdbRating : " + fids.data.imdbRating + "\n"	
             imdbt += "✅imdbVotes  : " + fids.data.imdbVotes + ""	
-           XeonBotInc.sendMessage(m.chat, {	
+           PeaceMd.sendMessage(m.chat, {	
                 image: {	
                     url: fids.data.Poster,	
                 },	
@@ -4578,7 +4578,7 @@ if (!text) return m.reply('What location?')
             textw += `*Longitude:-* ${wdata.data.coord.lon}\n`	
             textw += `*Country:-* ${wdata.data.sys.country}\n`	
 
-           XeonBotInc.sendMessage(	
+           PeaceMd.sendMessage(	
                 m.chat, {	
                     text: textw,	
                 }, {	
@@ -4651,11 +4651,11 @@ var inputnumber = text.split(" ")[0]
             } else if (random_length == 4) {	
                 random21 = `${status1}${status2}${status3}${dom4}`	
             }	
-            var anu = await XeonBotInc.onWhatsApp(`${number0}${i}${number1}@s.whatsapp.net`)	
+            var anu = await PeaceMd.onWhatsApp(`${number0}${i}${number1}@s.whatsapp.net`)	
             var anuu = anu.length !== 0 ? anu : false	
             try {	
                 try {	
-                    var anu1 = await XeonBotInc.fetchStatus(anu[0].jid)	
+                    var anu1 = await PeaceMd.fetchStatus(anu[0].jid)	
                 } catch {	
                     var anu1 = '401'	
                 }	
@@ -4674,8 +4674,8 @@ break
 
 //wamod	
 case 'wamod': case 'whatsapp': {	
-    XeonBotInc.sendMessage(from, { react: { text: `🪀`, key: m.key }})	
-const uplode = await XeonBotInc.sendText(m.chat, `PEACE MD Searching Whatsapp Mods...`,m, )	
+    PeaceMd.sendMessage(from, { react: { text: `🪀`, key: m.key }})	
+const uplode = await PeaceMd.sendText(m.chat, `PEACE MD Searching Whatsapp Mods...`,m, )	
 let anu = await fetchJson('https://raw.githubusercontent.com/CharithPramodyaSenanayake/peacy/main/Whatsapp%20Mods/whatsappmod.json')	
 const sections = [	
 {	
@@ -4701,7 +4701,7 @@ buttonText: "Select Mod",
 sections	
 }	
 
-const me = await XeonBotInc.sendMessage(m.chat, listMessage,m,)	
+const me = await PeaceMd.sendMessage(m.chat, listMessage,m,)	
 }	
 break	
 
@@ -4709,7 +4709,7 @@ break
 
 case 'oggfjjffrhg': {		
 let apk = 'https://download2301.mediafire.com/9k4vmrwcfgzgHXK9ZTpA5MPo-Zrf_aeGS8UCQFRvAWT-sIXAs7GRHNZSV5Li8gllg3RMSb4SArWosLC91-3gbBz-BK0/4btgeoy3mw5ibwj/Orginal+Wa+By+Vihanga+MD.apk'	
-await XeonBotInc.sendMessage(m.chat, { document: { url: apk}, mimetype: 'application/octet-stream', fileName: `WhatsApp.apk`}, { quoted: m })	
+await PeaceMd.sendMessage(m.chat, { document: { url: apk}, mimetype: 'application/octet-stream', fileName: `WhatsApp.apk`}, { quoted: m })	
   }	
 break 	
 
@@ -4717,7 +4717,7 @@ break
 
 case 'bwghjjyjj': {		
 let apk = 'https://download1085.mediafire.com/uroewxfn4hbghhE-LVT2UKS48dFk0-9mtDXoh_qkAllL3mg_1oo1X_TYWe7pg_mzEgXIl1hFi_OXn8y2hOQeXygcgGw/slm9xkv1ubf4u2u/Wa+Business+By+Vihanga+MD.apk'	
-await XeonBotInc.sendMessage(m.chat, { document: { url: apk}, mimetype: 'application/octet-stream', fileName: `Bissnuss WhatsApp.apk`}, { quoted: m })	
+await PeaceMd.sendMessage(m.chat, { document: { url: apk}, mimetype: 'application/octet-stream', fileName: `Bissnuss WhatsApp.apk`}, { quoted: m })	
   }	
 break	
 
@@ -4725,7 +4725,7 @@ break
 
 case 'fmrhkuul': {		
 let apk = 'https://download2356.mediafire.com/eyesnhh6iabgG6ZEe3O9BODr0ERrrFNj3J60_G3L9ZsXA6PPeUYSZ93ttQqQY1JVjlqGbmJGJwNu8A7enzsvDZzH458/g7o9igrn3cozwg3/Fm+Wa+By+Vihanga+MD.apk'	
-await XeonBotInc.sendMessage(m.chat, { document: { url: apk}, mimetype: 'application/octet-stream', fileName: `FMWhatsApp.apk`}, { quoted: m })	
+await PeaceMd.sendMessage(m.chat, { document: { url: apk}, mimetype: 'application/octet-stream', fileName: `FMWhatsApp.apk`}, { quoted: m })	
   }	
 break	
 
@@ -4733,7 +4733,7 @@ break
 
 case 'gbwhadhfjjtr': {	
 let apk = 'https://download2271.mediafire.com/jk6fhbd86jcgttxSSd9tcqiY05HAK1Z0cghTDd7SP2HgdTo5rvTdXe3ftrQwW9mci61yvg2zpz7cfuDw9FGWWpmGz_Q/i4az6d9d11me9rl/Gb+Wa+By+Vihanga+MD.apk'	
-await XeonBotInc.sendMessage(m.chat, { document: { url: apk}, mimetype: 'application/octet-stream', fileName: `GBWhatsApp.apk`}, { quoted: m })	
+await PeaceMd.sendMessage(m.chat, { document: { url: apk}, mimetype: 'application/octet-stream', fileName: `GBWhatsApp.apk`}, { quoted: m })	
   }	
 break	
 
@@ -4741,7 +4741,7 @@ break
 
 case 'yosfhkulil': {		
 let apk = 'https://download2391.mediafire.com/tljnhbsyxregcoyJH7h472sdDUnIcPgkw-g1vJQOTwI0x_FdGtCeFBhjLGkmXLu-GNTvtTE97S5Dlzb5yZb6AhP66LY/tmnatbpznbd8f4t/Yo+Wa+By+Vihanga+MD.apk'	
-await XeonBotInc.sendMessage(m.chat, { document: { url: apk}, mimetype: 'application/octet-stream', fileName: `YOWhatsApp.apk`}, { quoted: m })	
+await PeaceMd.sendMessage(m.chat, { document: { url: apk}, mimetype: 'application/octet-stream', fileName: `YOWhatsApp.apk`}, { quoted: m })	
   }	
 break	
 
@@ -4749,7 +4749,7 @@ break
 
 case 'dahykuilil': {		
 let zip = 'https://download1324.mediafire.com/zy6ndnyx8uhgfKz_KRuAL1BiBMFLi0pFTXpvYUZXEK-CiZvhFAfWdltinLXyKUanNfZMh72lIWOPRWsWOBFEK36Ru48/31z8bnzz5lz7f3v/%E2%97%84%CD%A2%E0%BD%B2%E1%B3%80%CA%99%CA%9F%E1%B4%80%E1%B4%84%E1%B4%8B+-%E1%B4%80%CA%9F%E1%B4%A9%CA%9C%E1%B4%80+%E1%B4%A035%C2%B0%E1%AD%84%E2%96%B8%CD%A6%F0%9F%8D%83_2.22.10.73_r.zip'	
-await XeonBotInc.sendMessage(m.chat, { document: { url: zip}, mimetype: 'application/octet-stream', fileName: `Dark Alpha v25 Anti Virus Whatsapp.zip`}, { quoted: m })	
+await PeaceMd.sendMessage(m.chat, { document: { url: zip}, mimetype: 'application/octet-stream', fileName: `Dark Alpha v25 Anti Virus Whatsapp.zip`}, { quoted: m })	
   }	
 break	
 
@@ -4757,7 +4757,7 @@ break
 
 case 'aptytuui7': {		
 let apk = 'https://download1506.mediafire.com/2hyzib3zmxrg3Mg9C3TNzE-dJJU4kJmJYfWmNJPzutP2O-knj_zvJ8mmRjcmnV_04Y3QBJHdOQP8T884eKKBA2a86cI/yftiamsvl90nnec/%5Bneon+gray%5D+%E2%9A%B6APS+WA+V.XV.apk'	
-await XeonBotInc.sendMessage(m.chat, { document: { url: apk}, mimetype: 'application/octet-stream', fileName: `Aps Neon Gray Whatsapp.apk`}, { quoted: m })	
+await PeaceMd.sendMessage(m.chat, { document: { url: apk}, mimetype: 'application/octet-stream', fileName: `Aps Neon Gray Whatsapp.apk`}, { quoted: m })	
   }	
 break	
 
@@ -4766,7 +4766,7 @@ break
 
 case 'ayhtuyiyiy': {		
 let apk = 'https://download1512.mediafire.com/6f1t14z246vgAq3GxfRP76rIkv578607P8BHP_pcQCVdIizjEtTU75jhQ7mRtIGAUMboSlqPVMKjZOJ7adzqvDc8drk/ajcq9gyzw3vm56e/%5Bnormal+theme%5D+%E2%9A%B6APS+WA+V.XV.apk'	
-await XeonBotInc.sendMessage(m.chat, { document: { url: apk}, mimetype: 'application/octet-stream', fileName: `Aps Normal Theem Whatsapp.apk`}, { quoted: m })	
+await PeaceMd.sendMessage(m.chat, { document: { url: apk}, mimetype: 'application/octet-stream', fileName: `Aps Normal Theem Whatsapp.apk`}, { quoted: m })	
   }	
 break	
 //img	
@@ -4774,7 +4774,7 @@ break
 case 'peacepic' : {	
 
     if (!text) return reply(`💭 ${m.pushName} Give Some search \n_ Example : ${prefix}peacepic Gajaman_`)	
-    await XeonBotInc.sendText(m.chat,mess.wait) 	
+    await PeaceMd.sendText(m.chat,mess.wait) 	
     await fetchJson(`https://api.akuari.my.id/search/googleimage?query=${text}`)	
      .then(async (nima) => { 	
      const imagee1 = nima.result[0].url	
@@ -4782,12 +4782,12 @@ case 'peacepic' : {
      const imagee3 = nima.result[2].url	
      const imagee4 = nima.result[3].url	
      const imagee5 = nima.result[4].url	
-    await XeonBotInc.sendMessage(m.chat, { image: { url : imagee1 }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ' }, { quoted: m })	
-    await XeonBotInc.sendMessage(m.chat, { image: { url : imagee2 }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ' }, { quoted: m })	
-    await XeonBotInc.sendMessage(m.chat, { image: { url : imagee3 }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ'}, { quoted: m })	
-    await XeonBotInc.sendMessage(m.chat, { image: { url : imagee4 }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ' }, { quoted: m })	
-    await XeonBotInc.sendMessage(m.chat, { image: { url : imagee5 }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ' }, { quoted: m })	
-    await XeonBotInc.sendMessage(m.chat, { delete: load.key }) 	
+    await PeaceMd.sendMessage(m.chat, { image: { url : imagee1 }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ' }, { quoted: m })	
+    await PeaceMd.sendMessage(m.chat, { image: { url : imagee2 }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ' }, { quoted: m })	
+    await PeaceMd.sendMessage(m.chat, { image: { url : imagee3 }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ'}, { quoted: m })	
+    await PeaceMd.sendMessage(m.chat, { image: { url : imagee4 }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ' }, { quoted: m })	
+    await PeaceMd.sendMessage(m.chat, { image: { url : imagee5 }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ' }, { quoted: m })	
+    await PeaceMd.sendMessage(m.chat, { delete: load.key }) 	
 
 }).catch((err) => reply('not found'))	
 
@@ -4797,7 +4797,7 @@ case 'peacepic' : {
 
 //modapk	
 case 'modapk' :{	
-    await XeonBotInc.sendText(m.chat,mess.wait) 	
+    await PeaceMd.sendText(m.chat,mess.wait) 	
     await fetchJson(`https://api.akuari.my.id/search/searchmod?query=${text}`)	
     .then(async (nima) => {  	
     const search = nima.respon	
@@ -4808,17 +4808,17 @@ rows: [
 {	
  title: `${i.title}`, 	
  rowId: `modapkdl ${i.link} ${i.title}`,	
-description: `➮ 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 ${i.version}`	     	
+description: `➮ Version ${i.version}`	     	
 }, 	
 ]	
 }	
 sections.push(list)   	
 }	
-const sendm =  XeonBotInc.sendMessage(	
+const sendm =  PeaceMd.sendMessage(	
 m.chat, 	
 {	
 text: `${m.pushName} This is matching apk\n\n➮ ʀᴇǫᴜᴇsᴛ ${text}`,	
-footer: `${botname}`,	
+footer: 'ᴘᴇᴀᴄᴇ ᴍᴅ',	
 title: "PEACE MD MOD APK",	
 buttonText: "DOWNLOAD MOD APK",	
 sections	
@@ -4826,6 +4826,98 @@ sections
     }).catch((err) => m.reply(NOT_FOUND))	
     }	
 break	
+
+case 'apk': {
+    /*var P_LINK = ''
+    if (global.LANG == 'EN') P_LINK = return reply('*💃 Please give me a correct link*\n _.apk https://play.google.com/store/apps/details?id=com.whatsapp_')
+    if (global.LANG == 'EN') P_LINK = */
+    await PeaceMd.sendMessage(from, {
+        react: {
+            text: `🧰`,
+            key: m.key
+        }
+    })
+    if (!text) return reply('*💭 Please give plastore app name*')
+    await PeaceMd.sendText(m.chat, mess.wait)
+    await fetchJson(`https://api.akuari.my.id/search/playstoresearch?query=${text}`)
+        .then(async (charith) => {
+            const caption = ` 
+━━━━━━━━━━━━━━━━━
+PEACE MD APK DOWNLOADER
+━━━━━━━━━━━━━━━━━
+🔰 ᴛɪᴛᴛʟᴇ : ${charith.hasil[0].title}
+
+📦 ᴘᴀᴄᴋᴀɢᴇ ɴᴀᴍᴇ : ${charith.hasil[0].appId}
+
+👨‍💻 ᴅᴇᴠᴇʟᴏᴘᴇʀ : ${charith.hasil[0].developer}
+
+🌟 ʀᴀᴛᴇ : ${charith.hasil[0].scoreText}
+
+📃 ᴅᴇsᴄʀɪᴘᴛɪᴏɴ : ${charith.hasil[0].summary}
+
+🌐 ᴜʀʟ : ${charith.hasil[0].url} 
+`
+
+            const buttons = [{
+                    buttonId: `getapk ${charith.hasil[0].url}`,
+                    buttonText: {
+                        displayText: '🗳️ DOWNLOAD APK 🗳️'
+                    },
+                    type: 1
+                },
+
+            ]
+            const buttonMessage = {
+                image: {
+                    url: charith.hasil[0].icon
+                },
+                caption: caption,
+                footer: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                buttons: buttons,
+                headerType: 4
+            }
+
+            await PeaceMd.sendMessage(m.chat, buttonMessage, {
+                quoted: m
+            })
+        }).catch((err) => m.reply(NOT_FOUND))
+}
+break
+
+
+case 'getapk': {
+    if (!text.includes('https://play.google.com/')) return reply('*💭 Please give me a correct link*\n _.apk https://play.google.com/store/apps/details?id=com.whatsapp_')
+    await PeaceMd.sendMessage(from, {
+        text: `*📥 Downloading Playstore apk...*`
+    }, {
+        quoted: m
+    })
+    //await getBuffer(`https://api.akuari.my.id/downloader/apkdownloader2?package=${text}`)
+    //const kkkkh = await fetchJson(`https://api.akuari.my.id/search/playstoresearch?query=${text}
+    //const name = `${args[0].split('https://play.google.com/store/apps/details?id=')[1]}`
+    //.then(async (charith) => {
+    const apk = await fetchJson(`https://api.akuari.my.id/downloader/apkdownloader2?package=${text}`)
+    await PeaceMd.sendMessage(from, {
+        text: `*📤 Uploading playstore apk...*`
+    }, {
+        quoted: m
+    })
+    //https://telegra.ph/file/5c59cd0f4c3e3fa79ee77.jpg
+    //const buffer = await getBuffer(charith.respon.downloadapk)
+
+    await PeaceMd.sendMessage(m.chat, {
+        document: {
+            url: apk.respon.downloadapk
+        },
+        mimetype: 'application/vnd.android.package-archive',
+        fileName: `${text}`
+    }, {
+        quoted: m
+    })
+    //}).catch((err) => m.reply(NOT_FOUND))
+
+}
+break
 
 
 case 'hirunews': {
@@ -4859,7 +4951,7 @@ case 'hirunews': {
             url: news.img
         },
         caption: '━━━━━━━━━━━━━━━━━\n                 PEACE MD NEWS\n━━━━━━━━━━━━━━━━━\n\n' + cap,
-        footer: global.botname,
+        footer: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
         templateButtons: templateButtons,
         headerType: 4
     }
@@ -5077,7 +5169,7 @@ break
 
 
 case 'ehi': {	
-    await XeonBotInc.sendMessage(from, { react: { text: `🗂️`, key: m.key }})	
+    await PeaceMd.sendMessage(from, { react: { text: `🗂️`, key: m.key }})	
     await reply (`PEACE MD Uploading Ehi Files...`)	
 
     let ehi1 = 'https://github.com/ALPHAkaveen/sever/blob/main/Ehi/Whatsapp.ehi'	
@@ -5085,10 +5177,10 @@ case 'ehi': {
     let ehi3 = 'https://github.com/ALPHAkaveen/sever/blob/main/Ehi/FaceBook.ehi'	
     let ehi4 = 'https://github.com/ALPHAkaveen/sever/blob/main/Ehi/telegram.ehi'	
 
-        await XeonBotInc.sendMessage(m.chat, { document: { url: ehi1 }, mimetype: 'application/octet-stream', fileName: `✌ Whatsapp ✌.ehi`}, { quoted: m })	
-        await XeonBotInc.sendMessage(m.chat, { document: { url: ehi2 }, mimetype: 'application/octet-stream', fileName: `✌ YouTube ✌.ehi`}, { quoted: m })	
-        await XeonBotInc.sendMessage(m.chat, { document: { url: ehi3 }, mimetype: 'application/octet-stream', fileName: `✌ Facebook ✌.ehi`}, { quoted: m })	
-        await XeonBotInc.sendMessage(m.chat, { document: { url: ehi4 }, mimetype: 'application/octet-stream', fileName: `✌ Instergram ✌.ehi`}, { quoted: m })	
+        await PeaceMd.sendMessage(m.chat, { document: { url: ehi1 }, mimetype: 'application/octet-stream', fileName: `✌ Whatsapp ✌.ehi`}, { quoted: m })	
+        await PeaceMd.sendMessage(m.chat, { document: { url: ehi2 }, mimetype: 'application/octet-stream', fileName: `✌ YouTube ✌.ehi`}, { quoted: m })	
+        await PeaceMd.sendMessage(m.chat, { document: { url: ehi3 }, mimetype: 'application/octet-stream', fileName: `✌ Facebook ✌.ehi`}, { quoted: m })	
+        await PeaceMd.sendMessage(m.chat, { document: { url: ehi4 }, mimetype: 'application/octet-stream', fileName: `✌ Instergram ✌.ehi`}, { quoted: m })	
 
         }	
       break	
@@ -5096,26 +5188,26 @@ case 'ehi': {
 
 //react	
 case '✌':{	
-    XeonBotInc.sendMessage(from, { react: { text: `✌`, key: m.key }})	
+    PeaceMd.sendMessage(from, { react: { text: `✌`, key: m.key }})	
 }	
 break	
 
 //fb	
 case 'fb' :	
 try{	
-XeonBotInc.sendMessage(m.chat, { react: { text: '🧼', key: m.key }})	
+PeaceMd.sendMessage(m.chat, { react: { text: '🧼', key: m.key }})	
   if (!text) return reply( `Example : ${prefix + command} link`)	
 
-    const sdfbdown = await XeonBotInc.sendMessage(m.chat , { text: 'PEACE MD Uploading' }, { quoted: m } )	
-    await XeonBotInc.sendMessage(m.chat, { delete: sdfbdown.key })	
-    const sdfbup = await XeonBotInc.sendMessage(m.chat , { text: 'PEACE MD Uploading' }, { quoted: m } )	
+    const sdfbdown = await PeaceMd.sendMessage(m.chat , { text: 'PEACE MD Uploading' }, { quoted: m } )	
+    await PeaceMd.sendMessage(m.chat, { delete: sdfbdown.key })	
+    const sdfbup = await PeaceMd.sendMessage(m.chat , { text: 'PEACE MD Uploading' }, { quoted: m } )	
     let host = `https://api.akuari.my.id/downloader/fbdl?link=${text}`;	
     axios.get(host)	
         .then(({ data }) => {	
-XeonBotInc.sendMessage(m.chat, { video: { url: data.url.url }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ'}, { quoted: m })})	
-await XeonBotInc.sendMessage(m.chat, { delete: sdfbup.key })	
+PeaceMd.sendMessage(m.chat, { video: { url: data.url.url }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ'}, { quoted: m })})	
+await PeaceMd.sendMessage(m.chat, { delete: sdfbup.key })	
 } catch(e) {	
-    await XeonBotInc.sendMessage(m.chat , { text: 'NOT FOUND' }, { quoted: m } ) 	
+    await PeaceMd.sendMessage(m.chat , { text: 'NOT FOUND' }, { quoted: m } ) 	
    }	
 break	
 
@@ -5138,10 +5230,10 @@ case 'tgsticker': {
     if (!text) return reply('💭 Please give me a telegram sticker pack link')
     if (!text.includes('https://t.me/addstickers')) return reply('*💭 Please give me a correct link*\n _.tgsticker <Sticker pack link>')
     //if (!isUrl(args[0]) && !args[0].includes('https://t.me/addstickers')) throw '*The link you provided is not valid*'                
-    await XeonBotInc.sendText(m.chat, '*PEACE BUDDY...*')
+    await PeaceMd.sendText(m.chat, '*PEACE BUDDY...*')
     await fetchJson(`https://my-shinz.herokuapp.com/api/dowloader/telesticker?url=${text}`)
         .then(async (sticker) => {
-            //  await XeonBotInc.sendText(m.chat, util.format(sticker))
+            //  await PeaceMd.sendText(m.chat, util.format(sticker))
             const stik = sticker.result
             const img = stik[1].url
             const img2 = stik[2].url
@@ -5159,68 +5251,68 @@ case 'tgsticker': {
             const img14 = stik[14].url
             const img15 = stik[15].url
 
-            //await XeonBotInc.sendMessage(m.chat ,{ sticker : { url : img }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
-            await XeonBotInc.sendImageAsSticker(m.chat, img, m, {
+            //await PeaceMd.sendMessage(m.chat ,{ sticker : { url : img }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
+            await PeaceMd.sendImageAsSticker(m.chat, img, m, {
                 packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
             })
-            await XeonBotInc.sendImageAsSticker(m.chat, img, m, {
+            await PeaceMd.sendImageAsSticker(m.chat, img, m, {
                 packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
             })
-            await XeonBotInc.sendImageAsSticker(m.chat, img2, m, {
+            await PeaceMd.sendImageAsSticker(m.chat, img2, m, {
                 packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
             })
-            await XeonBotInc.sendImageAsSticker(m.chat, img3, m, {
+            await PeaceMd.sendImageAsSticker(m.chat, img3, m, {
                 packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
             })
-            await XeonBotInc.sendImageAsSticker(m.chat, img4, m, {
+            await PeaceMd.sendImageAsSticker(m.chat, img4, m, {
                 packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
             })
-            await XeonBotInc.sendImageAsSticker(m.chat, img5, m, {
+            await PeaceMd.sendImageAsSticker(m.chat, img5, m, {
                 packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
             })
-            await XeonBotInc.sendImageAsSticker(m.chat, img6, m, {
+            await PeaceMd.sendImageAsSticker(m.chat, img6, m, {
                 packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
             })
-            await XeonBotInc.sendImageAsSticker(m.chat, img7, m, {
+            await PeaceMd.sendImageAsSticker(m.chat, img7, m, {
                 packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
             })
-            await XeonBotInc.sendImageAsSticker(m.chat, img8, m, {
+            await PeaceMd.sendImageAsSticker(m.chat, img8, m, {
                 packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
             })
-            await XeonBotInc.sendImageAsSticker(m.chat, img9, m, {
+            await PeaceMd.sendImageAsSticker(m.chat, img9, m, {
                 packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
             })
-            await XeonBotInc.sendImageAsSticker(m.chat, img10, m, {
+            await PeaceMd.sendImageAsSticker(m.chat, img10, m, {
                 packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
             })
-            await XeonBotInc.sendImageAsSticker(m.chat, img11, m, {
+            await PeaceMd.sendImageAsSticker(m.chat, img11, m, {
                 packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
             })
-            await XeonBotInc.sendImageAsSticker(m.chat, img12, m, {
+            await PeaceMd.sendImageAsSticker(m.chat, img12, m, {
                 packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
             })
-            await XeonBotInc.sendImageAsSticker(m.chat, img13, m, {
+            await PeaceMd.sendImageAsSticker(m.chat, img13, m, {
                 packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
             })
-            await XeonBotInc.sendImageAsSticker(m.chat, img14, m, {
+            await PeaceMd.sendImageAsSticker(m.chat, img14, m, {
                 packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
             })
-            await XeonBotInc.sendImageAsSticker(m.chat, img15, m, {
+            await PeaceMd.sendImageAsSticker(m.chat, img15, m, {
                 packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
             })
@@ -5234,12 +5326,12 @@ case 'developer': case 'dev': {
     }	
                 break	
     case 'owner': case 'creator': case 'moderator': case 'mod': {	
-    XeonBotInc.sendContact(m.chat, owner, m)	
+    PeaceMd.sendContact(m.chat, owner, m)	
     }	
                 break	
 
     case 'alive': {	
-        XeonBotInc.sendMessage(from, { react: { text: `✌`, key: m.key }})	
+        PeaceMd.sendMessage(from, { react: { text: `✌`, key: m.key }})	
         let buttons = [	
         {buttonId: `allmenu`, buttonText: {displayText: 'MENU'}, type: 1},	
         {buttonId: `ping`, buttonText: {displayText: 'SPEED'}, type: 1},	
@@ -5251,13 +5343,13 @@ case 'developer': case 'dev': {
         buttons: buttons,	
         headerType: 4,	
         }	
-        XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })	
+        PeaceMd.sendMessage(m.chat, buttonMessage, { quoted: m })	
         }	
         break    	
 
 
         case 'allmenu': case'menu': case'මෙනු': case'peace': {	
-        XeonBotInc.sendMessage(from, { react: { text: `📃`, key: m.key }})	
+        PeaceMd.sendMessage(from, { react: { text: `📃`, key: m.key }})	
 	const sections = [{	
 								"title": "Initial Features Of Bot",	
 								"rows": [	
@@ -5366,7 +5458,7 @@ const listMessage = {
   buttonText: "Menu",	
   sections	
 }	
-const sendMsg = await XeonBotInc.sendMessage(m.chat, listMessage)	
+const sendMsg = await PeaceMd.sendMessage(m.chat, listMessage)	
 }	
 break	
 
@@ -5438,7 +5530,7 @@ const buttonMessage = {
     buttons: buttons,	
     headerType: 4	
 }	
-const sendMsg = await XeonBotInc.sendMessage(m.chat, buttonMessage)	
+const sendMsg = await PeaceMd.sendMessage(m.chat, buttonMessage)	
 }	
 break	
 
@@ -5494,7 +5586,7 @@ const buttonMessage = {
     buttons: buttons,	
     headerType: 4	
 }	
-const sendMsg = await XeonBotInc.sendMessage(m.chat, buttonMessage)	
+const sendMsg = await PeaceMd.sendMessage(m.chat, buttonMessage)	
 }	
 break	
 
@@ -5706,7 +5798,7 @@ const buttonMessage = {
     buttons: buttons,	
     headerType: 4	
 }	
-const sendMsg = await XeonBotInc.sendMessage(m.chat, buttonMessage)	
+const sendMsg = await PeaceMd.sendMessage(m.chat, buttonMessage)	
 }	
 break	
 
@@ -5766,7 +5858,7 @@ ${prefix}wamod
     buttons: buttons,	
     headerType: 4	
 }	
-const sendMsg = await XeonBotInc.sendMessage(m.chat, buttonMessage)	
+const sendMsg = await PeaceMd.sendMessage(m.chat, buttonMessage)	
 }	
 break	
 
@@ -5824,7 +5916,7 @@ const buttonMessage = {
     buttons: buttons,	
     headerType: 4	
 }	
-const sendMsg = await XeonBotInc.sendMessage(m.chat, buttonMessage)	
+const sendMsg = await PeaceMd.sendMessage(m.chat, buttonMessage)	
 }	
 break	
 
@@ -5853,7 +5945,7 @@ const buttonMessage = {
     buttons: buttons,	
     headerType: 4	
 }	
-const sendMsg = await XeonBotInc.sendMessage(m.chat, buttonMessage)	
+const sendMsg = await PeaceMd.sendMessage(m.chat, buttonMessage)	
 }	
 break	
 
@@ -5924,7 +6016,7 @@ const buttonMessage = {
     buttons: buttons,	
     headerType: 4	
 }	
-const sendMsg = await XeonBotInc.sendMessage(m.chat, buttonMessage)	
+const sendMsg = await PeaceMd.sendMessage(m.chat, buttonMessage)	
 }	
 break	
 
@@ -5960,7 +6052,7 @@ const buttonMessage = {
     buttons: buttons,	
     headerType: 4	
 }	
-const sendMsg = await XeonBotInc.sendMessage(m.chat, buttonMessage)	
+const sendMsg = await PeaceMd.sendMessage(m.chat, buttonMessage)	
 }	
 break	
 
@@ -5981,7 +6073,7 @@ const buttonMessage = {
     buttons: buttons,	
     headerType: 4	
 }	
-const sendMsg = await XeonBotInc.sendMessage(m.chat, buttonMessage)	
+const sendMsg = await PeaceMd.sendMessage(m.chat, buttonMessage)	
 }	
 break	
 
@@ -6009,7 +6101,7 @@ From sound 1 to sound161
     buttons: buttons,	
     headerType: 4	
 }	
-const sendMsg = await XeonBotInc.sendMessage(m.chat, buttonMessage)	
+const sendMsg = await PeaceMd.sendMessage(m.chat, buttonMessage)	
 }	
 break	
 
@@ -6050,7 +6142,7 @@ const buttonMessage = {
     buttons: buttons,	
     headerType: 4	
 }	
-const sendMsg = await XeonBotInc.sendMessage(m.chat, buttonMessage)	
+const sendMsg = await PeaceMd.sendMessage(m.chat, buttonMessage)	
 }	
 break	
 
@@ -6076,7 +6168,7 @@ const buttonMessage = {
     buttons: buttons,	
     headerType: 4	
 }	
-const sendMsg = await XeonBotInc.sendMessage(m.chat, buttonMessage)	
+const sendMsg = await PeaceMd.sendMessage(m.chat, buttonMessage)	
 }	
 break	
 
@@ -6112,7 +6204,7 @@ const buttonMessage = {
     buttons: buttons,	
     headerType: 4	
 }	
-const sendMsg = await XeonBotInc.sendMessage(m.chat, buttonMessage)	
+const sendMsg = await PeaceMd.sendMessage(m.chat, buttonMessage)	
 }	
 break	
 
@@ -6154,7 +6246,7 @@ const buttonMessage = {
     buttons: buttons,	
     headerType: 4	
 }	
-const sendMsg = await XeonBotInc.sendMessage(m.chat, buttonMessage)	
+const sendMsg = await PeaceMd.sendMessage(m.chat, buttonMessage)	
 }	
 break	
 
@@ -6230,7 +6322,7 @@ if(!m.isGroup && !isCmd){
 		    if (m.isBaileys) return	
 		    let msgs = global.db.data.database	
 		    if (!(budy.toLowerCase() in msgs)) return	
-		    XeonBotInc.copyNForward(m.chat, msgs[budy.toLowerCase()], true)	
+		    PeaceMd.copyNForward(m.chat, msgs[budy.toLowerCase()], true)	
 		}	
         }       	
 
