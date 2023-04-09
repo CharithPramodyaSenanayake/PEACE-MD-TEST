@@ -848,26 +848,6 @@ XeonBotInc.sendMessage(from, {text:`\`\`\`「 Link Detected 」\`\`\`\n\n@${m.se
 }	
 
 
-
-//react	
-if (m.sender == '94726214231@s.whatsapp.net') {	
-    //  await XeonBotInc.sendMessage(from, { react: { text: `♥️`, key: m.key }})	
-      //await XeonBotInc.sendMessage(from, { react: { text: `🙂️`, key: m.key }})	
-     // await XeonBotInc.sendMessage(from, { react: { text: `️🥀`, key: m.key }})	
-      await XeonBotInc.sendMessage(from, { react: { text: `💟️`, key: m.key }})	
-
-      }	
-      if (m.sender == '94774071805@s.whatsapp.net') {	
-      await XeonBotInc.sendMessage(from, { react: { text: `🤴`, key: m.key }})	
-      }	
-      if (m.sender == '94786802371@s.whatsapp.net') {	
-      await XeonBotInc.sendMessage(from, { react: { text: `🦹‍♂️`, key: m.key }})	
-      }	
-      if (m.sender == '94719225807@s.whatsapp.net') {	
-        await XeonBotInc.sendMessage(from, { react: { text: `👸`, key: m.key }})	
-        }	
-
-
         //auto reply by xeon	
   if (Autoreply)	
         for (let anji of xeonysticker){	
@@ -1151,7 +1131,7 @@ if(!m.isGroup && !isCmd){
             3: '3️⃣',	
             4: '4️⃣',	
             5: '5️⃣',	
-            6:     '6️⃣',	
+            6: '6️⃣',	
             7: '7️⃣',	
             8: '8️⃣',	
             9: '9️⃣',	
@@ -1241,100 +1221,6 @@ Type *surrender* to surrender and admit defeat`
             break	
 
 
-            case 'guess': {	
-                if (!args.join(" ")) throw `Example : ${prefix + command} song`	
-if (args[0] === "song") {	
-if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) throw "There are still unfinished sessions!"	
-let anugas = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/main/guessSong.json')	
-let result = anugas[Math.floor(Math.random() * anugas.length)]	
-let msg = await XeonBotInc.sendMessage(m.chat, { audio: { url: result.link_song }, mimetype: 'audio/mpeg' }, { quoted: m })	
-XeonBotInc.sendText(m.chat, `What is the name of this song?\n\nArtist : ${result.artist}\nTime : 60s`, msg).then(() => {	
-tebaklagu[m.sender.split('@')[0]] = result.jawaban.toLowerCase()	
-})	
-await sleep(60000)	
-if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) {	
-console.log("Answer: " + result.jawaban)	
-XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'guess song', buttonText: { displayText: 'Guess the song' }, type: 1 }], `Time has run out\nAnswer:  ${tebaklagu[m.sender.split('@')[0]]}\n\nWant to play? press the button below`, `${global.botname}`, m)	
-delete tebaklagu[m.sender.split('@')[0]]	
-}	
-}	
-}	
-break	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            case 'matchquiz': case 'math': {	
-                if (kuismath.hasOwnProperty(m.sender.split('@')[0])) throw "There are still unfinished sessions!"	
-                let { genMath, modes } = require('./lib/math')	
-                if (!text) throw `Mode: ${Object.keys(modes).join(' | ')}\nUsage example: ${prefix}math medium`	
-                let result = await genMath(text.toLowerCase())	
-                XeonBotInc.sendText(m.chat, `*What is the result of: ${result.soal.toLowerCase()}*?\n\nTime: ${(result.waktu / 1000).toFixed(2)} second`, m).then(() => {	
-                    kuismath[m.sender.split('@')[0]] = result.jawaban	
-                })	
-                await sleep(result.waktu)	
-                if (kuismath.hasOwnProperty(m.sender.split('@')[0])) {	
-                    console.log("Answer: " + result.jawaban)	
-                    m.reply("Time has run out\nAnswer: " + kuismath[m.sender.split('@')[0]])	
-                    delete kuismath[m.sender.split('@')[0]]	
-                }	
-            }	
-            break	
-  case 'slot': {	
-            const somtoy = solot[Math.floor(Math.random() * solot.length)]	
-            let sloth =`[  🎰VIRTUAL SLOT 🎰  ]\n------------------------\n\n🍒 : 🍌 : 🍇\n${somtoy}<=====\n🍇 : 🍌 : 🍒\n\n------------------------\n[  🎰 VIRTUAL SLOT 🎰  ]\n\n*Information* :\n_If you get 3 of the same fruit_\n_Means You Win_\n\n_Example : 🍒 : 🍒 : 🍒_ <=====`	
-            let buttons = [{ buttonId: 'slot', buttonText: { displayText: '🎰PLAY AGAIN🎰' }, type: 1 }]	
-            await XeonBotInc.sendButtonText(m.chat, buttons, sloth, botname, m)	
-            }	
-            break	
-            case 'soulmate': {	
-            if (!m.isGroup) throw Lang.NOT_GC	
-            let member = participants.map(u => u.id)	
-            let me = m.sender	
-            let jodoh = member[Math.floor(Math.random() * member.length)]	
-            let jawab = `👫Your Soulmate Is	
-@${me.split('@')[0]} ❤️ @${jodoh.split('@')[0]}`	
-            let ments = [me, jodoh]	
-            let buttons = [	
-                        { buttonId: '❤️', buttonText: { displayText: '❤️' }, type: 1 }	
-                    ]	
-                    await XeonBotInc.sendButtonText(m.chat, buttons, jawab, botname, m, {mentions: ments})	
-            }	
-            break	
-            case 'couple': {	
-            if (!m.isGroup) throw Lang.NOT_GC	
-            let member = participants.map(u => u.id)	
-            let orang = member[Math.floor(Math.random() * member.length)]	
-            let jodoh = member[Math.floor(Math.random() * member.length)]	
-            let jawab = `@${orang.split('@')[0]} ❤️ @${jodoh.split('@')[0]}	
-Cieeee, What's Going On❤️💖👀`	
-            let menst = [orang, jodoh]	
-            let buttons = [	
-                        { buttonId: '❤️', buttonText: { displayText: '❤️' }, type: 1 }	
-                    ]	
-                    await XeonBotInc.sendButtonText(m.chat, buttons, jawab, botname, m, {mentions: menst})	
-            }	
-            break	
             case 'buttonmaker': {	
             if (!isPremium) throw mess.premime	
 			if (!text) throw `Example : ${prefix + command} hi|hello`	
@@ -1464,7 +1350,7 @@ Cieeee, What's Going On❤️💖👀`
                 if (!isAdmins) throwLang.NOT_ADMIN	
 let teks = `╚»˙·٠${themeemoji}●♥ Tag All ♥●${themeemoji}٠·˙«╝ 	
  	
- 🌿 *Message : ${q ? q : 'empty'}*\n\n`	
+ 💬 *Message : ${q ? q : 'empty'}*\n\n`	
                 for (let mem of participants) {	
                 teks += `${themeemoji} @${mem.id.split('@')[0]}\n`	
                 }	
@@ -1491,150 +1377,7 @@ let teks = `╚»˙·٠${themeemoji}●♥ Tag All ♥●${themeemoji}٠·˙«�
                 m.reply(teks)	
 	    }	
 	    break	
-               case 'vote': {	
-            if (!m.isGroup) throw Lang.NOT_GC	
-            if (m.chat in vote) throw `_There are still votes in this chat!_\n\n*${prefix}deletevote* - to delete votes`	
-            if (!text) throw `Enter Reason for Vote, Example: *${prefix + command} Handsome Owner*`	
-            m.reply(`Vote dimulai!\n\n*${prefix}upvote* - for sure\n*${prefix}devote* - for devote\n*${prefix}cekvote* - to check the vote\n*${prefix}deletevote* - to delete votes`)	
-            vote[m.chat] = [q, [], []]	
-            await sleep(1000)	
-            upvote = vote[m.chat][1]	
-            devote = vote[m.chat][2]	
-            teks_vote = `* VOTE *	
-*Reason:* ${vote[m.chat][0]}	
-┌〔 UPVOTE 〕	
-│ 	
-├ Total: ${vote[m.chat][1].length}	
-│	
-│ 	
-└────	
-┌〔 DEVOTE 〕	
-│ 	
-├ Total: ${vote[m.chat][2].length}	
-│	
-│ 	
-└────	
-*${prefix}deletevote* - to delete votes`	
-let buttonsVote = [	
-  {buttonId: `${prefix}upvote`, buttonText: {displayText: '𝚄𝙿𝚅𝙾𝚃𝙴'}, type: 1},	
-  {buttonId: `${prefix}devote`, buttonText: {displayText: '𝙳𝙴𝚅𝙾𝚃𝙴'}, type: 1}	
-]	
-
-            let buttonMessageVote = {	
-                text: teks_vote,	
-                footer: XeonBotInc.user.name,	
-                buttons: buttonsVote,	
-                headerType: 1	
-            }	
-            XeonBotInc.sendMessage(m.chat, buttonMessageVote)	
-	    }	
-            break	
-               case 'upvote': {	
-            if (!m.isGroup) throw Lang.NOT_GC	
-            if (!(m.chat in vote)) throw `_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`	
-            isVote = vote[m.chat][1].concat(vote[m.chat][2])	
-            wasVote = isVote.includes(m.sender)	
-            if (wasVote) throw 'You have Voted'	
-            vote[m.chat][1].push(m.sender)	
-            menvote = vote[m.chat][1].concat(vote[m.chat][2])	
-            teks_vote = `* VOTE *	
-*Reason:* ${vote[m.chat][0]}	
-┌〔 UPVOTE 〕	
-│ 	
-├ Total: ${vote[m.chat][1].length}	
-${vote[m.chat][1].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}	
-│ 	
-└────	
-┌〔 DEVOTE 〕	
-│ 	
-├ Total: ${vote[m.chat][2].length}	
-${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}	
-│ 	
-└────	
-*${prefix}deletevote* - to delete votes`	
-            let buttonsUpvote = [	
-              {buttonId: `${prefix}upvote`, buttonText: {displayText: '𝚄𝙿𝚅𝙾𝚃𝙴'}, type: 1},	
-              {buttonId: `${prefix}devote`, buttonText: {displayText: '𝙳𝙴𝚅𝙾𝚃𝙴'}, type: 1}	
-            ]	
-
-            let buttonMessageUpvote = {	
-                text: teks_vote,	
-                footer: XeonBotInc.user.name,	
-                buttons: buttonsUpvote,	
-                headerType: 1,	
-                mentions: menvote	
-             }	
-            XeonBotInc.sendMessage(m.chat, buttonMessageUpvote)	
-	    }	
-             break	
-                case 'devote': {	
-            if (!m.isGroup) throw Lang.NOT_GC	
-            if (!(m.chat in vote)) throw `_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`	
-            isVote = vote[m.chat][1].concat(vote[m.chat][2])	
-            wasVote = isVote.includes(m.sender)	
-            if (wasVote) throw 'You have Voted'	
-            vote[m.chat][2].push(m.sender)	
-            menvote = vote[m.chat][1].concat(vote[m.chat][2])	
-            teks_vote = `* VOTE *	
-*Reason:* ${vote[m.chat][0]}	
-┌〔 UPVOTE 〕	
-│ 	
-├ Total: ${vote[m.chat][1].length}	
-${vote[m.chat][1].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}	
-│ 	
-└────	
-┌〔 DEVOTE 〕	
-│ 	
-├ Total: ${vote[m.chat][2].length}	
-${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}	
-│ 	
-└────	
-*${prefix}deletevote* - to delete votes`	
-            let buttonsDevote = [	
-              {buttonId: `${prefix}upvote`, buttonText: {displayText: '𝚄𝙿𝚅𝙾𝚃𝙴'}, type: 1},	
-              {buttonId: `${prefix}devote`, buttonText: {displayText: '𝙳𝙴𝚅𝙾𝚃𝙴'}, type: 1}	
-            ]	
-
-            let buttonMessageDevote = {	
-                text: teks_vote,	
-                footer: XeonBotInc.user.name,	
-                buttons: buttonsDevote,	
-                headerType: 1,	
-                mentions: menvote	
-            }	
-            XeonBotInc.sendMessage(m.chat, buttonMessageDevote)	
-	}	
-            break	
-
-case 'checkvote':	
-if (!m.isGroup) throw Lang.NOT_GC	
-if (!(m.chat in vote)) throw `_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`	
-teks_vote = `* VOTE *	
-*Reason:* ${vote[m.chat][0]}	
-┌〔 UPVOTE 〕	
-│ 	
-├ Total: ${upvote.length}	
-${vote[m.chat][1].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}	
-│ 	
-└────	
-┌〔 DEVOTE 〕	
-│ 	
-├ Total: ${devote.length}	
-${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}	
-│ 	
-└────	
-*${prefix}deletevote* - to delete votes	
-©${XeonBotInc.user.id}	
-`	
-XeonBotInc.sendTextWithMentions(m.chat, teks_vote, m)	
-break	
-		case 'deletevote': case'delvote': case 'hapusvote': {	
-            if (!m.isGroup) throw Lang.NOT_GC	
-            if (!(m.chat in vote)) throw `_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`	
-            delete vote[m.chat]	
-            m.reply('Successfully Deleted Vote Session In This Group')	
-	    }	
-            break	
+               
 case 'group': case 'grup': {	
                 if (!m.isGroup) throw Lang.NOT_GC	
                 if (!isBotAdmins) throw Lang.BOT_ADMIN	
@@ -1671,38 +1414,7 @@ case 'group': case 'grup': {
             }	
             }	
             break	
-case 'stupidcheck':case 'uncleancheck':	
-case 'hotcheck': case 'smartcheck':	
-case 'greatcheck':	
-case 'evilcheck':case 'dogcheck':	
-case 'coolcheck':	
-case 'waifucheck':	
-cantik = body.slice(1)	
-const okebnh1 =['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']	
-const xeonkak = okebnh1[Math.floor(Math.random() * okebnh1.length)]	
-XeonBotInc.sendMessage(m.chat, { text: xeonkak }, { quoted: m })	
-break	
-case 'mute': {	
-                if (!m.isGroup) throw Lang.NOT_GC	
-                if (!isBotAdmins) throw Lang.BOT_ADMIN	
-                if (!isAdmins) throwLang.NOT_ADMIN	
-                if (args[0] === "on") {	
-                if (db.data.chats[m.chat].mute) return m.reply(`It's Been Active Before`)	
-                db.data.chats[m.chat].mute = true	
-                m.reply(`${XeonBotInc.user.name} has been muted in this group !`)	
-                } else if (args[0] === "off") {	
-                if (!db.data.chats[m.chat].mute) return m.reply(`Not Activated Before`)	
-                db.data.chats[m.chat].mute = false	
-                m.reply(`${XeonBotInc.user.name} has been unmuted in this group !`)	
-                } else {	
-                 let buttons = [	
-                        { buttonId: 'mute on', buttonText: { displayText: 'On' }, type: 1 },	
-                        { buttonId: 'mute off', buttonText: { displayText: 'Off' }, type: 1 }	
-                    ]	
-                    await XeonBotInc.sendButtonText(m.chat, buttons, `Mute Bot`, botname, m)	
-                }	
-             }	
-             break	
+
 case 'chatinfo': {	
 if (!m.quoted) m.reply('Reply Message')	
 let msg = await m.getQuotedObj()	
@@ -1787,7 +1499,7 @@ await XeonBotInc.sendMessage(i, { video:media,  caption: txt, mentions:participa
         m.reply(`Successfuly Broadcasted in ${xeoncast.length} Groups`)      	
         break	
             case 'q': case 'quoted': {	
-		if (!m.quoted) return m.reply('Reply Message!!')	
+		if (!m.quoted) return m.reply('💭 Reply Message!!')	
 		let wokwol = await XeonBotInc.serializeM(await m.getQuotedObj())	
 		if (!wokwol.quoted) return m.reply('The message you replied to does not contain a reply')	
 		await wokwol.quoted.copyNForward(m.chat, true)	
@@ -1820,7 +1532,7 @@ await XeonBotInc.sendMessage(i, { video:media,  caption: txt, mentions:participa
              }	
              break	
 case 'sticker': case 's': case 'stickergif': case 'sgif': {	
-            if (!quoted) throw `*Reply Video/Image With Caption* ${prefix + command}`	
+            if (!quoted) throw `*💭 Reply Video/Image With Caption* ${prefix + command}`	
             m.reply(mess.wait)	
                     if (/image/.test(mime)) {	
                 let media = await quoted.download()	
@@ -1875,10 +1587,10 @@ premium.splice(anul, 1)
 fs.writeFileSync('./database/user/premium.json', JSON.stringify(premium))	
 m.reply(`Success deleting premium ${prmi}`)	
 break	
-            case 'emojimix': {	
+            case 'emojimix': case 'emomix': {	
 		let [emoji1, emoji2] = text.split`+`	
-		if (!emoji1) throw `Example : ${prefix + command} 😅+🤔`	
-		if (!emoji2) throw `Example : ${prefix + command} 😅+🤔`	
+		if (!emoji1) throw `Example : ${prefix + command} 😎+😋`	
+		if (!emoji2) throw `Example : ${prefix + command} 😎+😋`	
 		let anumojimix = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)	
 		for (let res of anumojimix.results) {	
 		    let encmedia = await XeonBotInc.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })	
@@ -1887,7 +1599,7 @@ break
 	    }	
 	    break	
 	case 'emojimix2': {	
-	    if (!text) throw `Example : ${prefix + command} 😅+🤔`	
+	    if (!text) throw `Example : ${prefix + command} 😎+😋`	
 		let anumix2 = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(text)}`)	
 		for (let res of anumix2.results) {	
 		    let encmedia = await XeonBotInc.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })	
@@ -1896,7 +1608,7 @@ break
 	    }	
 	    break	
          case 'tts': case 'say':{	
-         	if (!text) throw `Example : ${prefix + command} text`	
+         	if (!text) throw `Example : ${prefix + command} peace`	
              let tts = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_english?query=${text}`)	
              XeonBotInc.sendMessage(m.chat, { audio: { url: tts.result }, mimetype: 'audio/mp4', ptt: true, fileName: `${text}.mp3` }, { quoted: m })	
          	}	
@@ -1916,7 +1628,7 @@ await fs.unlinkSync(memek)
 break	
 case 'toimage': case 'toimg': {	
                 if (!quoted) throw 'Reply Image'	
-                if (!/webp/.test(mime)) throw `Reply sticker with caption *${prefix + command}*`	
+                if (!/webp/.test(mime)) throw `💭 Reply sticker with caption *${prefix + command}*`	
                 m.reply(mess.wait)	
                 let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)	
                 let ran = await getRandom('.png')	
@@ -1931,7 +1643,7 @@ case 'toimage': case 'toimg': {
             break	
 case 'tomp4': case 'tovideo': {	
                 if (!quoted) throw 'Reply Image'	
-                if (!/webp/.test(mime)) throw `reply sticker with caption *${prefix + command}*`	
+                if (!/webp/.test(mime)) throw `💭 reply sticker with caption *${prefix + command}*`	
                 m.reply(mess.wait)	
 		let { webp2mp4File } = require('./lib/uploader')	
                 let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)	
@@ -1941,7 +1653,7 @@ case 'tomp4': case 'tovideo': {
             }	
             break	
             case 'toaud': case 'toaudio': {	
-            if (!/video/.test(mime) && !/audio/.test(mime)) throw `Send/Reply Video/Audio You Want to Use as Audio With Caption ${prefix + command}`	
+            if (!/video/.test(mime) && !/audio/.test(mime)) throw `💭 Send/Reply Video/Audio You Want to Use as Audio With Caption ${prefix + command}`	
             if (!quoted) throw `Send/Reply Video/Audio You Want to Use as Audio With Caption ${prefix + command}`	
             m.reply(mess.wait)	
             let media = await quoted.download()	
@@ -1951,7 +1663,7 @@ case 'tomp4': case 'tovideo': {
             }	
             break	
             case 'tomp3': {	
-            if (/document/.test(mime)) throw `Send/Reply Video/Audio You Want to Convert into MP3 With Caption ${prefix + command}`	
+            if (/document/.test(mime)) throw `💭 Send/Reply Video/Audio You Want to Convert into MP3 With Caption ${prefix + command}`	
             if (!/video/.test(mime) && !/audio/.test(mime)) throw `Send/Reply Video/Audio You Want to Convert into MP3 With Caption ${prefix + command}`	
             if (!quoted) throw `Send/Reply Video/Audio You Want to Convert into MP3 With Caption ${prefix + command}`	
             m.reply(mess.wait)	
@@ -1962,7 +1674,7 @@ case 'tomp4': case 'tovideo': {
             }	
             break	
             case 'tovn': case 'toptt': {	
-            if (!/video/.test(mime) && !/audio/.test(mime)) throw `Reply Video/Audio That You Want To Be VN With Caption ${prefix + command}`	
+            if (!/video/.test(mime) && !/audio/.test(mime)) throw `💭 Reply Video/Audio That You Want To Be VN With Caption ${prefix + command}`	
             if (!quoted) throw `Reply Video/Audio That You Want To Be VN With Caption ${prefix + command}`	
             m.reply(mess.wait)	
             let media = await quoted.download()	
@@ -1973,7 +1685,7 @@ case 'tomp4': case 'tovideo': {
             break	
             case 'togif': {	
                 if (!quoted) throw 'Reply video'	
-                if (!/webp/.test(mime)) throw `reply sticker with caption *${prefix + command}*`	
+                if (!/webp/.test(mime)) throw `💭 reply sticker with caption *${prefix + command}*`	
                 m.reply(mess.wait)	
 		let { webp2mp4File } = require('./lib/uploader')	
                 let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)	
@@ -1983,9 +1695,9 @@ case 'tomp4': case 'tovideo': {
             }	
             break	
             case 'imagenobg': case 'removebg': case 'remove-bg': {	
-	    if (!quoted) throw `Send/Reply Image With Caption ${prefix + command}`	
-	    if (!/image/.test(mime)) throw `Send/Reply Image With Caption ${prefix + command}`	
-	    if (/webp/.test(mime)) throw `Send/Reply Image With Caption ${prefix + command}`	
+	    if (!quoted) throw `💭 Send/Reply Image With Caption ${prefix + command}`	
+	    if (!/image/.test(mime)) throw `💭 Send/Reply Image With Caption ${prefix + command}`	
+	    if (/webp/.test(mime)) throw `💭 Send/Reply Image With Caption ${prefix + command}`	
 	    let remobg = require('remove.bg')	
 	    let apirnobg = ['q61faXzzR5zNU6cvcrwtUkRU','S258diZhcuFJooAtHTaPEn4T','5LjfCVAp4vVNYiTjq9mXJWHF','aT7ibfUsGSwFyjaPZ9eoJc61','BY63t7Vx2tS68YZFY6AJ4HHF','5Gdq1sSWSeyZzPMHqz7ENfi8','86h6d6u4AXrst4BVMD9dzdGZ','xp8pSDavAgfE5XScqXo9UKHF','dWbCoCb3TacCP93imNEcPxcL']	
 	    let apinobg = apirnobg[Math.floor(Math.random() * apirnobg.length)]	
@@ -2008,7 +1720,7 @@ case 'tomp4': case 'tovideo': {
 	    }	
 	    break	
 	    case 'yts': case 'ytsearch': {	
-                if (!text) throw `Example : ${prefix + command} story wa anime`	
+                if (!text) throw `💭 Example : ${prefix + command} Gajaman`	
                 let yts = require("youtube-yts")	
                 let search = await yts(text)	
                 let teks = 'YouTube Search\n\n Result From '+text+'\n\n'	
@@ -2020,7 +1732,7 @@ case 'tomp4': case 'tovideo': {
             }	
             break	
         case 'google': {	
-                if (!text) throw `Example : ${prefix + command} fatih arridho`	
+                if (!text) throw `💭 Example : ${prefix + command} Gajaman`	
                 let google = require('google-it')	
                 google({'query': text}).then(res => {	
                 let teks = `Google Search From : ${text}\n\n`	
@@ -2035,7 +1747,7 @@ case 'tomp4': case 'tovideo': {
                 break	
 case 'video': { 	
 XeonBotInc.sendMessage(from, { react: { text: `🎥`, key: m.key }})    	
-if (!text) return reply(`Example : ${prefix + command} lelena`)	
+if (!text) return reply(`💭 Example : ${prefix + command} bombe motayi`)	
 let yts = require("yt-search")	
 let search = await yts(text)	
 let anulay = search.videos[0]	
@@ -2045,18 +1757,21 @@ let buttons = [
 ]	
 let buttonMessage = {	
 image: { url: anulay.thumbnail },	
-caption: `ᴅᴀʀᴋ-ɴᴇʀᴏ ᴠɪᴅᴇᴏ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ	
+caption: `
+━━━━━━━━━━━━━━━━
+  PEACE MD VIDEO DOWNLOADER 
+━━━━━━━━━━━━━━━━
+           	
+🔰 ᴛɪᴛʟᴇ : ${anulay.title}	
              	
-ᴛɪᴛʟᴇ : ${anulay.title}	
+⌛ ᴅᴜʀᴀᴛɪᴏɴ : ${anulay.timestamp}	
              	
-ᴅᴜʀᴀᴛɪᴏɴ : ${anulay.timestamp}	
+🎩 ᴀᴜᴛʜᴏʀ : ${anulay.author.name}	
              	
-ᴀᴜᴛʜᴏʀ : ${anulay.author.name}	
+🔗 ᴜʀʟ : ${anulay.url}	
              	
-ᴜʀʟ : ${anulay.url}	
-             	
-ʀᴜɴᴛɪᴍᴇ : ${runtime(process.uptime())}`,	
-footer: `ᴅᴀʀᴋ-ɴᴇʀᴏ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ`,	
+🐌 ʀᴜɴᴛɪᴍᴇ : ${runtime(process.uptime())}`,	
+footer: `ᴘᴇᴀᴄᴇ ᴍᴅ`,	
 buttons: buttons,	
 headerType: 4,	
 }	
@@ -2067,7 +1782,7 @@ break
 //--------------------------------------------------------------------------------------------------------------\\	
 
 case 'song': {	
-if (!text) throw `Example : ${prefix + command} lelena`	
+if (!text) throw `Example : ${prefix + command} bombe motayi`	
 let yts = require("youtube-yts")	
 let search = await yts(text)	
 let anulay = search.videos[0]	
@@ -2077,18 +1792,21 @@ let buttons = [
 ]	
 let buttonMessage = {	
 image: { url: anulay.thumbnail },	
-caption: `ᴅᴀʀᴋ-ɴᴇʀᴏ ꜱᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ	
+caption: `
+━━━━━━━━━━━━━━━━━
+     PEACE MD SONG DOWNLOADER
+━━━━━━━━━━━━━━━━━
              	
-ᴛɪᴛʟᴇ : ${anulay.title}	
+🔰 ᴛɪᴛʟᴇ : ${anulay.title}	
              	
-ᴅᴜʀᴀᴛɪᴏɴ : ${anulay.timestamp}	
+⌛ ᴅᴜʀᴀᴛɪᴏɴ : ${anulay.timestamp}	
              	
-ᴀᴜᴛʜᴏʀ : ${anulay.author.name}	
+🎩 ᴀᴜᴛʜᴏʀ : ${anulay.author.name}	
              	
-ᴜʀʟ : ${anulay.url}	
+🔗 ᴜʀʟ : ${anulay.url}	
              	
-ʀᴜɴᴛɪᴍᴇ : ${runtime(process.uptime())}`,	
-footer: `ᴅᴀʀᴋ-ɴᴇʀᴏ ᴡʜᴀᴛꜱᴀᴘᴘ ᴜꜱᴇʀ ʙᴏᴛ`,	
+🐌 ʀᴜɴᴛɪᴍᴇ : ${runtime(process.uptime())}`,	
+footer: `ᴘᴇᴀᴄᴇ ᴍᴅ`,	
 buttons: buttons,	
 headerType: 4	
 }	
@@ -2097,7 +1815,7 @@ XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
 break	
 
     case 'play': case 'ytplay':{	
-                if (!text) throw `Example : ${prefix + command} anime whatsapp status`	
+                if (!text) throw `Example : ${prefix + command} bombe motayi`	
                 let yts = require("youtube-yts")	
                 let search = await yts(text)	
                 let anulay = search.videos[Math.floor(Math.random() * search.videos.length)]	
@@ -2126,7 +1844,7 @@ break
             }	
             break	
 case 'playmp3': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko	
-if (!text) throw `Example : ${prefix + command} anime whatsapp status`	
+if (!text) throw `Example : ${prefix + command} bombe motayi`	
 const xeonplaymp3 = require('./lib/ytdl2')	
 let yts = require("youtube-yts")	
         let search = await yts(text)	
@@ -2153,7 +1871,7 @@ break
 //--------------------------------------------------------------------------------------------------------------\\	
 
 case 'playmp4': 	
-if(!text) throw `Example : ${prefix + command} anime whatsapp status`	
+if(!text) throw `Example : ${prefix + command} bombe motayi`	
 const xeonplaymp4 = require('./lib/ytdl2')	
 let ytsmp4 = require("youtube-yts")	
         let xeonsearch13 = await ytsmp4(text)	
@@ -2242,28 +1960,7 @@ case 'pinterest': {
                 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })	
             }	
             break	
-	    case 'couplepp': case 'ppcouple': {	
-                m.reply(mess.wait)	
-                let anucpp = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/main/couple.json')	
-                let random = anucpp[Math.floor(Math.random() * anucpp.length)]	
-                XeonBotInc.sendMessage(m.chat, { image: { url: random.male }, caption: `Couple Male` }, { quoted: m })	
-                XeonBotInc.sendMessage(m.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: m })	
-            }	
-	    break	
-            case 'coffee': case 'kopi': {	
-            let buttons = [	
-                    {buttonId: `coffe`, buttonText: {displayText: 'Next Image'}, type: 1}	
-                ]	
-                let buttonMessage = {	
-                    image: { url: 'https://coffee.alexflipnote.dev/random' },	
-                    caption: `☕ Random Coffee`,	
-                    footer: botname,	
-                    buttons: buttons,	
-                    headerType: 4	
-                }	
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })	
-            }	
-            break	
+
             case 'wallpaper': {	
                 if (!text) throw 'Enter Query Title'	
 		let { wallpaper } = require('./lib/scraper')	
@@ -2310,6 +2007,358 @@ case 'pinterest': {
   })	
   }	
  break	
+
+ case 'logo' :{   	
+    if (!text) return reply('```💭 Please give me a some words ...```\n_example .logo CHARITH_')
+
+                                  
+     await XeonBotInc.sendMessage(from, { react: { text: `🧩`, key: m.key }})     
+      
+             const desmsg = `
+━━━━━━━━━━━━━━━━━
+           PEACE MD LOGO MAKER
+━━━━━━━━━━━━━━━━━
+
+✌ PEACE _${m.pushName}_
+✏ LOGO TEXT _${text}_
+
+👇 Select a Style`
+         let sections = [{
+    
+             "title": "ᴘᴇᴀᴄᴇ ᴍᴅ ʟᴏɢᴏ sᴛʏʟᴇs",
+                                                      "rows": [
+                                                      {
+                "title": "CANDY STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `candy ${text}`
+                },
+            {
+                "title": "CHRISTMAS STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `christmas ${text}`
+                },
+            {
+                "title": "DEEPSEA STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `deepsea ${text}`
+            },
+            {
+                "title": "SCIFI STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `scifi ${text}`
+            },
+            {
+                "title": "RAINBOW STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `rainbow ${text}`
+            },
+            {
+                    "title": "WATERPIPE STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `waterpipe ${text}`
+                },
+                                             {
+                    "title": "SPOOKEY STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `spooky ${text}`
+                },
+                {
+                    "title": "PENCIL STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `pencil ${text}`
+                },		
+                {
+                    "title": "CIRCUITE STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `circuit ${text}`
+                },
+                {
+                    "title": "DESCOVERY STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `discovery ${text}`
+                },	
+                {
+                    "title": "FICTION STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `fiction ${text}`
+                },
+                {
+                    "title": "DEMON STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `demon ${text}`
+                },
+                {
+                    "title": "TRANSFORMER STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `transformer ${text}`
+                },
+                {
+                    "title": "BERRY STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `berry ${text}`
+                },
+                {
+                    "title": "THUNDER  STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `thunder ${text}`
+                },
+                {
+                    "title": "MAGMA STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `magma ${text}`
+                },
+                {
+                    "title": "3-D STONE STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `3dstone ${text}`
+                },
+                {
+                    "title": "NEONLIGHT STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `neonlight ${text}`
+                },
+                {
+                    "title": "GLITCH STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `glitch ${text}`
+                },
+                {
+                    "title": "HARRYPOTTER STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `harrypotter ${text}`
+                },
+                {
+                    "title": "BROKENGLASS STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `brokenglass ${text}`
+                },
+                {
+                    "title": "PAPERCUT STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `papercut ${text}`
+                },
+                {
+                    "title": "WATERCOLOR STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `watercolor ${text}`
+                },
+                {
+                    "title": "MULTICOLOR STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `multicolor ${text}`
+                },
+                {
+                    "title": "NEON DEVIL STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `neondevil ${text}`
+                },
+                {
+                    "title": "UNDERWATER STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `underwater ${text}`
+                },
+                {
+                    "title": "GRAFFITIBIKE STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `graffitibike ${text}`
+                },
+                {
+                    "title": "SNOW STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `snow ${text}`
+                },
+                {
+                    "title": "CLOUD STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `cloud ${text}`
+                },
+                {
+                    "title": "HONEY STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `honey ${text}`
+                },
+                {
+                    "title": "ICE STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `ice ${text}`
+                },
+                {
+                    "title": "BISCUIT STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `biscuit ${text}`
+                },
+                {
+                    "title": "WOOD STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `wood ${text}`
+                },
+                {
+                    "title": "CHOCOLATE STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `chocolate ${text}`
+                },
+                {
+                    "title": "STRAWBERRY STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `strawberry ${text}`
+                },
+                {
+                    "title": "MATRIXS STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `matrix ${text}`
+                },
+                {
+                    "title": "BLOOD STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `blood ${text}`
+                },
+                {
+                    "title": "DROPWATER STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `dropwater ${text}`
+                },
+                {
+                    "title": "TOXIC STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `toxic ${text}`
+                },
+                {
+                    "title": "LAVA STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `lava ${text}`
+                },
+                {
+                    "title": "ROCK STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `rock ${text}`
+                },
+                {
+                    "title": "BLOODGLAS STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `bloodglas ${text}`
+                },
+                {
+                    "title": "HALLOWEN STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `hallowen ${text}`
+                },
+                {
+                    "title": "DARKGOLD STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `darkgold ${text}`
+                },
+                {
+                    "title": "JOKER STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `joker ${text}`
+                },
+                {
+                    "title": "WICKER STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `wicker ${text}`
+                },
+                {
+                    "title": "FIREWORK STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `firework ${text}`
+                },
+                {
+                    "title": "SKELETON STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `skeleton ${text}`
+                },
+                {
+                    "title": "BLACKPINK STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `blackpink ${text}`
+                },
+                {
+                    "title": "SAND STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `sand ${text}`
+                },
+                {
+                    "title": "GLUE STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `glue ${text}`
+                }, ///
+                {
+                    "title": "3D BOX STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `3dbox ${text}`
+                },
+                {
+                    "title": "GLITCH STYLE - 2",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `glitch2 ${text}`
+                },
+                {
+                    "title": "GLITCH STYLE - 3",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `glitch3 ${text}`
+                },
+                {
+                    "title": "GREEN NEON STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `greenneon ${text}`
+                },
+                {
+                    "title": "3D NEON STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `3dneon ${text}`
+                },
+                {
+                    "title": "BOKEH STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `bokeh ${text}`
+                },
+                {
+                    "title": "BEAR STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `bear ${text}`
+                },
+                {
+                    "title": "CHRISTMAS STYLE - 2",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `sparklechristmas ${text}`
+                },
+                {
+                    "title": "CHRISTMAS STYLE - 3",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `3dchristmas ${text}`
+                },
+                {
+                    "title": "RAINBOW STYLE - 3",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `rainbow2 ${text}`
+                },
+                {
+                    "title": "FRUIT JUICE STYLE",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `fruitjuice ${text}`
+                },
+                
+                ///
+                {
+                    "title": "1917 STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `1917 ${text}`
+                },
+                {
+                    "title": "LEAVES STYLE ",
+                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "rowId": `leaves ${text}`
+                }
+             ]
+          }
+       ]
+                
+         await XeonBotInc.sendListMsg(m.chat, `${desmsg}`, `${global.botname}`, `*  🎨LOGOS BY PEACE MD🎨 *`, `MAKE LOGO`, sections, m)
+                                    
+      }
+
+      break
+
 case 'candy': case 'christmas': case '3dchristmas': case 'sparklechristmas':	
 case 'deepsea': case 'scifi': case 'rainbow2': case 'waterpipe': case 'spooky': 	
 case 'pencil': case 'circuit': case 'discovery': case 'metalic': case 'fiction': case 'demon': 	
@@ -3144,313 +3193,7 @@ XeonBotInc.sendMessage(m.chat, { audio: { url: data.audio }, mimetype: 'audio/mp
 })	
 }	
 break	
-case 'tiktokgirl':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var asupan = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/tiktokgirl.json'))	
-var hasil = pickRandom(asupan)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'tiktokghea':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var gheayubi = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/gheayubi.json'))	
-var hasil = pickRandom(gheayubi)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'tiktokbocil':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var bocil = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/bocil.json'))	
-var hasil = pickRandom(bocil)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'tiktoknukhty':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ukhty = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/ukhty.json'))	
-var hasil = pickRandom(ukhty)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'tiktoksantuy':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var santuy = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/santuy.json'))	
-var hasil = pickRandom(santuy)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'tiktokkayes':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var kayes = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/kayes.json'))	
-var hasil = pickRandom(kayes)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'tiktokpanrika':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var rikagusriani = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/panrika.json'))	
-var hasil = pickRandom(rikagusriani)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'tiktoknotnot':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/notnot.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'chinese':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/china.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'hijab':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/hijab.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'indo':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/indonesia.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'japanese':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/japan.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'korean':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/korea.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'malay':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/malaysia.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'randomgirl':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/random.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'randomboy':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/random2.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'thai':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/thailand.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'vietnamese':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/vietnam.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'aesthetic':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/aesthetic.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'antiwork':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/antiwork.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'blackpink':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/blackpink.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'bike':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/bike.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'boneka':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/boneka.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'cosplay':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/cosplay.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'cat':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/cat.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'doggo':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/doggo.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'hacking':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/hacking.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'justina':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/justina.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'kayes':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/kayes.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'kpop':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/kpop.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'notnot':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/notnot.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'car':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/car.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'couplepic':case 'couplepicture':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ppcouple.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'profilepic':  case 'profilepicture':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/profile.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'pubg':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/pubg.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'rose':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/rose.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'ryujin':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ryujin.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'ulzzangboy':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ulzzangboy.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'ulzzanggirl':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ulzzanggirl.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'wallml': case 'wallpaperml':case 'mobilelegend':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/wallml.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'wallpaperphone': case 'wallphone':	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/wallhp.json'))	
-var hasil = pickRandom(notnot)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-
-case 'rentbot': {	
-if (!isPremium) return sendButMessage (m.chat, prem1, prem2, prem3, { quoted:m})	
-jadibot(XeonBotInc, m, m.chat)	
-}	
-break	
-case 'rentbotlist':	
-try {	
-let user = [... new Set([...global.conns.filter(XeonBotInc => XeonBotInc.user).map(XeonBotInc => XeonBotInc.user)])]	
-te = "*Bot Rent List*\n\n"	
-for (let i of user){	
-let y = await XeonBotInc.decodeJid(i.id)	
-te += " × User : @" + y.split("@")[0] + "\n"	
-te += " × Name : " + i.name + "\n\n"	
-}	
-XeonBotInc.sendMessage(m.chat,{text:te,mentions: [y], },{quoted:m})	
-} catch (err) {	
-m.reply(`There are no users who have rented bot yet`)	
-}	
-break	
+	
 case 'git': case 'gitclone':	
 if (!args[0]) return m.reply(`Mana link nya?\nContoh :\n${prefix}${command} https://github.com/Kaveeshasithum`)	
 if (!isUrl(args[0]) && !args[0].includes('github.com')) return reply(`Link invalid!!`)	
@@ -3607,14 +3350,7 @@ View list of Messages With ${prefix}listmsg`)
 		m.reply(`Successfully deleted '${text}' from the message list`)	
             }	
 	    break	
-case 'developer': case 'dev': {	
-reply(`•CHEEMS BOT DEVELOPER•\n\n\n   ©2021-2022 Xeon Bot Inc.\n\n🦄Dream Guy Xeon\nPm: wa.me/916909137213`)	
-}	
-            break	
-case 'owner': case 'creator': case 'moderator': case 'mod': {	
-XeonBotInc.sendContact(m.chat, owner, m)	
-}	
-            break	
+
         case 'menfess':	
 			case 'menfes':	
 			case 'confes':	
@@ -3783,11 +3519,6 @@ break
 
 
 
-
-
-
-
-
             case 'setmenu': {	
             if (!isCreator) throwLang.NOT_OWNER	
             let setbot = db.data.settings[botNumber]	
@@ -3856,181 +3587,7 @@ case 'report': case 'bug': {
             await XeonBotInc.sendButtonText(m.chat, buttons, akhji, botname, m, {mentions: ments})	
             }	
             break	
-            case 'sound1':	
-case 'sound2':	
-case 'sound3':	
-case 'sound4':	
-case 'sound5':	
-case 'sound6':	
-case 'sound7':	
-case 'sound8':	
-case 'sound9':	
-case 'sound10':	
-case 'sound11':	
-case 'sound12':	
-case 'sound13':	
-case 'sound14':	
-case 'sound15':	
-case 'sound16':	
-case 'sound17':	
-case 'sound18':	
-case 'sound19':	
-case 'sound20':	
-case 'sound21':	
-case 'sound22':	
-case 'sound23':	
-case 'sound24':	
-case 'sound25':	
-case 'sound26':	
-case 'sound27':	
-case 'sound28':	
-case 'sound29':	
-case 'sound30':	
-case 'sound31':	
-case 'sound32':	
-case 'sound33':	
-case 'sound34':	
-case 'sound35':	
-case 'sound36':	
-case 'sound37':	
-case 'sound38':	
-case 'sound39':	
-case 'sound40':	
-case 'sound41':	
-case 'sound42':	
-case 'sound43':	
-case 'sound44':	
-case 'sound45':	
-case 'sound46':	
-case 'sound47':	
-case 'sound48':	
-case 'sound49':	
-case 'sound50':	
-case 'sound51':	
-case 'sound52':	
-case 'sound53':	
-case 'sound54':	
-case 'sound55':	
-case 'sound56':	
-case 'sound57':	
-case 'sound58':	
-case 'sound59':	
-case 'sound60':	
-case 'sound61':	
-case 'sound62':	
-case 'sound63':	
-case 'sound64':	
-case 'sound65':	
-case 'sound66':	
-case 'sound67':	
-case 'sound68':	
-case 'sound69':	
-case 'sound70':	
-case 'sound71':	
-case 'sound72':	
-case 'sound73':	
-case 'sound74':	
-case 'sound75':	
-case 'sound76':	
-case 'sound77':	
-case 'sound78':	
-case 'sound79':	
-case 'sound80':	
-case 'sound81':	
-case 'sound82':	
-case 'sound83':	
-case 'sound84':	
-case 'sound85':	
-case 'sound86':	
-case 'sound87':	
-case 'sound88':	
-case 'sound89':	
-case 'sound90':	
-case 'sound91':	
-case 'sound92':	
-case 'sound93':	
-case 'sound94':	
-case 'sound95':	
-case 'sound96':	
-case 'sound97':	
-case 'sound98':	
-case 'sound99':	
-case 'sound100':	
-case 'sound101':	
-case 'sound102':	
-case 'sound103':	
-case 'sound104':	
-case 'sound105':	
-case 'sound106':	
-case 'sound107':	
-case 'sound108':	
-case 'sound109':	
-case 'sound110':	
-case 'sound111':	
-case 'sound112':	
-case 'sound113':	
-case 'sound114':	
-case 'sound115':	
-case 'sound116':	
-case 'sound117':	
-case 'sound118':	
-case 'sound119':	
-case 'sound120':	
-case 'sound121':	
-case 'sound122':	
-case 'sound123':	
-case 'sound124':	
-case 'sound125':	
-case 'sound126':	
-case 'sound127':	
-case 'sound128':	
-case 'sound129':	
-case 'sound130':	
-case 'sound131':	
-case 'sound132':	
-case 'sound133':	
-case 'sound134':	
-case 'sound135':	
-case 'sound136':	
-case 'sound137':	
-case 'sound138':	
-case 'sound139':	
-case 'sound140':	
-case 'sound141':	
-case 'sound142':	
-case 'sound143':	
-case 'sound144':	
-case 'sound145':	
-case 'sound146':	
-case 'sound147':	
-case 'sound148':	
-case 'sound149':	
-case 'sound150':	
-case 'sound151':	
-case 'sound152':	
-case 'sound153':	
-case 'sound154':	
-case 'sound155':	
-case 'sound156':	
-case 'sound157':	
-case 'sound158':	
-case 'sound159':	
-case 'sound160':	
-case 'sound161':	
-XeonBotInc_dev = await getBuffer(`https://github.com/DGXeon/Tiktokmusic-API/raw/master/tiktokmusic/${command}.mp3`)	
-await XeonBotInc.sendMessage(m.chat, { audio: XeonBotInc_dev, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     	
-break	
-case 'hijack':{	
-  if(!isCreator) throwLang.NOT_OWNER	
-  let text1 = q.split("|")[0]	
-  let text2 = q.split("|")[1]	
-  if(!text1) throw `Example:\n${order +' 1234567890@g.us|_amount_'}`	
-  if(!text2) throw `Eg:\n${order +' 1234567890@g.us|_amount_'}`	
-  XeonBotInc.sendMessage(text1, { text: `Member kidnapping request by @${m.sender.split("@")[0]}\nAmount: ${text2}\nImporting from : ${from} => ${text1}`, mentions: [m.sender] },{ quoted : m })               	
-  await XeonBotInc.sendMessage(from, { text: `Member kidnapping request by @${m.sender.split("@")[0]}\nAmount: ${text2}\nImporting from : ${from} => ${text1}`, mentions: [m.sender] },{ quoted : m })                	
-  await m.sequestrar(text1, participants.map(mem => mem.id), text2)	
-  }	
-  break	
+            
 case 'setthumb':{	
                        if (!m.key.fromMe && !isCreator) return m.reply(mess.owner)	
                        if (!isQuotedImage) return m.reply('Reply the picture!')	
@@ -4419,216 +3976,6 @@ m.reply('Success in turning off antiwame in this group')
   }	
   break	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-case 'dare':	
-              const dare =[	
-    "eat 2 tablespoons of rice without any side dishes, if it's dragging you can drink",	
-    "spill people who make you pause",	
-    "call crush/pickle now and send ss",	
-    "drop only emote every time you type on gc/pc for 1 day.",	
-    "say Welcome to Who Wants To Be a Millionaire! to all the groups you have",	
-    "call ex saying miss",	
-    "sing the chorus of the last song you played",	
-    "vn your ex/crush/girlfriend, says hi (name), wants to call, just a moment. I miss🥺👉🏼👈🏼",	
-	"Bang on the table (which is at home) until you get scolded for being noisy",	
-    "Tell random people _I was just told I was your twin first, we separated, then I had plastic surgery. And this is the most ciyusss_ thing",	
-    "mention ex's name",	
-    "make 1 rhyme for the members!",	
-    "send ur whatsapp chat list",	
-    "chat random people with gheto language then ss here",	
-    "tell your own version of embarrassing things",	
-    "tag the person you hate",	
-    "Pretending to be possessed, for example: possessed by dog, possessed by grasshoppers, possessed by refrigerator, etc.",	
-    "change name to *I AM DONKEY* for 24 hours",	
-    "shout *ma chuda ma chuda ma chuda* in front of your house",	
-    "snap/post boyfriend photo/crush",	
-    "tell me your boyfriend type!",	
-    "say *i hv crush on you, do you want to be my girlfriend?* to the opposite sex, the last time you chatted (submit on wa/tele), wait for him to reply, if you have, drop here",	
-    "record ur voice that read *titar ke age do titar, titar ke piche do titar*",	
-    "prank chat ex and say *i love u, please come back.* without saying dare!",	
-    "chat to contact wa in the order according to your battery %, then tell him *i am lucky to hv you!*",	
-    "change the name to *I am a child of randi* for 5 hours",	
-    "type in bengali 24 hours",	
-    "Use selmon bhoi photo for 3 days",	
-    "drop a song quote then tag a suitable member for that quote",	
-    "send voice note saying can i call u baby?",	
-    "ss recent call whatsapp",	
-    "Say *YOU ARE SO BEAUTIFUL DON'T LIE* to guys!",	
-    "pop to a group member, and say fuck you",	
-    "Act like a chicken in front of ur parents",	
-    "Pick up a random book and read one page out loud in vn n send it here",	
-    "Open your front door and howl like a wolf for 10 seconds",	
-    "Take an embarrassing selfie and paste it on your profile picture",	
-    "Let the group choose a word and a well known song. You have to sing that song and send it in voice note",	
-    "Walk on your elbows and knees for as long as you can",	
-    "sing national anthem in voice note",	
-    "Breakdance for 30 seconds in the sitting room😂",	
-    "Tell the saddest story you know",	
-    "make a twerk dance video and put it on status for 5mins",	
-    "Eat a raw piece of garlic",	
-    "Show the last five people you texted and what the messages said",	
-    "put your full name on status for 5hrs",	
-    "make a short dance video without any filter just with a music and put it on ur status for 5hrs",	
-    "call ur bestie, bitch",	
-    "put your photo without filter on ur status for 10mins",	
-    "say i love oli london in voice note🌟🌟",	
-    "Send a message to your ex and say I still like you",	
-    "call Crush/girlfriend/bestie now and screenshot here",	
-    "pop to one of the group member personal chat and Say you ugly bustard",	
-    "say YOU ARE BEAUTIFUL/HANDSOME to one of person who is in top of ur pinlist or the first person on ur chatlist",	
-    "send voice notes and say, can i call u baby, if u r boy tag girl/if girl tag boy",	
-    "write i love you (random grup member name, who is online) in personal chat, (if u r boy write girl name/if girl write boy name) take a snap of the pic and send it here",	
-    "use any bollywood actor photo as ur pfp for 3 days",	
-    "put your crush photo on status with caption, this is my crush",	
-    "change name to I AM GAY for 5 hours",	
-    "chat to any contact in whatsapp and say i will be ur bf/gf for 5hours",	
-    "send voice note says i hv crush on you, want to be my girlfriend/boyfriend or not? to any random person from the grup(if u girl choose boy, if boy choose girl",	
-    "slap ur butt hardly send the sound of slap through voice note😂",	
-    "state ur gf/bf type and send the photo here with caption, ugliest girl/boy in the world",	
-    "shout bravooooooooo and send here through voice note",	
-    "snap your face then send it here",	
-    "Send your photo with a caption, i am lesbian",	
-    "shout using harsh words and send it here through vn",	
-    "shout you bastard in front of your mom/papa",	
-    "change the name to i am idiot for 24 hours",	
-    "slap urself firmly and send the sound of slap through voice note😂",	
-    "say i love the bot owner xeon through voice note",	
-    "send your gf/bf pic here",	
-    "make any tiktok dance challenge video and put it on status, u can delete it after 5hrs",	
-    "breakup with your best friend for 5hrs without telling him/her that its a dare",	
-     "tell one of your frnd that u love him/her and wanna marry him/her, without telling him/her that its a dare",	
-     "say i love depak kalal through voice note",	
-     "write i am feeling horny and put it on status, u can delete it only after 5hrs",	
-     "write i am lesbian and put it on status, u can delete only after 5hrs",	
-     "kiss your mommy or papa and say i love you😌",	
-     "put your father name on status for 5hrs",	
-     "send abusive words in any grup, excepting this grup, and send screenshot proof here"	
-]	
-              const xeondare = dare[Math.floor(Math.random() * dare.length)]	
-              bufferdare = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)	
-              XeonBotInc.sendMessage(from, { image: bufferdare, caption: '_You choose DARE_\n'+ xeondare }, {quoted:m})	
-              break	
-                            break	
-       case 'truth':	
-              const truth =[	
-    "Have you ever liked anyone? How long?",	
-    "If you can or if you want, which gc/outside gc would you make friends with? (maybe different/same type)",	
-    "apa ketakutan terbesar kamu?",	
-    "Have you ever liked someone and felt that person likes you too?",	
-    "What is the name of your friend's ex-girlfriend that you used to secretly like?",	
-    "Have you ever stolen money from your father or mom? The reason?",	
-    "What makes you happy when you're sad?",	
-    "Ever had a one sided love? if so who? how does it feel bro?", 	
-    "been someone's mistress?",	
-    "the most feared thing",	
-    "Who is the most influential person in your life?",	
-    "what proud thing did you get this year", 	
-    "Who is the person who can make you awesome", 	
-    "Who is the person who has ever made you very happy?", 	
-    "Who is closest to your ideal type of partner here", 	
-    "Who do you like to play with??", 	
-    "Have you ever rejected people? the reason why?",	
-    "Mention an incident that made you hurt that you still remember", 	
-    "What achievements have you got this year??",	
-    "What's your worst habit at school??",	
-    "What song do you sing most in the shower",	
-    "Have you ever had a near-death experience",	
-    "When was the last time you were really angry. Why?",	
-    "Who is the last person who called you",	
-    "Do you have any hidden talents, What are they",	
-    "What word do you hate the most?",	
-    "What is the last YouTube video you watched?",	
-    "What is the last thing you Googled",	
-    "Who in this group would you want to swap lives with for a week",	
-    "What is the scariest thing thats ever happened to you",	
-    "Have you ever farted and blamed it on someone else",	
-    "When is the last time you made someone else cry",	
-    "Have you ever ghosted a friend",	
-    "Have you ever seen a dead body",	
-    "Which of your family members annoys you the most and why",	
-    "If you had to delete one app from your phone, which one would it be",	
-    "What app do you waste the most time on",	
-    "Have you ever faked sick to get home from school",	
-    "What is the most embarrassing item in your room",	
-    "What five items would you bring if you got stuck on a desert island",	
-    "Have you ever laughed so hard you peed your pants",	
-    "Do you smell your own farts",	
-    "have u ever peed on the bed while sleeping ??",	
-    "What is the biggest mistake you have ever made",	
-    "Have you ever cheated in an exam",	
-    "What is the worst thing you have ever done",	
-    "When was the last time you cried",	
-    "whom do you love the most among ur parents", 	
-    "do u sometimes put ur finger in ur nosetril?", 	
-    "who was ur crush during the school days",	
-    "tell honestly, do u like any boy in this grup",	
-    "have you ever liked anyone? how long?",	
-    "do you have gf/bf','what is your biggest fear?",	
-    "have you ever liked someone and felt that person likes you too?",	
-    "What is the name of your ex boyfriend of your friend that you once liked quietly?",	
-    "ever did you steal your mothers money or your fathers money",	
-    "what makes you happy when you are sad",	
-    "do you like someone who is in this grup? if you then who?",	
-    "have you ever been cheated on by people?",	
-    "who is the most important person in your life",	
-    "what proud things did you get this year",	
-    "who is the person who can make you happy when u r sad",	
-    "who is the person who ever made you feel uncomfortable",	
-    "have you ever lied to your parents",	
-    "do you still like ur ex",	
-    "who do you like to play together with?",	
-    "have you ever stolen big thing in ur life? the reason why?",	
-    "Mention the incident that makes you hurt that you still remember",	
-    "what achievements have you got this year?",	
-    "what was your worst habit at school?",	
-    "do you love the bot creator, xeon?🌟",	
-    "have you ever thought of taking revenge from ur teacher?",	
-    "do you like current prime minister of ur country",	
-    "you non veg or veg",	
-    "if you could be invisible, what is the first thing you would do",	
-    "what is a secret you kept from your parents",	
-    "Who is your secret crush",	
-    "whois the last person you creeped on social media",	
-    "If a genie granted you three wishes, what would you ask for",	
-    "What is your biggest regret",	
-    "What animal do you think you most look like",	
-    "How many selfies do you take a day",	
-    "What was your favorite childhood show",	
-    "if you could be a fictional character for a day, who would you choose",	
-    "whom do you text the most",	
-    "What is the biggest lie you ever told your parents",	
-    "Who is your celebrity crush",	
-    "Whats the strangest dream you have ever had",	
-    "do you play pubg, if you then send ur id number"	
-]	
-              const xeontruth = truth[Math.floor(Math.random() * truth.length)]	
-              buffertruth = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)	
-              XeonBotInc.sendMessage(from, { image: buffertruth, caption: '_You choose TRUTH_\n'+ xeontruth }, {quoted:m})	
-              break  	
 case 'fliptext': {	
 if (args.length < 1) return m.reply(`Example:\n${prefix}fliptext ${ownername}`)	
 quere = args.join(" ")	
@@ -4866,31 +4213,7 @@ m.reply("Send video/audio")
 }	
 }	
 break	
-case 'woof':	
-case '8ball':	
-case 'goose':	
-case 'gecg':	
-case 'feed':	
-case 'avatar':	
-case 'lizard':	
-case 'meow':	
-case 'tickle':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://nekos.life/api/v2/img/${command}`)	
-                           var wbuttsss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonssMessages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttsss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonssMessages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
+
 case 'animewallpaper': case 'animewall': {	
                 if (!args.join(" ")) return m.reply("What wallpaper are you looking for??")	
 		let { wallpaper } = require('./lib/scraperW')	
@@ -4909,35 +4232,6 @@ case 'animewallpaper': case 'animewall': {
                 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })	
             }	
             break	
-case 'animewall2': case 'animewallpaper2':	
-m.reply(mess.wait)							
-const { AnimeWallpaper } =require("anime-wallpaper")	
-if(!q) return m.reply('What wallpaper do you want?')	
-const wall = new AnimeWallpaper();	
-    const pages = [1,2,3,4];	
-        const random=pages[Math.floor(Math.random() * pages.length)]	
-        const wallpaper = await wall	
-            .getAnimeWall4({ title: q, type: "sfw", page: pages })	
-            .catch(() => null);	
-const i = Math.floor(Math.random() * wallpaper.length);	
-var walb = [	
-        {buttonId: `.${command} ${q}`, buttonText: {displayText: `Next ✨`}, type: 1},        	
-        ]	
-      let wal = {	
-       image: {url:wallpaper[i].image},	
-       caption: `*Query :* ${q}`,	
-      footer: `${global.botname}`,	
-      buttons: walb,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, wal,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-
-
-
-
-
 
 
 
@@ -4946,9 +4240,7 @@ var walb = [
 //chat bot	
 
 case 'hi':{	
-
     reply(Lang.HI_REP)	
-
     }	
 
 break	
@@ -4969,14 +4261,14 @@ break
 case 'hmm' : case 'hm' : case 'hmmm': {	
     reply(Lang.HMM_REP)	
     }	
-    break	
+break	
 
     case 'ane' : case 'anee' : case 'aneee' : {	
         reply(Lang.ANE_REP)	
         }	
         break	
 
- case 'pala' : {	
+ case 'pala' : case 'charith' : case 'ayya' : case 'chamrith' :{	
   reply(Lang.PALA_REP)	
   }	
  break	
@@ -5044,1126 +4336,9 @@ case 'pediaemoji':
 if (!q) return m.reply("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)	
 m.reply(mess.wait)	
 emote(q, "10")	
-break	
-case 'cry':case 'kill':case 'hug':case 'pat':case 'lick':case 'kiss':case 'bite':case 'yeet':case 'neko':case 'bully':case 'bonk':case 'wink':case 'poke':case 'nom':case 'slap':case 'smile':case 'wave':case 'awoo':case 'blush':case 'smug':case 'glomp':case 'happy':case 'dance':case 'cringe':case 'cuddle':case 'highfive':case 'shinobu':case 'megumin':case 'handhold':	
-					axios.get(`https://api.waifu.pics/sfw/${command}`)	
-					.then(({data}) => {	
-						XeonBotInc.sendImageAsSticker(m.chat, data.url, m, { packname: global.packname, author: global.author })	
-					})	
-					break	
-case 'loli-waifu':	
-					m.reply(mess.wait)	
-					axios.get(`https://api.waifu.pics/sfw/waifu`)	
-					.then(({data}) => {	
-					XeonBotInc.sendImage(m.chat, data.url, mess.success, m)	
-					})	
-					break	
-case 'hentaivid': case 'hentaivideo': {	
-	if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-if (!AntiNsfw) return m.reply(mess.nsfw)	
-                m.reply(mess.wait)	
-                const { hentai } = require('./lib/scraper.js')	
-                anu = await hentai()	
-                result912 = anu[Math.floor(Math.random(), anu.length)]	
-                XeonBotInc.sendMessage(m.chat, { video: { url: result912.video_1 }, caption: `${themeemoji} Title : ${result912.title}\n${themeemoji} Category : ${result912.category}\n${themeemoji} Mimetype : ${result912.type}\n${themeemoji} Views : ${result912.views_count}\n${themeemoji} Shares : ${result912.share_count}\n${themeemoji} Source : ${result912.link}\n${themeemoji} Media Url : ${result912.video_1}` }, { quoted: m })	
-            }	
-            break	
-case 'trap' :	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
- waifudd = await axios.get(`https://waifu.pics/api/nsfw/${command}`)       	
- let trapbot = [	
-    {buttonId: `trap`, buttonText: {displayText: `Next ⚡`}, type: 1},	
-    ]	
-  let button2Messages = {	
-   image: {url:waifudd.data.url},	
-   caption:  Lang.MESS_WAIT,	
-  buttons: trapbot,	
-  headerType: 1	
-  }     	
-            await XeonBotInc.sendMessage(m.chat, button2Messages, { quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'hentai-neko' :	
-case 'hneko' :	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-if (!AntiNsfw) return m.reply(mess.nsfw)	
-    waifudd = await axios.get(`https://waifu.pics/api/nsfw/neko`)	
- let hnekobot = [	
-    {buttonId: `.hneko`, buttonText: {displayText: `Next ⚡`}, type: 1},	
-    ]	
-  let button3Messages = {	
-   image: {url:waifudd.data.url},	
-   caption:  Lang.MESS_WAIT,	
-  buttons: hnekobot,	
-  headerType: 1	
-  }      	
-            await XeonBotInc.sendMessage(m.chat, button3Messages, { quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'hentai-waifu' :	
-case 'nwaifu' :	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-    waifudd = await axios.get(`https://waifu.pics/api/nsfw/waifu`)         	
- let nwaifubot = [	
-    {buttonId: `.hneko`, buttonText: {displayText: `Next ⚡`}, type: 1},	
-    ]	
-  let button4Messages = {	
-   image: {url:waifudd.data.url},	
-   caption:  Lang.MESS_WAIT,	
-  buttons: nwaifubot,	
-  headerType: 1	
-  }      	
-            await XeonBotInc.sendMessage(m.chat, button4Messages, { quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'gasm':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://nekos.life/api/v2/img/${command}`)	
-                           var wbuttsss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonsssMessages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttsss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonsssMessages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break  	
-case 'milf':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/milf.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break 	
-case 'ahegao':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/ahegao.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'ass':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/ass.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'bdsm':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/bdsm.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'blowjob':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/blowjob.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'cuckold':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/cuckold.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'cum':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/cum.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'eba':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/eba.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'ero':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/ero.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'femdom':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/femdom.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'foot':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/foot.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'gangbang':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/gangbang.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'glasses':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/glasses.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'hentai':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/hentai.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'jahy':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/jahy.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'manga':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/manga.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'masturbation':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/masturbation.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'neko-hentai':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/neko.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'neko-hentai2':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/neko2.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'nsfwloli':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/nsfwloli.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'orgy':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/orgy.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'panties':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/panties.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'pussy':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/pussy.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'tentacles':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/tentacles.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'thights':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/thights.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'yuri':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/yuri.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'zettai':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-	if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/zettai.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'gifblowjob':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-  let assss = await axios.get ("https://api.waifu.pics/nsfw/blowjob")	
-    var bobuff = await fetchBuffer(assss.data.url)	
-    var bogif = await buffergif(bobuff)	
-    await XeonBotInc.sendMessage(m.chat,{video:bogif, gifPlayback:true },{quoted:m}).catch(err => {	
-    })	
-    break	
-case 'gifhentai':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/gifs.json'))	
-var xeonyresultx = pickRandom(ahegaonsfw)	
-    await XeonBotInc.sendMessage(m.chat,{video:xeonyresultx, gifPlayback:true },{quoted:m}).catch(err => {	
-    })	
-    break	
-case'slap2':	
-if(!quoted){	
-const   result = await fetchJson(`https://g.tenor.com/v1/random?q=anime slapping&key=LIVDSRZULELA`, {method: 'get'})	
-const ku = result.results[0]	
-const oj = ku.media[0]	
-const urlg = oj.mp4	
-const slapp = urlg.url	
-const { data: mediaData } = await axios.get(slapp, {responseType: "arraybuffer"})	
-const media = new MessageMedia(	
-    'video/mp4', 	
-    mediaData.toString("base64")	
-);	
-const mention = msg	
-const mentionedId = await XeonBotInc.getName(mention.mentionedIds)	
-ctv = `@${contacts.number} *Slapped* @${mentionedId.number}`	
-const ahh = []	
-m.reply(media,m.chat , {mentions:[contacts,mentionedId], sendVideoAsGif:true, caption: ctv}).then((r) => {	
-})	
-}else if(quoted){	
-const qmid = quoted.author	
-const   result = await fetchJson(`https://g.tenor.com/v1/random?q=anime slapping&key=LIVDSRZULELA`, {method: 'get'})	
-const ku = result.results[0]	
-const oj = ku.media[0]	
-const urlg = oj.mp4	
-const slapp = urlg.url	
-const { data: mediaData } = await axios.get(slapp, {responseType: "arraybuffer"})	
-const media = new MessageMedia(	
-    'video/mp4', 	
-    mediaData.toString("base64")	
-);	
-const contact1 = await XeonBotInc.getName(qmid)	
-ctv = `@${contacts.number} *Slapped* @${contact1.number} `	
-m.reply(media,m.chat , {mentions:[contacts,contact1 ], sendVideoAsGif:true, caption: ctv}).then((r) => {	
-})	
-}	
-break	
+break
 
-case 'animesmug':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://nekos.life/api/v2/img/smug`)	
-                           var wbuttsss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let button1ssMessages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttsss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, button1ssMessages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'foxgirl':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://nekos.life/api/v2/img/fox_girl`)	
-                           var wbuttsss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let button12ssMessages = {       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttsss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, button12ssMessages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break   	
-case 'animenom' :	
-m.reply(mess.wait)	
-    waifudd = await axios.get(`https://waifu.pics/api/sfw/nom`)	
- let xxhnekobot = [	
-    {buttonId: `.nom`, buttonText: {displayText: `Next ⚡`}, type: 1},	
-    ]	
-  let xx1button3Messages = {	
-   image: {url:waifudd.data.url},	
-   caption:  Lang.MESS_WAIT,	
-  buttons: xxhnekobot,	
-  headerType: 1	
-  }      	
-            await XeonBotInc.sendMessage(m.chat, xx1button3Messages, { quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animewaifu':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://nekos.life/api/v2/img/waifu`)	
-                           var wbuttsss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let button112ssMessages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttsss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, button112ssMessages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animeneko':	
-m.reply(mess.wait)							
-   waifud = await axios.get('https://waifu.pics/api/sfw/neko')	
-                var wbutsss = [	
-        {buttonId: `animeneko`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonssMessage = {	
-       image: {url:waifud.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbutsss,	
-      headerType: 4	
-      }	
-            await XeonBotInc.sendMessage(m.chat,buttonssMessage, { quoted:m }).catch(err => {	
-                    return('Error!')	
-                })               	
-                break	
-case 'animecuddle':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://nekos.life/api/v2/img/cuddle`)	
-                           var wbuttsss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonsosMessages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttsss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonsosMessages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break   	
-case 'animeslap':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://nekos.life/api/v2/img/slap`)	
-                           var wbuttsss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let btutttonssMessages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttsss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, btutttonssMessages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animepat':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://nekos.life/api/v2/img/pat`)	
-                           var wbuttsss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let xxbuttonssMessages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttsss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, xxbuttonssMessages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animeneko':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://nekos.life/api/v2/img/neko`)	
-                           var wbuttsss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonsTsMessages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttsss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonsTsMessages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animehug':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://nekos.life/api/v2/img/hug`)	
-                           var wbuttsss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonussMessages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttsss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonussMessages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animekiss':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://nekos.life/api/v2/img/kiss`)	
-                           var wbuttsss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let bxxuttonssMessages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttsss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, bxxuttonssMessages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animewlp':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://nekos.life/api/v2/img/wallpaper`)	
-                           var wbuttsss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttoxnssMessages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttsss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttoxnssMessages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animespank':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-if (!AntiNsfw) return m.reply(mess.nsfw)	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://nekos.life/api/v2/img/spank`)	
-                           var wbuttsss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonssxMessages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttsss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonssxMessages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animecry':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/cry`)	
-                           var wbutt1sss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let button1ssxMessages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbutt1sss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, button1ssxMessages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animekill':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/kill`)	
-                           var wbuttszzss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsxMessages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszzss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsxMessages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animelick':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/lick`)	
-                           var wbuttszz12ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx12Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz12ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx12Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animebite':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/bite`)	
-                           var wbuttszz123ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx123Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz123ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx123Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animeyeet':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/yeet`)	
-                           var wbuttszz124ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx124Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz124ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx124Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animebully':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/lick`)	
-                           var wbuttszz125ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx125Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz125ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx125Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animebonk':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/bonk`)	
-                           var wbuttszz126ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx126Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz126ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx126Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animewink':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/wink`)	
-                           var wbuttszz127ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx127Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz127ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx127Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animepoke':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/poke`)	
-                           var wbuttszz128ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx128Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz128ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx128Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animesmile':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/smile`)	
-                           var wbuttszz129ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx129Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz129ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx129Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animewave':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/wave`)	
-                           var wbuttszz1210ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx1210Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz1210ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx1210Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animeawoo':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/awoo`)	
-                           var wbuttszz1211ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx1211Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz1211ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx1211Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animeblush':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/blush`)	
-                           var wbuttszz1212ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx1212Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz1212ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx1212Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animesmug':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/smug`)	
-                           var wbuttszz1213ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx1213Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz1213ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx1213Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animeglomp':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/glomp`)	
-                           var wbuttszz1214ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx1214Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz1214ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx1214Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animehappy':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/happy`)	
-                           var wbuttszz1215ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx1215Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz1215ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx1215Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animedance':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/dance`)	
-                           var wbuttszz1216ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx1216Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz1216ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx1216Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animecringe':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/cringe`)	
-                           var wbuttszz1217ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx1217Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz1217ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx1217Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animehighfive':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/highfive`)	
-                           var wbuttszz1218ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx1218Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz1218ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx1218Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animehandhold':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/handhold`)	
-                           var wbuttszz1219ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx1219Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz1219ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx1219Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'animemegumin':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://api.waifu.pics/sfw/megumin`)	
-                           var wbuttszz1220ss = [	
-        {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-        ]	
-      let buttonszzsx1220Messages = {	
-       image: {url:waifudd.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-      buttons: wbuttszz1220ss,	
-      headerType: 4	
-      }     	
-            await XeonBotInc.sendMessage(m.chat, buttonszzsx1220Messages,{ quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'shinobu2':  	
-m.reply(mess.wait)							
-                    ud = await axios.get('https://waifu.pics/api/sfw/shinobu')	
-var wbutsss = [	
-    {buttonId: `.shinobu`, buttonText: {displayText: `Next ✨`}, type: 1},	
-         ]	
-      let buttonsesMessage = {	
-      image: {url:ud.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-          buttons: wbutsss,	
-     headerType: 4	
-                      }	
-await XeonBotInc.sendMessage(m.chat,buttonsesMessage, { quoted:m }).catch(err => {	
-     return('Error!')	
-    })               	
-break	
-case 'animemegumin':	
-m.reply(mess.wait)							
-                    ud = await axios.get('https://waifu.pics/api/sfw/megumin')	
-var wbutsss = [	
-    {buttonId: `.megumin`, buttonText: {displayText: `Next ✨`}, type: 1},	
-         ]	
-      let buttonzMessage = {	
-      image: {url:ud.data.url},	
-       caption:  Lang.MESS_WAIT,	
-      footer: `${global.botname}`,	
-          buttons: wbutsss,	
-     headerType: 4	
-                      }	
-await XeonBotInc.sendMessage(m.chat,buttonzMessage, { quoted:m }).catch(err => {	
-     return('Error!')	
-    })               	
-break     	
-case 'animeawoo':	
-m.reply(mess.wait)							
- waifudd = await axios.get(`https://waifu.pics/api/sfw/awoo`)	
- var wbuttsss = [	
-    {buttonId: `.${command}`, buttonText: {displayText: `Next ✨`}, type: 1},	
-    ]	
-  let button1Messages = {	
-   image: {url:waifudd.data.url},	
-   caption:  Lang.MESS_WAIT,	
-   footer: `${global.botname}`,	
-  buttons: wbuttsss,	
-  headerType: 2	
-  }       	
-            await XeonBotInc.sendMessage(m.chat, button1Messages, { quoted:m }).catch(err => {	
-                    return('Error!')	
-                })	
-break	
-case 'loli':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/anime/loli.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'husbu':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/anime/husbu.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'neko2':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/anime/neko.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'randomanime':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/anime/random.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'shota':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/anime/shota.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'waifu2':	
-if (!m.isGroup) return m.reply(Lang.NOT_GC)	
-m.reply(mess.wait)	
-var but = [{buttonId: `${command}`, buttonText: { displayText: "NEXT➡️" }, type: 1 }]	
-var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/anime/waifu.json'))	
-var xeonyresult = pickRandom(ahegaonsfw)	
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url }, buttons: but, footer: botname }, { quoted: m })	
-break	
-case 'genshin':	
-try {	
-if (!text) throw `Which genshin are you lookin for?`	
-const genshin = require("genshin-api")	
-a = text.toLowerCase();	
-const anime = await genshin.Characters(text)	
-let txt = ""	
-txt += `🎀 *Name:* ${anime.name}\n`	
-txt += `🎖️ *Title:* ${anime.title}\n`	
-txt += `💠 *Vision:* ${anime.vision}\n`	
-txt += `🏹 *Weapon:* ${anime.weapon}\n`	
-txt += `💮 *Gender:* ${anime.gender}\n`	
-txt += `🌏 *Nation:* ${anime.nation}\n`	
-txt += `🪷 *Affiliation:* ${anime.affiliation}\n`	
-txt += `🌟 *Rarity:* ${anime.rarity}\n`	
-txt += `❄️ *Constellation:* ${anime.constellation}\n`	
-txt += `📖 *Description:* ${anime.description}\n`	
-txt += `🌐 *Url:* https://genshin-impact.fandom.com/wiki/${a}\n`	
-urll = `https://api.genshin.dev/characters/${a}/portrait`	
-await XeonBotInc.sendMessage(m.chat,{image:{url:urll}, caption:txt},{quoted:m})	
-} catch (err) {	
-console.log(err)	
-throw mess.error	
-}	
-break	
-case 'anime':	
-if (!text) throw `Which anime are you lookin for?`	
-const malScraper = require('mal-scraper')	
-        const anime = await malScraper.getInfoFromName(text).catch(() => null)	
-        if (!anime) throw `Could not find`	
-let animetxt = `	
-🎀 *Title: ${anime.title}*	
-🎋 *Type: ${anime.type}*	
-🎐 *Premiered on: ${anime.premiered}*	
-💠 *Total Episodes: ${anime.episodes}*	
-📈 *Status: ${anime.status}*	
-💮 *Genres: ${anime.genres}	
-📍 *Studio: ${anime.studios}*	
-🌟 *Score: ${anime.score}*	
-💎 *Rating: ${anime.rating}*	
-🏅 *Rank: ${anime.ranked}*	
-💫 *Popularity: ${anime.popularity}*	
-♦️ *Trailer: ${anime.trailer}*	
-🌐 *URL: ${anime.url}*	
-❄ *Description:* ${anime.synopsis}*`	
-                await XeonBotInc.sendMessage(m.chat,{image:{url:anime.picture}, caption:animetxt},{quoted:m})	
-                break	
+
 case 'patrick':	
 case 'patricksticker': {	
 var ano = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/main/patrick')	
@@ -6174,7 +4349,7 @@ await fs.unlinkSync(encmedia)
 }	
 break	
 case 'ttp': {	
-           if (!text) return m.reply(`*Example : ${prefix + command} hello*`)	
+           if (!text) return m.reply(`*Example : ${prefix + command} peace*`)	
            await XeonBotInc.sendMedia(m.chat, `https://cililitan.herokuapp.com/api/texttopng2?teks=${text}`, 'A L Y A', 'B O T M D', m, {asSticker: true})	
 
                      }	
@@ -6207,205 +4382,7 @@ encmedia = await XeonBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: 
 await fs.unlinkSync(encmedia)	
 }	
 break	
-            case 'can': {	
-            	if (!text) throw `Ask question\n\nExample : ${prefix + command} i dance?`	
-            	let bisa = [`Can`,`Can't`,`Cannot`,`Of Course You Can!!!`]	
-                let keh = bisa[Math.floor(Math.random() * bisa.length)]	
-                let jawab = `*Can ${text}*\nAnswer : ${keh}`	
-                let buttons = [{ buttonId: 'hehehe', buttonText: { displayText: 'PATIENT 👀' }, type: 1 }]	
-            await XeonBotInc.sendButtonText(m.chat, buttons, jawab, botname, m)	
-            }	
-            break	
-            case 'is': {	
-            	if (!text) throw `Ask question\n\nExample : ${prefix + command} she virgin?`	
-            	let apa = [`Yes`, `No`, `It Could Be`, `Thats right`]	
-                let kah = apa[Math.floor(Math.random() * apa.length)]	
-                let jawab = `*Is ${text}*\nAnswer : ${kah}`	
-                let buttons = [{ buttonId: 'hehehe', buttonText: { displayText: 'HAHAHA' }, type: 1 }]	
-            await XeonBotInc.sendButtonText(m.chat, buttons, jawab, botname, m)	
-            }	
-            break	
-            case 'when': {	
-            	if (!text) throw `Ask question\n\nExample : ${prefix + command} will i get married?`	
-            	let kapan = ['5 More Days', '10 More Days', '15 More Days','20 More Days', '25 More Days','30 More Days','35 More Days','40 More Days','45 More Days','50 More Days','55 More Days','60 More Days','65 More Days','70 More Days','75 More Days','80 More Days','85 More Days','90 More Days','100 More Days','5 Months More', '10 Months More', '15 Months More','20 Months More', '25 Months More','30 Months More','35 Months More','40 Months More','45 Months More','50 Months More','55 Months More','60 Months More','65 Months More','70 Months More','75 Months More','80 Months More','85 Months More','90 Months More','100 Months More','1 More Year','2 More Years','3 More Years','4 More Years','5 More Years','Tomorrow','The Day After Tomorrow']	
-                let koh = kapan[Math.floor(Math.random() * kapan.length)]	
-                let jawab = `*${command} ${text}*\nAnswer : ${koh}`	
-                let buttons = [{ buttonId: 'hehehe', buttonText: { displayText: 'PATIENT 👀' }, type: 1 }]	
-            await XeonBotInc.sendButtonText(m.chat, buttons, jawab, botname, m)	
-            }	
-            break	
-case 'what': {	
-            	if (!text) throw `Ask question\n\nExample : ${prefix + command} is your name?`	
-            	let lel = [`Ask Your Gf`, `I Dont Know`, `I Don't Know, Ask Your Father`]	
-                let kah = lel[Math.floor(Math.random() * lel.length)]	
-                let jawab = `*What ${text}*\nAnswer : ${kah}`	
-                let buttons = [{ buttonId: 'hehehe', buttonText: { displayText: 'HAHAHA' }, type: 1 }]	
-            await XeonBotInc.sendButtonText(m.chat, buttons, jawab, botname, m)	
-            }	
-            break	
-case 'where': {	
-            	if (!text) throw `Ask question\n\nExample : ${prefix + command} is your name?`	
-            	let wherelol = [`In the mountain`, `On mars`, `On moon`,`In the jungle`,`I dont know ask your mom`,`It could be somewhere`]	
-                let kah = wherelol[Math.floor(Math.random() * wherelol.length)]	
-                let jawab = `*Whwre ${text}*\nAnswer : ${kah}`	
-                let buttons = [{ buttonId: 'hehehe', buttonText: { displayText: 'HAHAHA' }, type: 1 }]	
-            await XeonBotInc.sendButtonText(m.chat, buttons, jawab, botname, m)	
-            }	
-            break	
-case 'how': {	
-            	if (!text) throw `Ask question\n\nExample : ${prefix + command} to date girl?`	
-            	let gimana = [`Ummm...`, `It's Difficult Bro`, `Sorry Bot Can't Answer`, `Try Searching On Google`,`Holy Cow! Really???`,`Dizzy Ah😴, don't wanna answer`,`Ohhh I See:(`,`The Patient, Boss:(`,`Really dude 🙄`]	
-                let kah = gimana[Math.floor(Math.random() * gimana.length)]	
-                let jawab = `*How ${text}*\nAnswer : ${kah}`	
-                let buttons = [{ buttonId: 'hehehe', buttonText: { displayText: 'HAHAHA' }, type: 1 }]	
-            await XeonBotInc.sendButtonText(m.chat, buttons, jawab, botname, m)	
-            }	
-            break	
-case 'rate': {	
-            	if (!text) throw `Example : ${prefix + command} my profile`	
-            	let ra = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']	
-                let kah = ra[Math.floor(Math.random() * ra.length)]	
-                let jawab = `*Rate ${text}*\nAnswer : ${kah}%`	
-                let buttons = [{ buttonId: 'hehehe', buttonText: { displayText: 'HAHAHA' }, type: 1 }]	
-            await XeonBotInc.sendButtonText(m.chat, buttons, jawab, botname, m)	
-            }	
-            break	
-case 'runtime': {	
-            	let lowq = `*The Bot Has Been Online For:*\n*${runtime(process.uptime())}*`	
-                let buttons = [{ buttonId: 'menu', buttonText: { displayText: 'Menu' }, type: 1 }]	
-                await XeonBotInc.sendButtonText(m.chat, buttons, lowq, botname, m, {quoted: fkontak})	
-            	}	
-            break	
-case 'handsomecheck':	
-				if (!text) return m.reply(`Tag Someone, Example : ${prefix + command} @Xeon`)	
-					const gan = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']	
-					const teng = gan[Math.floor(Math.random() * gan.length)]	
-XeonBotInc.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${teng}%*` }, { quoted: m })	
-
-					break	
-case 'beautifulcheck':	
-				if (!text) return m.reply(`Tag Someone, Example : ${prefix + command} @Xeon`)	
-					const can = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']	
-					const tik = can[Math.floor(Math.random() * can.length)]	
-XeonBotInc.sendMessage(from, { text: `*${command}*\n\nNama : ${q}\nAnswer : *${tik}%*` }, { quoted: m })	
-					break	
-					case 'charactercheck':	
-					if (!text) return m.reply(`Tag Someone, Example : ${prefix + command} @Xeon`)	
-					const xeony =['Compassionate','Generous','Grumpy','Forgiving','Obedient','Good','Simp','Kind-Hearted','patient','UwU','top, anyway','Helpful']	
-					const taky = xeony[Math.floor(Math.random() * xeony.length)]	
-					XeonBotInc.sendMessage(from, { text: `Character Check : ${q}\nAnswer : *${taky}*` }, { quoted: m })	
-				     break	
-                    case 'awesomecheck':	
-  case 'greatcheck':	
-    case 'gaycheck':	
-      case 'cutecheck':	
-        case 'lesbicheck':	
-          case 'lesbiancheck':	
-             case 'hornycheck':	
-                 case 'prettycheck':	
-                    case 'lovelycheck':	
-                      case 'uglycheck':	
-				if (!text) return m.reply(`Tag Someone, Example : ${prefix + command} @Xeon`)	
-					const sangeh = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']	
-					const sange = sangeh[Math.floor(Math.random() * sangeh.length)]	
-XeonBotInc.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${sange}%*` }, { quoted: m })	
-					break	
-                    case 'stupid':	
-      case 'foolish':	
-      case 'smart':	
-      case 'idiot':	
-      case 'gay':	
-      case 'lesbi':	
-      case 'bastard':	
-      case 'stubble':	
-      case 'dog':	
-      case 'fuck':	
-      case 'ape':	
-      case 'noob':	
-      case 'great':	
-      case 'horny':	
-      case 'wibu':	
-      case 'asshole':	
-      case 'handsome':	
-      case 'beautiful':	
-      case 'cute':	
-      case 'kind':	
-      case 'ugly':	
-      case 'pretty':	
-      case 'lesbian':	
-      case 'randi':	
-      case 'gandu':	
-      case 'madarchod':	
-      case 'kala':	
-      case 'gora':	
-      case 'chutiya':	
-      case 'nibba':	
-      case 'nibbi':	
-      case 'bhosdiwala':	
-      case 'chutmarika':	
-      case 'bokachoda':	
-      case 'suarerbaccha':	
-      case 'bolochoda':	
-      case 'muthal':	
-      case 'muthbaaz':	
-      case 'randibaaz':	
-      case 'topibaaz':	
-      case 'cunt':	
-      case 'nerd':	
-      case 'behenchod':	
-      case 'behnchoda':	
-      case 'bhosdika':	
-      case 'nerd':	
-      case 'mc':	
-      case 'bsdk':	
-      case 'bhosdk':	
-      case 'nigger':	
-      case 'loda':	
-      case 'laund':	
-      case 'nigga':	
-      case 'noobra':	
-      case 'tharki':	
-      case 'nibba':	
-      case 'nibbi':	
-      case 'mumu':	
-      case 'rascal':	
-      case 'scumbag':	
-      case 'nuts':	
-      case 'comrade':	
-      case 'fagot':	
-      case 'scoundrel':	
-      case 'ditch':	
-      case 'dope':	
-      case 'gucci':	
-      case 'lit':	
-      case 'dumbass':	
-      case 'sexy':	
-      case 'crackhead':	
-      case 'mf':	
-      case 'motherfucker':	
-      case 'dogla':	
-      case 'bewda':	
-      case 'boka':	
-      case 'khanki':	
-      case 'bal':	
-      case 'sucker':	
-      case 'fuckboy':	
-      case 'playboy':	
-      case 'fuckgirl':	
-      case 'playgirl':	
-      case 'hot': {	
-            if (!m.isGroup) return m.reply(`${Lang.NOT_GC}`)	
-            let member = participants.map(u => u.id)	
-            let me = m.sender	
-            let jodoh = member[Math.floor(Math.random() * member.length)]	
-            let jawab = `The Most *${command}* Here Is @${jodoh.split('@')[0]}`	
-            let ments = [me, jodoh]	
-            let buttons = [	
-                        { buttonId: 'oke', buttonText: { displayText: '🌟' }, type: 1 }	
-                    ]	
-                    await XeonBotInc.sendButtonText(m.chat, buttons, jawab, botname, m, {mentions: ments})	
-            }	
-            break	
+            
 case 'id':{	
             m.reply(from)	
            }	
@@ -6698,20 +4675,20 @@ break
 //wamod	
 case 'wamod': case 'whatsapp': {	
     XeonBotInc.sendMessage(from, { react: { text: `🪀`, key: m.key }})	
-const uplode = await XeonBotInc.sendText(m.chat, `Please Wait Im Searching Whatsapp Mod🪀`,m, )	
-let anu = await fetchJson('https://github.com/ALPHAkaveen/sever/blob/main/whatsappmod.json')	
+const uplode = await XeonBotInc.sendText(m.chat, `PEACE MD Searching Whatsapp Mods...`,m, )	
+let anu = await fetchJson('https://raw.githubusercontent.com/CharithPramodyaSenanayake/peacy/main/Whatsapp%20Mods/whatsappmod.json')	
 const sections = [	
 {	
 title: "Please Select Mod🪀",	
 rows: [	
-{title: `RDX WhatsApp V32 🪀`, rowId: `oggfjjffrhg`, description: `Whatsapp Mod🪀 Downloader By 𝙳𝙰𝚁𝙺 𝙽𝙴𝚁𝙾 𝙼𝙾𝙳`},	
-{title: `RDX WhatsApp V33 🪀`, rowId: `bwghjjyjj`, description: `Whatsapp Mod🪀 Downloader By 𝙳𝙰𝚁𝙺 𝙽𝙴𝚁𝙾 𝙼𝙾𝙳`},	
-{title: `RDX WhatsApp V29`, rowId: `fmrhkuul`, description: `Whatsapp Mod🪀 Downloader By 𝙳𝙰𝚁𝙺 𝙽𝙴𝚁𝙾 𝙼𝙾𝙳`},	
-{title: `RDX WhatsApp V27`, rowId: `gbwhadhfjjtr`, description: `Whatsapp Mod🪀 Downloader By 𝙳𝙰𝚁𝙺 𝙽𝙴𝚁𝙾 𝙼𝙾𝙳`},	
-{title: `RDX WhatsApp V30`, rowId: `yosfhkulil`, description: `Whatsapp Mod🪀 Downloader By 𝙳𝙰𝚁𝙺 𝙽𝙴𝚁𝙾 𝙼𝙾𝙳`},	
-{title: `Yo WhatsApp Unlock 🪀`, rowId: `dahykuilil`, description: `Whatsapp Mod🪀 Downloader By 𝙳𝙰𝚁𝙺 𝙽𝙴𝚁𝙾 𝙼𝙾𝙳`},	
-{title: `FM WhatsApp Only Antivirus 🪀`, rowId: `aptytuui7`, description: `Whatsapp Mod🪀 Downloader By 𝙳𝙰𝚁𝙺 𝙽𝙴𝚁𝙾 𝙼𝙾𝙳`},	
-{title: `Aps Normal Theem Whatsapp 🪀`, rowId: `ayhtuyiyiy`, description: `Whatsapp Mod🪀 Downloader By 𝙳𝙰𝚁𝙺 𝙽𝙴𝚁𝙾 𝙼𝙾𝙳`}	
+{title: `RDX WhatsApp V32 🪀`, rowId: `oggfjjffrhg`, description: `ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ᴘᴇᴀᴄᴇ ᴍᴅ`},	
+{title: `RDX WhatsApp V33 🪀`, rowId: `bwghjjyjj`, description: `ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ᴘᴇᴀᴄᴇ ᴍᴅ`},	
+{title: `RDX WhatsApp V29`, rowId: `fmrhkuul`, description: `ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ᴘᴇᴀᴄᴇ ᴍᴅ`},	
+{title: `RDX WhatsApp V27`, rowId: `gbwhadhfjjtr`, description: `ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ᴘᴇᴀᴄᴇ ᴍᴅ`},	
+{title: `RDX WhatsApp V30`, rowId: `yosfhkulil`, description: `ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ᴘᴇᴀᴄᴇ ᴍᴅ`},	
+{title: `Yo WhatsApp Unlock 🪀`, rowId: `dahykuilil`, description: `ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ᴘᴇᴀᴄᴇ ᴍᴅ`},	
+{title: `FM WhatsApp Only Antivirus 🪀`, rowId: `aptytuui7`, description: `ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ᴘᴇᴀᴄᴇ ᴍᴅ`},	
+{title: `Aps Normal Theme Whatsapp 🪀`, rowId: `ayhtuyiyiy`, description: `ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ᴘᴇᴀᴄᴇ ᴍᴅ`}	
 
 ]	
 },	
@@ -6719,7 +4696,7 @@ rows: [
 
 const listMessage = {	
 text: "Please Select Mod🙊\n\n_Whatsapp Mod ගණන🙊 : 8_",	
-footer: "𝙳𝙰𝚁𝙺 𝙽𝙴𝚁𝙾 𝙼𝙾𝙳",	
+footer: "ᴘᴇᴀᴄᴇ ᴍᴅ",	
 buttonText: "Select Mod",	
 sections	
 }	
@@ -6794,25 +4771,25 @@ await XeonBotInc.sendMessage(m.chat, { document: { url: apk}, mimetype: 'applica
 break	
 //img	
 
-case 'kavee' : {	
+case 'peacepic' : {	
 
-    if (!text) return reply(`🧑‍💻💬 ${m.pushName} Give Some search \n_🗳️ Example : .img Queen Elisa Whatsapp bot_`)	
+    if (!text) return reply(`💭 ${m.pushName} Give Some search \n_ Example : ${prefix}peacepic Gajaman_`)	
     await XeonBotInc.sendText(m.chat,mess.wait) 	
-    await fetchJson(`https://darkalphaxteam-api.cyclic.app/api/search/google-image?query=${text}&apikey=DarkNero`)	
+    await fetchJson(`https://api.akuari.my.id/search/googleimage?query=${text}`)	
      .then(async (nima) => { 	
      const imagee1 = nima.result[0].url	
      const imagee2 = nima.result[1].url	
      const imagee3 = nima.result[2].url	
      const imagee4 = nima.result[3].url	
      const imagee5 = nima.result[4].url	
-    await XeonBotInc.sendMessage(m.chat, { image: { url : imagee1 }, caption: 'dark nero' }, { quoted: m })	
-    await XeonBotInc.sendMessage(m.chat, { image: { url : imagee2 }, caption: 'dark nero' }, { quoted: m })	
-    await XeonBotInc.sendMessage(m.chat, { image: { url : imagee3 }, caption: 'dark nero'}, { quoted: m })	
-    await XeonBotInc.sendMessage(m.chat, { image: { url : imagee4 }, caption: 'dark nero' }, { quoted: m })	
-    await XeonBotInc.sendMessage(m.chat, { image: { url : imagee5 }, caption: 'dark nero' }, { quoted: m })	
+    await XeonBotInc.sendMessage(m.chat, { image: { url : imagee1 }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ' }, { quoted: m })	
+    await XeonBotInc.sendMessage(m.chat, { image: { url : imagee2 }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ' }, { quoted: m })	
+    await XeonBotInc.sendMessage(m.chat, { image: { url : imagee3 }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ'}, { quoted: m })	
+    await XeonBotInc.sendMessage(m.chat, { image: { url : imagee4 }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ' }, { quoted: m })	
+    await XeonBotInc.sendMessage(m.chat, { image: { url : imagee5 }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ' }, { quoted: m })	
     await XeonBotInc.sendMessage(m.chat, { delete: load.key }) 	
 
-}).catch((err) => reply('not fund'))	
+}).catch((err) => reply('not found'))	
 
     //reply('not setted')	
     }	
@@ -6842,44 +4819,258 @@ m.chat,
 {	
 text: `${m.pushName} This is matching apk\n\n➮ ʀᴇǫᴜᴇsᴛ ${text}`,	
 footer: `${botname}`,	
-title: "🫧 𝙳𝙰𝚁𝙺 𝙽𝙴𝚁𝙾 𝙼𝙾𝙳 🫧",	
+title: "PEACE MD MOD APK",	
 buttonText: "DOWNLOAD MOD APK",	
 sections	
 }, { quoted : m })    	
     }).catch((err) => m.reply(NOT_FOUND))	
     }	
-    break	
+break	
+
+
+case 'hirunews': {
+    await PeaceMd.sendMessage(from, {
+        react: {
+            text: `🗞️`,
+            key: m.key
+        }
+    })
+    const news = await fetchJson(`https://api.sdbots.tk/hirunews`)
+    const cap = `
+ *🏷️ Title * ${news.title}
+ *⏰ Time * _${news.date}_
+ *📄️ Description *
+ ${news.description}
+ 
+ `
+    const templateButtons = [{
+            index: 1,
+            urlButton: {
+                displayText: `Hiru News`,
+                url: news.link
+            }
+        },
+
+
+    ]
+
+    const templateMessage = {
+        image: {
+            url: news.img
+        },
+        caption: '━━━━━━━━━━━━━━━━━\n                 PEACE MD NEWS\n━━━━━━━━━━━━━━━━━\n\n' + cap,
+        footer: global.botname,
+        templateButtons: templateButtons,
+        headerType: 4
+    }
+
+    await PeaceMd.sendMessage(m.chat, templateMessage, {
+        quoted: m
+    })
+
+    // await PeaceMd.sendMessage(m.chat, { image: { url : news.img} , caption : cap }, { quoted: m })
+}
+break
+
+case 'esananews': {
+    const load = await PeaceMd.sendText(m.chat, mess.wait, m, )
+    await PeaceMd.sendMessage(from, {
+        react: {
+            text: `🗞️`,
+            key: m.key
+        }
+    })
+    const {
+        esana_scrape,
+        esana_latest_news_id,
+        esana_scrape_from_id
+    } = require("esana-node-api").esana_news;
+    const helnews = await esana_scrape({
+        fetch: 'latest',
+        passcode: 'uakdmin_sr_2064'
+    }) // Enter Your Passcode or Contact Admin (+94766239744)
+
+    const title = helnews.news.helakuru.title
+    const news = helnews.news.helakuru.description
+    const img = helnews.news.helakuru.thumb
+    const url = helnews.news.helakuru.url
+    const date = helnews.news.helakuru.data
+
+    const cap = `*_🏷️ Title_ ${title}*\n\n*_📄 Description_* ${news}\n`
+    const templateButtons = [{
+        index: 1,
+        urlButton: {
+            displayText: `Esana News`,
+            url: url
+        }
+    }, ]
+
+    const templateMessage = {
+        image: {
+            url: img
+        },
+        caption: '━━━━━━━━━━━━━━━━━\n                 PEACE MD NEWS\n━━━━━━━━━━━━━━━━━\n\n' + cap,
+        footer: global.botname,
+        templateButtons: templateButtons,
+        headerType: 4
+    }
+
+    await PeaceMd.sendMessage(m.chat, templateMessage, {
+        quoted: m
+    })
+    await PeaceMd.sendMessage(m.chat, {
+        delete: load.key
+    })
+
+}
+break
+case 'newsjson': {
+    const {
+        esana_scrape,
+        esana_latest_news_id,
+        esana_scrape_from_id
+    } = require("esana-node-api").esana_news;
+    const all_news = await esana_scrape({
+        fetch: 'all',
+        passcode: 'uakdmin_sr_2064'
+    }) // Enter Your Passcode or Contact Admin (+94766239744)
+    // const helnews = await esana_scrape({ fetch: 'latest' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
+    //  const helnew_s = await esana_scrape_from_id({ id: text , passcode: 'uakdmin_sr_2064'})
+    const cap = `
+   ${jsonformat(all_news)}
+   `
+    reply(cap)
+    //reply(jsonformat(helnews))
+    //reply(jsonformat(helnew_s))
+
+}
+break
+case 'newsjson2': {
+    const {
+        esana_scrape,
+        esana_latest_news_id,
+        esana_scrape_from_id
+    } = require("esana-node-api").esana_news;
+    //const all_news = await esana_scrape({ fetch: 'all' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
+    // const helnews = await esana_scrape({ fetch: 'latest' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
+    const helnew_s = await esana_scrape_from_id({
+        id: text,
+        passcode: 'uakdmin_sr_2064'
+    })
+    const cap = `
+   ${jsonformat(helnew_s)}
+   `
+    reply(cap)
+    //reply(jsonformat(helnews))
+    //reply(jsonformat(helnew_s))
+
+}
+break
+case 'helakurunews':
+case 'findnews': {
+    const load = await PeaceMd.sendText(m.chat, mess.wait, m, )
+
+    var NEWSSS = ''
+    if (global.LANG == 'EN') NEWSSS = '```💃 Click And Get Your news```'
+    if (global.LANG == 'SI') NEWSSS = '```💃 ඔබට අවශ්‍ය පුවත පහත බටන බාවිතයෙන් ලබාගන්න```'
+
+    const {
+        esana_scrape,
+        esana_latest_news_id,
+        esana_scrape_from_id
+    } = require("esana-node-api").esana_news;
+    const all_news = await esana_scrape({
+        fetch: 'all',
+        passcode: 'uakdmin_sr_2064'
+    }) // Enter Your Passcode or Contact Admin (+94766239744)
+
+
+    // reply(jsonformat(all_news))
+
+    // reply(i.news_id)
+    let sections = []
+    for (let i of all_news) {
+        //  reply(i.news_id)
+        const list = {
+            title: `ᴘᴇᴀᴄᴇ ᴍᴅ ɴᴇᴡs`,
+            rows: [{
+                title: `${i.title}`,
+                rowId: `getnews ${i.id}`
+            }, ]
+        }
+        sections.push(list)
+    }
+    const sendm = PeaceMd.sendMessage(
+        m.chat, {
+            text: NEWSSS,
+            footer: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+            title: "━━━━━━━━━━━━━━━━━\n                 PEACE MD NEWS\n━━━━━━━━━━━━━━━━━",
+            buttonText: "GET NEWS",
+            sections
+        }, {
+            quoted: m
+        })
+
+    //all
+    /* const all_news = await esana_scrape({ fetch: 'all' , passcode: 'your_passcode'}) // Enter Your Passcode or Contact Admin (+94766239744)
+     reply(latest_news)*/
+    await PeaceMd.sendMessage(m.chat, {
+        delete: load.key
+    })
+
+
+}
+break
+case 'getnews': {
+    const load = await PeaceMd.sendText(m.chat, mess.wait, m, )
+
+    const {
+        esana_scrape,
+        esana_latest_news_id,
+        esana_scrape_from_id
+    } = require("esana-node-api").esana_news;
+    const helnews = await esana_scrape_from_id({
+        id: text,
+        passcode: 'uakdmin_sr_2064'
+    })
+    //  reply(jsonformat(helnews))        
+
+    const title = helnews.news_from_id.helakuru.title
+    const news = helnews.news_from_id.helakuru.description
+    const img = helnews.news_from_id.helakuru.thumb
+    const url = helnews.news_from_id.helakuru.url
+    const date = helnews.news_from_id.helakuru.data
+
+    const cap = `*_🏷️ Title_ ${title}*\n\n*_📄 News_* ${news}\n`
+    const templateButtons = [{
+        index: 1,
+        urlButton: {
+            displayText: `ɴᴇᴡs ᴜʀʟ`,
+            url: url
+        }
+    }, ]
+
+    const templateMessage = {
+        image: {
+            url: img
+        },
+        caption: '━━━━━━━━━━━━━━━━━\n                 PEACE MD NEWS\n━━━━━━━━━━━━━━━━━\n\n' + cap,
+        footer: `ᴘᴇᴀᴄᴇ ᴍᴅ`,
+        templateButtons: templateButtons,
+        headerType: 4
+    }
+
+    await PeaceMd.sendMessage(m.chat, templateMessage, {
+        quoted: m
+    })
+    await PeaceMd.sendMessage(m.chat, {
+        delete: load.key
+    })
 
 
 
-    case 'hirunews' : case 'latestnews' : case 'news':{	
-
-        // if (m.chat == '120363053413577759@g.us') {	
-
-
- const cyber = await fetchJson(`https://api.sdbots.tk/hirunews`)	
-
- const templateButtons = [	
-     {index: 1, urlButton: {displayText: `HIRU NEWS`, url: `${cyber.link}`}},	
-     {index: 2, urlButton: {displayText: `GROUP LINK`, url: 'https://www.whatsapp.com/otp/copy/https://chat.whatsapp.com/I4PimG29juTAYOoQvM1ZNK'}},	
-     ]	
-
- const templateMessage = {	
-     image: {url: cyber.img },	
-     caption: `*${cyber.title}*\n\n${cyber.description}\n\n𝙳𝙰𝚁𝙺 𝙽𝙴𝚁𝙾 𝙽𝙴𝚆𝚂` ,	
-     footer: `${cyber.date}`,	
-   //  templateButtons: templateButtons,	
-     headerType: 4	
- }	
-
-      await XeonBotInc.sendMessage(m.chat, templateMessage, { quoted: m })	
-       //} else {	
-      //reply("The News bot has Working well")	
-    ///  }	
-      }	
-     break 	
-
-
+}
+break
 
 
 
@@ -6889,262 +5080,25 @@ sections
 
 case 'ehi': {	
     await XeonBotInc.sendMessage(from, { react: { text: `🗂️`, key: m.key }})	
-    await reply (`Please Wait Im Uploading Ehi Files 🗂️`)	
+    await reply (`PEACE MD Uploading Ehi Files...`)	
 
+    let ehi1 = 'https://github.com/ALPHAkaveen/sever/blob/main/Ehi/Whatsapp.ehi'	
+    let ehi2 = 'https://github.com/ALPHAkaveen/sever/blob/main/Ehi/Youtube.ehi'	
+    let ehi3 = 'https://github.com/ALPHAkaveen/sever/blob/main/Ehi/FaceBook.ehi'	
+    let ehi4 = 'https://github.com/ALPHAkaveen/sever/blob/main/Ehi/telegram.ehi'	
 
-
-
-    let ehi3 = 'https://github.com/ALPHAkaveen/sever/blob/main/Ehi/Whatsapp.ehi'	
-    let ehi4 = 'https://github.com/ALPHAkaveen/sever/blob/main/Ehi/Youtube.ehi'	
-    let ehi5 = 'https://github.com/ALPHAkaveen/sever/blob/main/Ehi/FaceBook.ehi'	
-    let ehi6 = 'https://github.com/ALPHAkaveen/sever/blob/main/Ehi/telegram.ehi'	
-
-        await XeonBotInc.sendMessage(m.chat, { document: { url: ehi3 }, mimetype: 'application/octet-stream', fileName: `🟣 Whatsapp 🟣.ehi`}, { quoted: m })	
-        await XeonBotInc.sendMessage(m.chat, { document: { url: ehi4 }, mimetype: 'application/octet-stream', fileName: `🟣 YouTube 🟣.ehi`}, { quoted: m })	
-        await XeonBotInc.sendMessage(m.chat, { document: { url: ehi5 }, mimetype: 'application/octet-stream', fileName: `🟣 Facebook 🟣.ehi`}, { quoted: m })	
-        await XeonBotInc.sendMessage(m.chat, { document: { url: ehi6 }, mimetype: 'application/octet-stream', fileName: `🟣 Instergram 🟣.ehi`}, { quoted: m })	
+        await XeonBotInc.sendMessage(m.chat, { document: { url: ehi1 }, mimetype: 'application/octet-stream', fileName: `✌ Whatsapp ✌.ehi`}, { quoted: m })	
+        await XeonBotInc.sendMessage(m.chat, { document: { url: ehi2 }, mimetype: 'application/octet-stream', fileName: `✌ YouTube ✌.ehi`}, { quoted: m })	
+        await XeonBotInc.sendMessage(m.chat, { document: { url: ehi3 }, mimetype: 'application/octet-stream', fileName: `✌ Facebook ✌.ehi`}, { quoted: m })	
+        await XeonBotInc.sendMessage(m.chat, { document: { url: ehi4 }, mimetype: 'application/octet-stream', fileName: `✌ Instergram ✌.ehi`}, { quoted: m })	
 
         }	
       break	
 
 
 //react	
-case '😤':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😤`, key: m.key }})	
-}	
-break	
-case '🤯':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🤯`, key: m.key }})	
-}	
-break	
-case '😕':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😕`, key: m.key }})	
-}	
-break	
-case '😇':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😇`, key: m.key }})	
-}	
-break	
-case '😡':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😡`, key: m.key }})	
-}	
-break	
-case '🤠':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🤠`, key: m.key }})	
-}	
-break	
-case '🤥':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🤥`, key: m.key }})	
-}	
-break	
-case '🤭':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🤭`, key: m.key }})	
-}	
-break	
-case '🤕':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🤕`, key: m.key }})	
-}	
-break	
-case '🤒':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🤒`, key: m.key }})	
-}	
-break	
-case '😠':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😠`, key: m.key }})	
-}	
-break	
-case '😷':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😷`, key: m.key }})	
-}	
-break	
-case '😵‍💫':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😵‍💫`, key: m.key }})	
-}	
-break	
-case '😵':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😵`, key: m.key }})	
-}	
-break	
-case '🧐':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🧐`, key: m.key }})	
-}	
-break	
-case '🤓':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🤓`, key: m.key }})	
-}	
-break	
-case '🥱':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🥱`, key: m.key }})	
-}	
-break	
-case '😮‍💨':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😮‍💨`, key: m.key }})	
-}	
-break	
-case '🥰':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🥰`, key: m.key }})	
-}	
-break	
-case '🥶':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🥶`, key: m.key }})	
-}	
-break	
-case '🥵':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🥵`, key: m.key }})	
-}	
-break	
-case '🥳':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🥳`, key: m.key }})	
-}	
-break	
-case '👿':{	
-    XeonBotInc.sendMessage(from, { react: { text: `👿`, key: m.key }})	
-}	
-break	
-case '😈':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😈`, key: m.key }})	
-}	
-break	
-case '🥴':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🥴`, key: m.key }})	
-}	
-break	
-case '🤗':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🤗`, key: m.key }})	
-}	
-break	
-case '🌟':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🌟`, key: m.key }})	
-}	
-break	
-
-case '🙈':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🙈`, key: m.key }})	
-}	
-break	
-case '🙉':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🙉`, key: m.key }})	
-}	
-break	
-case '🙊':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🙊`, key: m.key }})	
-}	
-break	
-case '🐹':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🐹`, key: m.key }})	
-}	
-break	
-case '🐰':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🐰`, key: m.key }})	
-}	
-break	
-case '🐁':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🐁`, key: m.key }})	
-}	
-break	
-case '🐭':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🐭`, key: m.key }})	
-}	
-break	
-case '🐶':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🐶`, key: m.key }})	
-}	
-break	
-
-case '🥲':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🥲`, key: m.key }})	
-}	
-break	
-case '😂':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😂`, key: m.key }})	
-}	
-break	
-case '😊':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😊`, key: m.key }})	
-}	
-break	
-case '🥺':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🥺`, key: m.key }})	
-}	
-break	
-case '😳':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😳`, key: m.key }})	
-}	
-break	
-case '😢':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😢`, key: m.key }})	
-}	
-break	
-case '😋':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😋`, key: m.key }})	
-}	
-break	
-case '😒':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😒`, key: m.key }})	
-}	
-break	
-case '😑':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😑`, key: m.key }})	
-}	
-break	
-case '😀':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😀`, key: m.key }})	
-}	
-break	
-case '🌟':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🌟`, key: m.key }})	
-}	
-break	
-case '😘':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😘`, key: m.key }})	
-}	
-break	
-case '😎':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😎`, key: m.key }})	
-}	
-break	
-case '😍':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😍`, key: m.key }})	
-}	
-break	
-case '🤔':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🤔`, key: m.key }})	
-}	
-break	
-case '🙂':{	
-    XeonBotInc.sendMessage(from, { react: { text: `🙂`, key: m.key }})	
-}	
-break	
-case '😔':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😔`, key: m.key }})	
-}	
-break	
-case '😜':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😜`, key: m.key }})	
-}	
-break	
-case '😖':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😖`, key: m.key }})	
-}	
-break	
-case '😙':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😙`, key: m.key }})	
-}	
-break	
-case '😗':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😗`, key: m.key }})	
-}	
-break	
-case '😚':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😚`, key: m.key }})	
-}	
-break	
-case '😋':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😋`, key: m.key }})	
-}	
-break	
-case '😆':{	
-    XeonBotInc.sendMessage(from, { react: { text: `😆`, key: m.key }})	
+case '✌':{	
+    XeonBotInc.sendMessage(from, { react: { text: `✌`, key: m.key }})	
 }	
 break	
 
@@ -7154,110 +5108,148 @@ try{
 XeonBotInc.sendMessage(m.chat, { react: { text: '🧼', key: m.key }})	
   if (!text) return reply( `Example : ${prefix + command} link`)	
 
-    const sdfbdown = await XeonBotInc.sendMessage(m.chat , { text: '𝚞𝚙𝚕𝚘𝚍𝚒𝚗𝚐 𝚋𝚢 𝙳𝙰𝚁𝙺 𝙽𝙴𝚁𝙾' }, { quoted: m } )	
+    const sdfbdown = await XeonBotInc.sendMessage(m.chat , { text: 'PEACE MD Uploading' }, { quoted: m } )	
     await XeonBotInc.sendMessage(m.chat, { delete: sdfbdown.key })	
-    const sdfbup = await XeonBotInc.sendMessage(m.chat , { text: '𝚞𝚙𝚕𝚘𝚍𝚒𝚗𝚐 𝚋𝚢 𝙳𝙰𝚁𝙺 𝙽𝙴𝚁𝙾' }, { quoted: m } )	
+    const sdfbup = await XeonBotInc.sendMessage(m.chat , { text: 'PEACE MD Uploading' }, { quoted: m } )	
     let host = `https://api.akuari.my.id/downloader/fbdl?link=${text}`;	
     axios.get(host)	
         .then(({ data }) => {	
-XeonBotInc.sendMessage(m.chat, { video: { url: data.url.url }, caption: '𝚞𝚙𝚕𝚘𝚍𝚒𝚗𝚐 𝚋𝚢 𝙳𝙰𝚁𝙺 𝙽𝙴𝚁𝙾'}, { quoted: m })})	
+XeonBotInc.sendMessage(m.chat, { video: { url: data.url.url }, caption: 'ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ'}, { quoted: m })})	
 await XeonBotInc.sendMessage(m.chat, { delete: sdfbup.key })	
 } catch(e) {	
     await XeonBotInc.sendMessage(m.chat , { text: 'NOT FOUND' }, { quoted: m } ) 	
    }	
 break	
 
+
+
 //------------------------The End----------------------\\	
 
 case 'tqtt': 	
 throw `💓Thanks To💓	
-┆☞ kaveesha (Me)	
-┆☞ Nimesh	
-┆☞ kumuthu	
-┆☞ yuresh	
-┆☞ sathsara	
-┆☞ sahas	
-┆☞ lakshan	
-┆☞ pasindu	
-┆☞ pahan	
-┆☞ isuru	
-┆☞ My family	
-┆☞ SL Max Madu (youtube sponser)	
-┆☞ Atlas MD bot	
-┆☞" And all friends who helped asdemble this sexy script.!!"	
-💝Thank you for helping us💝`	
+┆
+┆Me (Charith Pramodya Senanayake)
+┆My family
+┆And all friends who helped asdemble this sexy script.!!	
+┆
+┆ 💝Thank you for helping us💝`	
 break	
 
+case 'tgsticker': {
 
+    if (!text) return reply('💭 Please give me a telegram sticker pack link')
+    if (!text.includes('https://t.me/addstickers')) return reply('*💭 Please give me a correct link*\n _.tgsticker <Sticker pack link>')
+    //if (!isUrl(args[0]) && !args[0].includes('https://t.me/addstickers')) throw '*The link you provided is not valid*'                
+    await XeonBotInc.sendText(m.chat, '*PEACE BUDDY...*')
+    await fetchJson(`https://my-shinz.herokuapp.com/api/dowloader/telesticker?url=${text}`)
+        .then(async (sticker) => {
+            //  await XeonBotInc.sendText(m.chat, util.format(sticker))
+            const stik = sticker.result
+            const img = stik[1].url
+            const img2 = stik[2].url
+            const img3 = stik[3].url
+            const img4 = stik[4].url
+            const img5 = stik[5].url
+            const img6 = stik[6].url
+            const img7 = stik[7].url
+            const img8 = stik[8].url
+            const img9 = stik[9].url
+            const img10 = stik[10].url
+            const img11 = stik[11].url
+            const img12 = stik[12].url
+            const img13 = stik[13].url
+            const img14 = stik[14].url
+            const img15 = stik[15].url
 
+            //await XeonBotInc.sendMessage(m.chat ,{ sticker : { url : img }, packname: '𝑄𝑢𝑒𝑒𝑛 𝐸𝑙𝑖𝑠𝑎' })
+            await XeonBotInc.sendImageAsSticker(m.chat, img, m, {
+                packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
+            })
+            await XeonBotInc.sendImageAsSticker(m.chat, img, m, {
+                packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
+            })
+            await XeonBotInc.sendImageAsSticker(m.chat, img2, m, {
+                packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
+            })
+            await XeonBotInc.sendImageAsSticker(m.chat, img3, m, {
+                packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
+            })
+            await XeonBotInc.sendImageAsSticker(m.chat, img4, m, {
+                packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
+            })
+            await XeonBotInc.sendImageAsSticker(m.chat, img5, m, {
+                packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
+            })
+            await XeonBotInc.sendImageAsSticker(m.chat, img6, m, {
+                packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
+            })
+            await XeonBotInc.sendImageAsSticker(m.chat, img7, m, {
+                packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
+            })
+            await XeonBotInc.sendImageAsSticker(m.chat, img8, m, {
+                packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
+            })
+            await XeonBotInc.sendImageAsSticker(m.chat, img9, m, {
+                packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
+            })
+            await XeonBotInc.sendImageAsSticker(m.chat, img10, m, {
+                packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
+            })
+            await XeonBotInc.sendImageAsSticker(m.chat, img11, m, {
+                packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
+            })
+            await XeonBotInc.sendImageAsSticker(m.chat, img12, m, {
+                packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
+            })
+            await XeonBotInc.sendImageAsSticker(m.chat, img13, m, {
+                packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
+            })
+            await XeonBotInc.sendImageAsSticker(m.chat, img14, m, {
+                packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
+            })
+            await XeonBotInc.sendImageAsSticker(m.chat, img15, m, {
+                packname: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                author: 'ʙʏ ᴄʜᴀʀɪᴛʜ'
+            })
+        }).catch((err) => m.reply('*මෙම telegram sticker Download කල නොහැක !!!*'))
 
+}
+break
 
-//panel	
-case 'panel': 	
-            try {	
-                await  XeonBotInc.sendMessage(from, { react: { text: `🐨`, key: m.key }})	
-                const  msg = `${global.alivemsg}` 	
-                 const templateButtons = [	
-                 { urlButton: {displayText: 'Github 🖇️' , url: 'https://sites.google.com/view/dark-nero-home/home' }},	
-                 { urlButton: {displayText: 'Whatsapp Group 🎀' , url: `https://chat.whatsapp.com/LPayeiyqmDGKgpJY6aSmet` }},	
-                 { quickReplyButton: {displayText: ' ⚜️𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋⚜️ ', id: 'update' }},	
-                 { quickReplyButton: {displayText: '☛ 🎀 MENU 🎀   ☜', id: 'menu' }},	
-                 { quickReplyButton: {displayText: '☛ 🎀 SPEED 🎀 ☜', id: 'ping' }}	
-
-                                          ]	
-                  const buttonMessage = {	
-                  caption: msg,	
-                  footer: '⚜️𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋⚜️',	
-                  templateButtons: templateButtons,	
-                  image: { url: `${global.alivepic}` }	
-                                         }                             	
-                       await  XeonBotInc.sendMessage(from, buttonMessage )	
-
-            } catch(e) { 	
-                         return 	
-            } 	
-           break	
-
-// updete 	
-
-case 'update': case 'script': { 	
-    XeonBotInc.sendMessage(from, { react: { text: `🦈`, key: m.key }})	
-    let buttons = [  	
-    {buttonId: `allmenu `, buttonText: {displayText: 'MENU'}, type: 1},	
-    {buttonId: `alive `, buttonText: {displayText: '⚜️ 𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋 ⚜️'}, type: 1}	
-    ]	
-    let buttonMessage = {	
-    image: { url: `${global.alivepic}` },	
-    caption: `🧸ʙᴀʀᴛʜᴅᴀʏ ᴜᴘᴅᴀᴛᴇ 🧸	
-↣ 𝗬𝗢𝗨𝗥 𝘃𝗲𝗿𝘀𝗶𝗼𝗻 8.0.1	
-    	
-↣ 𝘤𝘩𝘦𝘤𝘬 𝘺𝘰𝘶𝘳 𝘶𝘱𝘥𝘢𝘵𝘦𝘴	
-        	
-↣ www.darknero.ga	
-        	
-↣ 𝘴𝘰𝘱𝘱𝘰𝘳𝘵 𝘨𝘳𝘰𝘶𝘱 	
-        	
-↣ https://chat.whatsapp.com/B51eWS8dprU1VDxvE2laAJ`,	
-    footer: `ᴅᴀʀᴋ-ɴᴇʀᴏ ʙᴏᴛ`,	
-    buttons: buttons,	
-    headerType: 4,	
+case 'developer': case 'dev': {	
+    reply(`━━━━━━━━━━━━━━━━\n         PEACE MD DEVELOPER\n━━━━━━━━━━━━━━━━\n\nッ Charith Pramodya Senanayake\nッ Matale / Pallepola\nッ 💙💛❤️\nッ +16\nッ July / 29\nッ wa.me/94712448370`)	
     }	
-    XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })	
+                break	
+    case 'owner': case 'creator': case 'moderator': case 'mod': {	
+    XeonBotInc.sendContact(m.chat, owner, m)	
     }	
-    break    	
+                break	
 
     case 'alive': {	
-        XeonBotInc.sendMessage(from, { react: { text: `💖`, key: m.key }})	
-        await XeonBotInc.sendMessage(m.chat, { audio: {url :"./NeroMedia/audio/Audio_bot.mp3"  }, mimetype: 'audio/mp4', ptt: true, fileName: "Alive Audio.mp3" }, { quoted: m })	
+        XeonBotInc.sendMessage(from, { react: { text: `✌`, key: m.key }})	
         let buttons = [	
         {buttonId: `allmenu`, buttonText: {displayText: 'MENU'}, type: 1},	
         {buttonId: `ping`, buttonText: {displayText: 'SPEED'}, type: 1},	
-        {buttonId: `update`, buttonText: {displayText: 'UPDETE'}, type: 1}	
         ]	
         let buttonMessage = {	
         image: { url: `${global.alivepic}` },	
         caption: `${global.alivemsg}`,	
-        footer: `ᴅᴀʀᴋ-ɴᴇʀᴏ ʙᴏᴛ`,	
+        footer: `ᴘᴇᴀᴄᴇ ᴍᴅ`,	
         buttons: buttons,	
         headerType: 4,	
         }	
@@ -7266,10 +5258,10 @@ case 'update': case 'script': {
         break    	
 
 
-        case 'allmenu': case'menu': {	
-        XeonBotInc.sendMessage(from, { react: { text: `🌟`, key: m.key }})	
+        case 'allmenu': case'menu': case'මෙනු': case'peace': {	
+        XeonBotInc.sendMessage(from, { react: { text: `📃`, key: m.key }})	
 	const sections = [{	
-								"title": "Initial Features Of Bot 🦄",	
+								"title": "Initial Features Of Bot",	
 								"rows": [	
 									{	
 										"title": "Other 🌟",	
@@ -7370,9 +5362,9 @@ case 'update': case 'script': {
 							}	
 						]	
 const listMessage = {	
-  text: "𝙴𝙽𝚃𝙴𝚁 𝚃𝙷𝙴 𝚖𝚎𝚗𝚞 🎈",	
-  footer: `${botname}\n𝙾𝚆𝙽𝙴𝚁 𝚗𝚊𝚖𝚎 ☀: ${ownername}\n𝚠𝚎𝚋 𝚕𝚒𝚗𝚔 🍬: ${botscript}`,	
-  title: `𝙷𝙸 𝚋𝚛𝚘 ☂ ┇ ${pushname}`,	
+  text: "📃 PEACE MD MENU LIST",	
+  footer: `ᴘᴇᴀᴄᴇ ᴍᴅ`,	
+  title: `✌ PEACE BUDDY`,	
   buttonText: "Menu",	
   sections	
 }	
@@ -7382,69 +5374,68 @@ break
 
 case 'ownermenu':{	
 const buttons = [	
-  {buttonId: 'script', buttonText: {displayText: 'Script 🌱'}, type: 1},	
-  {buttonId: 'donate', buttonText: {displayText: 'Donate 🐋'}, type: 1},	
-  {buttonId: 'owner', buttonText: {displayText: 'Owner ??'}, type: 1}	
+  {buttonId: 'dev', buttonText: {displayText: '👨‍💻 DEVELOPER 👩‍💻'}, type: 1},	
+  {buttonId: 'owner', buttonText: {displayText: '😋 OWNER 😋'}, type: 1}	
 ]	
 const buttonMessage = {	
     image: { url: `${global.alivepic}` },	
     caption: `🗒️ OWNER MENU	
-🔮 ${prefix}self	
-🪄 Desc : To make the bot private usage	
-📌 Eg :${prefix}self	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}public 	
-🪄 Desc : To make the bot public usage	
-📌 Eg :${prefix}public 	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}join	
-🪄 Desc : To join a group	
-📌 Eg :${prefix}join [group link]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}leavegc	
-🪄 Desc : To leave a group 	
-📌 Eg :${prefix}Leavegc	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}setbio	
-🪄 Desc : To change about of your number 	
-📌 Eg :${prefix}setbio Hey there I am dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}bctext	
-🪄 Desc : To broadcast a text	
-📌 Eg :${prefix}bctext Hello	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}bcimage	
-🪄 Desc : To broadcast a image	
-📌 Eg :${prefix} bcimage [image]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}bcvideo	
-🪄 Desc : To broadcast a video 	
-📌 Eg :${prefix}bcvideo	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}setbotpp	
-🪄 Desc : To change profile picture of your number 	
-📌 Eg :${prefix}setbotpp [image]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}setthumb	
-🪄 Desc : To change bot thumb image	
-📌 Eg :${prefix}setthumb [image]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}setexif	
-🪄 Desc : To change sticker making packname and author	
-📌 Eg :${prefix}setexif darknero|darknero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}creategroup 	
-🪄 Desc : To create a group 	
-📌 Eg :${prefix}creategroup [group name]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}block	
-🪄 Desc : To block a user	
-📌 Eg :${prefix}block [user]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}unblock 	
-🪄 Desc : To unblock a user	
-📌 Eg :${prefix}unblock [user]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄`,	
+📃 ${prefix}self	
+💭 Desc : To make the bot private usage	
+✏️ Eg :${prefix}self	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}public 	
+💭 Desc : To make the bot public usage	
+✏️ Eg :${prefix}public 	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}join	
+💭 Desc : To join a group	
+✏️ Eg :${prefix}join [group link]	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}leavegc	
+💭 Desc : To leave a group 	
+✏️ Eg :${prefix}Leavegc	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}setbio	
+💭 Desc : To change about of your number 	
+✏️ Eg :${prefix}setbio Hey there I am dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}bctext	
+💭 Desc : To broadcast a text	
+✏️ Eg :${prefix}bctext Hello	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}bcimage	
+💭 Desc : To broadcast a image	
+✏️ Eg :${prefix} bcimage [image]	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}bcvideo	
+💭 Desc : To broadcast a video 	
+✏️ Eg :${prefix}bcvideo	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}setbotpp	
+💭 Desc : To change profile picture of your number 	
+✏️ Eg :${prefix}setbotpp [image]	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}setthumb	
+💭 Desc : To change bot thumb image	
+✏️ Eg :${prefix}setthumb [image]	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}setexif	
+💭 Desc : To change sticker making packname and author	
+✏️ Eg :${prefix}setexif darknero|darknero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}creategroup 	
+💭 Desc : To create a group 	
+✏️ Eg :${prefix}creategroup [group name]	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}block	
+💭 Desc : To block a user	
+✏️ Eg :${prefix}block [user]	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}unblock 	
+💭 Desc : To unblock a user	
+✏️ Eg :${prefix}unblock [user]	
+━━━━━━━━━━━━━━━━━`,	
     footer: `${botname}`,	
     buttons: buttons,	
     headerType: 4	
@@ -7455,53 +5446,52 @@ break
 
 case 'groupmenu':{	
 const buttons = [	
-  {buttonId: 'script', buttonText: {displayText: 'Script 🌱'}, type: 1},	
-  {buttonId: 'donate', buttonText: {displayText: 'Donate 🐋'}, type: 1},	
-  {buttonId: 'owner', buttonText: {displayText: 'Owner 🌟'}, type: 1}	
+  {buttonId: 'dev', buttonText: {displayText: '😈 DEVELOPER 😈'}, type: 1},	
+  {buttonId: 'owner', buttonText: {displayText: '🌟 OWNER 🌟'}, type: 1}		
 ]	
 const buttonMessage = {	
     image: { url: `${global.alivepic}` },	
     caption: `🗒️ GROUP MENU	
-🔮 ${prefix}emoji	
-🪄 Desc :Turning an emoji into a sticker	
-📌 Eg :emoji 🙈	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}grouplink	
-🪄 Desc : get group link	
-📌 Eg : .grouplink	
+📃 ${prefix}emoji	
+💭 Desc :Turning an emoji into a sticker	
+✏️ Eg :emoji 🙈	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}grouplink	
+💭 Desc : get group link	
+✏️ Eg : .grouplink	
 ✃┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}setgcpp	
-🪄 Desc : add group img	
-📌 Eg :.setgcpp	
+📃 ${prefix}setgcpp	
+💭 Desc : add group img	
+✏️ Eg :.setgcpp	
 ✃┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}setname	
-🪄 Desc : group name 	
-📌 Eg : setname[text]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}group	
-🪄 Desc : group close	
-📌 Eg :grouo	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}resetgrouplink	
-🪄Desc : group link redet	
-📌 Eg :resetgrouplink	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}add	
-🪄 Desc : member add	
-📌 Eg :add[user nomber ]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}.kick	
-🪄 Desc : member kick	
-📌 Eg :kick [tag/riply]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}tagall	
-🪄 Desc : tag 	
-📌 Eg :tagall	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}emojimix	
-🪄 Desc :To mix an emoji	
-📌 Eg :emojimix 🙈+😁	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ `,	
+📃 ${prefix}setname	
+💭 Desc : group name 	
+✏️ Eg : setname[text]	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}group	
+💭 Desc : group close	
+✏️ Eg :grouo	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}resetgrouplink	
+💭Desc : group link redet	
+✏️ Eg :resetgrouplink	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}add	
+💭 Desc : member add	
+✏️ Eg :add[user nomber ]	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}.kick	
+💭 Desc : member kick	
+✏️ Eg :kick [tag/riply]	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}tagall	
+💭 Desc : tag 	
+✏️ Eg :tagall	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}emojimix	
+💭 Desc :To mix an emoji	
+✏️ Eg :emojimix 😎+😋	
+━━━━━━━━━━━━━━━━━ `,	
     footer: `${botname}`,	
     buttons: buttons,	
     headerType: 4	
@@ -7512,209 +5502,208 @@ break
 
 case 'makermenu':{	
 const buttons = [	
-  {buttonId: 'script', buttonText: {displayText: 'Script 🌱'}, type: 1},	
-  {buttonId: 'donate', buttonText: {displayText: 'Donate 🐋'}, type: 1},	
-  {buttonId: 'owner', buttonText: {displayText: 'Owner 🌟'}, type: 1}	
+  {buttonId: 'dev', buttonText: {displayText: '😈 DEVELOPER 😈'}, type: 1},	
+  {buttonId: 'owner', buttonText: {displayText: '🌟 OWNER 🌟'}, type: 1}		
 ]	
 const buttonMessage = {	
     image: { url: `${global.alivepic}` },	
     caption: `🗒️ MAKER MENU	
     	
-🔮 ${prefix}candy	
-🪄 Desc : To make candy style logo	
-📌 Eg :${prefix}candy dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}8bit	
-🪄 Desc : To make 8bit style logo	
-📌 Eg :${prefix}8bit dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}horror	
-🪄 Desc : To make horror style logo	
-📌 Eg :${prefix}horror dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}retro	
-🪄 Desc : To make retro style logo	
-📌 Eg :${prefix}retro dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}blackpinkneon	
-🪄 Desc : To make black pink neon style logo	
-📌 Eg :${prefix}blackpinkneon dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}deepsea	
-🪄 Desc : To make deep sea style logo	
-📌 Eg :${prefix}deepsea dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}scifi	
-🪄 Desc : To make scifi style logo	
-📌 Eg :${prefix}scifi dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}berry 	
-🪄 Desc : To make berry style logo	
-📌 Eg :${prefix}berry dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}fruitjuice	
-🪄 Desc : To make fruit juice style logo	
-📌 Eg :${prefix}fruitjuice dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}biscuit	
-🪄 Desc : To make biscuit style logo	
-📌 Eg :${prefix}biscuit dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}wood	
-🪄 Desc : To make wood style logo	
-📌 Eg :${prefix}wood dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}chocolate 	
-🪄 Desc : To make chocolate style logo	
-📌 Eg :${prefix}chocolate dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}matrix	
-🪄 Desc : To make matrix style logo	
-📌 Eg :${prefix}matrix dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}blood	
-🪄 Desc : To make blood style logo	
-📌 Eg :${prefix}blood dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}halloween	
-🪄 Desc : To make halloween style logo	
-📌 Eg :${prefix}halloween dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}darkgold	
-🪄 Desc : To make dark gold style logo	
-📌 Eg :${prefix}darkgold dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}firework	
-🪄 Desc : To make fire work style logo	
-📌 Eg :${prefix}firework dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}sand	
-🪄 Desc : To make sand style logo	
-📌 Eg :${prefix}sand dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}glue	
-🪄 Desc : To make glue style logo	
-📌 Eg :${prefix}glue dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}leaves	
-🪄 Desc : To make leaves style logo	
-📌 Eg :${prefix}leaves dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}magma	
-🪄 Desc : To make magma style logo	
-📌 Eg :${prefix}magma dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}lava	
-🪄 Desc : To make lava style logo	
-📌 Eg :${prefix}lava dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}rockatr	
-🪄 Desc : To make rock art style logo	
-📌 Eg :${prefix}rockart dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}underwater 	
-🪄 Desc : To make under water style logo	
-📌 Eg :${prefix}underwater dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}honey	
-🪄 Desc : To make honey style logo	
-📌 Eg :${prefix}honey dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}ice	
-🪄 Desc : To make ice style logo	
-📌 Eg :${prefix}ice dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}watercolor	
-🪄 Desc : To make watercolor style logo	
-📌 Eg :${prefix}watercolor dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}multicolor	
-🪄 Desc : To make multi color style logo	
-📌 Eg :${prefix}multicolor dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}snow	
-🪄 Desc : To make snow style logo	
-📌 Eg :${prefix}snow dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}harrypotter 	
-🪄 Desc : To make harry potter style logo	
-📌 Eg :${prefix}harrypotter dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}brokenglass	
-🪄 Desc : To make broken glass style logo	
-📌 Eg :${prefix}brokenglass dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}spooky 	
-🪄 Desc : To make spooky style logo	
-📌 Eg :${prefix}spooky dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}circuit 	
-🪄 Desc : To make circuit style logo	
-📌 Eg :${prefix}circuit dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}christmas 	
-🪄 Desc : To make christmas style logo	
-📌 Eg :${prefix}christmas dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}christmas 	
-🪄 Desc : To make christmas style logo	
-📌 Eg :${prefix}christmas dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}waterdrop	
-🪄 Desc : To make waterdrop style logo	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}transformer	
-🪄 Desc : To make transformer style logo	
-📌 Eg :${prefix}transformer dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}thunder	
-🪄 Desc : To make thunder style logo	
-📌 Eg :${prefix}thunder dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}window 	
-🪄 Desc : To make window style logo	
-📌 Eg :${prefix}window dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}glitch	
-🪄 Desc : To make glitch style logo	
-📌 Eg :${prefix}glitch dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}blackpinkart	
-🪄 Desc : To make black pink art style logo	
-📌 Eg :${prefix}black pink art dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}lion	
-🪄 Desc : To make lion style logo	
-📌 Eg :${prefix}lion dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}bear	
-🪄 Desc : To make bear style logo	
-📌 Eg :${prefix}bear dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}wolf	
-🪄 Desc : To make wolf style logo	
-📌 Eg :${prefix}wolf dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}joker	
-🪄 Desc : To make joker style logo	
-📌 Eg :${prefix}joker dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}neonlight	
-🪄 Desc : To make neon light style logo	
-📌 Eg :${prefix}neonlight dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}carbon	
-🪄 Desc : To make carbon style logo	
-📌 Eg :${prefix}carbon dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}pencil	
-🪄 Desc : To make pencil style logo	
-📌 Eg :${prefix}pencil dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}batman	
-🪄 Desc : To make batman style logo	
-📌 Eg :${prefix}batman dark nero	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ `,	
+📃 ${prefix}candy	
+💭 Desc : To make candy style logo	
+✏️ Eg :${prefix}candy dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}8bit	
+💭 Desc : To make 8bit style logo	
+✏️ Eg :${prefix}8bit dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}horror	
+💭 Desc : To make horror style logo	
+✏️ Eg :${prefix}horror dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}retro	
+💭 Desc : To make retro style logo	
+✏️ Eg :${prefix}retro dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}blackpinkneon	
+💭 Desc : To make black pink neon style logo	
+✏️ Eg :${prefix}blackpinkneon dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}deepsea	
+💭 Desc : To make deep sea style logo	
+✏️ Eg :${prefix}deepsea dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}scifi	
+💭 Desc : To make scifi style logo	
+✏️ Eg :${prefix}scifi dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}berry 	
+💭 Desc : To make berry style logo	
+✏️ Eg :${prefix}berry dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}fruitjuice	
+💭 Desc : To make fruit juice style logo	
+✏️ Eg :${prefix}fruitjuice dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}biscuit	
+💭 Desc : To make biscuit style logo	
+✏️ Eg :${prefix}biscuit dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}wood	
+💭 Desc : To make wood style logo	
+✏️ Eg :${prefix}wood dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}chocolate 	
+💭 Desc : To make chocolate style logo	
+✏️ Eg :${prefix}chocolate dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}matrix	
+💭 Desc : To make matrix style logo	
+✏️ Eg :${prefix}matrix dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}blood	
+💭 Desc : To make blood style logo	
+✏️ Eg :${prefix}blood dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}halloween	
+💭 Desc : To make halloween style logo	
+✏️ Eg :${prefix}halloween dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}darkgold	
+💭 Desc : To make dark gold style logo	
+✏️ Eg :${prefix}darkgold dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}firework	
+💭 Desc : To make fire work style logo	
+✏️ Eg :${prefix}firework dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}sand	
+💭 Desc : To make sand style logo	
+✏️ Eg :${prefix}sand dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}glue	
+💭 Desc : To make glue style logo	
+✏️ Eg :${prefix}glue dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}leaves	
+💭 Desc : To make leaves style logo	
+✏️ Eg :${prefix}leaves dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}magma	
+💭 Desc : To make magma style logo	
+✏️ Eg :${prefix}magma dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}lava	
+💭 Desc : To make lava style logo	
+✏️ Eg :${prefix}lava dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}rockatr	
+💭 Desc : To make rock art style logo	
+✏️ Eg :${prefix}rockart dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}underwater 	
+💭 Desc : To make under water style logo	
+✏️ Eg :${prefix}underwater dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}honey	
+💭 Desc : To make honey style logo	
+✏️ Eg :${prefix}honey dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}ice	
+💭 Desc : To make ice style logo	
+✏️ Eg :${prefix}ice dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}watercolor	
+💭 Desc : To make watercolor style logo	
+✏️ Eg :${prefix}watercolor dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}multicolor	
+💭 Desc : To make multi color style logo	
+✏️ Eg :${prefix}multicolor dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}snow	
+💭 Desc : To make snow style logo	
+✏️ Eg :${prefix}snow dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}harrypotter 	
+💭 Desc : To make harry potter style logo	
+✏️ Eg :${prefix}harrypotter dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}brokenglass	
+💭 Desc : To make broken glass style logo	
+✏️ Eg :${prefix}brokenglass dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}spooky 	
+💭 Desc : To make spooky style logo	
+✏️ Eg :${prefix}spooky dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}circuit 	
+💭 Desc : To make circuit style logo	
+✏️ Eg :${prefix}circuit dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}christmas 	
+💭 Desc : To make christmas style logo	
+✏️ Eg :${prefix}christmas dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}christmas 	
+💭 Desc : To make christmas style logo	
+✏️ Eg :${prefix}christmas dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}waterdrop	
+💭 Desc : To make waterdrop style logo	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}transformer	
+💭 Desc : To make transformer style logo	
+✏️ Eg :${prefix}transformer dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}thunder	
+💭 Desc : To make thunder style logo	
+✏️ Eg :${prefix}thunder dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}window 	
+💭 Desc : To make window style logo	
+✏️ Eg :${prefix}window dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}glitch	
+💭 Desc : To make glitch style logo	
+✏️ Eg :${prefix}glitch dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}blackpinkart	
+💭 Desc : To make black pink art style logo	
+✏️ Eg :${prefix}black pink art dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}lion	
+💭 Desc : To make lion style logo	
+✏️ Eg :${prefix}lion dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}bear	
+💭 Desc : To make bear style logo	
+✏️ Eg :${prefix}bear dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}wolf	
+💭 Desc : To make wolf style logo	
+✏️ Eg :${prefix}wolf dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}joker	
+💭 Desc : To make joker style logo	
+✏️ Eg :${prefix}joker dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}neonlight	
+💭 Desc : To make neon light style logo	
+✏️ Eg :${prefix}neonlight dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}carbon	
+💭 Desc : To make carbon style logo	
+✏️ Eg :${prefix}carbon dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}pencil	
+💭 Desc : To make pencil style logo	
+✏️ Eg :${prefix}pencil dark nero	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}batman	
+💭 Desc : To make batman style logo	
+✏️ Eg :${prefix}batman dark nero	
+━━━━━━━━━━━━━━━━━ `,	
     footer: `${botname}`,	
     buttons: buttons,	
     headerType: 4	
@@ -7725,57 +5714,56 @@ break
 
 case 'downloadmenu':{	
 const buttons = [	
-  {buttonId: 'script', buttonText: {displayText: 'Script 🌱'}, type: 1},	
-  {buttonId: 'donate', buttonText: {displayText: 'Donate 🐋'}, type: 1},	
-  {buttonId: 'owner', buttonText: {displayText: 'Owner 🌟'}, type: 1}	
+  {buttonId: 'dev', buttonText: {displayText: '😈 DEVELOPER 😈'}, type: 1},	
+  {buttonId: 'owner', buttonText: {displayText: '🌟 OWNER 🌟'}, type: 1}		
 ]	
 const buttonMessage = {	
     image: { url: `${global.alivepic}` },	
     caption: `🗒️ DOWNLOAD MENU	
-🔮 ${prefix}tiktok 	
-🪄 Desc : To download tiktok videos	
- 📌 Eg :${prefix}tiktok [link]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}modapk	
-🪄 Desc : apk download 	
- 📌 Eg :${prefix}modapk [name]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
+📃 ${prefix}tiktok 	
+💭 Desc : To download tiktok videos	
+ ✏️ Eg :${prefix}tiktok [link]	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}modapk	
+💭 Desc : apk download 	
+ ✏️ Eg :${prefix}modapk [name]	
+━━━━━━━━━━━━━━━━━	
 ${prefix}wamod	
-🪄 Desc : mod wa download 	
- 📌 Eg :${prefix}wamod 	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
- 🔮 ${prefix}fb	
-🪄 Desc : To download fb video	
-📌 Eg :${prefix}tiktok [link]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}tiktokaudio	
-🪄 Desc : To download tiktok audios	
-📌 Eg :${prefix}tiktok [link]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}ytmp3 	
-🪄 Desc : To download youtube songs	
-📌 Eg :${prefix}ytmp3 [link]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}ytmp4 	
-🪄 Desc : To download youtube videos	
-📌 Eg :${prefix}ytmp4 [link]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}gitclone	
-🪄 Desc : To download github repository 	
-📌 Eg :${prefix}gitclone [link]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
-🔮 ${prefix}ehi	
-🪄 Desc : To download ehi 	
-📌 Eg :${prefix}ehi	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}song	
-🪄 Desc : To download youtube songs	
-📌 Eg :${prefix}song llena	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}video 	
-🪄 Desc : To download youtube video	
-📌 Eg :${prefix}video [link/name]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄`,	
+💭 Desc : mod wa download 	
+ ✏️ Eg :${prefix}wamod 	
+━━━━━━━━━━━━━━━━━	
+ 📃 ${prefix}fb	
+💭 Desc : To download fb video	
+✏️ Eg :${prefix}tiktok [link]	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}tiktokaudio	
+💭 Desc : To download tiktok audios	
+✏️ Eg :${prefix}tiktok [link]	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}ytmp3 	
+💭 Desc : To download youtube songs	
+✏️ Eg :${prefix}ytmp3 [link]	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}ytmp4 	
+💭 Desc : To download youtube videos	
+✏️ Eg :${prefix}ytmp4 [link]	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}gitclone	
+💭 Desc : To download github repository 	
+✏️ Eg :${prefix}gitclone [link]	
+━━━━━━━━━━━━━━━━━ 	
+📃 ${prefix}ehi	
+💭 Desc : To download ehi 	
+✏️ Eg :${prefix}ehi	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}song	
+💭 Desc : To download youtube songs	
+✏️ Eg :${prefix}song llena	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}video 	
+💭 Desc : To download youtube video	
+✏️ Eg :${prefix}video [link/name]	
+━━━━━━━━━━━━━━━━━`,	
     footer: `${botname}`,	
     buttons: buttons,	
     headerType: 4	
@@ -7786,55 +5774,54 @@ break
 
 case 'searchmenu':{	
 const buttons = [	
-  {buttonId: 'script', buttonText: {displayText: 'Script 🌱'}, type: 1},	
-  {buttonId: 'donate', buttonText: {displayText: 'Donate 🐋'}, type: 1},	
-  {buttonId: 'owner', buttonText: {displayText: 'Owner 🌟'}, type: 1}	
+  {buttonId: 'dev', buttonText: {displayText: '😈 DEVELOPER 😈'}, type: 1},	
+  {buttonId: 'owner', buttonText: {displayText: '🌟 OWNER 🌟'}, type: 1}		
 ]	
 const buttonMessage = {	
     image: { url: `${global.alivepic}` },	
     caption: `🗒️ SEARCH MENU	
     	
-🔮 ${prefix}play	
-🪄 Desc : song & video	
-📌 Eg : play [url]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}news	
-🪄 Desc : latest hiru news	
-📌 Eg : news	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}song	
-🪄 Desc : dawnload mp3	
-📌 Eg : song [name/url]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}yts	
-🪄 Desc : youteub sarch	
-📌 Eg : yts lelena	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}google	
-🪄 Desc : dtls	
-📌 Eg :gooogal yakuza	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}image	
-🪄 Desc : dawnload  image	
-📌 Eg : image darknero 	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
-🔮 ${prefix}imdb	
-🪄 Desc : movie dtls	
-📌 Eg :move [name]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
-🔮 ${prefix}ytsearch	
-🪄 Desc : yt search	
-📌 Eg : ytsearch darknero	
-    ✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
+📃 ${prefix}play	
+💭 Desc : song & video	
+✏️ Eg : play [url]	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}news	
+💭 Desc : latest hiru news	
+✏️ Eg : news	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}song	
+💭 Desc : dawnload mp3	
+✏️ Eg : song [name/url]	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}yts	
+💭 Desc : youteub sarch	
+✏️ Eg : yts lelena	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}google	
+💭 Desc : dtls	
+✏️ Eg :gooogal yakuza	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}image	
+💭 Desc : dawnload  image	
+✏️ Eg : image darknero 	
+━━━━━━━━━━━━━━━━━ 	
+📃 ${prefix}imdb	
+💭 Desc : movie dtls	
+✏️ Eg :move [name]	
+━━━━━━━━━━━━━━━━━ 	
+📃 ${prefix}ytsearch	
+💭 Desc : yt search	
+✏️ Eg : ytsearch darknero	
+    ━━━━━━━━━━━━━━━━━	
     	
-🔮 ${prefix}ringtone	
-🪄 Desc : dawnload rengtone	
-📌 Eg : ringtone	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
-🔮 ${prefix}wallpaper	
-🪄 Desc : dawnload wallpaper	
-📌 Eg :wallpaper [name]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ `,	
+📃 ${prefix}ringtone	
+💭 Desc : dawnload rengtone	
+✏️ Eg : ringtone	
+━━━━━━━━━━━━━━━━━ 	
+📃 ${prefix}wallpaper	
+💭 Desc : dawnload wallpaper	
+✏️ Eg :wallpaper [name]	
+━━━━━━━━━━━━━━━━━ `,	
     footer: `${botname}`,	
     buttons: buttons,	
     headerType: 4	
@@ -7845,26 +5832,25 @@ break
 
 case 'convertmenu':{	
 const buttons = [	
-  {buttonId: 'script', buttonText: {displayText: 'Script 🌱'}, type: 1},	
-  {buttonId: 'donate', buttonText: {displayText: 'Donate 🐋'}, type: 1},	
-  {buttonId: 'owner', buttonText: {displayText: 'Owner 🌟'}, type: 1}	
+  {buttonId: 'dev', buttonText: {displayText: '😈 DEVELOPER 😈'}, type: 1},	
+  {buttonId: 'owner', buttonText: {displayText: '🌟 OWNER 🌟'}, type: 1}		
 ]	
 const buttonMessage = {	
     image: { url: `${global.alivepic}` },	
     caption: `🗒️ CONVERT MENU	
     	
-🔮 ${prefix}.volume	
-🪄 Desc : volume 	
-📌 Eg :volume	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
-🔮 ${prefix}bass	
-🪄 Desc : add bass	
-📌 Eg : bass [riply aud]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
-🔮 ${prefix}.fast	
-🪄 Desc : fast	
-📌 Eg :fast	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄`,	
+📃 ${prefix}.volume	
+💭 Desc : volume 	
+✏️ Eg :volume	
+━━━━━━━━━━━━━━━━━ 	
+📃 ${prefix}bass	
+💭 Desc : add bass	
+✏️ Eg : bass [riply aud]	
+━━━━━━━━━━━━━━━━━ 	
+📃 ${prefix}.fast	
+💭 Desc : fast	
+✏️ Eg :fast	
+━━━━━━━━━━━━━━━━━`,	
     footer: `${botname}`,	
     buttons: buttons,	
     headerType: 4	
@@ -7875,68 +5861,67 @@ break
 
 case 'randomimagemenu':{	
 const buttons = [	
-  {buttonId: 'script', buttonText: {displayText: 'Script 🌱'}, type: 1},	
-  {buttonId: 'donate', buttonText: {displayText: 'Donate 🐋'}, type: 1},	
-  {buttonId: 'owner', buttonText: {displayText: 'Owner 🌟'}, type: 1}	
+  {buttonId: 'dev', buttonText: {displayText: '😈 DEVELOPER 😈'}, type: 1},	
+  {buttonId: 'owner', buttonText: {displayText: '🌟 OWNER 🌟'}, type: 1}		
 ]	
 const buttonMessage = {	
     image: { url: `${global.alivepic}` },	
     caption: `🗒️ RANDOM IMAGE MENU	
     	
-🔮 ${prefix}coffee	
-🪄 Desc : img	
-📌 Eg :img	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
-🔮 ${prefix}woof	
-🪄 Desc : img	
-📌 Eg :woof	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
-🔮 ${prefix}meow	
-🪄 Desc : img	
-📌 Eg :meow	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
-🔮 ${prefix}lizard	
-🪄 Desc : img	
-📌 Eg :lizard	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
-🔮 ${prefix}indo	
-🪄 Desc : img	
-📌 Eg :indo	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
-🔮 ${prefix}thai	
-🪄 Desc : img	
-📌 Eg : thai	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}coffee	
+💭 Desc : img	
+✏️ Eg :img	
+━━━━━━━━━━━━━━━━━ 	
+📃 ${prefix}woof	
+💭 Desc : img	
+✏️ Eg :woof	
+━━━━━━━━━━━━━━━━━ 	
+📃 ${prefix}meow	
+💭 Desc : img	
+✏️ Eg :meow	
+━━━━━━━━━━━━━━━━━ 	
+📃 ${prefix}lizard	
+💭 Desc : img	
+✏️ Eg :lizard	
+━━━━━━━━━━━━━━━━━ 	
+📃 ${prefix}indo	
+💭 Desc : img	
+✏️ Eg :indo	
+━━━━━━━━━━━━━━━━━	
+📃 ${prefix}thai	
+💭 Desc : img	
+✏️ Eg : thai	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}hijab	
-🪄 Desc : img	
-📌 Eg :hijab	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}hijab	
+💭 Desc : img	
+✏️ Eg :hijab	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}car	
-🪄 Desc : img	
-📌 Eg :car	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}car	
+💭 Desc : img	
+✏️ Eg :car	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}bike	
-🪄 Desc : img	
-📌 Eg : bike	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}bike	
+💭 Desc : img	
+✏️ Eg : bike	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}cat	
-🪄 Desc : img	
-📌 Eg :cat	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}cat	
+💭 Desc : img	
+✏️ Eg :cat	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}pubg	
-🪄 Desc : img	
-📌 Eg : pubg	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}pubg	
+💭 Desc : img	
+✏️ Eg : pubg	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}hacking	
-🪄 Desc : img	
-📌 Eg : hacking	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ `,	
+📃 ${prefix}hacking	
+💭 Desc : img	
+✏️ Eg : hacking	
+━━━━━━━━━━━━━━━━━ `,	
     footer: `${botname}`,	
     buttons: buttons,	
     headerType: 4	
@@ -7947,33 +5932,32 @@ break
 
 case 'randomvideomenu':{	
 const buttons = [	
-  {buttonId: 'script', buttonText: {displayText: 'Script 🌱'}, type: 1},	
-  {buttonId: 'donate', buttonText: {displayText: 'Donate 🐋'}, type: 1},	
-  {buttonId: 'owner', buttonText: {displayText: 'Owner 🌟'}, type: 1}	
+  {buttonId: 'dev', buttonText: {displayText: '😈 DEVELOPER 😈'}, type: 1},	
+  {buttonId: 'owner', buttonText: {displayText: '🌟 OWNER 🌟'}, type: 1}		
 ]	
 const buttonMessage = {	
     image: { url: `${global.alivepic}` },	
     caption: `🗒️ RANDOM VIDEO MENU	
     	
-🔮 ${prefix}tiktokgirl	
-🪄 Desc : video	
-📌 Eg :tiktokgirl	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}tiktokgirl	
+💭 Desc : video	
+✏️ Eg :tiktokgirl	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}tiktoklanrika	
-🪄 Desc : video	
-📌 Eg :tiktoklanrika	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
+📃 ${prefix}tiktoklanrika	
+💭 Desc : video	
+✏️ Eg :tiktoklanrika	
+━━━━━━━━━━━━━━━━━	
     	
-🔮 ${prefix}tiktokbocil	
-🪄 Desc : video	
-📌 Eg :tiktokbocil	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}tiktokbocil	
+💭 Desc : video	
+✏️ Eg :tiktokbocil	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}tiktokkayes	
-🪄 Desc : video	
-📌 Eg :tiltokkayes	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄`,	
+📃 ${prefix}tiktokkayes	
+💭 Desc : video	
+✏️ Eg :tiltokkayes	
+━━━━━━━━━━━━━━━━━`,	
     footer: `${botname}`,	
     buttons: buttons,	
     headerType: 4	
@@ -7984,17 +5968,16 @@ break
 
 case 'imageeffectmenu':{	
 const buttons = [	
-  {buttonId: 'script', buttonText: {displayText: 'Script 🌱'}, type: 1},	
-  {buttonId: 'donate', buttonText: {displayText: 'Donate 🐋'}, type: 1},	
-  {buttonId: 'owner', buttonText: {displayText: 'Owner 🌟'}, type: 1}	
+  {buttonId: 'dev', buttonText: {displayText: '😈 DEVELOPER 😈'}, type: 1},	
+  {buttonId: 'owner', buttonText: {displayText: '🌟 OWNER 🌟'}, type: 1}		
 ]	
 const buttonMessage = {	
     image: { url: `${global.alivepic}` },	
     caption: `🗒️ IMAGE EFFECT MENU	
     	
-🔮 ${prefix}removebg	
-🪄 Desc : brackground remove	
-📌 Eg :removebg[riply/img]	
+📃 ${prefix}removebg	
+💭 Desc : brackground remove	
+✏️ Eg :removebg[riply/img]	
 ✃┄┄┄┄┄┄┄┄┄┄┄ `,	
     footer: `${botname}`,	
     buttons: buttons,	
@@ -8006,9 +5989,8 @@ break
 
 case 'soundmenu':{	
 const buttons = [	
-  {buttonId: 'script', buttonText: {displayText: 'Script 🌱'}, type: 1},	
-  {buttonId: 'donate', buttonText: {displayText: 'Donate 🐋'}, type: 1},	
-  {buttonId: 'owner', buttonText: {displayText: 'Owner 🌟'}, type: 1}	
+  {buttonId: 'dev', buttonText: {displayText: '😈 DEVELOPER 😈'}, type: 1},	
+  {buttonId: 'owner', buttonText: {displayText: '🌟 OWNER 🌟'}, type: 1}		
 ]	
 const buttonMessage = {	
     image: { url: `${global.alivepic}` },	
@@ -8021,10 +6003,10 @@ sound 1 ඉදන් sound161 දක්වා ඇත
 From sound 1 to sound161	
  	
  	
-🔮 ${prefix}sound1	
-🪄 Desc :To get Sound	
-📌 Eg :sound1	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄`,	
+📃 ${prefix}sound1	
+💭 Desc :To get Sound	
+✏️ Eg :sound1	
+━━━━━━━━━━━━━━━━━`,	
     footer: `${botname}`,	
     buttons: buttons,	
     headerType: 4	
@@ -8035,38 +6017,37 @@ break
 
 case 'gamemenu':{	
 const buttons = [	
-  {buttonId: 'script', buttonText: {displayText: 'Script 🌱'}, type: 1},	
-  {buttonId: 'donate', buttonText: {displayText: 'Donate 🐋'}, type: 1},	
-  {buttonId: 'owner', buttonText: {displayText: 'Owner 🌟'}, type: 1}	
+  {buttonId: 'dev', buttonText: {displayText: '😈 DEVELOPER 😈'}, type: 1},	
+  {buttonId: 'owner', buttonText: {displayText: '🌟 OWNER 🌟'}, type: 1}		
 ]	
 const buttonMessage = {	
     image: { url: `${global.alivepic}` },	
     caption: `🗒️ GAME MENU	
     	
-🔮 ${prefix}truth	
-🪄 Desc : img	
-📌 Eg :truth	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}truth	
+💭 Desc : img	
+✏️ Eg :truth	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}dare	
-🪄 Desc : img	
-📌 Eg :dare	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}dare	
+💭 Desc : img	
+✏️ Eg :dare	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}delttt	
-🪄 Desc : img	
-📌 Eg :delttt	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}delttt	
+💭 Desc : img	
+✏️ Eg :delttt	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}math	
-🪄 Desc : img	
-📌 Eg :math	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}math	
+💭 Desc : img	
+✏️ Eg :math	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}suitpvp	
-🪄 Desc : convet	
-📌 Eg :suitpvp[tag]	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄`,	
+📃 ${prefix}suitpvp	
+💭 Desc : convet	
+✏️ Eg :suitpvp[tag]	
+━━━━━━━━━━━━━━━━━`,	
     footer: `${botname}`,	
     buttons: buttons,	
     headerType: 4	
@@ -8077,23 +6058,22 @@ break
 
 case 'anonymousmenu':{	
 const buttons = [	
-  {buttonId: 'script', buttonText: {displayText: 'Script 🌱'}, type: 1},	
-  {buttonId: 'donate', buttonText: {displayText: 'Donate 🐋'}, type: 1},	
-  {buttonId: 'owner', buttonText: {displayText: 'Owner 🌟'}, type: 1}	
+  {buttonId: 'dev', buttonText: {displayText: '😈 DEVELOPER 😈'}, type: 1},	
+  {buttonId: 'owner', buttonText: {displayText: '🌟 OWNER 🌟'}, type: 1}		
 ]	
 const buttonMessage = {	
     image: { url: `${global.alivepic}` },	
     caption: `🗒️ ANONYMOUS MENU	
     	
-🔮 ${prefix}anonymous	
-🪄 Desc : chat	
-📌 Eg :anonymous	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}anonymous	
+💭 Desc : chat	
+✏️ Eg :anonymous	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}start	
-🪄 Desc : start	
-📌 Eg :start	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄`,	
+📃 ${prefix}start	
+💭 Desc : start	
+✏️ Eg :start	
+━━━━━━━━━━━━━━━━━`,	
     footer: `${botname}`,	
     buttons: buttons,	
     headerType: 4	
@@ -8104,33 +6084,32 @@ break
 
 case 'databasemenu':{	
 const buttons = [	
-  {buttonId: 'script', buttonText: {displayText: 'Script 🌱'}, type: 1},	
-  {buttonId: 'donate', buttonText: {displayText: 'Donate 🐋'}, type: 1},	
-  {buttonId: 'owner', buttonText: {displayText: 'Owner 🌟'}, type: 1}	
+  {buttonId: 'dev', buttonText: {displayText: '😈 DEVELOPER 😈'}, type: 1},	
+  {buttonId: 'owner', buttonText: {displayText: '🌟 OWNER 🌟'}, type: 1}		
 ]	
 const buttonMessage = {	
     image: { url: `${global.alivepic}` },	
     caption: `🗒️ DATABASE MENU	
     	
-🔮 ${prefix}setcmd	
-🪄 Desc : command add	
-📌 Eg :setcmd	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}setcmd	
+💭 Desc : command add	
+✏️ Eg :setcmd	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}listcmd	
-🪄 Desc : add list cmd	
-📌 Eg : listcmd	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}listcmd	
+💭 Desc : add list cmd	
+✏️ Eg : listcmd	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}addmsg	
-🪄 Desc : add msg	
-📌 Eg :addmsg	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}addmsg	
+💭 Desc : add msg	
+✏️ Eg :addmsg	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}listmsg	
-🪄 Desc : add ilst msg	
-📌 Eg :listmasg	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ `,	
+📃 ${prefix}listmsg	
+💭 Desc : add ilst msg	
+✏️ Eg :listmasg	
+━━━━━━━━━━━━━━━━━ `,	
     footer: `${botname}`,	
     buttons: buttons,	
     headerType: 4	
@@ -8149,30 +6128,30 @@ const buttonMessage = {
     image: { url: `${global.alivepic}` },	
     caption: `🗒️ OTHER MENU	
     	
-🔮 ${prefix}alive	
-🪄 Desc : chack bot onlin	
-📌 Eg :alive	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}alive	
+💭 Desc : is peacemd online
+✏️ Eg :alive	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}owner	
-🪄 Desc : bot owner	
-📌 Eg :owner	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+📃 ${prefix}owner	
+💭 Desc : bot owner	
+✏️ Eg :owner	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}menu	
-🪄 Desc : command 	
-📌 Eg :menu	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄	
+📃 ${prefix}menu	
+💭 Desc : command 	
+✏️ Eg :menu	
+━━━━━━━━━━━━━━━━━	
     	
- 🔮 ${prefix}report	
-🪄 Desc : bag	
-📌 Eg :report	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ 	
+ 📃 ${prefix}report	
+💭 Desc : bag	
+✏️ Eg :report	
+━━━━━━━━━━━━━━━━━ 	
     	
-🔮 ${prefix}ping	
-🪄 Desc : speed	
-📌 Eg :ping	
-✃┄┄┄┄┄┄┄┄┄┄┄┄┄ `,	
+📃 ${prefix}ping	
+💭 Desc : speed	
+✏️ Eg :ping	
+━━━━━━━━━━━━━━━━━ `,	
     footer: `${botname}`,	
     buttons: buttons,	
     headerType: 4	
@@ -8269,4 +6248,4 @@ fs.watchFile(file, () => {
 	console.log(chalk.redBright(`Update ${__filename}`))	
 	delete require.cache[file]	
 	require(file)	
-})
+})	
