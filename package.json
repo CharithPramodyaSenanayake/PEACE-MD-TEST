@@ -76,6 +76,7 @@
     "yargs": "^17.2.1",
     "youtube-yts": "^2.0.0",
     "youtubedl-core": "^4.11.2"
+    "esana-node-api": "latest",
   },
   "directories": {
     "lib": "lib",
