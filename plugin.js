@@ -5396,7 +5396,7 @@ const buttonMessage = {
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}setbio	
 💭 Desc : To change about of your number 	
-✏️ Eg :${prefix}setbio Hey there I am dark nero	
+✏️ Eg :${prefix}setbio Hey there I am PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}bctext	
 💭 Desc : To broadcast a text	
@@ -5509,198 +5509,198 @@ const buttonMessage = {
     	
 📃 ${prefix}candy	
 💭 Desc : To make candy style logo	
-✏️ Eg :${prefix}candy dark nero	
+✏️ Eg :${prefix}candy PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}8bit	
 💭 Desc : To make 8bit style logo	
-✏️ Eg :${prefix}8bit dark nero	
+✏️ Eg :${prefix}8bit PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}horror	
 💭 Desc : To make horror style logo	
-✏️ Eg :${prefix}horror dark nero	
+✏️ Eg :${prefix}horror PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}retro	
 💭 Desc : To make retro style logo	
-✏️ Eg :${prefix}retro dark nero	
+✏️ Eg :${prefix}retro PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}blackpinkneon	
 💭 Desc : To make black pink neon style logo	
-✏️ Eg :${prefix}blackpinkneon dark nero	
+✏️ Eg :${prefix}blackpinkneon PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}deepsea	
 💭 Desc : To make deep sea style logo	
-✏️ Eg :${prefix}deepsea dark nero	
+✏️ Eg :${prefix}deepsea PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}scifi	
 💭 Desc : To make scifi style logo	
-✏️ Eg :${prefix}scifi dark nero	
+✏️ Eg :${prefix}scifi PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}berry 	
 💭 Desc : To make berry style logo	
-✏️ Eg :${prefix}berry dark nero	
+✏️ Eg :${prefix}berry PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}fruitjuice	
 💭 Desc : To make fruit juice style logo	
-✏️ Eg :${prefix}fruitjuice dark nero	
+✏️ Eg :${prefix}fruitjuice PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}biscuit	
 💭 Desc : To make biscuit style logo	
-✏️ Eg :${prefix}biscuit dark nero	
+✏️ Eg :${prefix}biscuit PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}wood	
 💭 Desc : To make wood style logo	
-✏️ Eg :${prefix}wood dark nero	
+✏️ Eg :${prefix}wood PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}chocolate 	
 💭 Desc : To make chocolate style logo	
-✏️ Eg :${prefix}chocolate dark nero	
+✏️ Eg :${prefix}chocolate PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}matrix	
 💭 Desc : To make matrix style logo	
-✏️ Eg :${prefix}matrix dark nero	
+✏️ Eg :${prefix}matrix PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}blood	
 💭 Desc : To make blood style logo	
-✏️ Eg :${prefix}blood dark nero	
+✏️ Eg :${prefix}blood PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}halloween	
 💭 Desc : To make halloween style logo	
-✏️ Eg :${prefix}halloween dark nero	
+✏️ Eg :${prefix}halloween PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}darkgold	
 💭 Desc : To make dark gold style logo	
-✏️ Eg :${prefix}darkgold dark nero	
+✏️ Eg :${prefix}darkgold PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}firework	
 💭 Desc : To make fire work style logo	
-✏️ Eg :${prefix}firework dark nero	
+✏️ Eg :${prefix}firework PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}sand	
 💭 Desc : To make sand style logo	
-✏️ Eg :${prefix}sand dark nero	
+✏️ Eg :${prefix}sand PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}glue	
 💭 Desc : To make glue style logo	
-✏️ Eg :${prefix}glue dark nero	
+✏️ Eg :${prefix}glue PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}leaves	
 💭 Desc : To make leaves style logo	
-✏️ Eg :${prefix}leaves dark nero	
+✏️ Eg :${prefix}leaves PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}magma	
 💭 Desc : To make magma style logo	
-✏️ Eg :${prefix}magma dark nero	
+✏️ Eg :${prefix}magma PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}lava	
 💭 Desc : To make lava style logo	
-✏️ Eg :${prefix}lava dark nero	
+✏️ Eg :${prefix}lava PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}rockatr	
 💭 Desc : To make rock art style logo	
-✏️ Eg :${prefix}rockart dark nero	
+✏️ Eg :${prefix}rockart PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}underwater 	
 💭 Desc : To make under water style logo	
-✏️ Eg :${prefix}underwater dark nero	
+✏️ Eg :${prefix}underwater PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}honey	
 💭 Desc : To make honey style logo	
-✏️ Eg :${prefix}honey dark nero	
+✏️ Eg :${prefix}honey PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}ice	
 💭 Desc : To make ice style logo	
-✏️ Eg :${prefix}ice dark nero	
+✏️ Eg :${prefix}ice PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}watercolor	
 💭 Desc : To make watercolor style logo	
-✏️ Eg :${prefix}watercolor dark nero	
+✏️ Eg :${prefix}watercolor PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}multicolor	
 💭 Desc : To make multi color style logo	
-✏️ Eg :${prefix}multicolor dark nero	
+✏️ Eg :${prefix}multicolor PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}snow	
 💭 Desc : To make snow style logo	
-✏️ Eg :${prefix}snow dark nero	
+✏️ Eg :${prefix}snow PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}harrypotter 	
 💭 Desc : To make harry potter style logo	
-✏️ Eg :${prefix}harrypotter dark nero	
+✏️ Eg :${prefix}harrypotter PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}brokenglass	
 💭 Desc : To make broken glass style logo	
-✏️ Eg :${prefix}brokenglass dark nero	
+✏️ Eg :${prefix}brokenglass PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}spooky 	
 💭 Desc : To make spooky style logo	
-✏️ Eg :${prefix}spooky dark nero	
+✏️ Eg :${prefix}spooky PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}circuit 	
 💭 Desc : To make circuit style logo	
-✏️ Eg :${prefix}circuit dark nero	
+✏️ Eg :${prefix}circuit PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}christmas 	
 💭 Desc : To make christmas style logo	
-✏️ Eg :${prefix}christmas dark nero	
+✏️ Eg :${prefix}christmas PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}christmas 	
 💭 Desc : To make christmas style logo	
-✏️ Eg :${prefix}christmas dark nero	
+✏️ Eg :${prefix}christmas PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}waterdrop	
 💭 Desc : To make waterdrop style logo	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}transformer	
 💭 Desc : To make transformer style logo	
-✏️ Eg :${prefix}transformer dark nero	
+✏️ Eg :${prefix}transformer PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}thunder	
 💭 Desc : To make thunder style logo	
-✏️ Eg :${prefix}thunder dark nero	
+✏️ Eg :${prefix}thunder PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}window 	
 💭 Desc : To make window style logo	
-✏️ Eg :${prefix}window dark nero	
+✏️ Eg :${prefix}window PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}glitch	
 💭 Desc : To make glitch style logo	
-✏️ Eg :${prefix}glitch dark nero	
+✏️ Eg :${prefix}glitch PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}blackpinkart	
 💭 Desc : To make black pink art style logo	
-✏️ Eg :${prefix}black pink art dark nero	
+✏️ Eg :${prefix}black pink art PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}lion	
 💭 Desc : To make lion style logo	
-✏️ Eg :${prefix}lion dark nero	
+✏️ Eg :${prefix}lion PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}bear	
 💭 Desc : To make bear style logo	
-✏️ Eg :${prefix}bear dark nero	
+✏️ Eg :${prefix}bear PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}wolf	
 💭 Desc : To make wolf style logo	
-✏️ Eg :${prefix}wolf dark nero	
+✏️ Eg :${prefix}wolf PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}joker	
 💭 Desc : To make joker style logo	
-✏️ Eg :${prefix}joker dark nero	
+✏️ Eg :${prefix}joker PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}neonlight	
 💭 Desc : To make neon light style logo	
-✏️ Eg :${prefix}neonlight dark nero	
+✏️ Eg :${prefix}neonlight PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}carbon	
 💭 Desc : To make carbon style logo	
-✏️ Eg :${prefix}carbon dark nero	
+✏️ Eg :${prefix}carbon PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}pencil	
 💭 Desc : To make pencil style logo	
-✏️ Eg :${prefix}pencil dark nero	
+✏️ Eg :${prefix}pencil PEACE MD	
 ━━━━━━━━━━━━━━━━━	
 📃 ${prefix}batman	
 💭 Desc : To make batman style logo	
-✏️ Eg :${prefix}batman dark nero	
+✏️ Eg :${prefix}batman PEACE MD	
 ━━━━━━━━━━━━━━━━━ `,	
     footer: `${botname}`,	
     buttons: buttons,	
