@@ -2029,324 +2029,324 @@ case 'pinterest': {
                                                       "rows": [
                                                       {
                 "title": "CANDY STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `candy ${text}`
                 },
             {
                 "title": "CHRISTMAS STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `christmas ${text}`
                 },
             {
                 "title": "DEEPSEA STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `deepsea ${text}`
             },
             {
                 "title": "SCIFI STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `scifi ${text}`
             },
             {
                 "title": "RAINBOW STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `rainbow ${text}`
             },
             {
                     "title": "WATERPIPE STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `waterpipe ${text}`
                 },
                                              {
                     "title": "SPOOKEY STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `spooky ${text}`
                 },
                 {
                     "title": "PENCIL STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `pencil ${text}`
                 },		
                 {
                     "title": "CIRCUITE STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `circuit ${text}`
                 },
                 {
                     "title": "DESCOVERY STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `discovery ${text}`
                 },	
                 {
                     "title": "FICTION STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `fiction ${text}`
                 },
                 {
                     "title": "DEMON STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `demon ${text}`
                 },
                 {
                     "title": "TRANSFORMER STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `transformer ${text}`
                 },
                 {
                     "title": "BERRY STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `berry ${text}`
                 },
                 {
                     "title": "THUNDER  STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `thunder ${text}`
                 },
                 {
                     "title": "MAGMA STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `magma ${text}`
                 },
                 {
                     "title": "3-D STONE STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `3dstone ${text}`
                 },
                 {
                     "title": "NEONLIGHT STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `neonlight ${text}`
                 },
                 {
                     "title": "GLITCH STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `glitch ${text}`
                 },
                 {
                     "title": "HARRYPOTTER STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `harrypotter ${text}`
                 },
                 {
                     "title": "BROKENGLASS STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `brokenglass ${text}`
                 },
                 {
                     "title": "PAPERCUT STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `papercut ${text}`
                 },
                 {
                     "title": "WATERCOLOR STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `watercolor ${text}`
                 },
                 {
                     "title": "MULTICOLOR STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `multicolor ${text}`
                 },
                 {
                     "title": "NEON DEVIL STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `neondevil ${text}`
                 },
                 {
                     "title": "UNDERWATER STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `underwater ${text}`
                 },
                 {
                     "title": "GRAFFITIBIKE STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `graffitibike ${text}`
                 },
                 {
                     "title": "SNOW STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `snow ${text}`
                 },
                 {
                     "title": "CLOUD STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `cloud ${text}`
                 },
                 {
                     "title": "HONEY STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `honey ${text}`
                 },
                 {
                     "title": "ICE STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `ice ${text}`
                 },
                 {
                     "title": "BISCUIT STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `biscuit ${text}`
                 },
                 {
                     "title": "WOOD STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `wood ${text}`
                 },
                 {
                     "title": "CHOCOLATE STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `chocolate ${text}`
                 },
                 {
                     "title": "STRAWBERRY STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `strawberry ${text}`
                 },
                 {
                     "title": "MATRIXS STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `matrix ${text}`
                 },
                 {
                     "title": "BLOOD STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `blood ${text}`
                 },
                 {
                     "title": "DROPWATER STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `dropwater ${text}`
                 },
                 {
                     "title": "TOXIC STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `toxic ${text}`
                 },
                 {
                     "title": "LAVA STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `lava ${text}`
                 },
                 {
                     "title": "ROCK STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `rock ${text}`
                 },
                 {
                     "title": "BLOODGLAS STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `bloodglas ${text}`
                 },
                 {
                     "title": "HALLOWEN STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `hallowen ${text}`
                 },
                 {
                     "title": "DARKGOLD STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `darkgold ${text}`
                 },
                 {
                     "title": "JOKER STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `joker ${text}`
                 },
                 {
                     "title": "WICKER STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `wicker ${text}`
                 },
                 {
                     "title": "FIREWORK STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `firework ${text}`
                 },
                 {
                     "title": "SKELETON STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `skeleton ${text}`
                 },
                 {
                     "title": "BLACKPINK STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `blackpink ${text}`
                 },
                 {
                     "title": "SAND STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `sand ${text}`
                 },
                 {
                     "title": "GLUE STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `glue ${text}`
                 }, ///
                 {
                     "title": "3D BOX STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `3dbox ${text}`
                 },
                 {
                     "title": "GLITCH STYLE - 2",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `glitch2 ${text}`
                 },
                 {
                     "title": "GLITCH STYLE - 3",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `glitch3 ${text}`
                 },
                 {
                     "title": "GREEN NEON STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `greenneon ${text}`
                 },
                 {
                     "title": "3D NEON STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `3dneon ${text}`
                 },
                 {
                     "title": "BOKEH STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `bokeh ${text}`
                 },
                 {
                     "title": "BEAR STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `bear ${text}`
                 },
                 {
                     "title": "CHRISTMAS STYLE - 2",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `sparklechristmas ${text}`
                 },
                 {
                     "title": "CHRISTMAS STYLE - 3",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `3dchristmas ${text}`
                 },
                 {
                     "title": "RAINBOW STYLE - 3",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `rainbow2 ${text}`
                 },
                 {
                     "title": "FRUIT JUICE STYLE",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `fruitjuice ${text}`
                 },
                 
                 ///
                 {
                     "title": "1917 STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `1917 ${text}`
                 },
                 {
                     "title": "LEAVES STYLE ",
-                "description": `\n${m.pushName} Buddy, ${global.botname} is Ready to make your logo`,
+                "description": `\n${m.pushName} Buddy, PEACE MD is Ready to make your logo`,
                 "rowId": `leaves ${text}`
                 }
              ]
@@ -2430,7 +2430,7 @@ case 'lava': case 'rockart': case 'bloodglas': case 'halloween': case 'darkgold'
              if (/1917/.test(command)) link = 'https://textpro.me/1917-style-text-effect-online-980.html'	
                 if (/leaves/.test(command)) link = 'https://textpro.me/natural-leaves-text-effect-931.html'           	
              let anutexpro = await maker.textpro(link, q)	
-                XeonBotInc.sendMessage(m.chat, { image: { url: anutexpro }, caption: `Made by ${global.botname}` }, { quoted: m })	
+                XeonBotInc.sendMessage(m.chat, { image: { url: anutexpro }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m })	
              }	
              break	
 case'glitch3':	
@@ -2440,7 +2440,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2449,7 +2449,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [	
     `${q}`,])	
-.then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+.then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
 .catch((err) => console.log(err));	
 break	
 
@@ -2458,7 +2458,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
  maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [	
      `${q}`,])	
-    .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+    .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
     .catch((err) => console.log(err));	
      break	
 
@@ -2467,7 +2467,7 @@ case 'lion2':
   m.reply(mess.wait)	
   maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [	
       `${q}`,])	
-     .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+     .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
      .catch((err) => console.log(err));	
      break	
 
@@ -2476,7 +2476,7 @@ case 'papercut':
       m.reply(mess.wait)	
       maker.textpro("https://textpro.me/create-art-paper-cut-text-effect-online-1022.html", [	
 `${q}`,])	
-         .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+         .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
          .catch((err) => console.log(err));	
          break	
 
@@ -2485,7 +2485,7 @@ case 'transformer':
       m.reply(mess.wait)	
       maker.textpro("https://textpro.me/create-a-transformer-text-effect-online-1035.html", [	
 `${q}`,])	
-.then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+.then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
 .catch((err) => console.log(err));	
 break	
 
@@ -2496,7 +2496,7 @@ case 'harrypot':
        teks2 = q.split("|")[1]	
        maker.textpro("https://textpro.me/create-harry-potter-text-effect-online-1025.html", [	
  `${teks1}`,`${teks2}`])	
- .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+ .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
  .catch((err) => console.log(err));	
  break	
 
@@ -2505,7 +2505,7 @@ case 'neondevil':
       m.reply(mess.wait)	
       maker.textpro("https://textpro.me/create-neon-devil-wings-text-effect-online-free-1014.html", [	
 `${q}`,])	
-         .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+         .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
          .catch((err) => console.log(err));	
          break	
 
@@ -2514,7 +2514,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/3d-stone-cracked-cool-text-effect-1029.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2523,7 +2523,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-3d-avengers-logo-online-974.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2532,7 +2532,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/online-thunder-text-effect-generator-1031.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2541,7 +2541,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2550,7 +2550,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-neon-light-blackpink-logo-text-effect-online-1081.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2562,7 +2562,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/create-a-cool-graffiti-text-on-the-wall-1010.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2573,7 +2573,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/pornhub-style-logo-online-generator-free-977.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2582,7 +2582,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-blackpink-logo-style-online-1001.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2591,7 +2591,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-impressive-glitch-text-effects-online-1027.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2602,7 +2602,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/create-a-glitch-text-effect-online-free-1026.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2613,7 +2613,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2624,7 +2624,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/create-space-3d-text-effect-online-985.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2635,7 +2635,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2644,7 +2644,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-3d-neon-light-text-effect-online-1028.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2653,7 +2653,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/neon-text-effect-online-879.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2662,7 +2662,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/green-neon-text-effect-874.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2671,7 +2671,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/bokeh-text-effect-876.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2682,7 +2682,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/holographic-3d-text-effect-975.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2696,7 +2696,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2708,7 +2708,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]	
 maker.textpro("https://textpro.me/create-wolf-logo-galaxy-online-936.html", [	
     `${teks1}`,`${teks2}`])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2717,7 +2717,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-logo-joker-online-934.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2726,7 +2726,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2735,7 +2735,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-summer-neon-light-text-effect-online-1076.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2744,7 +2744,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/neon-light-text-effect-with-galaxy-style-981.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2753,7 +2753,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/break-wall-text-effect-871.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2762,7 +2762,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/natural-leaves-text-effect-931.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break 	
 
@@ -2771,7 +2771,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/carbon-text-effect-833.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2780,7 +2780,7 @@ if(!q) throw`Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-sketch-text-effect-online-1044.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 
@@ -2815,7 +2815,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'thunder2':	
@@ -2824,7 +2824,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-thunder-text-effect-online-881.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
    break	
@@ -2834,7 +2834,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/neon-light-text-effect-online-882.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'matrix2':	
@@ -2843,7 +2843,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/matrix-style-text-effect-online-884.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'sky':	
@@ -2852,7 +2852,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-cloud-text-effect-on-the-sky-online-1004.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'magma':	
@@ -2861,7 +2861,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-magma-hot-text-effect-online-1030.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'sand':	
@@ -2870,7 +2870,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/sand-writing-text-effect-online-990.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'pencil':	
@@ -2879,7 +2879,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-sketch-text-effect-online-1044.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'graffiti':	
@@ -2888,7 +2888,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'metallic':	
@@ -2897,7 +2897,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-metallic-text-effect-free-online-1041.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'steel':	
@@ -2906,7 +2906,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/steel-text-effect-online-921.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'harrpotter':	
@@ -2915,7 +2915,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-harry-potter-text-effect-online-1025.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'underwater':	
@@ -2924,7 +2924,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/3d-underwater-text-effect-generator-online-1013.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'luxury':	
@@ -2933,7 +2933,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/3d-luxury-gold-text-effect-online-1003.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'glue2':	
@@ -2942,7 +2942,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-3d-glue-text-effect-with-realistic-style-986.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'fabric':	
@@ -2951,7 +2951,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/fabric-text-effect-online-964.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'neonlight':	
@@ -2960,7 +2960,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/neon-light-glitch-text-generator-online-1063.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'lava':	
@@ -2969,7 +2969,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/lava-text-effect-online-914.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'toxic':	
@@ -2978,7 +2978,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/toxic-text-effect-online-901.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'ancient':	
@@ -2987,7 +2987,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/3d-golden-ancient-text-effect-online-free-1060.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'christmas2':	
@@ -2996,7 +2996,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/sparkles-merry-christmas-text-effect-1054.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'sci_fi':	
@@ -3005,7 +3005,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-3d-sci-fi-text-effect-online-1050.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'rainbow':	
@@ -3014,7 +3014,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/3d-rainbow-color-calligraphy-text-effect-1049.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'classic':	
@@ -3023,7 +3023,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/video-game-classic-8-bit-text-effect-1037.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'watercolor2':	
@@ -3032,7 +3032,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-free-online-watercolor-text-effect-1017.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'halloweem2':	
@@ -3041,7 +3041,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-spooky-halloween-text-effect-online-1046.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'halloweenfire':	
@@ -3050,7 +3050,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/halloween-fire-text-effect-940.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'writing':	
@@ -3059,7 +3059,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/sand-writing-text-effect-online-990.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'foggy':	
@@ -3068,7 +3068,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'marvel':	
@@ -3077,7 +3077,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-logo-style-marvel-studios-ver-metal-972.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'skeleton2':	
@@ -3086,7 +3086,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-halloween-skeleton-text-effect-online-1047.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'sketch':	
@@ -3095,7 +3095,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-a-sketch-text-effect-online-1044.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'wonderful':	
@@ -3104,7 +3104,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'batman':	
@@ -3113,7 +3113,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/make-a-batman-logo-online-free-1066.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'juice':	
@@ -3122,7 +3122,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)	
 maker.textpro("https://textpro.me/fruit-juice-text-effect-861.html", [	
     `${q}`,])	
-  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))	
+  .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
   .catch((err) => console.log(err));	
    break	
 case 'pornhub':{	
@@ -4182,7 +4182,7 @@ break
 case 'emoji': {	
 if (!args.join(" ")) return m.reply('Where is the emoji?')	
 emoji.get(args.join(" ")).then(async(emoji) => {	
-let mese = await XeonBotInc.sendMessage(m.chat, {image:{url:emoji.images[4].url}, caption: `Made by ${global.botname}`}, {quoted:m})	
+let mese = await XeonBotInc.sendMessage(m.chat, {image:{url:emoji.images[4].url}, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ`}, {quoted:m})	
 await XeonBotInc.sendMessage(from, {text:"reply #s to this image to make sticker"}, {quoted:mese})	
 })	
 }	
@@ -4970,9 +4970,7 @@ case 'helakurunews':
 case 'findnews': {
     const load = await PeaceMd.sendText(m.chat, mess.wait, m, )
 
-    var NEWSSS = ''
-    if (global.LANG == 'EN') NEWSSS = '```💃 Click And Get Your news```'
-    if (global.LANG == 'SI') NEWSSS = '```💃 ඔබට අවශ්‍ය පුවත පහත බටන බාවිතයෙන් ලබාගන්න```'
+    var NEWSSS = '```💭 ඔබට අවශ්‍ය පුවත පහත බටන බාවිතයෙන් ලබාගන්න```'
 
     const {
         esana_scrape,
