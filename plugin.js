@@ -4410,7 +4410,7 @@ await PeaceMd.sendMessage(from, { react: { text: `📁`, key: me.key }})
 
 break	
 case 'lyrics': {	
-    await PeaceMd.sendMessage(from, { react: { text: `✏`, key: me.key }})	
+    PeaceMd.sendMessage(from, { react: { text: `📃`, key: m.key }})
     if (!text) return reply(`Use example ${prefix}lyrics passa`)	
     m.reply(mess.wait)	
     const chari = await fetchJson(`https://sinhalasonglyrics.com/?s=${text}&submit=Search`)
