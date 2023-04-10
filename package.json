@@ -1,42 +1,38 @@
 {
-  "name": "QUEEN-NILU-MD",
-  "version": "2.0.0",
+  "name": "PEACE-MD",
+  "version": "6.0.0",
   "description": "Automated whatsapp md bot created using nodejs and baileys lib",
   "type": "commonjs",
   "scripts": {
-    "start": "node --max_old_space_size=8192 index.js"
+    "start": "node index.js"
   },
   "keywords": [
     "termux",
     "whatsapp",
     "2023",
-    "queennilu",
+    "base",
     "baileys-md",
     "bot",
     "bot-md",
     "multi-device",
-    "Janithsadanuwan"
+    "peacemd-by-charith"
   ],
-  "author": "janithsadanuwan",
+  "author": "Charith-Pramodya",
   "license": "AGPL-3",
   "dependencies": {
-    "@adiwajshing/baileys": "git+https://github.com/vihangayt0/Baileys.git",
+    "@adiwajshing/baileys": "^4.4.0",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "^2.0.0",
-    "@vitalets/google-translate-api": "^9.0.0",
-    "@ffmpeg-installer/ffmpeg" : "^1.1.0",
-    "@neoxr/neoxr-js": "^1.3.0",
     "anime-wallpaper": "^1.0.2",
     "awesome-phonenumber": "^2.64.0",
-    "api-dylux":"^1.2.8",
     "axios": "^0.24.0",
     "chalk": "^4.1.2",
     "cheerio": "^1.0.0-rc.12",
     "child_process": "^1.0.2",
     "crypto": "^1.0.1",
     "dhn-api": "^1.1.3",
+    "pastebin-js": "^1.0.6",
     "emoji-api": "^1.0.2",
-    "express": "^4.18.1",
     "file-type": "^16.5.3",
     "fluent-ffmpeg": "^2.1.2",
     "fs": "0.0.1-security",
@@ -45,7 +41,6 @@
     "google-it": "^1.6.3",
     "got": "^11.8.3",
     "human-readable": "^0.2.1",
-    "instagram-url-direct": "^1.0.13",
     "insta-fetcher": "^1.3.24",
     "jimp": "^0.16.1",
     "jsdom": "^16.4.0",
@@ -60,7 +55,6 @@
     "node-webpmux": "^3.1.1",
     "node-youtube-music": "^0.8.3",
     "os": "^0.1.2",
-    "openai": "^3.1.0",
     "path": "^0.12.7",
     "perf_hooks": "0.0.1",
     "pino": "^7.0.5",
@@ -77,26 +71,21 @@
     "textmaker-thiccy": "^1.3.1",
     "tod-api": "^1.0.5",
     "util": "^0.12.4",
-    "esana-node-api": "latest",
-    "wa-sticker-formatter": "^4.4.4",
+    "wa-sticker-formatter": "^4.3.2",
     "xfarr-api": "^1.0.2",
     "yargs": "^17.2.1",
     "youtube-yts": "^2.0.0",
-    "youtubedl-core": "^4.11.2",
-    "figlet" : "^1.5.2",
-    "cfonts": "^3.1.0",
-    "drips-memes": "^6.0.4",
-    "aes256": "^1.1.0"
+    "youtubedl-core": "^4.11.2"
   },
   "directories": {
     "lib": "lib",
     "src": "src"
   },
   "devDependencies": {},
-  "repository": "git+https://github.com/Dragonxjanith/QueenNIluv2.git",
+  "repository": "git+https://github.com/ALPHAkaveen/v8-bot-yakuza.git",
   "bugs": {
-    "url": "https://github.com/Dragonxjanith/QueenNIluv2/issues"
+    "url": "https://github.com/ALPHAkaveen/v8-bot-yakuza/issues"
   },
-  "homepage": "https://github.com/Dragonxjanith/QueenNIluv2/#readme",
+  "homepage": "https://github.com/ALPHAkaveen/v8-bot-yakuza/#readme",
   "main": "index.js"
 }
