@@ -1588,9 +1588,10 @@ fs.writeFileSync('./database/user/premium.json', JSON.stringify(premium))
 m.reply(`Success deleting premium ${prmi}`)	
 break	
             case 'emojimix': case 'emomix': {	
-		let [emoji1, emoji2] = text.split`+`	
-		if (!emoji1) throw `Example : ${prefix + command} 😎+😋`	
-		if (!emoji2) throw `Example : ${prefix + command} 😎+😋`	
+                await PeaceMd.sendMessage(from, { react: { text: `🧩`, key: m.key }}) 
+		let [emoji1, emoji2] = text.split` `	
+		if (!emoji1) throw `💭 ${prefix + command} 😎 😋`	
+		if (!emoji2) throw `💭 ${prefix + command} 😎 😋`	
 		let anumojimix = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)	
 		for (let res of anumojimix.results) {	
 		    let encmedia = await PeaceMd.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })	
@@ -1599,7 +1600,8 @@ break
 	    }	
 	    break	
 	case 'emojimix2': {	
-	    if (!text) throw `Example : ${prefix + command} 😎+😋`	
+        await PeaceMd.sendMessage(from, { react: { text: `🧩`, key: m.key }}) 
+	    if (!text) throw `💭 ${prefix + command} 😎 😋`	
 		let anumix2 = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(text)}`)	
 		for (let res of anumix2.results) {	
 		    let encmedia = await PeaceMd.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })	
@@ -1608,6 +1610,7 @@ break
 	    }	
 	    break	
          case 'tts': case 'say':{	
+            await PeaceMd.sendMessage(from, { react: { text: `🧩`, key: m.key }}) 
          	if (!text) throw `Example : ${prefix + command} peace`	
              let tts = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_english?query=${text}`)	
              PeaceMd.sendMessage(m.chat, { audio: { url: tts.result }, mimetype: 'audio/mp4', ptt: true, fileName: `${text}.mp3` }, { quoted: m })	
@@ -1627,6 +1630,7 @@ await fs.unlinkSync(memek)
 }	
 break	
 case 'toimage': case 'toimg': {	
+    await PeaceMd.sendMessage(from, { react: { text: `🖼`, key: m.key }}) 
                 if (!quoted) throw 'Reply Image'	
                 if (!/webp/.test(mime)) throw `💭 Reply sticker with caption *${prefix + command}*`	
                 m.reply(mess.wait)	
@@ -1642,6 +1646,7 @@ case 'toimage': case 'toimg': {
             }	
             break	
 case 'tomp4': case 'tovideo': {	
+    await PeaceMd.sendMessage(from, { react: { text: `🎥`, key: m.key }}) 
                 if (!quoted) throw 'Reply Image'	
                 if (!/webp/.test(mime)) throw `💭 reply sticker with caption *${prefix + command}*`	
                 m.reply(mess.wait)	
@@ -1653,6 +1658,7 @@ case 'tomp4': case 'tovideo': {
             }	
             break	
             case 'toaud': case 'toaudio': {	
+                await PeaceMd.sendMessage(from, { react: { text: `🔉`, key: m.key }}) 
             if (!/video/.test(mime) && !/audio/.test(mime)) throw `💭 Send/Reply Video/Audio You Want to Use as Audio With Caption ${prefix + command}`	
             if (!quoted) throw `Send/Reply Video/Audio You Want to Use as Audio With Caption ${prefix + command}`	
             m.reply(mess.wait)	
@@ -1663,6 +1669,7 @@ case 'tomp4': case 'tovideo': {
             }	
             break	
             case 'tomp3': {	
+                await PeaceMd.sendMessage(from, { react: { text: `🔉`, key: m.key }}) 
             if (/document/.test(mime)) throw `💭 Send/Reply Video/Audio You Want to Convert into MP3 With Caption ${prefix + command}`	
             if (!/video/.test(mime) && !/audio/.test(mime)) throw `Send/Reply Video/Audio You Want to Convert into MP3 With Caption ${prefix + command}`	
             if (!quoted) throw `Send/Reply Video/Audio You Want to Convert into MP3 With Caption ${prefix + command}`	
@@ -1694,7 +1701,8 @@ case 'tomp4': case 'tovideo': {
                 await fs.unlinkSync(media)	
             }	
             break	
-            case 'imagenobg': case 'removebg': case 'remove-bg': {	
+            case 'imagenobg': case 'removebg': case 'remove-bg': {
+                await PeaceMd.sendMessage(from, { react: { text: `🖼`, key: m.key }}) 	
 	    if (!quoted) throw `💭 Send/Reply Image With Caption ${prefix + command}`	
 	    if (!/image/.test(mime)) throw `💭 Send/Reply Image With Caption ${prefix + command}`	
 	    if (/webp/.test(mime)) throw `💭 Send/Reply Image With Caption ${prefix + command}`	
@@ -1720,6 +1728,7 @@ case 'tomp4': case 'tovideo': {
 	    }	
 	    break	
 	    case 'yts': case 'ytsearch': {	
+            await PeaceMd.sendMessage(from, { react: { text: `🔎`, key: m.key }}) 
                 if (!text) throw `💭 Example : ${prefix + command} Gajaman`	
                 let yts = require("youtube-yts")	
                 let search = await yts(text)	
@@ -1732,6 +1741,7 @@ case 'tomp4': case 'tovideo': {
             }	
             break	
         case 'google': {	
+            await PeaceMd.sendMessage(from, { react: { text: `🔎`, key: m.key }}) 
                 if (!text) throw `💭 Example : ${prefix + command} Gajaman`	
                 let google = require('google-it')	
                 google({'query': text}).then(res => {	
@@ -1775,13 +1785,15 @@ footer: `ᴘᴇᴀᴄᴇ ᴍᴅ`,
 buttons: buttons,	
 headerType: 4,	
 }	
-PeaceMd.sendMessage(m.chat, buttonMessage, { quoted: m })	
+PeaceMd.sendMessage(m.chat, buttonMessage, { quoted: m })
+PeaceMd.sendMessage(from, { react: { text: `✅`, key: m.key }})    	
 }	
 break 	
 
 //--------------------------------------------------------------------------------------------------------------\\	
 
 case 'song': {	
+PeaceMd.sendMessage(from, { react: { text: `🎧`, key: m.key }})    	
 if (!text) throw `Example : ${prefix + command} bombe motayi`	
 let yts = require("youtube-yts")	
 let search = await yts(text)	
@@ -1811,6 +1823,8 @@ buttons: buttons,
 headerType: 4	
 }	
 PeaceMd.sendMessage(m.chat, buttonMessage, { quoted: m })	
+PeaceMd.sendMessage(from, { react: { text: `✅`, key: m.key }})    	
+
 }	
 break	
 
@@ -1826,16 +1840,14 @@ break
                 let buttonMessage = {	
                     image: { url: anulay.thumbnail },	
                     caption: `	
-✧ Title : ${anulay.title}	
-✧ Ext : Search	
-✧ ID : ${anulay.videoId}	
-✧ Duration : ${anulay.timestamp}	
-✧ Viewers : ${anulay.views}	
-✧ Upload At : ${anulay.ago}	
-✧ Author : ${anulay.author.name}	
-✧ Channel : ${anulay.author.url}	
-✧ Description : ${anulay.description}	
-✧ Url : ${anulay.url}`,	
+🔰 Title : ${anulay.title}	
+⌛ Duration : ${anulay.timestamp}	
+👀 Viewers : ${anulay.views}	
+📅 Upload At : ${anulay.ago}	
+🎩 Author : ${anulay.author.name}	
+🎯 Channel : ${anulay.author.url}	
+📃 Description : ${anulay.description}	
+🌐 Url : ${anulay.url}`,	
                     footer: botname,	
                     buttons: buttons,	
                     headerType: 4	
@@ -2359,442 +2371,741 @@ case 'pinterest': {
 
       break
 
-case 'candy': case 'christmas': case '3dchristmas': case 'sparklechristmas':	
-case 'deepsea': case 'scifi': case 'rainbow2': case 'waterpipe': case 'spooky': 	
-case 'pencil': case 'circuit': case 'discovery': case 'metalic': case 'fiction': case 'demon': 	
-case 'transformer': case 'berry': case 'thunder': case '.': case '3dstone2': 	
-case 'neonlight': case 'glitch': case 'harrypotter': case 'brokenglass': case 'papercut': 	
-case 'watercolor': case 'multicolor': case 'neondevil': case 'underwater': case 'graffitibike':	
- case 'snow': case 'cloud': case 'honey': case 'ice': case 'fruitjuice': case 'biscuit': case 'wood': 	
-case 'chocolate': case 'strawberry': case 'matrix': case 'blood': case 'dropwater': case 'toxic': 	
-case 'lava': case 'rockart': case 'bloodglas': case 'halloween': case 'darkgold': case 'joker': case 'wicker':	
- case 'firework': case 'skeleton': case 'blackpinkart': case 'sand': case 'glue': case '1917': case 'leaves': case 'demon': {	
-             if (!q) throw `Example : ${prefix + command} ${global.ownername}`	
-             m.reply(mess.wait)	
-             let link	
-             if (/candy/.test(command)) link = 'https://textpro.me/create-christmas-candy-cane-text-effect-1056.html'	
-             if (/christmas/.test(command)) link = 'https://textpro.me/christmas-tree-text-effect-online-free-1057.html'	
-             if (/3dchristmas/.test(command)) link = 'https://textpro.me/3d-christmas-text-effect-by-name-1055.html'	
-             if (/sparklechristmas/.test(command)) link = 'https://textpro.me/sparkles-merry-christmas-text-effect-1054.html'	
-             if (/deepsea/.test(command)) link = 'https://textpro.me/create-3d-deep-sea-metal-text-effect-online-1053.html'	
-             if (/scifi/.test(command)) link = 'https://textpro.me/create-3d-sci-fi-text-effect-online-1050.html'	
-             if (/rainbow/.test(command)) link = 'https://textpro.me/3d-rainbow-color-calligraphy-text-effect-1049.html'	
-             if (/waterpipe/.test(command)) link = 'https://textpro.me/create-3d-water-pipe-text-effects-online-1048.html'	
-             if (/spooky/.test(command)) link = 'https://textpro.me/create-halloween-skeleton-text-effect-online-1047.html'	
-             if (/pencil/.test(command)) link = 'https://textpro.me/create-a-sketch-text-effect-online-1044.html'	
-             if (/circuit/.test(command)) link = 'https://textpro.me/create-blue-circuit-style-text-effect-online-1043.html'	
-             if (/discovery/.test(command)) link = 'https://textpro.me/create-space-text-effects-online-free-1042.html'	
-             if (/metalic/.test(command)) link = 'https://textpro.me/creat-glossy-metalic-text-effect-free-online-1040.html'	
-             if (/fiction/.test(command)) link = 'https://textpro.me/create-science-fiction-text-effect-online-free-1038.html'	
-             if (/demon/.test(command)) link = 'https://textpro.me/create-green-horror-style-text-effect-online-1036.html'	
-             if (/transformer/.test(command)) link = 'https://textpro.me/create-a-transformer-text-effect-online-1035.html'	
-             if (/berry/.test(command)) link = 'https://textpro.me/create-berry-text-effect-online-free-1033.html'	
-             if (/thunder/.test(command)) link = 'https://textpro.me/online-thunder-text-effect-generator-1031.html'	
-             if (/magma/.test(command)) link = 'https://textpro.me/create-a-magma-hot-text-effect-online-1030.html'	
-             if (/3dstone2/.test(command)) link = 'https://textpro.me/create-a-3d-stone-text-effect-online-for-free-1073.html'	
-             if (/neonlight/.test(command)) link = 'https://textpro.me/create-3d-neon-light-text-effect-online-1028.html'	
-             if (/glitch/.test(command)) link = 'https://textpro.me/create-impressive-glitch-text-effects-online-1027.html'	
-             if (/harrypotter/.test(command)) link = 'https://textpro.me/create-harry-potter-text-effect-online-1025.html'	
-             if (/brokenglass/.test(command)) link = 'https://textpro.me/broken-glass-text-effect-free-online-1023.html'	
-             if (/papercut/.test(command)) link = 'https://textpro.me/create-art-paper-cut-text-effect-online-1022.html'	
-             if (/watercolor/.test(command)) link = 'https://textpro.me/create-a-free-online-watercolor-text-effect-1017.html'	
-             if (/multicolor/.test(command)) link = 'https://textpro.me/online-multicolor-3d-paper-cut-text-effect-1016.html'	
-             if (/neondevil/.test(command)) link = 'https://textpro.me/create-neon-devil-wings-text-effect-online-free-1014.html'	
-             if (/underwater/.test(command)) link = 'https://textpro.me/3d-underwater-text-effect-generator-online-1013.html'	
-             if (/graffitibike/.test(command)) link = 'https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html'	
-             if (/snow/.test(command)) link = 'https://textpro.me/create-snow-text-effects-for-winter-holidays-1005.html'	
-             if (/cloud/.test(command)) link = 'https://textpro.me/create-a-cloud-text-effect-on-the-sky-online-1004.html'	
-             if (/honey/.test(command)) link = 'https://textpro.me/honey-text-effect-868.html'	
-             if (/ice/.test(command)) link = 'https://textpro.me/ice-cold-text-effect-862.html'	
-             if (/fruitjuice/.test(command)) link = 'https://textpro.me/fruit-juice-text-effect-861.html'	
-             if (/biscuit/.test(command)) link = 'https://textpro.me/biscuit-text-effect-858.html'	
-             if (/wood/.test(command)) link = 'https://textpro.me/wood-text-effect-856.html'	
-             if (/chocolate/.test(command)) link = 'https://textpro.me/chocolate-cake-text-effect-890.html'	
-             if (/strawberry/.test(command)) link = 'https://textpro.me/strawberry-text-effect-online-889.html'	
-             if (/matrix/.test(command)) link = 'https://textpro.me/matrix-style-text-effect-online-884.html'	
-             if (/blood/.test(command)) link = 'https://textpro.me/horror-blood-text-effect-online-883.html'	
-             if (/dropwater/.test(command)) link = 'https://textpro.me/dropwater-text-effect-872.html'	
-             if (/toxic/.test(command)) link = 'https://textpro.me/toxic-text-effect-online-901.html'	
-             if (/lava/.test(command)) link = 'https://textpro.me/lava-text-effect-online-914.html'	
-             if (/rockart/.test(command)) link = 'https://textpro.me/rock-text-effect-online-915.html'	
-             if (/bloodglas/.test(command)) link = 'https://textpro.me/blood-text-on-the-frosted-glass-941.html'	
-             if (/halloween/.test(command)) link = 'https://textpro.me/halloween-fire-text-effect-940.html'	
-             if (/darkgold/.test(command)) link = 'https://textpro.me/metal-dark-gold-text-effect-online-939.html'	
-             if (/joker/.test(command)) link = 'https://textpro.me/create-logo-joker-online-934.html'	
-             if (/wicker/.test(command)) link = 'https://textpro.me/wicker-text-effect-online-932.html'	
-             if (/firework/.test(command)) link = 'https://textpro.me/firework-sparkle-text-effect-930.html'	
-             if (/skeleton/.test(command)) link = 'https://textpro.me/skeleton-text-effect-online-929.html'	
-             if (/blackpinkart/.test(command)) link = 'https://textpro.me/create-blackpink-logo-style-online-1001.html'	
-             if (/sand/.test(command)) link = 'https://textpro.me/write-in-sand-summer-beach-free-online-991.html'	
-             if (/glue/.test(command)) link = 'https://textpro.me/create-3d-glue-text-effect-with-realistic-style-986.html'	
-             if (/1917/.test(command)) link = 'https://textpro.me/1917-style-text-effect-online-980.html'	
-                if (/leaves/.test(command)) link = 'https://textpro.me/natural-leaves-text-effect-931.html'           	
-             let anutexpro = await maker.textpro(link, q)	
-                PeaceMd.sendMessage(m.chat, { image: { url: anutexpro }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m })	
-             }	
-             break	
-case'glitch3':	
-if(!q) throw `Use ${prefix + command} text|text`	
-m.reply(mess.wait)	
-teks1 = q.split("|")[0]	
-teks2 = q.split("|")[1]	
-maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.html", [	
-    `${teks1}`,`${teks2}`])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case '3dbox':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [	
-    `${q}`,])	
-.then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-.catch((err) => console.log(err));	
-break	
-
-case 'waterdrop':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
- maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [	
-     `${q}`,])	
-    .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-    .catch((err) => console.log(err));	
-     break	
-
-case 'lion2':	
-  if(!q) throw `Use ${prefix + command} text`	
-  m.reply(mess.wait)	
-  maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [	
-      `${q}`,])	
-     .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-     .catch((err) => console.log(err));	
-     break	
-
-case 'papercut':	
-      if(!q) throw `Use ${prefix + command} text`	
-      m.reply(mess.wait)	
-      maker.textpro("https://textpro.me/create-art-paper-cut-text-effect-online-1022.html", [	
-`${q}`,])	
-         .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-         .catch((err) => console.log(err));	
-         break	
-
-case 'transformer':	
-      if(!q) throw `Use ${prefix + command} text`	
-      m.reply(mess.wait)	
-      maker.textpro("https://textpro.me/create-a-transformer-text-effect-online-1035.html", [	
-`${q}`,])	
-.then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-.catch((err) => console.log(err));	
-break	
-
-case 'harrypot':	
-       if(!q) throw `Use ${prefix + command} text|text`	
-       m.reply(mess.wait)	
-       teks1 = q.split("|")[0]	
-       teks2 = q.split("|")[1]	
-       maker.textpro("https://textpro.me/create-harry-potter-text-effect-online-1025.html", [	
- `${teks1}`,`${teks2}`])	
- .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
- .catch((err) => console.log(err));	
- break	
-
-case 'neondevil':	
-      if(!q) throw `Use ${prefix + command} text`	
-      m.reply(mess.wait)	
-      maker.textpro("https://textpro.me/create-neon-devil-wings-text-effect-online-free-1014.html", [	
-`${q}`,])	
-         .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-         .catch((err) => console.log(err));	
-         break	
-
-case '3dstone':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/3d-stone-cracked-cool-text-effect-1029.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case '3davengers':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/create-3d-avengers-logo-online-974.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'thunder':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/online-thunder-text-effect-generator-1031.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'window':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-   case 'blackpinkneon':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/create-neon-light-blackpink-logo-text-effect-online-1081.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'graffiti':	
-   case 'grafiti':	
-if(!q) throw `Use ${prefix + command} text|text`	
-m.reply(mess.wait)	
-teks1 = q.split("|")[0]	
-teks2 = q.split("|")[1]	
-maker.textpro("https://textpro.me/create-a-cool-graffiti-text-on-the-wall-1010.html", [	
-    `${teks1}`,`${teks2}`])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'pornhub2':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-teks1 = q.split("|")[0]	
-teks2 = q.split("|")[1]	
-maker.textpro("https://textpro.me/pornhub-style-logo-online-generator-free-977.html", [	
-    `${teks1}`,`${teks2}`])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'blackpink2':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/create-blackpink-logo-style-online-1001.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'glitch':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/create-impressive-glitch-text-effects-online-1027.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'glitch2':	
-if(!q) throw `Use ${prefix + command} text|text`	
-m.reply(mess.wait)	
-teks1 = q.split("|")[0]	
-teks2 = q.split("|")[1]	
-maker.textpro("https://textpro.me/create-a-glitch-text-effect-online-free-1026.html", [	
-    `${teks1}`,`${teks2}`])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'glitch3':	
-if(!q) throw `Use ${prefix + command} text|text`	
-m.reply(mess.wait)	
-teks1 = q.split("|")[0]	
-teks2 = q.split("|")[1]	
-maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.html", [	
-    `${teks1}`,`${teks2}`])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case '3dspace':	
-if(!q) throw `Use ${prefix + command} text|text`	
-m.reply(mess.wait)	
-teks1 = q.split("|")[0]	
-teks2 = q.split("|")[1]	
-maker.textpro("https://textpro.me/create-space-3d-text-effect-online-985.html", [	
-    `${teks1}`,`${teks2}`])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'lion':	
-if(!q) throw `Use ${prefix + command} text|text`	
-m.reply(mess.wait)	
-teks1 = q.split("|")[0]	
-teks2 = q.split("|")[1]	
-maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [	
-    `${teks1}`,`${teks2}`])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case '3dneon':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/create-3d-neon-light-text-effect-online-1028.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'neon':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/neon-text-effect-online-879.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'greenneon':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/green-neon-text-effect-874.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'bokeh':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/bokeh-text-effect-876.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-
-
-case 'holographic':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/holographic-3d-text-effect-975.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-
-
-case 'bear':	
-
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-teks1 = q.split("|")[0]	
-teks2 = q.split("|")[1]	
-maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html", [	
-    `${teks1}`,`${teks2}`])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'wolf':	
-
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-teks1 = q.split("|")[0]	
-teks2 = q.split("|")[1]	
-maker.textpro("https://textpro.me/create-wolf-logo-galaxy-online-936.html", [	
-    `${teks1}`,`${teks2}`])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'joker':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/create-logo-joker-online-934.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'dropwater2':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-   case 'summertime':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/create-a-summer-neon-light-text-effect-online-1076.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'neonlight2':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/neon-light-text-effect-with-galaxy-style-981.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'thewall':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/break-wall-text-effect-871.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'natural':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/natural-leaves-text-effect-931.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break 	
-
-case 'carbon':	
-if(!q) throw `Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/carbon-text-effect-833.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
-
-case 'pencil':	
-if(!q) throw`Use ${prefix + command} text`	
-m.reply(mess.wait)	
-maker.textpro("https://textpro.me/create-a-sketch-text-effect-online-1044.html", [	
-    `${q}`,])	
-  .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m }))	
-  .catch((err) => console.log(err));	
-   break	
+      case 'candy': case 'christmas': case '3dchristmas': case 'sparklechristmas':
+        case 'deepsea': case 'scifi': case 'rainbow2': case 'waterpipe': case 'spooky': case 'wolflogo' :
+        case 'pencil': case 'circuit': case 'discovery': case 'metalic': case 'fiction': case 'demon': 
+        case 'transformer': case 'berry': case 'thunder': case '3dstone2': case 'neonhart' : case 'goldlion': case 'neonhart2' : case 'gem' :
+        case 'neonlight': case 'glitch': case 'harrypotter': case 'brokenglass': case 'papercut': case 'potty' :
+        case 'watercolor': case 'multicolor': case 'neondevil': case 'underwater': case 'graffitibike':
+         case 'snow': case 'cloud': case 'honey': case 'ice': case 'fruitjuice': case 'biscuit': case 'wood': 
+        case 'chocolate': case 'strawberry': case 'matrix': case 'blood': case 'dropwater': case 'toxic': 
+        case 'lava': case 'rock': case 'bloodglas': case 'halloween': case 'darkgold': case 'joker': case 'wicker':
+         case 'firework': case 'skeleton': case 'blackpink': case 'sand': case 'glue': case '1917': case 'leaves': case 'demon': { 
+         
+          var MAKING = '*🌈 Take a moment to createing your textlogo...*\n*🌈 මදක් රැදීසිටින්න ඔබගේ textlogo සෑදමින් පවතී...*'
+                                  
+                     if (!q) return reply(`Example\n : ${prefix + command} PEACE MD`) 
+                        await PeaceMd.sendMessage(from, { react: { text: `🎡`, key: m.key }})
+                     let link
+                     if (/candy/.test(command)) link = 'https://textpro.me/create-christmas-candy-cane-text-effect-1056.html'
+                     if (/christmas/.test(command)) link = 'https://textpro.me/christmas-tree-text-effect-online-free-1057.html'
+                     if (/3dchristmas/.test(command)) link = 'https://textpro.me/3d-christmas-text-effect-by-name-1055.html'
+                     if (/sparklechristmas/.test(command)) link = 'https://textpro.me/sparkles-merry-christmas-text-effect-1054.html'
+                     if (/deepsea/.test(command)) link = 'https://textpro.me/create-3d-deep-sea-metal-text-effect-online-1053.html'
+                     if (/scifi/.test(command)) link = 'https://textpro.me/create-3d-sci-fi-text-effect-online-1050.html'
+                     if (/rainbow/.test(command)) link = 'https://textpro.me/3d-rainbow-color-calligraphy-text-effect-1049.html'
+                     if (/waterpipe/.test(command)) link = 'https://textpro.me/create-3d-water-pipe-text-effects-online-1048.html'
+                     if (/spooky/.test(command)) link = 'https://textpro.me/create-halloween-skeleton-text-effect-online-1047.html'
+                     if (/pencil/.test(command)) link = 'https://textpro.me/create-a-sketch-text-effect-online-1044.html'
+                     if (/circuit/.test(command)) link = 'https://textpro.me/create-blue-circuit-style-text-effect-online-1043.html'
+                     if (/discovery/.test(command)) link = 'https://textpro.me/create-space-text-effects-online-free-1042.html'
+                     if (/metalic/.test(command)) link = 'https://textpro.me/creat-glossy-metalic-text-effect-free-online-1040.html'
+                     if (/fiction/.test(command)) link = 'https://textpro.me/create-science-fiction-text-effect-online-free-1038.html'
+                     if (/demon/.test(command)) link = 'https://textpro.me/create-green-horror-style-text-effect-online-1036.html'
+                     if (/transformer/.test(command)) link = 'https://textpro.me/create-a-transformer-text-effect-online-1035.html'
+                     if (/berry/.test(command)) link = 'https://textpro.me/create-berry-text-effect-online-free-1033.html'
+                     if (/thunder/.test(command)) link = 'https://textpro.me/online-thunder-text-effect-generator-1031.html'
+                     if (/magma/.test(command)) link = 'https://textpro.me/create-a-magma-hot-text-effect-online-1030.html'
+                     if (/3dstone2/.test(command)) link = 'https://textpro.me/create-a-3d-stone-text-effect-online-for-free-1073.html'
+                     if (/neonlight/.test(command)) link = 'https://textpro.me/create-3d-neon-light-text-effect-online-1028.html'
+                     if (/glitch/.test(command)) link = 'https://textpro.me/create-impressive-glitch-text-effects-online-1027.html'
+                     if (/harrypotter/.test(command)) link = 'https://textpro.me/create-harry-potter-text-effect-online-1025.html'
+                     if (/brokenglass/.test(command)) link = 'https://textpro.me/broken-glass-text-effect-free-online-1023.html'
+                     if (/papercut/.test(command)) link = 'https://textpro.me/create-art-paper-cut-text-effect-online-1022.html'
+                     if (/watercolor/.test(command)) link = 'https://textpro.me/create-a-free-online-watercolor-text-effect-1017.html'
+                     if (/multicolor/.test(command)) link = 'https://textpro.me/online-multicolor-3d-paper-cut-text-effect-1016.html'
+                     if (/neondevil/.test(command)) link = 'https://textpro.me/create-neon-devil-wings-text-effect-online-free-1014.html'
+                     if (/underwater/.test(command)) link = 'https://textpro.me/3d-underwater-text-effect-generator-online-1013.html'
+                     if (/graffitibike/.test(command)) link = 'https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html'
+                     if (/snow/.test(command)) link = 'https://textpro.me/create-snow-text-effects-for-winter-holidays-1005.html'
+                     if (/cloud/.test(command)) link = 'https://textpro.me/create-a-cloud-text-effect-on-the-sky-online-1004.html'
+                     if (/honey/.test(command)) link = 'https://textpro.me/honey-text-effect-868.html'
+                     if (/ice/.test(command)) link = 'https://textpro.me/ice-cold-text-effect-862.html'
+                     if (/fruitjuice/.test(command)) link = 'https://textpro.me/fruit-juice-text-effect-861.html'
+                     if (/biscuit/.test(command)) link = 'https://textpro.me/biscuit-text-effect-858.html'
+                     if (/wood/.test(command)) link = 'https://textpro.me/wood-text-effect-856.html'
+                     if (/chocolate/.test(command)) link = 'https://textpro.me/chocolate-cake-text-effect-890.html'
+                     if (/strawberry/.test(command)) link = 'https://textpro.me/strawberry-text-effect-online-889.html'
+                     if (/matrix/.test(command)) link = 'https://textpro.me/matrix-style-text-effect-online-884.html'
+                     if (/blood/.test(command)) link = 'https://textpro.me/horror-blood-text-effect-online-883.html'
+                     if (/dropwater/.test(command)) link = 'https://textpro.me/dropwater-text-effect-872.html'
+                     if (/toxic/.test(command)) link = 'https://textpro.me/toxic-text-effect-online-901.html'
+                     if (/lava/.test(command)) link = 'https://textpro.me/lava-text-effect-online-914.html'
+                     if (/rock/.test(command)) link = 'https://textpro.me/rock-text-effect-online-915.html'
+                     if (/bloodglas/.test(command)) link = 'https://textpro.me/blood-text-on-the-frosted-glass-941.html'
+                     if (/halloween/.test(command)) link = 'https://textpro.me/halloween-fire-text-effect-940.html'
+                     if (/darkgold/.test(command)) link = 'https://textpro.me/metal-dark-gold-text-effect-online-939.html'
+                     if (/joker/.test(command)) link = 'https://textpro.me/create-logo-joker-online-934.html'
+                     if (/wicker/.test(command)) link = 'https://textpro.me/wicker-text-effect-online-932.html'
+                     if (/firework/.test(command)) link = 'https://textpro.me/firework-sparkle-text-effect-930.html'
+                     if (/skeleton/.test(command)) link = 'https://textpro.me/skeleton-text-effect-online-929.html'
+                     if (/blackpink/.test(command)) link = 'https://textpro.me/create-blackpink-logo-style-online-1001.html'
+                     if (/sand/.test(command)) link = 'https://textpro.me/write-in-sand-summer-beach-free-online-991.html'
+                     if (/glue/.test(command)) link = 'https://textpro.me/create-3d-glue-text-effect-with-realistic-style-986.html'
+                     if (/1917/.test(command)) link = 'https://textpro.me/1917-style-text-effect-online-980.html'
+                     if (/leaves/.test(command)) link = 'https://textpro.me/natural-leaves-text-effect-931.html'  
+                     if (/neonhart/.test(command)) link = 'https://textpro.me/create-neon-light-on-brick-wall-online-1062.html'    
+                     if (/wolflogo/.test(command)) link = 'https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html'     
+                     if (/goldlion/.test(command)) link = 'https://textpro.me/create-avatar-gold-online-956.html'
+                     if (/neonhart2/.test(command)) link = 'https://textpro.me/create-glowing-neon-light-text-effect-online-free-1061.html'
+                     if (/gem/.test(command)) link = 'https://textpro.me/blue-gem-text-effect-830.html'
+                     if (/potty/.test(command)) link = 'https://textpro.me/create-3d-pottery-text-effect-online-1088.html'
+                     
+                     let anu = await maker.textpro(link, q)
+                     const logomaking = await PeaceMd.sendText(m.chat, MAKING )
+                     await PeaceMd.sendMessage(m.chat, { image: { url: anu }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
+                     await PeaceMd.sendMessage(m.chat,{delete : logomaking.key })  
+                     }
+                     break
+                     
+                     
+        case'glitch3':
+           
+        if(!q) return reply(`Use ${prefix + command} text|text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        teks1 = q.split("|")[0]
+        teks2 = q.split("|")[1]
+        maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.html", [
+            `${teks1}`,`${teks2}`])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        case '3dbox':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [
+            `${q}`,])
+        .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+        .catch((err) => console.log(err));
+        break
+        
+        
+        case 'waterdrop':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+         maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [
+             `${q}`,])
+            .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+            .catch((err) => console.log(err));
+             break
+        
+        
+        case 'lion2':
+           
+          if(!q) return reply(`Use ${prefix + command} text`)
+          await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+          maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [
+              `${q}`,])
+             .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+             .catch((err) => console.log(err));
+             break
+        
+        
+        case 'papercut':
+           
+              if(!q) return reply(`Use ${prefix + command} text`)
+              await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+              maker.textpro("https://textpro.me/create-art-paper-cut-text-effect-online-1022.html", [
+        `${q}`,])
+                 .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+                 .catch((err) => console.log(err));
+                 break
+        
+        
+        case 'transformer':
+           
+              if(!q) return reply(`Use ${prefix + command} text`)
+              await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+              maker.textpro("https://textpro.me/create-a-transformer-text-effect-online-1035.html", [
+        `${q}`,])
+        .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+        .catch((err) => console.log(err));
+        break
+           
+        
+        case 'harrypot':
+           
+               if(!q) return reply(`Use ${prefix + command} text|text`)
+               await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+               teks1 = q.split("|")[0]
+               teks2 = q.split("|")[1]
+               maker.textpro("https://textpro.me/create-harry-potter-text-effect-online-1025.html", [
+         `${teks1}`,`${teks2}`])
+         .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+         .catch((err) => console.log(err));
+         break
+        
+        
+        case 'neondevil':
+           
+              if(!q) return reply(`Use ${prefix + command} text`)
+              await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+              maker.textpro("https://textpro.me/create-neon-devil-wings-text-effect-online-free-1014.html", [
+        `${q}`,])
+                 .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+                 .catch((err) => console.log(err));
+                 break
+        
+        
+        case '3dstone':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/3d-stone-cracked-cool-text-effect-1029.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        
+        case '3davengers':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/create-3d-avengers-logo-online-974.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        
+        case 'thunder':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/online-thunder-text-effect-generator-1031.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+           
+        
+        case 'window':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+           case 'blackpinkneon':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/create-neon-light-blackpink-logo-text-effect-online-1081.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        case 'graffiti':
+           case 'grafiti':
+              
+        if(!q) return reply(`Use ${prefix + command} text|text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        teks1 = q.split("|")[0]
+        teks2 = q.split("|")[1]
+        maker.textpro("https://textpro.me/create-a-cool-graffiti-text-on-the-wall-1010.html", [
+            `${teks1}`,`${teks2}`])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        
+        
+        case 'pornhub2':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        teks1 = q.split("|")[0]
+        teks2 = q.split("|")[1]
+        maker.textpro("https://textpro.me/pornhub-style-logo-online-generator-free-977.html", [
+            `${teks1}`,`${teks2}`])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        
+        
+        case 'blackpink2':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/create-blackpink-logo-style-online-1001.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        case 'glitch':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/create-impressive-glitch-text-effects-online-1027.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        
+        
+        case 'glitch2':
+           
+        if(!q) return reply(`Use ${prefix + command} text|text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        teks1 = q.split("|")[0]
+        teks2 = q.split("|")[1]
+        maker.textpro("https://textpro.me/create-a-glitch-text-effect-online-free-1026.html", [
+            `${teks1}`,`${teks2}`])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        
+        
+        case 'glitch3':
+           
+        if(!q) return reply(`Use ${prefix + command} text|text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        teks1 = q.split("|")[0]
+        teks2 = q.split("|")[1]
+        maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.html", [
+            `${teks1}`,`${teks2}`])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        
+        
+        case '3dspace':
+           
+        if(!q) return reply(`Use ${prefix + command} text|text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        teks1 = q.split("|")[0]
+        teks2 = q.split("|")[1]
+        maker.textpro("https://textpro.me/create-space-3d-text-effect-online-985.html", [
+            `${teks1}`,`${teks2}`])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        
+        
+        case 'lion':
+           
+        if(!q) return reply(`Use ${prefix + command} text|text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        teks1 = q.split("|")[0]
+        teks2 = q.split("|")[1]
+        maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [
+            `${teks1}`,`${teks2}`])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        
+        
+        case '3dneon':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/create-3d-neon-light-text-effect-online-1028.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        
+        
+        case 'neon':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/neon-text-effect-online-879.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        
+        
+        case 'greenneon':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/green-neon-text-effect-874.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+           
+           
+          
+        case 'bokeh':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/bokeh-text-effect-876.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+           
+           
+        
+        case 'holographic':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/holographic-3d-text-effect-975.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        
+        
+        case 'bear':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        teks1 = q.split("|")[0]
+        teks2 = q.split("|")[1]
+        maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html", [
+            `${teks1}`,`${teks2}`])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        
+        
+        case 'wolf':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        teks1 = q.split("|")[0]
+        teks2 = q.split("|")[1]
+        maker.textpro("https://textpro.me/create-wolf-logo-galaxy-online-936.html", [
+            `${teks1}`,`${teks2}`])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        
+        
+        
+        case 'joker':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/create-logo-joker-online-934.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        
+        case 'dropwater2':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+           
+           case 'summertime':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/create-a-summer-neon-light-text-effect-online-1076.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        case 'neonlight2':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/neon-light-text-effect-with-galaxy-style-981.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        case 'thewall':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/break-wall-text-effect-871.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+           
+        case 'natural':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/natural-leaves-text-effect-931.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break 
+        
+        case 'carbon':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/carbon-text-effect-833.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+        
+        case 'pencil':
+           
+        if(!q) return reply(`Use ${prefix + command} text`)
+        await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
+        maker.textpro("https://textpro.me/create-a-sketch-text-effect-online-1044.html", [
+            `${q}`,])
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+           break
+           
+        /// phtoooxy 
+        case 'lovemsg' :
+        
+        maker.photooxy("https://photooxy.com/logo-and-text-effects/create-a-picture-of-love-message-377.html", [`${q}`,] )
+         .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+          
+        break
+        //https://photooxy.com/other-design/create-dark-metal-text-with-special-logo-160.html
+        case 'darkmetal' :
+        maker.photooxy("https://photooxy.com/other-design/create-dark-metal-text-with-special-logo-160.html", [`${q}`,] )
+         .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .catch((err) => console.log(err));
+          
+        break
+        case 'qsteel': case 'qavenger' : case 'qpolugon' : case 'qhsteel' : case 'qwood' : case 'qlovely' : case 'qmetalic' : case 'qneon' : case 'qpubg' : case 'qfire' : case 'qhorr' : case 'qhalowin' : case 'qvideogame' :
+        case 'qwolf' : case 'qninja' : case 'qreto' :  {
+        
+        const logomaking = await PeaceMd.sendText(m.chat, LOGO_MAKING )          
+        
+        
+          text1 = q.split(" ")[0]
+          text2 = q.split(" ")[1]
+           var link 
+           if (/qsteel/.test(command)) link = `https://api.akuari.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/steel-text-effect-66.html`
+           if (/qavenger/.test(command)) link = `https://api.akuari.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/create-logo-3d-style-avengers-online-427.html`
+           if (/qpolugon/.test(command)) link = `https://api.akuari.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/create-logo-avatar-online-style-polygon-logo-320.html`
+           if (/qhsteel/.test(command)) link = `https://api.akuari.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/heated-steel-lettering-effect-65.html`
+           if (/qwood/.test(command)) link = `https://api.akuari.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/create-3d-wood-text-effects-online-free-705.html`
+           if (/qlovely/.test(command)) link = `https://api.akuari.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/lovely-floral-ornamental-banner-online-603.html`
+           if (/qmetalic/.test(command)) link = `https://api.akuari.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/create-metallic-cover-online-297.html` 
+           if (/qneon/.test(command)) link = `https://api.akuari.my.id/ephoto/scraper-2?text=${text1}&text2=${text2}&link=https://en.ephoto360.com/neon-text-effect-online-78.html`
+           if (/qpubg/.test(command)) link = `https://api.akuari.my.id/photooxy/scraper2?text1=${text1}&text2=${text2}&link=https://photooxy.com/battlegrounds/make-wallpaper-battlegrounds-logo-text-146.html` 
+           if (/qfire/.test(command)) link = `https://api.akuari.my.id/photooxy/scraper2?text1=${text1}&text2=${text2}&link=https://photooxy.com/fps-game-effect/create-battlefield-4-rising-effect-152.html` 
+           if (/qhorr/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-a-cinematic-horror-text-effect-1045.html`
+           if (/qhalowin/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-a-spooky-halloween-text-effect-online-1046.html` 
+           if (/qvideogame/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/video-game-classic-8-bit-text-effect-1037.html` 
+           if (/qwolf/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-wolf-logo-galaxy-online-936.html`
+           if (/qninja/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-ninja-logo-online-935.html`
+           if (/reto/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-3d-retro-text-effect-online-free-106a5.html`
+           const nima = await fetchJson(link)
+           const data = nima.respon
+           //const logomaking = await PeaceMd.sendText(m.chat, LOGO_MAKING )          
+           await PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
+           await PeaceMd.sendMessage(m.chat,{delete : logomaking.key })  
+               
+                          }
+                          break
+        case 'tlc' : case 'tls' : case 'tlm' : case 'tle' : case 'tlb': case 'mountain' :{
+            
+           const logomaking = await PeaceMd.sendText(m.chat, LOGO_MAKING )          
+           text1 = q.split(" ")[0]
+           text2 = q.split(" ")[1]
+           var link 
+           if (/tlc/.test(command)) link = `https://api.akuari.my.id/ephoto/team-logo-cobra?text=${text1}&text_2=${text2}`
+           if (/tls/.test(command)) link = `https://api.akuari.my.id/ephoto/team-logo-singa?text=${text1}&text_2=${text2}`
+           if (/tlm/.test(command)) link = `https://api.akuari.my.id/ephoto/team-logo-macan?text=${text1}&text_2=${text2}`
+           if (/tle/.test(command)) link = `https://api.akuari.my.id/ephoto/team-logo-elang?text=${text1}&text_2=${text2}`
+           if (/tlb/.test(command)) link = `https://api.akuari.my.id/ephoto/team-logo-banteng?text=${text1}&text_2=${text2}`
+           if (/mountain/.test(command)) link = `https://api.akuari.my.id/ephoto/mountain?text=${text1}&text_2=${text2}`
+           
+           await PeaceMd.sendMessage(m.chat, { image: { url: link }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
+           await PeaceMd.sendMessage(m.chat,{delete : logomaking.key })  
+             
+        }
+        break
+        case 'pslogo' :{
+        var MAX = '```💭 කරුනාකර වචනයක් ලබාදෙන්න ...```\n_.pslogo Charith Pramodya_'
+        if (!text && !text.includes(' ')) return reply (MAX)
+                                      
+         await PeaceMd.sendMessage(from, { react: { text: `🧩`, key: m.key }})     
+          
+                 const desmsg = `
+        ━━━━━━━━━━━━━━━━━
+                   PEACE MD LOGO MAKER
+        ━━━━━━━━━━━━━━━━━
+        
+        ✌ PEACE _${m.pushName}_
+        ✏ LOGO TEXT _${text}_
+        
+        👇 Select a Style`    
+             
+             let sections = [{
+        
+                    "rows": [{
+                    "title": "Steel style",
+                        "rowId": `qsteel ${text}`
+                    },
+                     {
+                    "title": "avenger style",
+                    "rowId": `qavenger ${text}`
+                    },
+                    {
+                    "title": "polygon style ",
+                    "rowId": `qpolugon ${text}`
+                    },
+                    {
+                    "title": "fire steel style ",
+                    "rowId": `qhsteel ${text}`
+                    },
+                    {
+                    "title": "wood style ",
+                    "rowId": `qwood ${text}`
+                    },
+                    {
+                    "title": "ornamental style ",
+                    "rowId": `qlovely ${text}`
+                    },
+                    {
+                    "title": "matalic style ",
+                    "rowId": `qmetalic ${text}`
+                    },
+                    {
+                    "title": "neon style ",
+                    "rowId": `qneon ${text}`
+                    },
+                    {
+                    "title": "pubg style ",
+                    "rowId": `qpubg ${text}`
+                    },
+                    {
+                    "title": "fire game style ",
+                    "rowId": `qfire ${text}`
+                    },
+                    {
+                    "title": "horror style ",
+                    "rowId": `qhorr ${text}`
+                    },
+                    {
+                    "title": "haloween style",
+                    "rowId": `qhalowin ${text}`
+                    },
+                    {
+                    "title": "video game style",
+                    "rowId": `qvideogame ${text}`
+                    },
+                    {
+                    "title": "wolf style ",
+                    "rowId": `qwolf ${text}`
+                    },
+                    {
+                    "title": "ninja style ",
+                    "rowId": `qninja ${text}`
+                    },
+                    {
+                    "title": "3d reto style ",
+                    "rowId": `qreto ${text}`
+                    },
+                    {
+                    "title": "bear style",
+                    "rowId": `bear ${text}`
+                    },
+                    {
+                    "title": "lion style ",
+                    "rowId": `lion ${text}`
+                    },
+                    {
+                    "title": "3dspace style ",
+                    "rowId": `3dspace ${text}`
+                    },
+                    {
+                    "title": "glitch style ",
+                    "rowId": `glitch3 ${text}`
+                    },
+                    {
+                    "title": "glitch style - 2 ",
+                    "rowId": `glitch2 ${text}`
+                    },
+                    {
+                    "title": "pronhub style ",
+                    "rowId": `pornhub2 ${text}`
+                    },
+                    {
+                    "title": "grafiti style ",
+                    "rowId": `grafiti ${text}`
+                    },
+                    {
+                    "title": "giltch style 3 ",
+                    "rowId": `glitch3 ${text}`
+                    },
+                    {
+                    "title": "team logo style - 1 ",
+                    "rowId": `tlc ${text}`
+                    },
+                    {
+                    "title": "team logo style - 2 ",
+                    "rowId": `tls ${text}`
+                    },
+                    {
+                    "title": "team logo style - 3 ",
+                    "rowId": `tlm ${text}`
+                    },
+                    {
+                    "title": "team logo style - 4 ",
+                    "rowId": `tle ${text}`
+                    },
+                    {
+                    "title": "team logo style - 5 ",
+                    "rowId": `tlb ${text}`
+                    },
+                    {
+                    "title": "mountain style ",
+                    "rowId": `mountain ${text}`
+                    },
+                    {
+                    "title": "💻 Developer 💻",
+                    "rowId": `dev`
+                    }
+                  ]
+                }
+             ]
+             await PeaceMd.sendListMsg(m.chat, `${desmsg}`, `${global.botnma}`, `*🎨 PEACE MD LOGO MAKER 🎨*`, `MAKE LOGO`, sections, m)
+         
+        }
+        break
 
 case 'textmaker': {	
-
-if (args.length < 1) throw `Example :\n${prefix + command} <name>`	
+await PeaceMd.sendMessage(from, { react: { text: `✏`, key: m.key }})
+if (args.length < 1) throw `💭 ${prefix + command} CHARITH`	
 if (args[0] === 'glitch') {	
-if (args.length < 2) throw `Example :\n${prefix + command + ' ' + args[0]} ${global.ownername}`	
+if (args.length < 2) throw `💭 ${prefix + command + ' ' + args[0]} ${global.ownername}`	
 let teds = await thiccysapi.textpro("https://textpro.me/create-impressive-glitch-text-effects-online-1027.html", [args[1]])	
-PeaceMd.sendMessage(from, {image:{url:teds}, caption:"Done!"}, {quoted:m})	
+PeaceMd.sendMessage(from, {image:{url:teds}, caption:"ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ"}, {quoted:m})	
 } else if (args[0] === 'glow') {	
-if (args.length < 2) throw `Example :\n${prefix + command + ' ' + args[0]} ${global.ownername}`	
+if (args.length < 2) throw `💭 ${prefix + command + ' ' + args[0]} ${global.ownername}`	
 let teds = await thiccysapi.textpro("https://textpro.me/create-light-glow-sliced-text-effect-online-1068.html", [args[1]])	
-PeaceMd.sendMessage(from, {image:{url:teds}, caption:"Done!"}, {quoted:m})	
+PeaceMd.sendMessage(from, {image:{url:teds}, caption:"ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ"}, {quoted:m})	
 } else {	
 m.reply(`*Text Maker List :*\n•> glitch\n•> glow`)	
 }	
@@ -3127,7 +3438,7 @@ maker.textpro("https://textpro.me/fruit-juice-text-effect-861.html", [
    break	
 case 'pornhub':{	
 
-if(!q) throw `Example: ${prefix + command} ajg | ea`	
+if(!q) throw `Example: ${prefix + command} CHARITH PRAMODYA`	
 m.reply(mess.wait)	
   inilogo4 = args.join(" ")	
 inilogo9 = args.join(" ")	
@@ -3139,7 +3450,7 @@ PeaceMd.sendMessage(from,{image:{url:anuphub}, caption:Lang.MESS_WAIT},{quoted:m
 }	
 break	
 case 'retro':{	
-if(!q) throw `Example: ${prefix + command} ajg | ea`	
+if(!q) throw `Example: ${prefix + command} `	
 m.reply(mess.wait)	
   inilogo4 = args.join(" ")	
 inilogo9 = args.join(" ")	
@@ -3151,7 +3462,7 @@ PeaceMd.sendMessage(from,{image:{url:anutro2}, caption:Lang.MESS_WAIT},{quoted:m
 }	
 break	
 case 'horror':{	
-if(!q) throw `Example: ${prefix + command} ajg | ea`	
+if(!q) throw `Example: ${prefix + command} CHARITH PRAMODYA`	
 m.reply(mess.wait)	
   inilogo4 = args.join(" ")	
 inilogo9 = args.join(" ")	
@@ -3163,7 +3474,7 @@ PeaceMd.sendMessage(from,{image:{url:anuror2}, caption:Lang.MESS_WAIT},{quoted:m
 }	
 break	
 case '8bit':{	
-if(!q) throw `Example: ${prefix + command} ajg | ea`	
+if(!q) throw `Example: ${prefix + command} CHARITH PRAMODYA`	
 m.reply(mess.wait)	
   inilogo4 = args.join(" ")	
 inilogo9 = args.join(" ")	
@@ -4098,20 +4409,28 @@ await PeaceMd.sendMessage(from, { react: { text: `📁`, key: me.key }})
    break	
 
 break	
-case 'lyrics2': {	
-	    if (!text) return reply(`Use example ${prefix}lyrics Despacito`)	
-	m.reply(mess.wait)	
-	const { lyrics, lyricsv2 } = require('@bochilteam/scraper')	
-    const result = await lyricsv2(text).catch(async _ => await lyrics(text))	
-    m.reply(`	
-${themeemoji} Title : *${result.title}*	
-${themeemoji} Author : ${result.author}	
-${themeemoji} Lyrics : ${result.lyrics}	
-${themeemoji} Url : ${result.link}	
-`.trim())	
-}	
-break	
-case 'lyrics':	
+case 'lyrics': {	
+    await PeaceMd.sendMessage(from, { react: { text: `✏`, key: me.key }})	
+    if (!text) return reply(`Use example ${prefix}lyrics passa`)	
+    m.reply(mess.wait)	
+    const chari = await fetchJson(`https://sinhalasonglyrics.com/?s=${text}&submit=Search`)
+    
+    const $ = cheerio.load(response.data);
+    const firstResult = $('.entry-title > a').first();
+    const songTitle = firstResult.text().trim();
+    const songLink = firstResult.attr('href');
+    
+    const msg = `
+    *🗳️ Title :* ${songTitle}
+    
+    *📁 LYRICS :*
+    ${lyrics}
+    
+    `
+await PeaceMd.sendText(m.chat, msg )
+    }	
+    break
+case 'lyrics2':	
 if (!text) throw `Song name?`	
 const findLyrics = require('simple-find-lyrics')	
 try {	
@@ -4256,11 +4575,6 @@ break
 case 'gn': {	
 reply(Lang.GN_REP)	
 }	
-break	
-
-case 'hmm' : case 'hm' : case 'hmmm': {	
-    reply(Lang.HMM_REP)	
-    }	
 break	
 
     case 'ane' : case 'anee' : case 'aneee' : {	
@@ -4843,7 +5157,7 @@ case 'apk': {
         .then(async (charith) => {
             const caption = ` 
 ━━━━━━━━━━━━━━━━━
-PEACE MD APK DOWNLOADER
+    PEACE MD APK DOWNLOADER
 ━━━━━━━━━━━━━━━━━
 🔰 ᴛɪᴛᴛʟᴇ : ${charith.hasil[0].title}
 
