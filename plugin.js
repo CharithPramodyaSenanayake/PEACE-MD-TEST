@@ -37,7 +37,7 @@ const ini_mark = `0@s.whatsapp.net`
 const ownernya = ownernomer + '@s.whatsapp.net'	
 
 
-
+var LOGO_MAKING = '*🌈 මදක් රැදීසිටින්න ඔබගේ textlogo සෑදමින් පවතී...*'
 
 //TIME	
 const xtime = moment.tz('Asia/Kolkata').format('HH:mm:ss')	
@@ -1600,7 +1600,7 @@ break
 		}	
 	    }	
 	    break	
-	case 'emojimix2': {	
+	case 'mixemoji': {	
         await PeaceMd.sendMessage(from, { react: { text: `🧩`, key: m.key }}) 
 	    if (!text) throw `💭 ${prefix + command} 😎 😋`	
 		let anumix2 = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(text)}`)	
@@ -1702,7 +1702,7 @@ case 'tomp4': case 'tovideo': {
                 await fs.unlinkSync(media)	
             }	
             break	
-            case 'imagenobg': case 'removebg': case 'remove-bg': {
+            case 'nobg': case 'removebg': case 'remove-bg': {
                 await PeaceMd.sendMessage(from, { react: { text: `🖼`, key: m.key }}) 	
 	    if (!quoted) throw `💭 Send/Reply Image With Caption ${prefix + command}`	
 	    if (!/image/.test(mime)) throw `💭 Send/Reply Image With Caption ${prefix + command}`	
@@ -1835,19 +1835,33 @@ break
                 let search = await yts(text)	
                 let anulay = search.videos[Math.floor(Math.random() * search.videos.length)]	
                 let buttons = [	
-                    {buttonId: `playmp3 ${anulay.url}`, buttonText: {displayText: '♫ Audio'}, type: 1},	
-                    {buttonId: `playmp4 ${anulay.url}`, buttonText: {displayText: '► Video'}, type: 1}	
+                    {buttonId: `playmp3 ${anulay.url}`, buttonText: {displayText: '🎧 Audio 🎧'}, type: 1},	
+                    {buttonId: `playmp4 ${anulay.url}`, buttonText: {displayText: '🎥 Video 🎥'}, type: 1},
+                    {buttonId: `ytdoc ${anulay.url}`, buttonText: {displayText: '📁 Document 📁'}, type: 1}	
+                    
+                    
                 ]	
                 let buttonMessage = {	
                     image: { url: anulay.thumbnail },	
                     caption: `	
+━━━━━━━━━━━━━━━━━
+    PEACE MD YT SEARCH
+━━━━━━━━━━━━━━━━━
+
 🔰 Title : ${anulay.title}	
+
 ⌛ Duration : ${anulay.timestamp}	
+
 👀 Viewers : ${anulay.views}	
+
 📅 Upload At : ${anulay.ago}	
+
 🎩 Author : ${anulay.author.name}	
+
 🎯 Channel : ${anulay.author.url}	
+
 📃 Description : ${anulay.description}	
+
 🌐 Url : ${anulay.url}`,	
                     footer: botname,	
                     buttons: buttons,	
@@ -1916,6 +1930,7 @@ const xeonaudp3 = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !xeonaudp3.isYTUrl(text)) throw `Where's the yt link?\nExample: ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`	
 const audio=await xeonaudp3.mp3(text)	
 PeaceMd.sendMessage(m.chat, { audio: { url: audio.path }, mimetype: 'audio/mpeg', fileName: `${audio.meta.title}.mp3` }, { quoted: m })	
+PeaceMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
 break	
 
 
@@ -1930,6 +1945,7 @@ case 'ytdoc': {
     const docup = await PeaceMd.sendText(m.chat, `Im uploding Your ${m.pushName} Audio ... 📤`)     	
     const doc = await PeaceMd.sendMessage(m.chat, {document: {url : anu.download}, mimetype: 'audio/mpeg', fileName: `${anu.title}.mp3`}, { quoted : m }).catch((err) => reply(mess.error))	
     await PeaceMd.sendMessage(from, { delete: docup.key })	
+    PeaceMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
                }	
               break	
 
@@ -1948,6 +1964,7 @@ await PeaceMd.sendMessage(m.chat,{
     video: {url:vid.videoUrl},	
     caption: ytc	
 },{quoted:m})	
+PeaceMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
 break	
 
 case 'pinterest': {	
@@ -1984,11 +2001,11 @@ case 'pinterest': {
 		let resultdd = anuwallpep[Math.floor(Math.random() * anuwallpep.length)]	
 		let resultee = anuwallpep[Math.floor(Math.random() * anuwallpep.length)]	
 
-		await PeaceMd.sendMessage(m.chat, { image: { url: resultaa.image[0] }, caption: `${command} Wallpaper` }, { quoted: m });	
-		PeaceMd.sendMessage(m.chat, { image: { url: resultbb.image[0] }, caption: `${command} Wallpaper` }, { quoted: m });	
-		PeaceMd.sendMessage(m.chat, { image: { url: resultcc.image[0] }, caption: `${command} Wallpaper` }, { quoted: m });	
-	        PeaceMd.sendMessage(m.chat, { image: { url: resultdd.image[0] }, caption: `${command} Wallpaper` }, { quoted: m });	
-		PeaceMd.sendMessage(m.chat, { image: { url: resultee.image[0] }, caption: `${command} Wallpaper` }, { quoted: m });	
+		await PeaceMd.sendMessage(m.chat, { image: { url: resultaa.image[0] }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m });	
+		PeaceMd.sendMessage(m.chat, { image: { url: resultbb.image[0] }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m });	
+		PeaceMd.sendMessage(m.chat, { image: { url: resultcc.image[0] }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m });	
+	        PeaceMd.sendMessage(m.chat, { image: { url: resultdd.image[0] }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m });	
+		PeaceMd.sendMessage(m.chat, { image: { url: resultee.image[0] }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ ʙʏ ᴄʜᴀʀɪᴛʜ` }, { quoted: m });	
             }	
             break	
             case 'wikimedia': {	
@@ -1997,11 +2014,11 @@ case 'pinterest': {
                 anuwmedia = await wikimedia(text)	
                 result = anumedia[Math.floor(Math.random() * anumedia.length)]	
                 let buttons = [	
-                    {buttonId: `wikimedia ${text}`, buttonText: {displayText: 'Next Image'}, type: 1}	
+                    {buttonId: `wikimedia ${text}`, buttonText: {displayText: 'Next'}, type: 1}	
                 ]	
                 let buttonMessage = {	
                     image: { url: result.image },	
-                    caption: `${themeemoji} Title : ${result.title}\n${themeemoji} Source : ${result.source}\n${themeemoji} Media Url : ${result.image}`,	
+                    caption: `🔰 Title : ${result.title}\n🌐 Source : ${result.source}\n🔗 Media Url : ${result.image}`,	
                     footer: botname,	
                     buttons: buttons,	
                     headerType: 4	
@@ -3091,7 +3108,7 @@ case 'pinterest': {
                   ]
                 }
              ]
-             await PeaceMd.sendListMsg(m.chat, `${desmsg}`, `${global.botnma}`, `*🎨 PEACE MD LOGO MAKER 🎨*`, `MAKE LOGO`, sections, m)
+             await PeaceMd.sendListMsg(m.chat, `${desmsg}`, `ᴘᴇᴀᴄᴇ ᴍᴅ`, `*🎨 PEACE MD LOGO MAKER 🎨*`, `MAKE LOGO`, sections, m)
          
         }
         break
@@ -3532,26 +3549,10 @@ break
 		PeaceMd.sendMessage(m.chat, { audio: { url: result.audio }, fileName: result.title+'.mp3', mimetype: 'audio/mpeg' }, { quoted: m })	
 	    }	
 	    break	
-case 'stickman':	
-m.reply(mess.wait)	
-PeaceMd.sendMessage(m.chat, {sticker: {url: `https://api.zeeoneofc.xyz/api/telegram-sticker/manusia-lidi?apikey=dhmDlD5x`}}, {quoted: m })	
-break	
-case 'spongebob':	
-m.reply(mess.wait)	
-PeaceMd.sendMessage(m.chat, {sticker: {url: `https://api.zeeoneofc.xyz/api/telegram-sticker/kawan-sponsbob?apikey=dhmDlD5x`}}, {quoted: m })	
-break	
-case 'gojosatoru':	
-m.reply(mess.wait)	
-PeaceMd.sendMessage(m.chat, {sticker: {url: `https://api.zeeoneofc.xyz/api/telegram-sticker/gojosatoru?apikey=dhmDlD5x`}}, {quoted: m })	
-break	
-case 'nicholas':	
-m.reply(mess.wait)	
-PeaceMd.sendMessage(m.chat, {sticker: {url: `https://api.zeeoneofc.xyz/api/telegram-sticker/nicholas?apikey=dhmDlD5x`}}, {quoted: m })	
-break	
-case 'cartoon':	
-m.reply(mess.wait)	
-PeaceMd.sendMessage(m.chat, {sticker: {url: `https://api.zeeoneofc.xyz/api/telegram-sticker/kr-robot?apikey=dhmDlD5x`}}, {quoted: m })	
-break	
+
+        
+
+        
 		case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat': case 'nightcore': case 'reverse': case 'robot': case 'slow': case 'smooth': case 'squirrel':	
                 try {	
                 let set	
@@ -5154,7 +5155,7 @@ case 'apk': {
     })
     if (!text) return reply('*💭 Please give plastore app name*')
     await PeaceMd.sendText(m.chat, mess.wait)
-    await fetchJson(`https://api.akuari.my.id/search/playstoresearch?query=${text}`)
+    await fetchJson(`https://api.akuari.my.id/search/searchapk2?query=${text}`)
         .then(async (charith) => {
             const caption = ` 
 ━━━━━━━━━━━━━━━━━
@@ -5248,7 +5249,6 @@ case 'hirunews': {
  *⏰ Time * _${news.date}_
  *📄️ Description *
  ${news.description}
- 
  `
     const templateButtons = [{
             index: 1,
