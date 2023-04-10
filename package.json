@@ -1,6 +1,6 @@
 {
   "name": "PEACE-MD",
-  "version": "6.0.0",
+  "version": "2.0.0",
   "description": "Automated whatsapp md bot created using nodejs and baileys lib",
   "type": "commonjs",
   "scripts": {
@@ -82,10 +82,10 @@
     "src": "src"
   },
   "devDependencies": {},
-  "repository": "git+https://github.com/ALPHAkaveen/v8-bot-yakuza.git",
+  "repository": "git+https://github.com/CharithPramodyaSenanayake/PEACE-MD",
   "bugs": {
-    "url": "https://github.com/ALPHAkaveen/v8-bot-yakuza/issues"
+    "url": "https://github.com/CharithPramodyaSenanayake/PEACE-MD/issues"
   },
-  "homepage": "https://github.com/ALPHAkaveen/v8-bot-yakuza/#readme",
+  "homepage": "https://github.com/CharithPramodyaSenanayake/PEACE-MD/#readme",
   "main": "index.js"
 }
