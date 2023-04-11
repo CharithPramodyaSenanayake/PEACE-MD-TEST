@@ -187,29 +187,7 @@ if (cek == null) return null
         const AntiLinkTwitter = m.isGroup ? ntilinktwt.includes(from) : false	
         const AntiLinkAll = m.isGroup ? ntilinkall.includes(from) : false	
         const antiWame = m.isGroup ? ntwame.includes(from) : false	
-        const antiToxic = m.isGroup ? nttoxic.includes(from) : false	
-        const solot = [	
-		'🍊 : 🍒 : 🍐',	
-		'🍒 : 🔔 : 🍊',	
-		'🍇 : 🍇 : 🍇',	
-		'🍊 : 🍋 : 🔔',	
-		'🔔 : 🍒 : 🍐',	
-		'🔔 : 🍒 : 🍊',	
-        '🍊 : 🍋 : 🔔',			
-		'🍐 : 🍒 : 🍋',	
-		'🍐 : 🍐 : 🍐',	
-		'🍊 : 🍒 : 🍒',	
-		'🔔 : 🔔 : 🍇',	
-		'🍌 : 🍒 : 🔔',	
-		'🍐 : 🔔 : 🔔',	
-		'🍊 : 🍋 : 🍒',	
-		'🍋 : 🍋 : 🍌',	
-		'🔔 : 🔔 : 🍇',	
-		'🔔 : 🍐 : 🍇',	
-		'🔔 : 🔔 : 🔔  Win',	
-		'🍒 : 🍒 : 🍒 Win',	
-		'🍌 : 🍌 : 🍌 Lose'	
-		]	
+        const antiToxic = m.isGroup ? nttoxic.includes(from) : false
 
 //afk and other	
 
@@ -260,7 +238,6 @@ antilink: false,
             console.error(err)	
         }	
 
-        //auto bio set	
 
 
 if (db.data.settings[botNumber].autobio) {	
@@ -285,23 +262,14 @@ return Math.floor(Math.random() * angka) + 1
 }	
 const hsjdh = randomNomor(5)	
 
-
-
-//auto react all message	
-/////PeaceMd.sendMessage(m.chat, {	
-          ////react: {	
-            ////////////////////////////////////////text: `${pickRandom(['😨','😅','😂','😳','😎', '🥵', '😱', '🐦', '🙄', '🐤','🗿','🐦','🤨','🥴','😐','👆','😔', '👀','👎'])}`,	
-            ////key: m.key,	
-          /////}})	
-
 //auto recording all	
     if (global.autoRecord) { if (m.chat) { PeaceMd.sendPresenceUpdate('recording', m.chat) }	
 }	
 //autotyper all	
-  if (global.autoTyping) { if (m.chat) { PeaceMd.sendPresenceUpdate('composing', m.chat) }	
+    if (global.autoTyping) { if (m.chat) { PeaceMd.sendPresenceUpdate('composing', m.chat) }	
 }	
 
-// total hit	
+// total hit	    
         global.hit = {}	
 if (isCmd) {	
 data = await fetchJson('https://api.countapi.xyz/hit/PeaceMd-md/visits')	
@@ -309,15 +277,6 @@ jumlahcmd = `${data.value}`
 dataa = await fetchJson(`https://api.countapi.xyz/hit/PeaceMd-md${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)	
 jumlahharian = `${dataa.value}`	
 }	
-
-
-
-//premium	
-const prem1 = `Hi bro  ${pushname} ${ucapanWaktu} \n\nThis feature is for premium members only, please buy premium to use this feature`	
-const prem2 = `Click the button below to buy premium`	
-const prem3 = [{buttonId: `${prefix}buypreim`,buttonText: {displayText: `BUY PREMIUM`,},type: 1,},]	
-blomdaftar = `${ucapanWaktu} @${sender.split("@")[0]} Kamu belum terdaftar di database cek private message mu untuk mendaftar`	
-limitabis = `*[YOUR LIMIT IS EXPIRED]*\nBuy limit in ${prefix}buylimit or buy premium to get unlimited limit`	
 
 //WARRRRRRR	
 const doc = { 	
@@ -337,10 +296,6 @@ participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "" } : {})
 "mediaKeyTimestamp": "1664991742",	
 "isAnimated": false	
 }}}	
-const xbug = (teks) => {	
-  PeaceMd.relayMessage(m.chat, { requestPaymentMessage: { Message: { extendedTextMessage: { text: teks, currencyCodeIso4217: 'INR', requestFrom: '0@s.whatsapp.net', expiryTimestamp: 8000, amount: 1, background: thumb }}}}, {})}	
-//-------------------End--------------------\\	
-//Dont edit ot recode or bug wont work	
 
 const fmedia =  {	
   key : {	
@@ -563,7 +518,7 @@ if(!m.isGroup && !isCmd){
            if (budy.match(`😒`)) {	
          await PeaceMd.sendMessage(from, { react: { text: `🙄`, key: m.key }})	
          }	
-           if (budy.match(`🤗`)) {	
+           if (budy.match(`charith`)) {	
          await PeaceMd.sendMessage(from, { react: { text: `👀`, key: m.key }})	
          }	
          if (budy.match(`sex`)) {	
@@ -919,15 +874,6 @@ let msg = {
 PeaceMd.ev.emit('messages.upsert', msg)	
 }	
 
-//guess song	
-        if (tebaklagu.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {	
-            kuis = true	
-            jawaban = tebaklagu[m.sender.split('@')[0]]	
-            if (budy.toLowerCase() == jawaban) {	
-                await PeaceMd.sendButtonText(m.chat, [{ buttonId: 'guess song', buttonText: { displayText: 'Guess The Song' }, type: 1 }], `🎮 Guess The Music 🎮\n\nCorrect Answer 🎉\n\nWant To Play Again? Press The Button Below`, PeaceMd.user.name, m)	
-                delete tebaklagu[m.sender.split('@')[0]]	
-            } else m.reply('*Wrong answer!*')	
-        }	
 
         //TicTacToe\\	
 	    this.game = this.game ? this.game : {}	
@@ -1085,15 +1031,6 @@ During ${clockString(new Date - user.afkTime)}
             user.afkReason = ''	
         }	
 
-        //menu image randomizer	
-	let picaks = [flaming,fluming,flarun,flasmurf]	
-	let picak = picaks[Math.floor(Math.random() * picaks.length)]	
-
-	//menu doc randomizer	
-let documents = [doc1,doc2,doc3,doc4,doc5,doc6]	
-let docs = pickRandom(documents)	
-
-
 //---------------------------------------------------------------------------------------------------------------------------------//	
 //  Chatbot by FantoX001 on behalf of Team ATLAS - All Rights Reserved	
 
@@ -1224,10 +1161,10 @@ Type *surrender* to surrender and admit defeat`
 
             case 'buttonmaker': {	
             if (!isPremium) throw mess.premime	
-			if (!text) throw `Example : ${prefix + command} hi|hello`	
-            let jawab = `${text.split("|")[0]}`	
-            let buttons = [{ buttonId: 'menu', buttonText: { displayText: `${themeemoji}` }, type: 1 }]	
-            await PeaceMd.sendButtonText(m.chat, buttons, jawab, `${text.split("|")[1]}`, m)	
+			if (!text) throw `💭 Example : ${prefix + command} Hi;Peace`	
+            let jawab = `${text.split(";")[0]}`	
+            let buttons = [{ buttonId: 'menu', buttonText: { displayText: `MENU` }, type: 1 }]	
+            await PeaceMd.sendButtonText(m.chat, buttons, jawab, `${text.split(";")[1]}`, m)	
             }	
             break	
 
@@ -1756,7 +1693,7 @@ case 'tomp4': case 'tovideo': {
                 })	
                 }	
                 break	
-case 'video': { 	
+case 'video': case 'විඩියො':{ 	
 PeaceMd.sendMessage(from, { react: { text: `🎥`, key: m.key }})    	
 if (!text) return reply(`💭 Example : ${prefix + command} bombe motayi`)	
 let yts = require("yt-search")	
@@ -1775,7 +1712,7 @@ caption: `
            	
 🔰 ᴛɪᴛʟᴇ : ${anulay.title}	
              	
-⌛ ᴅᴜʀᴀᴛɪᴏɴ : ${anulay.timestamp}	
+⏰ ᴅᴜʀᴀᴛɪᴏɴ : ${anulay.timestamp}	
              	
 🎩 ᴀᴜᴛʜᴏʀ : ${anulay.author.name}	
              	
@@ -1786,14 +1723,12 @@ footer: `ᴘᴇᴀᴄᴇ ᴍᴅ`,
 buttons: buttons,	
 headerType: 4,	
 }	
-PeaceMd.sendMessage(m.chat, buttonMessage, { quoted: m })
-PeaceMd.sendMessage(from, { react: { text: `✅`, key: m.key }})    	
-}	
+PeaceMd.sendMessage(m.chat, buttonMessage, { quoted: m })}	
 break 	
 
 //--------------------------------------------------------------------------------------------------------------\\	
 
-case 'song': {	
+case 'song': case 'සිංදුව': case 'සින්දුව': {	
 PeaceMd.sendMessage(from, { react: { text: `🎧`, key: m.key }})    	
 if (!text) throw `Example : ${prefix + command} bombe motayi`	
 let yts = require("youtube-yts")	
@@ -1812,7 +1747,7 @@ caption: `
              	
 🔰 ᴛɪᴛʟᴇ : ${anulay.title}	
              	
-⌛ ᴅᴜʀᴀᴛɪᴏɴ : ${anulay.timestamp}	
+⏰ ᴅᴜʀᴀᴛɪᴏɴ : ${anulay.timestamp}	
              	
 🎩 ᴀᴜᴛʜᴏʀ : ${anulay.author.name}	
              	
@@ -1823,8 +1758,7 @@ footer: `ᴘᴇᴀᴄᴇ ᴍᴅ`,
 buttons: buttons,	
 headerType: 4	
 }	
-PeaceMd.sendMessage(m.chat, buttonMessage, { quoted: m })	
-PeaceMd.sendMessage(from, { react: { text: `✅`, key: m.key }})    	
+PeaceMd.sendMessage(m.chat, buttonMessage, { quoted: m })	   	
 
 }	
 break	
@@ -1850,7 +1784,7 @@ break
 
 🔰 Title : ${anulay.title}	
 
-⌛ Duration : ${anulay.timestamp}	
+⏰ Duration : ${anulay.timestamp}	
 
 👀 Viewers : ${anulay.views}	
 
@@ -1956,10 +1890,14 @@ const xeonvidoh = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !xeonvidoh.isYTUrl(text)) throw `Where is the link??\n\nExample : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`	
 const vid=await xeonvidoh.mp4(text)	
 const ytc=`	
-*┇Tittle:* ${vid.title}	
-*┇Date:* ${vid.date}	
-*┇Duration:* ${vid.duration}	
-*┇Quality:* ${vid.quality}`	
+━━━━━━━━━━━━━━━━
+  PEACE MD VIDEO DOWNLOADER 
+━━━━━━━━━━━━━━━━
+
+*🔰 Tittle* ${vid.title}	
+*📅 Date* ${vid.date}	
+*⏰ Duration* ${vid.duration}	
+*📌 Quality* ${vid.quality}`	
 await PeaceMd.sendMessage(m.chat,{	
     video: {url:vid.videoUrl},	
     caption: ytc	
@@ -2383,7 +2321,7 @@ case 'pinterest': {
           }
        ]
                 
-         await PeaceMd.sendListMsg(m.chat, `${desmsg}`, `${global.botname}`, `*  🎨LOGOS BY PEACE MD🎨 *`, `MAKE LOGO`, sections, m)
+         await PeaceMd.sendListMsg(m.chat, `${desmsg}`, `ᴘᴇᴀᴄᴇ ᴍᴅ`, `*  🎨LOGOS BY PEACE MD🎨 *`, `MAKE LOGO`, sections, m)
                                     
       }
 
@@ -2403,7 +2341,7 @@ case 'pinterest': {
           var MAKING = '*🌈 Take a moment to createing your textlogo...*\n*🌈 මදක් රැදීසිටින්න ඔබගේ textlogo සෑදමින් පවතී...*'
                                   
                      if (!q) return reply(`Example\n : ${prefix + command} PEACE MD`) 
-                        await PeaceMd.sendMessage(from, { react: { text: `🎡`, key: m.key }})
+                        await PeaceMd.sendMessage(from, { react: { text: `🧩`, key: m.key }})
                      let link
                      if (/candy/.test(command)) link = 'https://textpro.me/create-christmas-candy-cane-text-effect-1056.html'
                      if (/christmas/.test(command)) link = 'https://textpro.me/christmas-tree-text-effect-online-free-1057.html'
@@ -2471,7 +2409,7 @@ case 'pinterest': {
                      
                      let anu = await maker.textpro(link, q)
                      const logomaking = await PeaceMd.sendText(m.chat, MAKING )
-                     await PeaceMd.sendMessage(m.chat, { image: { url: anu }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
+                     await PeaceMd.sendMessage(m.chat, { image: { url: anu }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m })
                      await PeaceMd.sendMessage(m.chat,{delete : logomaking.key })  
                      }
                      break
@@ -2485,7 +2423,7 @@ case 'pinterest': {
         teks2 = q.split("|")[1]
         maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.html", [
             `${teks1}`,`${teks2}`])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2495,7 +2433,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [
             `${q}`,])
-        .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+        .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
         .catch((err) => console.log(err));
         break
         
@@ -2506,7 +2444,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
          maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [
              `${q}`,])
-            .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+            .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
             .catch((err) => console.log(err));
              break
         
@@ -2517,7 +2455,7 @@ case 'pinterest': {
           await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
           maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [
               `${q}`,])
-             .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+             .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
              .catch((err) => console.log(err));
              break
         
@@ -2528,7 +2466,7 @@ case 'pinterest': {
               await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
               maker.textpro("https://textpro.me/create-art-paper-cut-text-effect-online-1022.html", [
         `${q}`,])
-                 .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+                 .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
                  .catch((err) => console.log(err));
                  break
         
@@ -2539,7 +2477,7 @@ case 'pinterest': {
               await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
               maker.textpro("https://textpro.me/create-a-transformer-text-effect-online-1035.html", [
         `${q}`,])
-        .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+        .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
         .catch((err) => console.log(err));
         break
            
@@ -2552,7 +2490,7 @@ case 'pinterest': {
                teks2 = q.split("|")[1]
                maker.textpro("https://textpro.me/create-harry-potter-text-effect-online-1025.html", [
          `${teks1}`,`${teks2}`])
-         .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+         .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
          .catch((err) => console.log(err));
          break
         
@@ -2563,7 +2501,7 @@ case 'pinterest': {
               await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
               maker.textpro("https://textpro.me/create-neon-devil-wings-text-effect-online-free-1014.html", [
         `${q}`,])
-                 .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+                 .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
                  .catch((err) => console.log(err));
                  break
         
@@ -2574,7 +2512,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/3d-stone-cracked-cool-text-effect-1029.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2585,7 +2523,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/create-3d-avengers-logo-online-974.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2596,7 +2534,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/online-thunder-text-effect-generator-1031.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
            
@@ -2607,7 +2545,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
            case 'blackpinkneon':
@@ -2616,7 +2554,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/create-neon-light-blackpink-logo-text-effect-online-1081.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2629,7 +2567,7 @@ case 'pinterest': {
         teks2 = q.split("|")[1]
         maker.textpro("https://textpro.me/create-a-cool-graffiti-text-on-the-wall-1010.html", [
             `${teks1}`,`${teks2}`])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2643,7 +2581,7 @@ case 'pinterest': {
         teks2 = q.split("|")[1]
         maker.textpro("https://textpro.me/pornhub-style-logo-online-generator-free-977.html", [
             `${teks1}`,`${teks2}`])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2655,7 +2593,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/create-blackpink-logo-style-online-1001.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2665,7 +2603,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/create-impressive-glitch-text-effects-online-1027.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2679,7 +2617,7 @@ case 'pinterest': {
         teks2 = q.split("|")[1]
         maker.textpro("https://textpro.me/create-a-glitch-text-effect-online-free-1026.html", [
             `${teks1}`,`${teks2}`])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2693,7 +2631,7 @@ case 'pinterest': {
         teks2 = q.split("|")[1]
         maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.html", [
             `${teks1}`,`${teks2}`])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2707,7 +2645,7 @@ case 'pinterest': {
         teks2 = q.split("|")[1]
         maker.textpro("https://textpro.me/create-space-3d-text-effect-online-985.html", [
             `${teks1}`,`${teks2}`])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2721,7 +2659,7 @@ case 'pinterest': {
         teks2 = q.split("|")[1]
         maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [
             `${teks1}`,`${teks2}`])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2733,7 +2671,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/create-3d-neon-light-text-effect-online-1028.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2745,7 +2683,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/neon-text-effect-online-879.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2757,7 +2695,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/green-neon-text-effect-874.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
            
@@ -2769,7 +2707,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/bokeh-text-effect-876.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
            
@@ -2781,7 +2719,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/holographic-3d-text-effect-975.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2795,7 +2733,7 @@ case 'pinterest': {
         teks2 = q.split("|")[1]
         maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html", [
             `${teks1}`,`${teks2}`])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2809,7 +2747,7 @@ case 'pinterest': {
         teks2 = q.split("|")[1]
         maker.textpro("https://textpro.me/create-wolf-logo-galaxy-online-936.html", [
             `${teks1}`,`${teks2}`])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2822,7 +2760,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/create-logo-joker-online-934.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2833,7 +2771,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
            
@@ -2843,7 +2781,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/create-a-summer-neon-light-text-effect-online-1076.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2853,7 +2791,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/neon-light-text-effect-with-galaxy-style-981.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2863,7 +2801,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/break-wall-text-effect-871.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
            
@@ -2873,7 +2811,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/natural-leaves-text-effect-931.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break 
         
@@ -2883,7 +2821,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/carbon-text-effect-833.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
         
@@ -2893,7 +2831,7 @@ case 'pinterest': {
         await PeaceMd.sendText(m.chat,' *🌈 Take a moment to createing your textlogo...*' )
         maker.textpro("https://textpro.me/create-a-sketch-text-effect-online-1044.html", [
             `${q}`,])
-          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+          .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
            break
            
@@ -2901,14 +2839,14 @@ case 'pinterest': {
         case 'lovemsg' :
         
         maker.photooxy("https://photooxy.com/logo-and-text-effects/create-a-picture-of-love-message-377.html", [`${q}`,] )
-         .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+         .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
           
         break
         //https://photooxy.com/other-design/create-dark-metal-text-with-special-logo-160.html
         case 'darkmetal' :
         maker.photooxy("https://photooxy.com/other-design/create-dark-metal-text-with-special-logo-160.html", [`${q}`,] )
-         .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m }))
+         .then((data) => PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m }))
           .catch((err) => console.log(err));
           
         break
@@ -2940,7 +2878,7 @@ case 'pinterest': {
            const nima = await fetchJson(link)
            const data = nima.respon
            //const logomaking = await PeaceMd.sendText(m.chat, LOGO_MAKING )          
-           await PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
+           await PeaceMd.sendMessage(m.chat, { image: { url: data }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m })
            await PeaceMd.sendMessage(m.chat,{delete : logomaking.key })  
                
                           }
@@ -2958,7 +2896,7 @@ case 'pinterest': {
            if (/tlb/.test(command)) link = `https://api.akuari.my.id/ephoto/team-logo-banteng?text=${text1}&text_2=${text2}`
            if (/mountain/.test(command)) link = `https://api.akuari.my.id/ephoto/mountain?text=${text1}&text_2=${text2}`
            
-           await PeaceMd.sendMessage(m.chat, { image: { url: link }, caption: `${global.cap}\n\n*🗳️ ʀᴇǫᴜᴇsᴛᴇʀ -* ${m.pushName}` }, { quoted: m })
+           await PeaceMd.sendMessage(m.chat, { image: { url: link }, caption: `ᴘᴇᴀᴄᴇ ᴍᴅ` }, { quoted: m })
            await PeaceMd.sendMessage(m.chat,{delete : logomaking.key })  
              
         }
@@ -5479,24 +5417,24 @@ break
 
 
 
-//ehi	
-
-
 
 case 'ehi': {	
     await PeaceMd.sendMessage(from, { react: { text: `🗂️`, key: m.key }})	
-    await reply (`PEACE MD Uploading Ehi Files...`)	
+    const ehiup = await PeaceMd.sendText(m.chat, `${m.pushName}, PEACE MD Uploading EHI files...`)	
 
-    let ehi1 = 'https://github.com/ALPHAkaveen/sever/blob/main/Ehi/Whatsapp.ehi'	
-    let ehi2 = 'https://github.com/ALPHAkaveen/sever/blob/main/Ehi/Youtube.ehi'	
-    let ehi3 = 'https://github.com/ALPHAkaveen/sever/blob/main/Ehi/FaceBook.ehi'	
-    let ehi4 = 'https://github.com/ALPHAkaveen/sever/blob/main/Ehi/telegram.ehi'	
+    let ehi1 = 'https://github.com/CharithPramodyaSenanayake/peacy/blob/main/EHI/FB.ehi'	
+    let ehi2 = 'https://github.com/CharithPramodyaSenanayake/peacy/blob/main/EHI/WA.ehi'	
+    let ehi3 = 'https://github.com/CharithPramodyaSenanayake/peacy/blob/main/EHI/YT.ehi'	
+    let ehi4 = 'https://github.com/CharithPramodyaSenanayake/peacy/blob/main/EHI/ZM.ehi'	
 
-        await PeaceMd.sendMessage(m.chat, { document: { url: ehi1 }, mimetype: 'application/octet-stream', fileName: `✌ Whatsapp ✌.ehi`}, { quoted: m })	
-        await PeaceMd.sendMessage(m.chat, { document: { url: ehi2 }, mimetype: 'application/octet-stream', fileName: `✌ YouTube ✌.ehi`}, { quoted: m })	
-        await PeaceMd.sendMessage(m.chat, { document: { url: ehi3 }, mimetype: 'application/octet-stream', fileName: `✌ Facebook ✌.ehi`}, { quoted: m })	
-        await PeaceMd.sendMessage(m.chat, { document: { url: ehi4 }, mimetype: 'application/octet-stream', fileName: `✌ Instergram ✌.ehi`}, { quoted: m })	
 
+        await PeaceMd.sendMessage(m.chat, { document: { url: ehi1 }, mimetype: 'application/octet-stream', fileName: `✌ FACEBOOK ✌.ehi`}, { quoted: m })	
+        await PeaceMd.sendMessage(m.chat, { document: { url: ehi2 }, mimetype: 'application/octet-stream', fileName: `✌ WHATSAPP ✌.ehi`}, { quoted: m })	
+        await PeaceMd.sendMessage(m.chat, { document: { url: ehi3 }, mimetype: 'application/octet-stream', fileName: `✌ YOUTUBE ✌.ehi`}, { quoted: m })	
+        await PeaceMd.sendMessage(m.chat, { document: { url: ehi4 }, mimetype: 'application/octet-stream', fileName: `✌ ZOOM ✌.ehi`}, { quoted: m })
+
+    await PeaceMd.sendMessage(from, { delete: ehiup.key })	
+    PeaceMd.sendMessage(from, { react: { text: `✅`, key: m.key }})
         }	
       break	
 
@@ -5648,7 +5586,7 @@ case 'developer': case 'dev': {
     case 'alive': {	
         PeaceMd.sendMessage(from, { react: { text: `✌`, key: m.key }})	
         let buttons = [	
-        {buttonId: `allmenu`, buttonText: {displayText: 'MENU'}, type: 1},	
+        {buttonId: `list`, buttonText: {displayText: 'MENU'}, type: 1},	
         {buttonId: `ping`, buttonText: {displayText: 'SPEED'}, type: 1},	
         ]	
         let buttonMessage = {	
@@ -5663,111 +5601,50 @@ case 'developer': case 'dev': {
         break    	
 
 
-        case 'allmenu': case'menu': case'මෙනු': case'peace': {	
+        case 'list': case'menu': case'මෙනු': case'peace': {	
         PeaceMd.sendMessage(from, { react: { text: `📃`, key: m.key }})	
-	const sections = [{	
-								"title": "Initial Features Of Bot",	
+	const sections = [	
+							{	
+								"title": "📃 PEACE MD MENU 📃",	
 								"rows": [	
+
 									{	
-										"title": "Other 🌟",	
-										"description": "Displays The List Of Other Features",	
+										"title": "Primary Commands",	
+										"description": "Main commands Of PEACE MD(Any user allowed)",	
+										"rowId": `${prefix}mainmenu`	
+										},	
+									{	
+										"title": "Download Commands",	
+										"description": "Media downloading command Of PEACE MD",	
+										"rowId": `${prefix}downmenu`	
+										},	
+										{	
+										"title": "Logo Commands",	
+										"description": "Logo making commands.",	
+										"rowId": `${prefix}logomenu`	
+									},	
+									{	
+										"title": "Other Commands",	
+										"description": "Tools and other commands",	
 										"rowId": `${prefix}othermenu`	
 									}	
-								]	
-							},	
-							{	
-								"title": "Bot Features 💫",	
-								"rows": [	
 
-									{	
-										"title": "Owner Menu 🧊",	
-										"description": "Displays The List Of Owner Features",	
-										"rowId": `${prefix}ownermenu`	
-										},	
-									{	
-										"title": "Group Menu ⚙️",	
-										"description": "Displays The List Of Main Features",	
-										"rowId": `${prefix}groupmenu`	
-										},	
-										{	
-										"title": "Maker Menu 🔐",	
-										"description": "Displays The List Of Logo Making Features",	
-										"rowId": `${prefix}makermenu`	
-									},	
-									{	
-										"title": "Sound Menu 🎵",	
-										"description": "Displays The List Of Sound Features",	
-										"rowId": `${prefix}soundmenu`	
-									},	
-									{	
-										"title": "Download Menu 🔏",	
-										"description": "Displays The List Of Download Features",	
-										"rowId": `${prefix}downloadmenu`	
-									},	
-
-									{	
-										"title": "Search Menu 🔎",	
-										"description": "Displays The List Of Searching Features",	
-										"rowId": `${prefix}searchmenu`	
-									},	
-									{	
-										"title": "Random Image Menu 💱",	
-										"description": "Displays The List Of Random Image Features",	
-										"rowId": `${prefix}randomimagemenu`	
-									},	
-									{	
-										"title": "Random Video Menu 🍷",	
-										"description": "Displays The List Of Random Video Features",	
-										"rowId": `${prefix}randomvideomenu`	
-									},	
-									{	
-										"title": "Image Effect Menu 🪁",	
-										"description": "Displays The List Of Image Effect Features",	
-										"rowId": `${prefix}imageeffectmenu`	
-									},	
-
-										{	
-										"title": "Game Menu 🎮",	
-										"description": "Displays The List Of Game Features",	
-										"rowId": `${prefix}gamemenu`	
-									},	
-										{	
-											"title": "Convert Menu 🌹",	
-										"description": "Displays The List Of Convert Features",	
-										"rowId": `${prefix}convertmenu`	
-										},	
-
-										{	
-										"title": "Other Menu ✨",	
-										"description": "Displays The List Miscellaneous Features",	
-										"rowId": `${prefix}othermenu`	
-									     }	
 
 								]	
 							},	
 							{	
-								"title": "Chat With Fellow Users 💥",	
-								"rows": [	
-									{	
-										"title": "Anonymous Chat Menu 🏻‍♂️",	
-										"description": "Displays The List Of Anonymous Chat Features",	
-										"rowId": `${prefix}anonymousmenu`	
-									}	
-								]	
-							},	
-							{	
-								"title": "Credit ©️",	
+								"title": "Credits",	
 								"rows": [	
 									{	
 										"title": "Thanks To ❤️",	
-										"description": "Displays The List Of Credit Of The Bot !!",	
+										"description": "Credit Of PEACE MD !!",	
 										"rowId": `${prefix}tqtt`	
 									}	
 								]	
 							}	
 						]	
 const listMessage = {	
-  text: "📃 PEACE MD MENU LIST",	
+  text: "📃 PEACE MD MENU LIST\n_Commands are classified into 5 categories_\n\n```📃 Primary Commands\n💭 Main commands.(Any user allowed)\n\n📃 Download Commands\n💭 Media downloading commands.\n\n📃 Logo Commands\n💭 Logo making commands.\n\n📃 Other Commands\n💭 Tools and other commands\n\n📃 Profile Commands\n💭 Bot settings and bot WhatsApp profile related commands.```\n\n👇 _Please choose a command category and get the command list._",	
   footer: `ᴘᴇᴀᴄᴇ ᴍᴅ`,	
   title: `✌ PEACE BUDDY`,	
   buttonText: "Menu",	
@@ -5776,6 +5653,97 @@ const listMessage = {
 const sendMsg = await PeaceMd.sendMessage(m.chat, listMessage)	
 }	
 break	
+
+case 'mainmenu':{	
+    const buttons = [	
+      {buttonId: 'dev', buttonText: {displayText: '👨‍💻 DEVELOPER 👩‍💻'}, type: 1},	
+      {buttonId: 'owner', buttonText: {displayText: '😋 OWNER 😋'}, type: 1}	
+    ]	
+    const buttonMessage = {	
+        image: { url: `${global.alivepic}` },	
+        caption: `
+━━━━━━━━━━━━━━━━
+        PEACE MD MAIN MENU
+━━━━━━━━━━━━━━━━
+
+📃 ${prefix}self	
+💭 Desc : To make the bot private usage	
+✏️ Eg :${prefix}self	
+━━━━━━━━━━━━━━━━━
+
+📃 ${prefix}public 	
+💭 Desc : To make the bot public usage	
+✏️ Eg :${prefix}public 	
+━━━━━━━━━━━━━━━━━	
+
+📃 ${prefix}join	
+💭 Desc : To join a group	
+✏️ Eg :${prefix}join [group link]	
+━━━━━━━━━━━━━━━━━	
+
+📃 ${prefix}leavegc	
+💭 Desc : To leave a group 	
+✏️ Eg :${prefix}Leavegc	
+━━━━━━━━━━━━━━━━━	
+
+📃 ${prefix}setbio	
+💭 Desc : To change about of your number 	
+✏️ Eg :${prefix}setbio Hey there I am PEACE MD	
+━━━━━━━━━━━━━━━━━	
+
+📃 ${prefix}bctext	
+💭 Desc : To broadcast a text	
+✏️ Eg :${prefix}bctext Hello	
+━━━━━━━━━━━━━━━━━	
+
+📃 ${prefix}bcimage	
+💭 Desc : To broadcast a image	
+✏️ Eg :${prefix} bcimage [image]	
+━━━━━━━━━━━━━━━━━	
+
+📃 ${prefix}bcvideo	
+💭 Desc : To broadcast a video 	
+✏️ Eg :${prefix}bcvideo	
+━━━━━━━━━━━━━━━━━	
+
+📃 ${prefix}setbotpp	
+💭 Desc : To change profile picture of your number 	
+✏️ Eg :${prefix}setbotpp [image]	
+━━━━━━━━━━━━━━━━━	
+
+📃 ${prefix}setthumb	
+💭 Desc : To change bot thumb image	
+✏️ Eg :${prefix}setthumb [image]	
+━━━━━━━━━━━━━━━━━	
+
+📃 ${prefix}setexif	
+💭 Desc : To change sticker making packname and author	
+✏️ Eg :${prefix}setexif darknero|darknero	
+━━━━━━━━━━━━━━━━━	
+
+📃 ${prefix}creategroup 	
+💭 Desc : To create a group 	
+✏️ Eg :${prefix}creategroup [group name]	
+━━━━━━━━━━━━━━━━━	
+
+📃 ${prefix}block	
+💭 Desc : To block a user	
+✏️ Eg :${prefix}block [user]	
+━━━━━━━━━━━━━━━━━	
+
+📃 ${prefix}unblock 	
+💭 Desc : To unblock a user	
+✏️ Eg :${prefix}unblock [user]	
+━━━━━━━━━━━━━━━━━`,	
+        footer: `${botname}`,	
+        buttons: buttons,	
+        headerType: 4	
+    }	
+    const sendMsg = await PeaceMd.sendMessage(m.chat, buttonMessage)	
+    }	
+    break	
+
+
 
 case 'ownermenu':{	
 const buttons = [	
