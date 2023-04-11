@@ -1178,7 +1178,8 @@ Type *surrender* to surrender and admit defeat`
                 }	
                 PeaceMd.sendMessage(m.chat, reactionMessage)	
             }	
-            break  	
+            break 
+
             case 'join': {	
                 if (!isCreator) throw Lang.NOT_OWNER	
                 if (!text) throw Lang.NOGROUP_LINK	
@@ -1187,12 +1188,14 @@ Type *surrender* to surrender and admit defeat`
                 let result = args[0].split('https://chat.whatsapp.com/')[1]	
                 await PeaceMd.groupAcceptInvite(result).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
             }	
-            break	
+            break
+
             case 'leavegc': {	
                 if (!isCreator) throw Lang.NOT_OWNER	
                 await PeaceMd.groupLeave(m.chat).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
             }	
             break	
+
             case 'setexif': {	
                if (!isCreator) throw Lang.NOT_OWNER	
                if (!text) throw `Example : ${prefix + command} packname|author`	
@@ -1201,6 +1204,7 @@ Type *surrender* to surrender and admit defeat`
           m.reply(`Exif has been successfully changed to\n\n${themeemoji} Packname : ${global.packname}\n${themeemoji} Author : ${global.author}`)	
             }	
             break	
+
 	case 'kick': {	
 		if (!m.isGroup) throw Lang.NOT_GC	
                 if (!isBotAdmins) throw Lang.BOT_ADMIN	
@@ -1209,6 +1213,7 @@ Type *surrender* to surrender and admit defeat`
 		await PeaceMd.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
 	}	
 	break	
+
 	case 'add': {	
 		if (!m.isGroup) throw Lang.NOT_GC	
                 if (!isBotAdmins) throw Lang.BOT_ADMIN	
@@ -1217,6 +1222,7 @@ Type *surrender* to surrender and admit defeat`
 		await PeaceMd.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))	
 	}	
 	break	
+    
 	case 'promote': {	
 		if (!m.isGroup) throw Lang.NOT_GC	
                 if (!isBotAdmins) throw Lang.BOT_ADMIN	
@@ -1700,7 +1706,8 @@ let yts = require("yt-search")
 let search = await yts(text)	
 let anulay = search.videos[0]	
 let buttons = [	
-{buttonId: `ytmp4 ${anulay.url} 360p`, buttonText: {displayText: '🎥 Video 🎥'}, type: 1},	
+{buttonId: `ytmp4 ${anulay.url} 360p`, buttonText: {displayText: '🎥 Video(360p) 🎥'}, type: 1},	
+{buttonId: `ytmp4 ${anulay.url} 720p`, buttonText: {displayText: '🎥 Video(720p) 🎥'}, type: 1},	
 {buttonId: `playmp4 ${anulay.url}`, buttonText: {displayText: '📁 Document 📁'}, type: 1}	
 ]	
 let buttonMessage = {	
