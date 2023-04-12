@@ -8059,7 +8059,7 @@ sections
 break
 
 
-ase 'xnxx': {
+case 'xnxx': {
                                    
     await PeaceMd.sendMessage(from, { react: { text: `🍑`, key: m.key }})
     if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} story wa anime`
