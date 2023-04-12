@@ -115,6 +115,7 @@ if (time2 < "05:00:00") {
 const Language = require('./language');
 const Lang = Language.getString('main');
 
+let banned = JSON.parse(fs.readFileSync('./database/user/banned.json'));	
 
 module.exports = PeaceMd = async (PeaceMd, m, chatUpdate, store) => {
     try {
