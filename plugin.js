@@ -7393,7 +7393,7 @@ ${themeemoji} *Media Url* : ${images}`,
         }
         break
 
-        case 'apk': {
+        /*case 'apk': {
 
             await PeaceMd.sendMessage(from, {
                 react: {
@@ -7446,7 +7446,7 @@ ${themeemoji} *Media Url* : ${images}`,
                     })
                 }).catch((err) => m.reply('NOT_FOUND'))
         }
-        break
+        break*/
 case 'apktest': {
     if (!text) throw `⚠️️ *_Ingrese el nombre de la aplicación de Play Store que desea descargar._*`
     try {
