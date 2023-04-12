@@ -375,11 +375,6 @@ module.exports = PeaceMd = async (PeaceMd, m, chatUpdate, store) => {
                 setting.status = new Date() * 1
             }
         }
-        //function leveling & pick	
-        function pickRandom(list) {
-            return list[Math.floor(Math.random() * list.length)]
-        }
-
         // Public & Self	
         if (!PeaceMd.public) {
             if (!m.key.fromMe) return
@@ -401,15 +396,6 @@ module.exports = PeaceMd = async (PeaceMd, m, chatUpdate, store) => {
             if (m.chat) {
                 PeaceMd.sendPresenceUpdate('composing', m.chat)
             }
-        }
-
-        // total hit	    
-        global.hit = {}
-        if (isCmd) {
-            data = await fetchJson('https://api.countapi.xyz/hit/PeaceMd-md/visits')
-            jumlahcmd = `${data.value}`
-            dataa = await fetchJson(`https://api.countapi.xyz/hit/PeaceMd-md${moment.tz('Asia/Colombo').format('DDMMYYYY')}/visits`)
-            jumlahharian = `${dataa.value}`
         }
 
         //WARRRRRRR	
@@ -7475,7 +7461,7 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
 } catch { m.reply('⚠️ *_Resultados no encontrados._*') }
 }
 
-        case 'getapk': {
+        /*case 'getapk': {
             if (!text.includes('https://play.google.com/')) return reply('*💭 Please give me a correct link*\n _.getapk https://play.google.com/store/apps/details?id=com.whatsapp_')
             await PeaceMd.sendMessage(from, {
                 text: `*📥 Downloading Playstore apk...*`
@@ -7507,7 +7493,7 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
             //}).catch((err) => m.reply(NOT_FOUND))
 
         }
-        break
+        break*/
 
 
         case 'hirunews': {
@@ -7524,16 +7510,6 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
  *📄️ Description *
  ${news.description}
  `
-            const templateButtons = [{
-                    index: 1,
-                    urlButton: {
-                        displayText: `Hiru News`,
-                        url: news.link
-                    }
-                },
-
-
-            ]
 
             const templateMessage = {
                 image: {
@@ -7541,7 +7517,6 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
                 },
                 caption: '━━━━━━━━━━━━━━━━━\n                 PEACE MD NEWS\n━━━━━━━━━━━━━━━━━\n\n' + cap,
                 footer: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
-                templateButtons: templateButtons,
                 headerType: 4
             }
 
