@@ -7460,7 +7460,7 @@ ${themeemoji} *Media Url* : ${images}`,
                 }).catch((err) => m.reply('NOT_FOUND'))
         }
         break
-case apktest:{
+case 'apktest': {
     if (!text) throw `⚠️️ *_Ingrese el nombre de la aplicación de Play Store que desea descargar._*`
     try {
     let res = await fetch(`https://api.akuari.my.id/downloader/apkdownloader?query=${text}`)
