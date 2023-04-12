@@ -8016,6 +8016,48 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
         break
 
 
+        case 'psxxx': {
+                                   
+            if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} mia kalifa`
+            await PeaceMd.sendMessage(from, { react: { text: `🍑`, key: m.key }})
+           
+           let search = await fetchJson(`https://nima-xxx.herokuapp.com/api/srhx?q=${text}`)
+           let teks = '*🎭 XNXX RESULTS 🎭* '+text+'\n\n'
+           let no = 1
+           
+           /*for (let i of search) {
+               teks += `🔵 No : ${no++}\n👽 title - ${i.title}\n🔄 Duration : ${i.duration}\n 🤤 URL - ${i.link}\n\n─────────────────\n\n`*/
+           let sections = []   
+for (let i of search) {
+const list = {title: `💥 xɴxx ᴅᴏᴡɴʟᴏᴀᴅᴇʀ 💥`,
+rows: [
+{
+title: `${no++} > ${i.title}`, 
+rowId: `downxnxx ${i.link}`,
+description: `\n➠ Title ${i.title}
+➠ duration ${i.duration}`	     
+}, 
+]
+}
+sections.push(list)   
+}
+const sendm =  PeaceMd.sendMessage(
+m.chat, 
+{
+text: `${text} *Here is the list of videos, click the button below to choose*\n\n${m.pushName}`,
+footer: `ʙᴏᴛ ʙʏ ᴅᴀʀᴋ ᴍᴀᴋᴇʀ ᴛʜᴀɴᴋs ғʀᴏ sᴀɴᴜᴡᴀ`,
+title: "*YOUR XNXX SEARCH*",
+buttonText: "ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ",
+sections
+}, { quoted : m })    
+
+               
+               
+          // }
+          // PeaceMd.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/023d7602dcf73bd2638a6.jpg' },  caption: teks }, { quoted: m })
+       }
+
+
         case 'list':
         case 'menu':
         case 'මෙනු':
