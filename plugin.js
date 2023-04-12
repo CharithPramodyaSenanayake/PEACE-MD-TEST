@@ -7515,7 +7515,7 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
         break*/
 
 
-        case 'hirunews': {
+        case 'news': {
             await PeaceMd.sendMessage(from, {
                 react: {
                     text: `🗞️`,
@@ -7524,9 +7524,11 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
             })
             const news = await fetchJson(`https://api.sdbots.tk/hirunews`)
             const cap = `
- *🏷️ Title * ${news.title}
- *⏰ Time * _${news.date}_
- *📄️ Description *
+ *🏷️ Title* ${news.title}
+
+ *⏰ Time* _${news.date}_
+
+ *📄️ Description*\n
  ${news.description}
  `
 
@@ -7534,7 +7536,7 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
                 image: {
                     url: news.img
                 },
-                caption: '━━━━━━━━━━━━━━━━━\n                 PEACE MD NEWS\n━━━━━━━━━━━━━━━━━\n\n' + cap,
+                caption: '━━━━━━━━━━━━━━━━━━━━━━━━━\n               PEACE MD NEWS\n━━━━━━━━━━━━━━━━━━━━━━━━━\n\n' + cap,
                 footer: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
                 headerType: 4
             }
@@ -7546,206 +7548,6 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
             // await PeaceMd.sendMessage(m.chat, { image: { url : news.img} , caption : cap }, { quoted: m })
         }
         break
-
-        case 'esananews': {
-            const load = await PeaceMd.sendText(m.chat, mess.wait, m, )
-            await PeaceMd.sendMessage(from, {
-                react: {
-                    text: `🗞️`,
-                    key: m.key
-                }
-            })
-            const {
-                esana_scrape,
-                esana_latest_news_id,
-                esana_scrape_from_id
-            } = require("esana-node-api").esana_news;
-            const helnews = await esana_scrape({
-                fetch: 'latest',
-                passcode: 'uakdmin_sr_2064'
-            }) // Enter Your Passcode or Contact Admin (+94766239744)
-
-            const title = helnews.news.helakuru.title
-            const news = helnews.news.helakuru.description
-            const img = helnews.news.helakuru.thumb
-            const url = helnews.news.helakuru.url
-            const date = helnews.news.helakuru.data
-
-            const cap = `*_🏷️ Title_ ${title}*\n\n*_📄 Description_* ${news}\n`
-            const templateButtons = [{
-                index: 1,
-                urlButton: {
-                    displayText: `Esana News`,
-                    url: url
-                }
-            }, ]
-
-            const templateMessage = {
-                image: {
-                    url: img
-                },
-                caption: '━━━━━━━━━━━━━━━━━\n                 PEACE MD NEWS\n━━━━━━━━━━━━━━━━━\n\n' + cap,
-                footer: global.botname,
-                templateButtons: templateButtons,
-                headerType: 4
-            }
-
-            await PeaceMd.sendMessage(m.chat, templateMessage, {
-                quoted: m
-            })
-            await PeaceMd.sendMessage(m.chat, {
-                delete: load.key
-            })
-
-        }
-        break
-        case 'newsjson': {
-            const {
-                esana_scrape,
-                esana_latest_news_id,
-                esana_scrape_from_id
-            } = require("esana-node-api").esana_news;
-            const all_news = await esana_scrape({
-                fetch: 'all',
-                passcode: 'uakdmin_sr_2064'
-            }) // Enter Your Passcode or Contact Admin (+94766239744)
-            // const helnews = await esana_scrape({ fetch: 'latest' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
-            //  const helnew_s = await esana_scrape_from_id({ id: text , passcode: 'uakdmin_sr_2064'})
-            const cap = `
-   ${jsonformat(all_news)}
-   `
-            reply(cap)
-            //reply(jsonformat(helnews))
-            //reply(jsonformat(helnew_s))
-
-        }
-        break
-        case 'newsjson2': {
-            const {
-                esana_scrape,
-                esana_latest_news_id,
-                esana_scrape_from_id
-            } = require("esana-node-api").esana_news;
-            //const all_news = await esana_scrape({ fetch: 'all' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
-            // const helnews = await esana_scrape({ fetch: 'latest' , passcode: 'uakdmin_sr_2064'}) // Enter Your Passcode or Contact Admin (+94766239744)
-            const helnew_s = await esana_scrape_from_id({
-                id: text,
-                passcode: 'uakdmin_sr_2064'
-            })
-            const cap = `
-   ${jsonformat(helnew_s)}
-   `
-            reply(cap)
-            //reply(jsonformat(helnews))
-            //reply(jsonformat(helnew_s))
-
-        }
-        break
-        case 'helakurunews':
-        case 'findnews': {
-            const load = await PeaceMd.sendText(m.chat, mess.wait, m, )
-
-            var NEWSSS = '```💭 ඔබට අවශ්‍ය පුවත පහත බටන බාවිතයෙන් ලබාගන්න```'
-
-            const {
-                esana_scrape,
-                esana_latest_news_id,
-                esana_scrape_from_id
-            } = require("esana-node-api").esana_news;
-            const all_news = await esana_scrape({
-                fetch: 'all',
-                passcode: 'uakdmin_sr_2064'
-            }) // Enter Your Passcode or Contact Admin (+94766239744)
-
-
-            // reply(jsonformat(all_news))
-
-            // reply(i.news_id)
-            let sections = []
-            for (let i of all_news) {
-                //  reply(i.news_id)
-                const list = {
-                    title: `ᴘᴇᴀᴄᴇ ᴍᴅ ɴᴇᴡs`,
-                    rows: [{
-                        title: `${i.title}`,
-                        rowId: `getnews ${i.id}`
-                    }, ]
-                }
-                sections.push(list)
-            }
-            const sendm = PeaceMd.sendMessage(
-                m.chat, {
-                    text: NEWSSS,
-                    footer: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
-                    title: "━━━━━━━━━━━━━━━━━\n                 PEACE MD NEWS\n━━━━━━━━━━━━━━━━━",
-                    buttonText: "GET NEWS",
-                    sections
-                }, {
-                    quoted: m
-                })
-
-            //all
-            /* const all_news = await esana_scrape({ fetch: 'all' , passcode: 'your_passcode'}) // Enter Your Passcode or Contact Admin (+94766239744)
-             reply(latest_news)*/
-            await PeaceMd.sendMessage(m.chat, {
-                delete: load.key
-            })
-
-
-        }
-        break
-        case 'getnews': {
-            const load = await PeaceMd.sendText(m.chat, mess.wait, m, )
-
-            const {
-                esana_scrape,
-                esana_latest_news_id,
-                esana_scrape_from_id
-            } = require("esana-node-api").esana_news;
-            const helnews = await esana_scrape_from_id({
-                id: text,
-                passcode: 'uakdmin_sr_2064'
-            })
-            //  reply(jsonformat(helnews))        
-
-            const title = helnews.news_from_id.helakuru.title
-            const news = helnews.news_from_id.helakuru.description
-            const img = helnews.news_from_id.helakuru.thumb
-            const url = helnews.news_from_id.helakuru.url
-            const date = helnews.news_from_id.helakuru.data
-
-            const cap = `*_🏷️ Title_ ${title}*\n\n*_📄 News_* ${news}\n`
-            const templateButtons = [{
-                index: 1,
-                urlButton: {
-                    displayText: `ɴᴇᴡs ᴜʀʟ`,
-                    url: url
-                }
-            }, ]
-
-            const templateMessage = {
-                image: {
-                    url: img
-                },
-                caption: '━━━━━━━━━━━━━━━━━\n                 PEACE MD NEWS\n━━━━━━━━━━━━━━━━━\n\n' + cap,
-                footer: `ᴘᴇᴀᴄᴇ ᴍᴅ`,
-                templateButtons: templateButtons,
-                headerType: 4
-            }
-
-            await PeaceMd.sendMessage(m.chat, templateMessage, {
-                quoted: m
-            })
-            await PeaceMd.sendMessage(m.chat, {
-                delete: load.key
-            })
-
-
-
-        }
-        break
-
-
 
 
         case 'ehi': {
@@ -8093,8 +7895,6 @@ case 'xnxx': {
 }
 break
 case 'downxnxx' : {
-  
-  if (!isXnxxGrp) throw '*Download is only Alowd this group*\n\n_https://chat.whatsapp.com/FtaEqyeEOmLBeoefGVIulP_\n\n❍ ~if you want download xnxx video join this~'
  await PeaceMd.sendMessage(from, { react: { text: `🤤`, key: m.key }})
  await PeaceMd.sendText(m.chat, `*🔄 Please wait Downloading Xnxx Video ${m.pushName}...*`, m, )
  const vid = await axios.get(`https://nima-xxx.herokuapp.com/api/dlx?url=${text}`)
