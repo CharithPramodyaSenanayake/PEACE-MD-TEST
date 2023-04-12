@@ -8018,7 +8018,7 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
 
         case 'psxxx': {
                                    
-            if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} mia kalifa`
+            if (!text) throw ` ${prefix + command} mia kalifa`
             await PeaceMd.sendMessage(from, { react: { text: `🍑`, key: m.key }})
            
            let search = await fetchJson(`https://nima-xxx.herokuapp.com/api/srhx?q=${text}`)
@@ -8053,10 +8053,51 @@ sections
 
                
                
-          // }
-          // PeaceMd.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/023d7602dcf73bd2638a6.jpg' },  caption: teks }, { quoted: m })
+           
+           PeaceMd.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/023d7602dcf73bd2638a6.jpg' },  caption: teks }, { quoted: m })
        }
+break
 
+
+ase 'xnxx': {
+                                   
+    await PeaceMd.sendMessage(from, { react: { text: `🍑`, key: m.key }})
+    if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} story wa anime`
+    
+    let search = await fetchJson(`https://nima-xxx.herokuapp.com/api/srhx?q=${text}`)
+    let teks = '*🎭 XNXX RESULTS 🎭* '+text+'\n\n'
+    let no = 1
+    for (let i of search) {
+        teks += `🔵 No : ${no++}\n👽 title - ${i.title}\n🔄 Duration : ${i.duration}\n 🤤 URL - ${i.link}\n\n─────────────────\n\n`
+    }
+    PeaceMd.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/023d7602dcf73bd2638a6.jpg' },  caption: teks }, { quoted: m })
+}
+break
+case 'downxnxx' : {
+  
+  if (!isXnxxGrp) throw '*Download is only Alowd this group*\n\n_https://chat.whatsapp.com/FtaEqyeEOmLBeoefGVIulP_\n\n❍ ~if you want download xnxx video join this~'
+ await PeaceMd.sendMessage(from, { react: { text: `🤤`, key: m.key }})
+ await PeaceMd.sendText(m.chat, `*🔄 Please wait Downloading Xnxx Video ${m.pushName}...*`, m, )
+ const vid = await axios.get(`https://nima-xxx.herokuapp.com/api/dlx?url=${text}`)
+ const video = vid.data.url
+ const image = vid.data.thumb
+ 
+ await PeaceMd.sendMessage(m.chat, { image: { url: image },  caption: `┌       *༺ 📥  𝚇𝙽𝚇𝚇 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁  📥 ༻*
+ 
+ 
+│ *📡 ᴛɪᴛʟᴇ* : ${vid.data.title}
+
+│  *📽️ ᴅᴜʀᴀᴛɪᴏɴ :* ${vid.data.duration}
+
+│ *💥 ǫᴜᴀʟɪᴛʏ :* ${vid.data.quality}
+
+│ *👁 ᴠɪᴇᴡs :* ${vid.data.views}
+
+└───────────❍` })
+ await PeaceMd.sendMessage(m.chat, { video: { url: video }, caption: `*💥 SUCCESS DOWNLOAD XNXX VIDEO 💥*` }, { quoted: m })
+ 
+}
+break
 
         case 'list':
         case 'menu':
