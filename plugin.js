@@ -116,6 +116,7 @@ const Language = require('./language');
 const Lang = Language.getString('main');
 
 let banned = JSON.parse(fs.readFileSync('./database/user/banned.json'));	
+let autorep =JSON.parse(fs.readFileSync('./database/autoreply.json'));	
 
 module.exports = PeaceMd = async (PeaceMd, m, chatUpdate, store) => {
     try {
