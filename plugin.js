@@ -7095,7 +7095,7 @@ ${themeemoji} *Media Url* : ${images}`,
         })
       }
       break
-      
+
       case 'peacepic': {
 
         if (!text) return reply(`💭 ${m.pushName} Give Some search \n_ Example : ${prefix}peacepic Gajaman_`)
@@ -7156,7 +7156,37 @@ ${themeemoji} *Media Url* : ${images}`,
         //reply('not setted')	
       }
       break
-
+      case 'apk': case 'apkmod': case 'apkdl': {      
+        if (!text) return m.reply(`Use${prefix + command} vpn`) 
+        let noh = require('./lib/myfunc2')                
+        noh.rexdl(`${text}`).then(async (data) => {
+        let sections = []   
+        for (let i of data) {
+        const list = {title: `${i.judul}`,
+        rows: [
+              {
+               title: `${i.judul}`, 
+               rowId: `${prefix}donlod ${i.link}`,
+               description: `CATEGORY: ${i.kategori}\nPUBLISH: ${i.upload_date}\nINFORMATION: ${i.deskripsi}`
+              }, 
+              ]
+           }
+           sections.push(list)   
+           }
+        const sendm =  PeaceMd.sendMessage(
+            m.chat, 
+            {
+             text: `${ucapannya2} ${pushname} *Search Results From ${text} Click the button below to choose*`,
+             footer: `© ZIM BOT INC`,
+             title: "*▊▊▊APK DOWNLOAD▊▊▊*",
+             buttonText: "CLICK HERE",
+             sections
+            }, { quoted : m })                 
+                      }).catch((err) => {
+                          m.reply(`*${text} Not found*`)
+                      })
+                  }
+                  break
       case 'donlod': {     
         let rex = require('./lib/ApkDown.js')           
                     if (!text) return m.reply(`Use${prefix + command} whatsapp`)
@@ -7165,8 +7195,8 @@ ${themeemoji} *Media Url* : ${images}`,
                    if (anu[0].size.split('MB')[0] >= 150) return m.reply('*File Over Limit* '+util.format(anu))
                    for (let i of anu) {    
                    linkye = `*▊▊▊APK DOWNLOAD▊▊▊*\n\n*TITLE:* ${i.title}\n*UPDATE:* ${i.up}\n*VERSION:* ${i.vers}\n*FILESIZE:* ${i.size}\n*URL:* \n*DESCRIPTION:* ${i.desc}\n\n*ZIM BOT INC*`         
-                        ZimBotInc.sendMessage(m.chat, { image: await getBuffer(i.thumb), jpegThumbnail: await getBuffer(i.thumb), caption: `${linkye}` }, { quoted: m })
-                        ZimBotInc.sendMessage(m.chat, {document: await getBuffer(i.link), mimetype: `application/vnd.android.package-archive`, fileName: `${i.title}`}, {quoted:m})  
+                        PeaceMd.sendMessage(m.chat, { image: await getBuffer(i.thumb), jpegThumbnail: await getBuffer(i.thumb), caption: `${linkye}` }, { quoted: m })
+                        PeaceMd.sendMessage(m.chat, {document: await getBuffer(i.link), mimetype: `application/vnd.android.package-archive`, fileName: `${i.title}`}, {quoted:m})  
                         }  
                         }).catch((err) => {
                             m.reply(`*Failed When Downloading Media and Sending Files*`)
