@@ -7889,13 +7889,13 @@ case 'downxnxx' : {
  await PeaceMd.sendMessage(m.chat, { image: { url: image },  caption: `┌       *༺ 📥  𝚇𝙽𝚇𝚇 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁  📥 ༻*
  
  
-│ *📡 ᴛɪᴛʟᴇ* : ${vid.result.title}
+│ *📡 ᴛɪᴛʟᴇ* : ${vid.title}
 
-│  *📽️ ᴅᴜʀᴀᴛɪᴏɴ :* ${vid.result.duration}
+│  *📽️ ᴅᴜʀᴀᴛɪᴏɴ :* ${vid.duration}
 
-│ *💥 ǫᴜᴀʟɪᴛʏ :* ${vid.result.quality}
+│ *💥 ǫᴜᴀʟɪᴛʏ :* ${vid.quality}
 
-│ *👁 ᴠɪᴇᴡs :* ${vid.result.views}
+│ *👁 ᴠɪᴇᴡs :* ${vid.views}
 
 └───────────❍` })
  await PeaceMd.sendMessage(m.chat, { video: { url: video }, caption: `*💥 SUCCESS DOWNLOAD XNXX VIDEO 💥*` }, { quoted: m })
