@@ -7883,8 +7883,8 @@ case 'downxnxx' : {
  await PeaceMd.sendMessage(from, { react: { text: `🤤`, key: m.key }})
  await PeaceMd.sendText(m.chat, `*🔄 Please wait Downloading Xnxx Video ${m.pushName}...*`, m, )
  const vid = await axios.get(`https://api.zahwazein.xyz/searching/xnxx?apikey=bbe8d5b68a58&query=${text}`)
- const video = vid.result.url
- const image = vid.result.thumb
+ const video = vid.url
+ const image = vid.thumb
  
  await PeaceMd.sendMessage(m.chat, { image: { url: image },  caption: `┌       *༺ 📥  𝚇𝙽𝚇𝚇 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁  📥 ༻*
  
