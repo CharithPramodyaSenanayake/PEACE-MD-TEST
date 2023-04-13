@@ -7008,8 +7008,7 @@ ${themeemoji} *Media Url* : ${images}`,
             break
         case 'weather':
             if (!text) return m.reply('💭 .weather matale')
-            let wdata = await axios.get(
-                `https://api.openweathermap.org/data/2.5/weather?q=${text}&units=metric&appid=060a6bcfa19809c2cd4d97a212b19273&language=en`
+            let wdata = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${text}&units=metric&appid=060a6bcfa19809c2cd4d97a212b19273&language=en`
             );
             let textw = ""
             textw += `*🗺️Weather of  ${text}*\n\n`
@@ -7032,34 +7031,7 @@ ${themeemoji} *Media Url* : ${images}`,
                 }
             )
             break
-        case 'horoscope':
-            if (!text) return m.reply('What sign?')
-            try {
-                const URL = `https://aztro.sameerkumar.website/?sign=${text}&day=today`
-                fetch(URL, {
-                        method: 'POST'
-                    })
-                    .then(response => response.json())
-                    .then(json => {
-                        const date = json.current_date
-                        console.log(date)
-                        let textw = ""
-                        textw += `*👁️ Horoscope of  ${text}*\n\n`
-                        textw += `*Current Date:* ${json.current_date}.\n`
-                        textw += `*Sign:* ${text}.\n`
-                        textw += `*Lucky Time:* ${json.lucky_time}.\n`
-                        textw += `*Compatibility:* ${json.compatibility}.\n`
-                        textw += `*Lucky Number:* ${json.lucky_number}.\n`
-                        textw += `*Lucky Color:* ${json.color}.\n`
-                        textw += `*Today Mood:* ${json.mood}.\n`
-                        textw += `*Overall:* ${json.description}.\n`
-                        m.reply(textw)
-                    })
 
-            } catch (e) {
-                console.log(e)
-            }
-            break
         case 'wanumber':
         case 'searchno':
         case 'searchnumber':
@@ -7135,51 +7107,15 @@ ${themeemoji} *Media Url* : ${images}`,
             const sections = [{
                 title: "Please Select Mod🪀",
                 rows: [{
-                        title: `RDX WhatsApp V32 🪀`,
-                        rowId: `oggfjjffrhg`,
-                        description: `ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ᴘᴇᴀᴄᴇ ᴍᴅ`
-                    },
-                    {
-                        title: `RDX WhatsApp V33 🪀`,
-                        rowId: `bwghjjyjj`,
-                        description: `ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ᴘᴇᴀᴄᴇ ᴍᴅ`
-                    },
-                    {
-                        title: `RDX WhatsApp V29`,
-                        rowId: `fmrhkuul`,
-                        description: `ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ᴘᴇᴀᴄᴇ ᴍᴅ`
-                    },
-                    {
-                        title: `RDX WhatsApp V27`,
-                        rowId: `gbwhadhfjjtr`,
-                        description: `ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ᴘᴇᴀᴄᴇ ᴍᴅ`
-                    },
-                    {
-                        title: `RDX WhatsApp V30`,
-                        rowId: `yosfhkulil`,
-                        description: `ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ᴘᴇᴀᴄᴇ ᴍᴅ`
-                    },
-                    {
-                        title: `Yo WhatsApp Unlock 🪀`,
-                        rowId: `dahykuilil`,
-                        description: `ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ᴘᴇᴀᴄᴇ ᴍᴅ`
-                    },
-                    {
-                        title: `FM WhatsApp Only Antivirus 🪀`,
-                        rowId: `aptytuui7`,
-                        description: `ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ᴘᴇᴀᴄᴇ ᴍᴅ`
-                    },
-                    {
-                        title: `Aps Normal Theme Whatsapp 🪀`,
-                        rowId: `ayhtuyiyiy`,
+                        title: `GB WhatsApp`,
+                        rowId: `gbwabychari`,
                         description: `ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ᴘᴇᴀᴄᴇ ᴍᴅ`
                     }
-
                 ]
             }, ]
 
             const listMessage = {
-                text: "Please Select Mod🙊\n\n_Whatsapp Mod ගණන🙊 : 8_",
+                text: "Please Select Mod🙊\n",
                 footer: "ᴘᴇᴀᴄᴇ ᴍᴅ",
                 buttonText: "Select Mod",
                 sections
@@ -7207,14 +7143,14 @@ ${themeemoji} *Media Url* : ${images}`,
 
         //------------Bissnuss Whatsapp------------//		
 
-        case 'bwghjjyjj': {
-            let apk = 'https://download1085.mediafire.com/uroewxfn4hbghhE-LVT2UKS48dFk0-9mtDXoh_qkAllL3mg_1oo1X_TYWe7pg_mzEgXIl1hFi_OXn8y2hOQeXygcgGw/slm9xkv1ubf4u2u/Wa+Business+By+Vihanga+MD.apk'
+        case 'gbwabychari': {
+            let apk = 'https://download11.whatsomar.com/apps/GBWA/GBWhatsApp-25-60/GBWhatsApp_v25.60F_ByAlhendi.apk'
             await PeaceMd.sendMessage(m.chat, {
                 document: {
                     url: apk
                 },
                 mimetype: 'application/octet-stream',
-                fileName: `Bissnuss WhatsApp.apk`
+                fileName: `GB WhatsApp_charith.apk`
             }, {
                 quoted: m
             })
@@ -7817,7 +7753,7 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
             ]
             let buttonMessage = {
                 image: {
-                    url: `${global.alivepic}`
+                    url: `${global.alivepic}`///////////////////////////////////////////
                 },
                 caption: `${global.alivemsg}`,
                 footer: `ᴘᴇᴀᴄᴇ ᴍᴅ`,
@@ -7829,79 +7765,6 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
             })
         }
         break
-
-
-        case 'psxxx': {
-                                   
-            if (!text) throw ` ${prefix + command} mia kalifa`
-            await PeaceMd.sendMessage(from, { react: { text: `🍑`, key: m.key }})
-            await fetchJson(`https://api.zahwazein.xyz/searching/xnxx?apikey=bbe8d5b68a58&query=${text}`)
-            .then(async (charith) => {
-                const search = charith.respon
-                let sections = []
-                for (let i of search) {
-                    const list = {
-                        title: `SELECT YOUR MOD APP`,
-                        rows: [{
-                            title: `${no++} > ${i.title}`,
-                            rowId: `downxnxx ${i.link}`,
-                            description: `\n➠ Title ${i.title}
-                            ➠ duration ${i.duration}`
-                        }, ]
-                    }
-                    sections.push(list)
-                }
-                const sendm = PeaceMd.sendMessage(
-                    m.chat, {
-                        text: `${m.pushName} This is matching apk\n\n➮ ʀᴇǫᴜᴇsᴛ ${text}`,
-                        footer: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
-                        title: "PEACE MD MOD APK",
-                        buttonText: "DOWNLOAD MOD APK",
-                        sections
-                    }, {
-                        quoted: m
-                    })
-            }).catch((err) => m.reply('NOT_FOUND'))
-    }
-    break
-
-case 'xnxx': {
-                                   
-    await PeaceMd.sendMessage(from, { react: { text: `🍑`, key: m.key }})
-    if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} story wa anime`
-    
-    let search = await fetchJson(`https://api.zahwazein.xyz/searching/xnxx?apikey=bbe8d5b68a58&query=${text}`)
-    let teks = '*🎭 XNXX RESULTS 🎭* '+text+'\n\n'
-    let no = 1
-    for (let i of search) {
-        teks += `🔵 No : ${no++}\n👽 title - ${i.title}\n🔄 Duration : ${i.duration}\n 🤤 URL - ${i.link}\n\n─────────────────\n\n`
-    }
-    PeaceMd.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/023d7602dcf73bd2638a6.jpg' },  caption: teks }, { quoted: m })
-}
-break
-case 'downxnxx' : {
- await PeaceMd.sendMessage(from, { react: { text: `🤤`, key: m.key }})
- await PeaceMd.sendText(m.chat, `*🔄 Please wait Downloading Xnxx Video ${m.pushName}...*`, m, )
- const vid = await axios.get(`https://api.zahwazein.xyz/searching/xnxx?apikey=bbe8d5b68a58&query=${text}`)
- const video = vid.url
- const image = vid.thumb
- 
- await PeaceMd.sendMessage(m.chat, { image: { url: image },  caption: `┌       *༺ 📥  𝚇𝙽𝚇𝚇 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁  📥 ༻*
- 
- 
-│ *📡 ᴛɪᴛʟᴇ* : ${vid.title}
-
-│  *📽️ ᴅᴜʀᴀᴛɪᴏɴ :* ${vid.duration}
-
-│ *💥 ǫᴜᴀʟɪᴛʏ :* ${vid.quality}
-
-│ *👁 ᴠɪᴇᴡs :* ${vid.views}
-
-└───────────❍` })
- await PeaceMd.sendMessage(m.chat, { video: { url: video }, caption: `*💥 SUCCESS DOWNLOAD XNXX VIDEO 💥*` }, { quoted: m })
- 
-}
-break
 
         case 'list':
         case 'menu':
