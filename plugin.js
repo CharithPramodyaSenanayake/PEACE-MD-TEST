@@ -7690,7 +7690,7 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
             if (!text.includes('https://t.me/addstickers')) return reply('*💭 Please give me a correct link*\n _.tgsticker <Sticker pack link>')
             //if (!isUrl(args[0]) && !args[0].includes('https://t.me/addstickers')) throw '*The link you provided is not valid*'                
             await PeaceMd.sendText(m.chat, '*PEACE BUDDY...*')
-            await fetchJson(`https://my-shinz.herokuapp.com/api/dowloader/telesticker?url=${text}`)
+            await fetchJson(`https://api.zahwazein.xyz/downloader/telesticker?apikey=bbe8d5b68a58&url=${text}`)
                 .then(async (sticker) => {
                     //  await PeaceMd.sendText(m.chat, util.format(sticker))
                     const stik = sticker.result
@@ -7861,7 +7861,7 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
                     }, {
                         quoted: m
                     })
-            }).catch((err) => m.reply(NOT_FOUND))
+            }).catch((err) => m.reply('NOT_FOUND'))
     }
     break
 
@@ -7883,19 +7883,19 @@ case 'downxnxx' : {
  await PeaceMd.sendMessage(from, { react: { text: `🤤`, key: m.key }})
  await PeaceMd.sendText(m.chat, `*🔄 Please wait Downloading Xnxx Video ${m.pushName}...*`, m, )
  const vid = await axios.get(`https://api.zahwazein.xyz/searching/xnxx?apikey=bbe8d5b68a58&query=${text}`)
- const video = vid.data.url
- const image = vid.data.thumb
+ const video = vid.result.url
+ const image = vid.result.thumb
  
  await PeaceMd.sendMessage(m.chat, { image: { url: image },  caption: `┌       *༺ 📥  𝚇𝙽𝚇𝚇 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁  📥 ༻*
  
  
-│ *📡 ᴛɪᴛʟᴇ* : ${vid.data.title}
+│ *📡 ᴛɪᴛʟᴇ* : ${vid.result.title}
 
-│  *📽️ ᴅᴜʀᴀᴛɪᴏɴ :* ${vid.data.duration}
+│  *📽️ ᴅᴜʀᴀᴛɪᴏɴ :* ${vid.result.duration}
 
-│ *💥 ǫᴜᴀʟɪᴛʏ :* ${vid.data.quality}
+│ *💥 ǫᴜᴀʟɪᴛʏ :* ${vid.result.quality}
 
-│ *👁 ᴠɪᴇᴡs :* ${vid.data.views}
+│ *👁 ᴠɪᴇᴡs :* ${vid.result.views}
 
 └───────────❍` })
  await PeaceMd.sendMessage(m.chat, { video: { url: video }, caption: `*💥 SUCCESS DOWNLOAD XNXX VIDEO 💥*` }, { quoted: m })
