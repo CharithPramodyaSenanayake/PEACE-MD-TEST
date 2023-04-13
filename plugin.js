@@ -7605,12 +7605,6 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
             await PeaceMd.sendMessage(from, {
                 delete: ehiup.key
             })
-            PeaceMd.sendMessage(from, {
-                react: {
-                    text: `✅`,
-                    key: m.key
-                }
-            })
         }
         break
 
@@ -7842,14 +7836,14 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
             if (!text) throw ` ${prefix + command} mia kalifa`
             await PeaceMd.sendMessage(from, { react: { text: `🍑`, key: m.key }})
            
-           let search = await fetchJson(`https://nima-xxx.herokuapp.com/api/srhx?q=${text}`)
+           let result = await fetchJson(`https://api.zahwazein.xyz/searching/xnxx?apikey=bbe8d5b68a58&query=${text}`)
            let teks = '*🎭 XNXX RESULTS 🎭* '+text+'\n\n'
            let no = 1
            
            /*for (let i of search) {
                teks += `🔵 No : ${no++}\n👽 title - ${i.title}\n🔄 Duration : ${i.duration}\n 🤤 URL - ${i.link}\n\n─────────────────\n\n`*/
            let sections = []   
-for (let i of search) {
+for (let i of result) {
 const list = {title: `💥 xɴxx ᴅᴏᴡɴʟᴏᴀᴅᴇʀ 💥`,
 rows: [
 {
@@ -7885,7 +7879,7 @@ case 'xnxx': {
     await PeaceMd.sendMessage(from, { react: { text: `🍑`, key: m.key }})
     if (!text) throw `${Lang.EXAMPLE}\n : ${prefix + command} story wa anime`
     
-    let search = await fetchJson(`https://nima-xxx.herokuapp.com/api/srhx?q=${text}`)
+    let search = await fetchJson(`https://api.zahwazein.xyz/searching/xnxx?apikey=bbe8d5b68a58&query=${text}`)
     let teks = '*🎭 XNXX RESULTS 🎭* '+text+'\n\n'
     let no = 1
     for (let i of search) {
@@ -7897,7 +7891,7 @@ break
 case 'downxnxx' : {
  await PeaceMd.sendMessage(from, { react: { text: `🤤`, key: m.key }})
  await PeaceMd.sendText(m.chat, `*🔄 Please wait Downloading Xnxx Video ${m.pushName}...*`, m, )
- const vid = await axios.get(`https://nima-xxx.herokuapp.com/api/dlx?url=${text}`)
+ const vid = await axios.get(`https://api.zahwazein.xyz/searching/xnxx?apikey=bbe8d5b68a58&query=${text}`)
  const video = vid.data.url
  const image = vid.data.thumb
  
