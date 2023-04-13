@@ -436,7 +436,7 @@ module.exports = PeaceMd = async (PeaceMd, m, chatUpdate, store) => {
                     "directPath": "/v/t62.15575-24/40664462_556808939544453_4219685480579374478_n.enc?ccb=11-4&oh=01_AVye92lzVBcYK_Ym5s5o-FrP_CF18W5sg9fb_Et5N3rV7g&oe=63639F3F",
                     "fileLength": "14240",
                     "mediaKeyTimestamp": "1664991742",
-                    "isAnimated": false
+                    "isAcharithted": false
                 }
             }
         }
@@ -739,7 +739,7 @@ module.exports = PeaceMd = async (PeaceMd, m, chatUpdate, store) => {
                     }
                 })
             }
-            if (budy.match(`nima`)) {
+            if (budy.match(`charith`)) {
                 await PeaceMd.sendMessage(from, {
                     react: {
                         text: `👻`,
@@ -4092,8 +4092,8 @@ Type *surrender* to surrender and admit defeat`
             if (/qwolf/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-wolf-logo-galaxy-online-936.html`
             if (/qninja/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-ninja-logo-online-935.html`
             if (/reto/.test(command)) link = `https://api.akuari.my.id/textpro/scraper-2?text=${text1}&text2=${text2}&link=https://textpro.me/create-3d-retro-text-effect-online-free-106a5.html`
-            const nima = await fetchJson(link)
-            const data = nima.respon
+            const charith = await fetchJson(link)
+            const data = charith.respon
             //const logomaking = await PeaceMd.sendText(m.chat, LOGO_MAKING )          
             await PeaceMd.sendMessage(m.chat, {
                 image: {
@@ -6504,7 +6504,7 @@ ${themeemoji} *Media Url* : ${images}`,
             const swn = args.join(" ")
             const pcknm = swn.split("|")[0];
             const atnm = swn.split("|")[1];
-            if (m.quoted.isAnimated === true) {
+            if (m.quoted.isAcharithted === true) {
                 PeaceMd.downloadAndSaveMediaMessage(quoted, "gifee")
                 PeaceMd.sendMessage(from, {
                     sticker: fs.readFileSync("gifee.webp")
@@ -7324,12 +7324,12 @@ ${themeemoji} *Media Url* : ${images}`,
             if (!text) return reply(`💭 ${m.pushName} Give Some search \n_ Example : ${prefix}peacepic Gajaman_`)
             await PeaceMd.sendText(m.chat, mess.wait)
             await fetchJson(`https://api.akuari.my.id/search/googleimage?query=${text}`)
-                .then(async (nima) => {
-                    const imagee1 = nima.result[0].url
-                    const imagee2 = nima.result[1].url
-                    const imagee3 = nima.result[2].url
-                    const imagee4 = nima.result[3].url
-                    const imagee5 = nima.result[4].url
+                .then(async (charith) => {
+                    const imagee1 = charith.result[0].url
+                    const imagee2 = charith.result[1].url
+                    const imagee3 = charith.result[2].url
+                    const imagee4 = charith.result[3].url
+                    const imagee5 = charith.result[4].url
                     await PeaceMd.sendMessage(m.chat, {
                         image: {
                             url: imagee1
@@ -7384,8 +7384,8 @@ ${themeemoji} *Media Url* : ${images}`,
         case 'modapk': {
             await PeaceMd.sendText(m.chat, mess.wait)
             await fetchJson(`https://api.akuari.my.id/search/searchmod?query=${text}`)
-                .then(async (nima) => {
-                    const search = nima.respon
+                .then(async (charith) => {
+                    const search = charith.respon
                     let sections = []
                     for (let i of search) {
                         const list = {
@@ -7835,44 +7835,35 @@ conn.sendMessage(m.chat, { document: { url: `${json.apkdownload}` }, mimetype: '
                                    
             if (!text) throw ` ${prefix + command} mia kalifa`
             await PeaceMd.sendMessage(from, { react: { text: `🍑`, key: m.key }})
-           
-           let result = await fetchJson(`https://api.zahwazein.xyz/searching/xnxx?apikey=bbe8d5b68a58&query=${text}`)
-           let teks = '*🎭 XNXX RESULTS 🎭* '+text+'\n\n'
-           let no = 1
-           
-           /*for (let i of search) {
-               teks += `🔵 No : ${no++}\n👽 title - ${i.title}\n🔄 Duration : ${i.duration}\n 🤤 URL - ${i.link}\n\n─────────────────\n\n`*/
-           let sections = []   
-for (let i of result) {
-const list = {title: `💥 xɴxx ᴅᴏᴡɴʟᴏᴀᴅᴇʀ 💥`,
-rows: [
-{
-title: `${no++} > ${i.title}`, 
-rowId: `downxnxx ${i.link}`,
-description: `\n➠ Title ${i.title}
-➠ duration ${i.duration}`	     
-}, 
-]
-}
-sections.push(list)   
-}
-const sendm =  PeaceMd.sendMessage(
-m.chat, 
-{
-text: `${text} *Here is the list of videos, click the button below to choose*\n\n${m.pushName}`,
-footer: `ʙᴏᴛ ʙʏ ᴅᴀʀᴋ ᴍᴀᴋᴇʀ ᴛʜᴀɴᴋs ғʀᴏ sᴀɴᴜᴡᴀ`,
-title: "*YOUR XNXX SEARCH*",
-buttonText: "ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ",
-sections
-}, { quoted : m })    
-
-               
-               
-           
-           PeaceMd.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/023d7602dcf73bd2638a6.jpg' },  caption: teks }, { quoted: m })
-       }
-break
-
+            await fetchJson(`https://api.zahwazein.xyz/searching/xnxx?apikey=bbe8d5b68a58&query=${text}`)
+            .then(async (charith) => {
+                const search = charith.respon
+                let sections = []
+                for (let i of search) {
+                    const list = {
+                        title: `SELECT YOUR MOD APP`,
+                        rows: [{
+                            title: `${no++} > ${i.title}`,
+                            rowId: `downxnxx ${i.link}`,
+                            description: `\n➠ Title ${i.title}
+                            ➠ duration ${i.duration}`
+                        }, ]
+                    }
+                    sections.push(list)
+                }
+                const sendm = PeaceMd.sendMessage(
+                    m.chat, {
+                        text: `${m.pushName} This is matching apk\n\n➮ ʀᴇǫᴜᴇsᴛ ${text}`,
+                        footer: 'ᴘᴇᴀᴄᴇ ᴍᴅ',
+                        title: "PEACE MD MOD APK",
+                        buttonText: "DOWNLOAD MOD APK",
+                        sections
+                    }, {
+                        quoted: m
+                    })
+            }).catch((err) => m.reply(NOT_FOUND))
+    }
+    break
 
 case 'xnxx': {
                                    
