@@ -9416,12 +9416,12 @@ ${themeemoji} *Media Url* : ${images}`,
                 key: m.key,
               },
             });
-            const ehiup = await PeaceMd.sendText(
+            const paperup = await PeaceMd.sendText(
               m.chat,
               `${m.pushName}, PEACE MD Uploading Maths Papers...`
             );
   
-            let paper2015 ="https://github.com/CharithPramodyaSenanayake/peacy/blob/main/PAPERS/Maths/2015-OL-Maths%20(i%2Cii%2Ciii).pdf";
+            let paper2015 ="https://github.com/CharithPramodyaSenanayake/peacy/raw/main/PAPERS/Maths/2015-OL-Maths%20(i%2Cii%2Ciii).pdf";
             let paper2016 ="https://github.com/CharithPramodyaSenanayake/peacy/blob/main/PAPERS/Maths/2016-OL-Maths%20(i%2Cii%2Ciii).pdf";
             let paper2017 ="https://github.com/CharithPramodyaSenanayake/peacy/blob/main/PAPERS/Maths/2017-OL-Maths%20(i%2Cii%2Ciii).pdf";
             let paper2018 ="https://github.com/CharithPramodyaSenanayake/peacy/blob/main/PAPERS/Maths/2018-OL-Maths%20(i%2Cii%2Ciii).pdf";
@@ -9433,7 +9433,7 @@ ${themeemoji} *Media Url* : ${images}`,
             await PeaceMd.sendMessage(m.chat, {document: {url: paper2017,}, mimetype: "application/pdf", fileName: `OL Math by CHARITH(2017).pdf`,}, { quoted: m,});
             await PeaceMd.sendMessage(m.chat, {document: {url: paper2018,}, mimetype: "application/pdf", fileName: `OL Math by CHARITH(2018).pdf`,}, { quoted: m,});
             await PeaceMd.sendMessage(m.chat, {document: {url: paper2019,}, mimetype: "application/pdf", fileName: `OL Math by CHARITH(2019).pdf`,}, { quoted: m,});
-            await PeaceMd.sendMessage(m.chat, {document: {url: paper2020,}, mimetype: "application/pdf", fileName: `OL Math by CHARITH(2020).pdf`,}, { quoted: m,});
+            await PeaceMd.sendMessage(m.chat, {document: {url: paper2020,}, mimetype: Mimetype.pdf, fileName: `OL Math by CHARITH(2020).pdf`,}, { quoted: m,});
    
           }
           break;
