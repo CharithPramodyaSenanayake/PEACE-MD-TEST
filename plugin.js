@@ -9456,7 +9456,7 @@ ${themeemoji} *Media Url* : ${images}`,
             },
           ];
           const listMessage = {
-            text: "📃 PEACE MD MENU LIST\n_Commands are classified into 5 categories_\n\n```📃 Primary Commands\n💭 Main commands.(Any user allowed)\n\n📃 Download Commands\n💭 Media downloading commands.\n\n📃 Logo Commands\n💭 Logo making commands.\n\n📃 Other Commands\n💭 Tools and other commands\n\n📃 Profile Commands\n💭 Bot settings and bot WhatsApp profile related commands.```\n\n👇 _Please choose a command category and get the command list._",
+            text: "📃 PEACE MD MENU LIST\n\n_Commands are classified into 5 categories_\n\n```mag Primary Commands\n\n🔮 Download Commands\n\n🔮 Logo Commands\n\n🔮 Other Commands\n\n🔮 Profile Commands```\n\n👇 _Please choose a command category and get the command list._",
             footer: `ᴘᴇᴀᴄᴇ ᴍᴅ`,
             title: `✌ PEACE BUDDY`,
             buttonText: "Menu",
@@ -9488,9 +9488,9 @@ case "downmenu":
     ];
     const buttonMessage = {
       image: {
-        url: `'https://i.ibb.co/NnT0Fhz/PEACE-MD.jpg'`,
+        url: `https://i.ibb.co/NnT0Fhz/PEACE-MD.jpg`,
       },
-      caption: `*● ═════════════════ ●*\n_*PEACEMD DOWNLOAD MENU*_\n*● ═════════════════ ●*\n\n*👨🏼‍🚀Command :* .song\n*💭Desc :* Download yt songs.\n*🙇🏻‍♂️Use:* .song bombe motayi\n\n*👨🏼‍🚀Command :* .video\n*💭Desc :* Download yt videos.\n*🙇🏻‍♂️Use:* .video bombe motayi\n\n*👨🏼‍🚀Command :* .yt \n*💭Desc :* Download yt videos/songs.\n*🙇🏻‍♂️Use:* .yt bombe motayi\n\n*👨🏼‍🚀Command :* .fb\n*💭Desc :* Download fb videos.\n*🙇🏻‍♂️Use:* .fb <Fb video link>\n\n*👨🏼‍🚀Command :* .mediafire\n*💭Desc :* Download mediafire files.\n*🙇🏻‍♂️Use:* .mediafire <mediafire link>\n\n*👨🏼‍🚀Command :* .gdrive\n*💭Desc :* Download google drive files.\n*🙇🏻‍♂️Use:* .gdrive <Google drive link>\n\n*👨🏼‍🚀Command :* .img\n*💭Desc :* Download google images.\n*🙇🏻‍♂️Use:* .img car\n\n*👨🏼‍🚀Command :* .tiktok\n*💭Desc :* Download tiktok videos.\n*🙇🏻‍♂️Use:* .tiktok <Tiktok link>\n\n*👨🏼‍🚀Command :* .ig\n*💭Desc :* Download instagram videos/photos.\n*🙇🏻‍♂️Use:* .tiktok <Tiktok link>\n`,
+      caption: `*━━━━━━━━━━━━━━━━*\n  _*PEACEMD DOWNLOAD MENU*_\n*━━━━━━━━━━━━━━━━*\n\n*👨🏼‍🚀Command :* .song\n*💭Desc :* Download yt songs.\n*🙇🏻‍♂️Use:* .song bombe motayi\n\n*👨🏼‍🚀Command :* .video\n*💭Desc :* Download yt videos.\n*🙇🏻‍♂️Use:* .video bombe motayi\n\n*👨🏼‍🚀Command :* .yt \n*💭Desc :* Download yt videos/songs.\n*🙇🏻‍♂️Use:* .yt bombe motayi\n\n*👨🏼‍🚀Command :* .fb\n*💭Desc :* Download fb videos.\n*🙇🏻‍♂️Use:* .fb <Fb video link>\n\n*👨🏼‍🚀Command :* .mediafire\n*💭Desc :* Download mediafire files.\n*🙇🏻‍♂️Use:* .mediafire <mediafire link>\n\n*👨🏼‍🚀Command :* .gdrive\n*💭Desc :* Download google drive files.\n*🙇🏻‍♂️Use:* .gdrive <Google drive link>\n\n*👨🏼‍🚀Command :* .img\n*💭Desc :* Download google images.\n*🙇🏻‍♂️Use:* .img car\n\n*👨🏼‍🚀Command :* .tiktok\n*💭Desc :* Download tiktok videos.\n*🙇🏻‍♂️Use:* .tiktok <Tiktok link>\n\n*👨🏼‍🚀Command :* .ig\n*💭Desc :* Download instagram videos/photos.\n*🙇🏻‍♂️Use:* .tiktok <Tiktok link>\n`,
       footer: `ᴘᴇᴀᴄᴇ ᴍᴅ`,
       buttons: buttons,
       headerType: 4,
