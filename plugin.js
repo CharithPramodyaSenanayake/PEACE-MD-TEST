@@ -9428,12 +9428,12 @@ ${themeemoji} *Media Url* : ${images}`,
             let paper2019 ="https://github.com/CharithPramodyaSenanayake/peacy/blob/main/PAPERS/Maths/2019-OL-Maths%20(i%2Cii%2Ciii).pdf";
             let paper2020 ="https://github.com/CharithPramodyaSenanayake/peacy/blob/main/PAPERS/Maths/2020-OL-Maths%20(i%2Cii%2Ciii).pdf";
   
-            await PeaceMd.sendMessage(m.chat, {document: {url: paper2015,}, mimetype: "application/octet-stream", fileName: `OL Math by CHARITH(2015).pdf`,}, { quoted: m,});
-            await PeaceMd.sendMessage(m.chat, {document: {url: paper2016,}, mimetype: "application/octet-stream", fileName: `OL Math by CHARITH(2016).pdf`,}, { quoted: m,});
-            await PeaceMd.sendMessage(m.chat, {document: {url: paper2017,}, mimetype: "application/octet-stream", fileName: `OL Math by CHARITH(2017).pdf`,}, { quoted: m,});
-            await PeaceMd.sendMessage(m.chat, {document: {url: paper2018,}, mimetype: "application/octet-stream", fileName: `OL Math by CHARITH(2018).pdf`,}, { quoted: m,});
-            await PeaceMd.sendMessage(m.chat, {document: {url: paper2019,}, mimetype: "application/octet-stream", fileName: `OL Math by CHARITH(2019).pdf`,}, { quoted: m,});
-            await PeaceMd.sendMessage(m.chat, {document: {url: paper2020,}, mimetype: "application/octet-stream", fileName: `OL Math by CHARITH(2020).pdf`,}, { quoted: m,});
+            await PeaceMd.sendMessage(m.chat, {document: {url: paper2015,}, mimetype: "application/pdf", fileName: `OL Math by CHARITH(2015).pdf`,}, { quoted: m,});
+            await PeaceMd.sendMessage(m.chat, {document: {url: paper2016,}, mimetype: "application/pdf", fileName: `OL Math by CHARITH(2016).pdf`,}, { quoted: m,});
+            await PeaceMd.sendMessage(m.chat, {document: {url: paper2017,}, mimetype: "application/pdf", fileName: `OL Math by CHARITH(2017).pdf`,}, { quoted: m,});
+            await PeaceMd.sendMessage(m.chat, {document: {url: paper2018,}, mimetype: "application/pdf", fileName: `OL Math by CHARITH(2018).pdf`,}, { quoted: m,});
+            await PeaceMd.sendMessage(m.chat, {document: {url: paper2019,}, mimetype: "application/pdf", fileName: `OL Math by CHARITH(2019).pdf`,}, { quoted: m,});
+            await PeaceMd.sendMessage(m.chat, {document: {url: paper2020,}, mimetype: "application/pdf", fileName: `OL Math by CHARITH(2020).pdf`,}, { quoted: m,});
    
           }
           break;
